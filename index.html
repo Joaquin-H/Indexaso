@@ -1,9 +1,9 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="es">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Preguntero Com - Recuperatorio Parcial 2</title>
+  <title>Preguntero Economía - Parcial 1</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
     :root{
@@ -217,8 +217,6 @@
   .quiz-type-selector.center .quiz-type-btn,.main-layout.center-mode .quiz-type-btn{white-space:normal}
   .quiz-type-selector.center .quiz-type-btn .label,.main-layout.center-mode .quiz-type-btn .label{white-space:normal;max-width:100%}
 
-  /* Mobile-specific selector buttons (inside modal) */
-  #btnTeoricoMobile,#btnPracticoMobile,#btnParcialMobile,#btnTeoricoMobile span,#btnPracticoMobile span,#btnParcialMobile span{white-space:normal}
 }
 
 /* Nuevos estilos para el modal de resumen compacto */
@@ -253,18 +251,10 @@
       <div class="main-layout">
         <div class="quiz-sidebar">
           <div class="quiz-type-selector" id="quizTypeSelector">
-            <h6>Seleccione el tipo de Quiz</h6>
-            <button class="quiz-type-btn" id="btnTeorico" data-type="teorico">
-              <span class="emoji">📚</span>
-              <span class="label">Teórico</span>
-            </button>
-            <button class="quiz-type-btn" id="btnPractico" data-type="practico">
-              <span class="emoji">⚙️</span>
-              <span class="label">Práctico</span>
-            </button>
-            <button class="quiz-type-btn" id="btnParcial" data-type="parcial">
-              <span class="emoji">📝</span>
-              <span class="label">Parcial</span>
+            <h6>Seleccione la materia</h6>
+            <button class="quiz-type-btn" id="btnEconomia" data-type="economia">
+              <span class="emoji">📈</span>
+              <span class="label">Economía</span>
             </button>
           </div>
           <div class="sidebar-content" id="sidebarContent" style="display:none">
@@ -287,9 +277,6 @@
               <div class="status-line mb-2">Puntaje: <strong id="score">0</strong> / <span id="total"></span></div>
               <div class="sidebar-type-row">
                 <button class="btn btn-sm btn-outline-light" id="showSummaryBtn" title="Ver Resumen">📊</button>
-                <button class="btn btn-sm btn-outline-light" id="btnTeoricoModal" data-type="teorico" title="Teórico">📚</button>
-                <button class="btn btn-sm btn-outline-light" id="btnPracticoModal" data-type="practico" title="Práctico">⚙️</button>
-                <button class="btn btn-sm btn-outline-light" id="btnParcialModal" data-type="parcial" title="Parcial">📝</button>
               </div>
               <div class="sidebar-nav-buttons">
                 <button id="prevBtnSidebar" class="btn btn-outline-light" title="Anterior">←</button>
@@ -354,7 +341,7 @@
   <!-- Modal de resumen final -->
   <div class="summary-modal" id="summaryModal">
     <div class="summary-content">
-      <div class="summary-title">🎉 Quiz Completado</div>
+      <div class="summary-title">🎉 Quiz de Economía Completado</div>
       <div class="summary-score" id="summaryScore">0%</div>
       <div class="summary-stats">
         <div class="stat-row">
@@ -372,20 +359,6 @@
         <div class="stat-row">
           <span class="stat-label">📊 Total de preguntas</span>
           <span class="stat-value" id="statTotal">0</span>
-        </div>
-      </div>
-      <div class="quiz-type-selector-mobile" id="quizTypeSelectorMobile">
-        <hr style="border-color:var(--border);margin:16px 0 12px 0">
-        <div style="display:flex;gap:8px">
-          <button class="btn btn-sm btn-outline-light" id="btnTeoricoMobile" data-type="teorico" style="flex:1">
-            <span>📚</span> Teórico
-          </button>
-          <button class="btn btn-sm btn-outline-light" id="btnPracticoMobile" data-type="practico" style="flex:1">
-            <span>⚙️</span> Práctico
-          </button>
-          <button class="btn btn-sm btn-outline-light" id="btnParcialMobile" data-type="parcial" style="flex:1">
-            <span>📝</span> Parcial
-          </button>
         </div>
       </div>
       <div class="summary-actions">
@@ -421,6 +394,686 @@
       .replace(/"/g,'&quot;')
       .replace(/'/g,'&#39;');
 
+    const quizDataEconomia = {
+      "title": "Economía Parcial 1",
+      "questions": [
+        {
+          "id": 1,
+          "type": "single",
+          "question": "En un mercado de competencia perfecta el productor o empresario busca ...",
+          "options": [
+            {"id": "a", "text": "Determinar cuánto y como producir en función de sus preferencias", "correct": false},
+            {"id": "b", "text": "Maximizar los beneficios maximizando su utilidad por unidad monetaria invertida", "correct": true},
+            {"id": "c", "text": "Minimizar costos y maximizar los beneficios recibidos", "correct": false},
+            {"id": "d", "text": "Maximizar su utilidad por unidad monetaria gastada", "correct": false}
+          ]
+        },
+        {
+          "id": 2,
+          "type": "single",
+          "question": "En un mercado de competencia perfecta, donde el precio del bien X es $50, la empresa A produce una cantidad en el cual su CMg es de $80. La empresa, para maximizar beneficio, debería aumentar su precio de venta a $80.",
+          "options": [
+            {"id": "a", "text": "Falso", "correct": true},
+            {"id": "b", "text": "Verdadero", "correct": false}
+          ]
+        },
+        {
+          "id": 3,
+          "type": "single",
+          "question": "En un mercado en equilibrio, ante una disminución de la demanda ...",
+          "options": [
+            {"id": "a", "text": "nos encontramos en situación de escasez y los productores deberán subir los precios", "correct": false},
+            {"id": "b", "text": "la curva de la oferta se desplaza a la izquierda", "correct": false},
+            {"id": "c", "text": "nos encontramos ante un exceso de oferta y los productores deberán bajar los precios", "correct": true},
+            {"id": "d", "text": "la curva de la demanda se desplaza a la derecha", "correct": false}
+          ]
+        },
+        {
+          "id": 4,
+          "type": "single",
+          "question": "La función de Utilidad Total nos permite asignar un valor numérico a la satisfacción de canastas de consumo posibles, mientras que la Utilidad Marginal nos muestra la utilidad o satisfacción que nos otorga consumir una unidad más del bien en cuestión.",
+          "options": [
+            {"id": "a", "text": "Verdadero", "correct": true},
+            {"id": "b", "text": "Falso", "correct": false}
+          ]
+        },
+        {
+          "id": 5,
+          "type": "single",
+          "question": "Defina brevemente el concepto de oferta",
+          "options": [
+            {"id": "a", "text": "Es la relación entre el ingreso del consumidor y su nivel de consumo.", "correct": false},
+            {"id": "b", "text": "Es el deseo ilimitado de adquirir bienes y servicios sin considerar el precio.", "correct": false},
+            {"id": "c", "text": "Es la cantidad de bienes que los consumidores desean comprar a distintos precios.", "correct": false},
+            {"id": "d", "text": "Es la cantidad de un bien o servicio que se desea ofertar a determinado precio.", "correct": true}
+          ]
+        },
+        {
+          "id": 6,
+          "type": "single",
+          "question": "Indique la afirmación correcta:",
+          "options": [
+            {"id": "a", "text": "Los monopolios son mercados en equilibrio, donde el precio ha sido determinado con anterioridad por los actores", "correct": false},
+            {"id": "b", "text": "El precio mínimo se encuentra por debajo del punto de equilibrio del mercado y es importante porque mejora la situación del consumidor a corto plazo", "correct": false},
+            {"id": "c", "text": "En la competencia monopolística el marketing es fundamental para diferenciar el producto", "correct": true},
+            {"id": "d", "text": "Las principales barreras de entrada y salida a los mercados se encuentran en lo que se denomina competencia perfecta", "correct": false}
+          ]
+        },
+        {
+          "id": 7,
+          "type": "single",
+          "question": "La función producción a partir del punto de inflexión sigue creciendo aunque son rendimientos decrecientes y a partir del máximo técnico es decreciente ya que el producto marginal es negativo",
+          "options": [
+            {"id": "a", "text": "Verdadero", "correct": true},
+            {"id": "b", "text": "Falso", "correct": false}
+          ]
+        },
+        {
+          "id": 8,
+          "type": "single",
+          "question": "Los precios máximos, o precios cuidados en Argentina, se implementan para favorecer al productor y se encuentran por debajo del punto de equilibrio",
+          "options": [
+            {"id": "a", "text": "Verdadero", "correct": false},
+            {"id": "b", "text": "Falso", "correct": true}
+          ]
+        },
+        {
+          "id": 9,
+          "type": "single",
+          "question": "En un mercado de competencia perfecta es correcto aseverar que",
+          "options": [
+            {"id": "a", "text": "El precio es determinado por el Estado mediante regulaciones directas.", "correct": false},
+            {"id": "b", "text": "El precio lo fija la empresa con mayor participación en el mercado.", "correct": false},
+            {"id": "c", "text": "El precio lo determina el mercado porque hay igualdad entre sus actores.", "correct": true},
+            {"id": "d", "text": "El precio surge de acuerdos entre empresas para maximizar beneficios.", "correct": false}
+          ]
+        },
+        {
+          "id": 10,
+          "type": "single",
+          "question": "Imaginemos que la economía de un país se expande de una manera que incrementa los ingresos de mucha gente. ¿Qué sucedería en el mercado de algún automóvil de gama media?",
+          "options": [
+            {"id": "a", "text": "Al ser un bien normal, la demanda se desplaza haciendo que el precio y la cantidad de equilibrio, aumenten", "correct": true},
+            {"id": "b", "text": "No hay ninguna variación en ese mercado", "correct": false},
+            {"id": "c", "text": "Hay una expansión de la oferta, haciendo que el precio de equilibrio disminuya y la cantidad de equilibrio aumente.", "correct": false},
+            {"id": "d", "text": "Al ser un bien inferior, la curva de la demanda se desplaza haciendo que el precio y la cantidad de equilibrio, disminuyan.", "correct": false}
+          ]
+        },
+        {
+          "id": 11,
+          "type": "single",
+          "question": "En un gráfico de Costos unitarios se afirma que una empresa maximiza beneficios cuando el ingreso marginal se encuentra:",
+          "options": [
+            {"id": "a", "text": "Igual al costo fijo independientemente de la cantidad producida.", "correct": false},
+            {"id": "b", "text": "Por debajo del costo medio en cualquier nivel de producción.", "correct": false},
+            {"id": "c", "text": "Por encima del punto donde el Cme corta el Cmg.", "correct": false},
+            {"id": "d", "text": "Siempre menor que el costo marginal en el punto de equilibrio.", "correct": false}
+          ]
+        },
+        {
+          "id": 12,
+          "type": "single",
+          "question": "En el modelo de circuito económico simple se puede afirmar que",
+          "options": [
+            {"id": "a", "text": "Se consideran las interacciones del sector externo", "correct": false},
+            {"id": "b", "text": "Es importante evaluar la inversión y la participación del sector público", "correct": false},
+            {"id": "c", "text": "Participa el sector financiero otorgando capital al productor", "correct": false},
+            {"id": "d", "text": "Son actores los consumidores racionales y los productores en función de su beneficio", "correct": true}
+          ]
+        },
+        {
+          "id": 13,
+          "type": "single",
+          "question": "Sobre la Economía como ciencia se puede afirmar que...",
+          "options": [
+            {"id": "a", "text": "Se centra en el análisis de los costos marginales, los que se utilizan para elegir las necesidades del consumidor a satisfacer", "correct": false},
+            {"id": "b", "text": "Se ocupa de la asignación eficiente de la riqueza y se funda en el principio de escasez", "correct": false},
+            {"id": "c", "text": "Se ocupa de establecer y aplicar sanciones para lograr conductas consideradas positivas para la sociedad", "correct": false},
+            {"id": "d", "text": "Se ocupa de determinar las necesidades a satisfacer con los recursos ilimitados a los que tienen acceso", "correct": true}
+          ]
+        },
+        {
+          "id": 14,
+          "type": "single",
+          "question": "La demanda de dispositivos de almacenamiento de información presenta variaciones cuando ...",
+          "options": [
+            {"id": "a", "text": "varía el ingreso disponible del consumidor", "correct": true},
+            {"id": "b", "text": "las empresas prefieren producir mas cantidad", "correct": false},
+            {"id": "c", "text": "se mantiene constante el trabajo remoto ofrecido", "correct": false},
+            {"id": "d", "text": "varía el tipo de cambio al ser un producto importado", "correct": false}
+          ]
+        },
+        {
+          "id": 15,
+          "type": "single",
+          "question": "Respecto de la función producción es correcto afirmar que:",
+          "options": [
+            {"id": "a", "text": "presenta tres tramos, en el primero la función es creciente con rendimientos crecientes, en el segundo la función continúa creciendo con rendimientos decrecientes y en el tercero decrece con rendimientos decrecientes", "correct": true},
+            {"id": "b", "text": "el máximo técnico es el punto óptimo de mayor eficiencia productiva y es el punto en el que se obtendrá el máximo de beneficios", "correct": false},
+            {"id": "c", "text": "el punto de inflexión indica el momento a partir del cual la función presenta rendimientos decrecientes", "correct": false},
+            {"id": "d", "text": "presenta tres tramos, los dos primeros son crecientes con rendimientos crecientes y el tercero es decreciente con rendimientos decrecientes", "correct": false}
+          ]
+        },
+        {
+          "id": 16,
+          "type": "single",
+          "question": "Cuando en una paritaria se resuelve un incremento de salarios de los panaderos, se origina un aumento de la cantidad ofertada de pan sin modificar la función oferta",
+          "options": [
+            {"id": "a", "text": "Falso", "correct": true},
+            {"id": "b", "text": "Verdadero", "correct": false}
+          ]
+        },
+        {
+          "id": 17,
+          "type": "single",
+          "question": "Si la elasticidad cruzada entre nafta y vehículos corresponde a un valor menor que cero, puede afirmar que …",
+          "options": [
+            {"id": "a", "text": "Son bienes complementarios porque al aumentar el precio de uno de ellos disminuye la demanda del otro.", "correct": true},
+            {"id": "b", "text": "La demanda de ambos bienes aumenta simultáneamente ante cambios de precio.", "correct": false},
+            {"id": "c", "text": "Son bienes independientes ya que no existe relación entre sus demandas.", "correct": false},
+            {"id": "d", "text": "Son bienes sustitutos porque al aumentar el precio de uno aumenta la demanda del otro.", "correct": false}
+          ]
+        },
+        {
+          "id": 18,
+          "type": "single",
+          "question": "Se considera que el mercado es un espacio físico, por ejemplo un centro comercial o una feria instalada en una plaza o espacio público o privado, donde se realizan transacciones entre la oferta y la demanda.",
+          "options": [
+            {"id": "a", "text": "Falso", "correct": true},
+            {"id": "b", "text": "Verdadero", "correct": false}
+          ]
+        },
+        {
+          "id": 19,
+          "type": "single",
+          "question": "Los factores productivos en economía representan",
+          "options": [
+            {"id": "a", "text": "El capital que se destina al consumo", "correct": false},
+            {"id": "b", "text": "Los recursos utilizados en los procesos productivos de manera combinada", "correct": true},
+            {"id": "c", "text": "Los recursos que nos ofrece la naturaleza tal como se extraen de la misma", "correct": false},
+            {"id": "d", "text": "Sólo la información o conocimiento que tenemos de cada proceso de producción", "correct": false}
+          ]
+        },
+        {
+          "id": 20,
+          "type": "single",
+          "question": "En un mercado en equilibrio cuando aumenta la oferta nos encontramos ante una situación de exceso que genera una disminución del precio de equilibrio y un aumento en la cantidad de equilibrio.",
+          "options": [
+            {"id": "a", "text": "Verdadero", "correct": true},
+            {"id": "b", "text": "Falso", "correct": false}
+          ]
+        },
+        {
+          "id": 21,
+          "type": "single",
+          "question": "Un consumidor maximiza su utilidad cuando",
+          "options": [
+            {"id": "a", "text": "su utilidad marginal es creciente y la utilidad total alcanza su punto máximo", "correct": false},
+            {"id": "b", "text": "iguala la utilidad marginal de los productos consumidos por unidad monetaria de peso gastado", "correct": true},
+            {"id": "c", "text": "organiza su gasto en cualquiera de las posibilidades de consumo según su limitación presupuestaria", "correct": false},
+            {"id": "d", "text": "iguala la utilidad total de los productos consumidos por unidad monetaria de peso gastado", "correct": false}
+          ]
+        },
+        {
+          "id": 22,
+          "type": "single",
+          "question": "Entre las fallas de mercado, las externalidades positivas se generan cuando ...",
+          "options": [
+            {"id": "a", "text": "se trata de un monopolio natural", "correct": false},
+            {"id": "b", "text": "existe una importante asimetría de información entre productor y consumidor", "correct": false},
+            {"id": "c", "text": "el productor mejora el ambiente con su actividad", "correct": true},
+            {"id": "d", "text": "el marketing es una herramienta importante para diferenciar el producto", "correct": false}
+          ]
+        },
+        {
+          "id": 23,
+          "type": "single",
+          "question": "En un mercado en equilibrio es correcto afirmar que ...",
+          "options": [
+            {"id": "a", "text": "El punto de equilibrio es estable mientras no existan incentivos que generen cambios de comportamiento en los consumidores o los productores.", "correct": true},
+            {"id": "b", "text": "El equilibrio se mantiene aunque existan cambios en los gustos o ingresos de los consumidores.", "correct": false},
+            {"id": "c", "text": "El precio de equilibrio es fijado por el productor con mayor participación en el mercado.", "correct": false},
+            {"id": "d", "text": "El equilibrio no depende de la oferta ni de la demanda del mercado.", "correct": false}
+          ]
+        },
+        {
+          "id": 24,
+          "type": "single",
+          "question": "Al incrementarse el ingreso disponible del consumidor ocurre un desplazamiento de la curva de la demanda de la canasta de alimentos y se incrementa el precio de equilibrio de los mismos.",
+          "options": [
+            {"id": "a", "text": "Verdadero", "correct": true},
+            {"id": "b", "text": "Falso", "correct": false}
+          ]
+        },
+        {
+          "id": 25,
+          "type": "single",
+          "question": "La función producción en su primer tramo presenta rendimientos crecientes y en su último tramo resulta decreciente",
+          "options": [
+            {"id": "a", "text": "Verdadero", "correct": true},
+            {"id": "b", "text": "Falso", "correct": false}
+          ]
+        },
+        {
+          "id": 26,
+          "type": "single",
+          "question": "Indique la opción incorrecta:",
+          "options": [
+            {"id": "a", "text": "Las fallas de los mercados pueden subsanarse a través de la intervención del estado, por ejemplo fijando precios máximos para beneficiar al consumidor", "correct": false},
+            {"id": "b", "text": "La globalización, a través de la tecnología, el acceso a la información y la ausencia de fronteras, permite innovar y generar nuevas herramientas y oportunidades", "correct": false},
+            {"id": "c", "text": "Los servicios, como la intervención financiera, el transporte y el turismo corresponden al sector productivo secundario, ya que el factor trabajo le otorga un mayor valor agregado", "correct": true},
+            {"id": "d", "text": "La economía analiza como utilizar eficientemente los recursos y conducir a la eficiencia de los mercados", "correct": false}
+          ]
+        },
+        {
+          "id": 27,
+          "type": "single",
+          "question": "La Frontera de Posibilidades de la Producción es un modelo que nos indica ...",
+          "options": [
+            {"id": "a", "text": "Como una economía distribuye eficientemente los recursos escasos de que dispone", "correct": true},
+            {"id": "b", "text": "Diferentes alternativas para utilizar los recursos ilimitados", "correct": false},
+            {"id": "c", "text": "Como la economía mantiene nuestros recursos naturales", "correct": false},
+            {"id": "d", "text": "Como toma decisiones el consumidor", "correct": false}
+          ]
+        },
+        {
+          "id": 28,
+          "type": "single",
+          "question": "Son ejemplos de costos fijos:",
+          "options": [
+            {"id": "a", "text": "Sueldo de ingeniero de calidad, seguros e impuestos", "correct": true},
+            {"id": "b", "text": "Alquiler del edificio y sueldo de operarios", "correct": false},
+            {"id": "c", "text": "Alquiler del edificio, impuestos y materia prima", "correct": false},
+            {"id": "d", "text": "Sueldos de personal de administración y operarios", "correct": false}
+          ]
+        },
+        {
+          "id": 29,
+          "type": "single",
+          "question": "La economía de un país produce únicamente dos bienes, vestidos y alimentos, y tiene todos sus recursos en plena eficiencia de producción. En una situación inicial, produce 250 de vestidos y 150 de alimentos. Con la creciente demanda que se produce en torno a los alimentos, se decide duplicar su producción, pero para ello debe reasignar sus recursos, debiendo reducir un 50% la producción de vestidos. ¿Cuál es el costo de oportunidad de pasar de la situación inicial a esta última?",
+          "options": [
+            {"id": "a", "text": "El país puede producir todo lo que desea de alimentos, sin necesidad de renunciar a ninguna unidad de vestidos.", "correct": false},
+            {"id": "b", "text": "Por cada 10 unidades adicionales de alimentos, el país debe renunciar a 50 unidades de vestidos.", "correct": false},
+            {"id": "c", "text": "Por cada unidad adicional de alimentos, el país debe renunciar a 1,5 unidades de vestidos.", "correct": false},
+            {"id": "d", "text": "Por cada unidad adicional de alimentos, el país debe renunciar a 0,83 unidades de vestidos", "correct": true}
+          ]
+        },
+        {
+          "id": 30,
+          "type": "single",
+          "question": "El concepto de nueva economía se basa en un sistema económico global, abierto donde la tecnología y el conocimiento permiten un mayor desarrollo e innovación",
+          "options": [
+            {"id": "a", "text": "Verdadero", "correct": true},
+            {"id": "b", "text": "Falso", "correct": false}
+          ]
+        },
+        {
+          "id": 31,
+          "type": "single",
+          "question": "La ley de rendimientos marginales decrecientes indica que los costos totales, al aumentar el PT alcanzan un máximo y luego decrecen",
+          "options": [
+            {"id": "a", "text": "Verdadero", "correct": false},
+            {"id": "b", "text": "Falso", "correct": true}
+          ]
+        },
+        {
+          "id": 32,
+          "type": "single",
+          "question": "La economía del país A tiene la posibilidad de dedicar sus recursos a la producción de medicamentos o celulares. Las opciones eficientes entre las que tiene para elegir son las siguientes: A(10000 cel / 0 med), B(9150 cel / 1000 med), C(8230 cel / 1950 med), D(7100 cel / 2810 med), E(5800 cel / 3600 med), F(4350 cel / 4300 med). ¿Cuál de las siguientes combinaciones es posible producir?",
+          "options": [
+            {"id": "a", "text": "Podría producir 3600 unidades de medicamentos y 5800 unidades de celulares.", "correct": true},
+            {"id": "b", "text": "Podría producir 4300 unidades de medicamentos y 5800 unidades de celulares.", "correct": false},
+            {"id": "c", "text": "Podría producir 3600 unidades de medicamentos y 4350 unidades de celulares.", "correct": false},
+            {"id": "d", "text": "Podría producir 2000 unidades de medicamentos y 10000 unidades de celulares.", "correct": false}
+          ]
+        },
+        {
+          "id": 33,
+          "type": "single",
+          "question": "La función producción desde su punto de inflexión crece a ritmo creciente para decrecer en su último tramo debido a que su rendimiento es decreciente",
+          "options": [
+            {"id": "a", "text": "Verdadero", "correct": false},
+            {"id": "b", "text": "Falso", "correct": true}
+          ]
+        },
+        {
+          "id": 34,
+          "type": "single",
+          "question": "Si consideramos que el turismo a casa de familiares y amigos es un bien inferior, podemos afirmar que, al aumentar el ingreso disponible ...",
+          "options": [
+            {"id": "a", "text": "la cantidad demandada aumentará en la misma proporción", "correct": false},
+            {"id": "b", "text": "su curva de la oferta se desplazará a la izquierda", "correct": false},
+            {"id": "c", "text": "la cantidad ofertada aumentará en la misma proporción", "correct": false},
+            {"id": "d", "text": "su curva de la demanda se desplazará a la izquierda", "correct": true}
+          ]
+        },
+        {
+          "id": 35,
+          "type": "single",
+          "question": "Cuando la Oferta y la demanda se encuentran en un mercado, es correcto afirmar que",
+          "options": [
+            {"id": "a", "text": "El precio del mercado es fijado exclusivamente por el productor con mayor capacidad.", "correct": false},
+            {"id": "b", "text": "La oferta de ese mercado puede calcularse como la sumatoria de las ofertas de los productores que participan en él.", "correct": true},
+            {"id": "c", "text": "La demanda del mercado se calcula considerando únicamente a los consumidores con mayores ingresos.", "correct": false},
+            {"id": "d", "text": "La oferta y la demanda no influyen en la determinación del precio de equilibrio.", "correct": false}
+          ]
+        },
+        {
+          "id": 36,
+          "type": "single",
+          "question": "Son ejemplos de costos variables:",
+          "options": [
+            {"id": "a", "text": "Impuestos fijos y gastos financieros permanentes.", "correct": false},
+            {"id": "b", "text": "Alquiler, seguros y amortización de maquinaria.", "correct": false},
+            {"id": "c", "text": "Sueldos administrativos y costos fijos de oficina.", "correct": false},
+            {"id": "d", "text": "Materia prima, insumos y materiales.", "correct": true}
+          ]
+        },
+        {
+          "id": 37,
+          "type": "single",
+          "question": "En un mercado de competencia monopolística el producto es homogéneo y existe una fuerte competencia ya que no hay barreras de entrada y salida.",
+          "options": [
+            {"id": "a", "text": "Falso", "correct": true},
+            {"id": "b", "text": "Verdadero", "correct": false}
+          ]
+        },
+        {
+          "id": 38,
+          "type": "single",
+          "question": "El siguiente cuadro muestra cómo es el comportamiento de la demanda del mercado del Bien X. Suponga que el precio está en una situación inicial de $4 y pasa a $3. (Precio 5→0 unidades, Precio 4→4 unidades, Precio 3→8 unidades, Precio 2→12 unidades, Precio 1→16 unidades, Precio 0→20 unidades). ¿Cuál es la elasticidad precio de la demanda en ese tramo?",
+          "options": [
+            {"id": "a", "text": "La elasticidad precio de la demanda del Bien X en ese tramo es perfectamente inelástica.", "correct": false},
+            {"id": "b", "text": "La elasticidad precio de la demanda del Bien X en ese tramo es perfectamente elástica.", "correct": false},
+            {"id": "c", "text": "La elasticidad precio de la demanda del Bien X en ese tramo es igual a 1.", "correct": false},
+            {"id": "d", "text": "La elasticidad precio de la demanda del Bien X en ese tramo es igual a 4", "correct": true}
+          ]
+        },
+        {
+          "id": 39,
+          "type": "single",
+          "question": "Si la elasticidad renta de la demanda de camperas para nieve en Suecia es de 0,75, se puede afirmar que se trata de ...",
+          "options": [
+            {"id": "a", "text": "un bien normal necesario", "correct": true},
+            {"id": "b", "text": "un bien sustituto", "correct": false},
+            {"id": "c", "text": "un bien inferior", "correct": false},
+            {"id": "d", "text": "un bien de lujo", "correct": false},
+            {"id": "e", "text": "un bien complementario", "correct": false}
+          ]
+        },
+        {
+          "id": 40,
+          "type": "single",
+          "question": "El óptimo de explotación se define como el punto en el cual el Cvme corta o se iguala al Costo marginal e indica un punto donde se encuentran cubiertos los costos de producción.",
+          "options": [
+            {"id": "a", "text": "Verdadero", "correct": true},
+            {"id": "b", "text": "Falso", "correct": false}
+          ]
+        },
+        {
+          "id": 41,
+          "type": "single",
+          "question": "El costo de oportunidad en economía representa",
+          "options": [
+            {"id": "a", "text": "La cantidad de otro bien al que se renuncia cuando se elige entre alternativas posibles", "correct": true},
+            {"id": "b", "text": "La cantidad de bienes y servicios recibidos como contraprestación", "correct": false},
+            {"id": "c", "text": "El costo monetario de los servicios prestados", "correct": false},
+            {"id": "d", "text": "El costo monetario de los bienes adquiridos", "correct": false}
+          ]
+        },
+        {
+          "id": 42,
+          "type": "single",
+          "question": "Si el mercado de los teléfonos celulares se encuentra en equilibrio y se produce un aumento de las preferencias de los consumidores por ellos, el desplazamiento de la curva de la demanda muestra que...",
+          "options": [
+            {"id": "a", "text": "Disminuye la cantidad demandada y aumenta su precio", "correct": false},
+            {"id": "b", "text": "Aumenta la cantidad demandada y aumenta su precio", "correct": true},
+            {"id": "c", "text": "Aumenta la cantidad demandada y disminuye su precio", "correct": false},
+            {"id": "d", "text": "Disminuye la cantidad demandada y disminuye su precio", "correct": false}
+          ]
+        },
+        {
+          "id": 43,
+          "type": "single",
+          "question": "El efecto Renta es una de las razones de la pendiente de la curva de la demanda y nos indica que al aumentar el ingreso disponible del consumidor aumentará la cantidad demandada de un bien normal.",
+          "options": [
+            {"id": "a", "text": "Verdadero", "correct": false},
+            {"id": "b", "text": "Falso", "correct": true}
+          ]
+        },
+        {
+          "id": 44,
+          "type": "single",
+          "question": "Al aumentar el precio de un bien sustituto aumenta la demanda del bien principal y viceversa",
+          "options": [
+            {"id": "a", "text": "Verdadero", "correct": true},
+            {"id": "b", "text": "Falso", "correct": false}
+          ]
+        },
+        {
+          "id": 45,
+          "type": "single",
+          "question": "La elasticidad de la demanda es",
+          "options": [
+            {"id": "a", "text": "Solo se utiliza para determinar bienes sustitutos de normales", "correct": false},
+            {"id": "b", "text": "Una medida de la intensidad de respuesta de un producto, bien o servicio, ante la variación de los determinantes", "correct": true},
+            {"id": "c", "text": "Una medida de la variación del ingreso disponible del consumidor", "correct": false},
+            {"id": "d", "text": "Una medida de la variación de la tecnología en el proceso productivo", "correct": false}
+          ]
+        },
+        {
+          "id": 46,
+          "type": "single",
+          "question": "¿Qué sucede en el mercado de pollo si aumentara el precio de la carne vacuna?",
+          "options": [
+            {"id": "a", "text": "Ninguna de las opciones es correcta.", "correct": false},
+            {"id": "b", "text": "Al ser bienes sustitutos, se desplaza la curva de demanda en el mercado del pollo, haciendo que aumente el precio y la cantidad de equilibrio", "correct": true},
+            {"id": "c", "text": "Como son bienes complementarios, se contrae la oferta en el mercado del pollo", "correct": false},
+            {"id": "d", "text": "No repercute en el mercado del pollo.", "correct": false}
+          ]
+        },
+        {
+          "id": 47,
+          "type": "single",
+          "question": "Supongamos que el mal tiempo eleva el precio del trigo. ¿Qué sucede con el mercado del pan, por ejemplo?",
+          "options": [
+            {"id": "a", "text": "Hay un desplazamiento de la curva de oferta, disminuyendo la cantidad de equilibrio y aumentando el precio de equilibrio", "correct": true},
+            {"id": "b", "text": "No hay ninguna variación del precio ni la cantidad de equilibrio en el mercado del pan.", "correct": false},
+            {"id": "c", "text": "Hay un desplazamiento de la curva de demanda, haciendo que aumente el precio y la cantidad de equilibrio.", "correct": false},
+            {"id": "d", "text": "Aumenta el precio y la cantidad de equilibrio en el mercado del pan", "correct": false}
+          ]
+        },
+        {
+          "id": 48,
+          "type": "single",
+          "question": "¿La sociedad puede elegir entre una combinación de bienes situadas a la derecha de la frontera de posibilidades de la producción?",
+          "options": [
+            {"id": "a", "text": "No, porque no le interesa esa combinación de bienes", "correct": false},
+            {"id": "b", "text": "Si, porque es una combinación de bienes accesible y eficiente", "correct": false},
+            {"id": "c", "text": "Si, porque es una combinación accesible aunque ineficiente", "correct": false},
+            {"id": "d", "text": "No, porque es una combinación de bienes inaccesible", "correct": true}
+          ]
+        },
+        {
+          "id": 49,
+          "type": "single",
+          "question": "Si aumentan los aranceles para la compra del algún bien extranjero, ¿qué sucede con un bien sustituto que se produce en el país?",
+          "options": [
+            {"id": "a", "text": "Se desplaza la demanda, logrando un mayor precio y cantidad de equilibrio del bien nacional.", "correct": true},
+            {"id": "b", "text": "Aumenta la producción del bien extranjero.", "correct": false},
+            {"id": "c", "text": "No se produce ninguna modificación en el mercado del bien local.", "correct": false},
+            {"id": "d", "text": "Se contrae la oferta del bien nacional, haciendo que el precio de equilibrio se mayor y la cantidad de equilibrio se menor", "correct": false}
+          ]
+        },
+        {
+          "id": 50,
+          "type": "single",
+          "question": "Permaneciendo constantes todos los demás factores que tienen que ver con la conducta del consumidor las cantidades demandadas varían en el mismo sentido que las variaciones de precios",
+          "options": [
+            {"id": "a", "text": "Falso", "correct": true},
+            {"id": "b", "text": "Verdadero", "correct": false}
+          ]
+        },
+        {
+          "id": 51,
+          "type": "single",
+          "question": "Sobre los factores de producción se afirma que:",
+          "options": [
+            {"id": "a", "text": "Todos los factores de producción son fijos en el corto plazo.", "correct": false},
+            {"id": "b", "text": "El trabajo no se considera un factor de producción en la economía.", "correct": false},
+            {"id": "c", "text": "La materia prima es un factor fijo mientras que el trabajo es siempre constante.", "correct": false},
+            {"id": "d", "text": "Tanto la materia prima como el trabajo se consideran factores de producción variable porque dependen del nivel de producción.", "correct": true}
+          ]
+        },
+        {
+          "id": 52,
+          "type": "single",
+          "question": "Desde el punto de vista de la economía, se pueden definir los Bienes como ...",
+          "options": [
+            {"id": "a", "text": "Objetos materiales que satisfacen una necesidad y pueden ser bienes intermedios o finales, entre otros", "correct": true},
+            {"id": "b", "text": "Objetos materiales, ilimitados y gratuitos", "correct": false},
+            {"id": "c", "text": "Aquellos que se encuentran libremente en la naturaleza, como los animales y los vegetales", "correct": false},
+            {"id": "d", "text": "Una actividad personal e intangible, generalmente perecedera", "correct": false}
+          ]
+        },
+        {
+          "id": 53,
+          "type": "single",
+          "question": "Se considera que una empresa minimiza pérdidas cuando el ingreso marginal supera el costo medio",
+          "options": [
+            {"id": "a", "text": "Verdadero", "correct": false},
+            {"id": "b", "text": "Falso", "correct": true}
+          ]
+        },
+        {
+          "id": 54,
+          "type": "single",
+          "question": "Una razón por la cual la curva de la demanda del mercado de pasajes aéreos tiene pendiente negativa es:",
+          "options": [
+            {"id": "a", "text": "por los efectos renta y sustitución", "correct": true},
+            {"id": "b", "text": "por el denominado efecto sustitución", "correct": false},
+            {"id": "c", "text": "por la proporción del gasto de los consumidores", "correct": false},
+            {"id": "d", "text": "por el denominado efecto renta", "correct": false}
+          ]
+        },
+        {
+          "id": 55,
+          "type": "single",
+          "question": "Las necesidades pueden definirse como...",
+          "options": [
+            {"id": "a", "text": "Carencias colectivas y públicas solamente", "correct": false},
+            {"id": "b", "text": "Carencias objetivas que se resuelven por el transcurso del tiempo", "correct": false},
+            {"id": "c", "text": "Sensación de carencia subjetiva que puede ser individual o social", "correct": true},
+            {"id": "d", "text": "Carencias de tipo biológico e individual", "correct": false}
+          ]
+        },
+        {
+          "id": 56,
+          "type": "single",
+          "question": "Si la empresa A se encuentra en un mercado de competencia perfecta y está operando en un nivel de producción donde: CMg = $150, IMg = $200 y su Beneficio es de $400",
+          "options": [
+            {"id": "a", "text": "La empresa está maximizando beneficios para ese nivel de producción", "correct": false},
+            {"id": "b", "text": "La empresa podría maximizar beneficios si aumentara su nivel de producción, para que IMg sea igual que el CMg.", "correct": true},
+            {"id": "c", "text": "La empresa podría maximizar beneficios si disminuyera su nivel de producción, para que haya una mayor diferencia entre el CMg y el IMg.", "correct": false},
+            {"id": "d", "text": "Ninguna de las opciones es correcta.", "correct": false}
+          ]
+        },
+        {
+          "id": 57,
+          "type": "single",
+          "question": "Cuando en una paritaria se resuelve un incremento de salarios de los panaderos, se origina un aumento de la cantidad ofertada de pan lo que lleva a un nuevo precio de equilibrio mayor que el anterior",
+          "options": [
+            {"id": "a", "text": "Verdadero", "correct": false},
+            {"id": "b", "text": "Falso", "correct": true}
+          ]
+        },
+        {
+          "id": 58,
+          "type": "single",
+          "question": "Un costo es considerado fijo cuando no varía con el nivel de producción y mantiene esta característica a lo largo del tiempo, sin importar el plazo que estemos analizando",
+          "options": [
+            {"id": "a", "text": "Verdadero", "correct": false},
+            {"id": "b", "text": "Falso", "correct": true}
+          ]
+        },
+        {
+          "id": 59,
+          "type": "single",
+          "question": "Indique la afirmación correcta (sobre competencia perfecta e IMg/IMe)",
+          "options": [
+            {"id": "a", "text": "La función beneficios presenta un mínimo cuando los costos resultan mínimos también", "correct": false},
+            {"id": "b", "text": "Hay competencia perfecta cuando el gobierno establece el precio de venta", "correct": false},
+            {"id": "c", "text": "En competencia perfecta la curva de la demanda es perfectamente inelástica", "correct": false},
+            {"id": "d", "text": "En un mercado de competencia perfecta el Ime es igual al Img e igual, a su vez, al Precio de venta que resulta del mercado aceptante", "correct": true}
+          ]
+        },
+        {
+          "id": 60,
+          "type": "single",
+          "question": "Un costo es considerado fijo cuando no varía con el nivel de producción y mantiene esta característica a lo largo del corto plazo, ya que a largo plazo todos los costos se consideran variables",
+          "options": [
+            {"id": "a", "text": "Verdadero", "correct": true},
+            {"id": "b", "text": "Falso", "correct": false}
+          ]
+        },
+        {
+          "id": 61,
+          "type": "single",
+          "question": "Indique la afirmación incorrecta (sobre producto medio y producto marginal):",
+          "options": [
+            {"id": "a", "text": "El producto medio del factor variable es el cambio observado en el producto total por cada unidad adicional de factor variable y mide la tasa de crecimiento de la función producción.", "correct": true},
+            {"id": "b", "text": "El producto marginal del factor variable se puede definir como el cambio del producto total por unidad adicional de factor variable", "correct": false},
+            {"id": "c", "text": "El producto marginal del factor variable es la pendiente de la función producción y mide la tasa de crecimiento del producto total", "correct": false},
+            {"id": "d", "text": "El Producto Medio del Factor variable se define como la cantidad de producto total promedio por cada unidad de factor variable y mide su productividad o eficiencia", "correct": false}
+          ]
+        },
+        {
+          "id": 62,
+          "type": "single",
+          "question": "Indique la afirmación incorrecta (sobre costos):",
+          "options": [
+            {"id": "a", "text": "El costo total es la suma de los costos fijos y los costos variables.", "correct": false},
+            {"id": "b", "text": "Los costos totales representan sólo las erogaciones que debo realizar cuando no se produce.", "correct": true},
+            {"id": "c", "text": "Los costos variables cambian según la cantidad producida.", "correct": false},
+            {"id": "d", "text": "Los costos fijos son aquellos que no dependen del nivel de producción.", "correct": false}
+          ]
+        },
+        {
+          "id": 63,
+          "type": "single",
+          "question": "Si aumenta el precio del café en un 1% y, al mismo tiempo, la demanda de azúcar se reduce en un 6%, se puede afirmar que el café y el azúcar son:",
+          "options": [
+            {"id": "a", "text": "bienes inferiores", "correct": false},
+            {"id": "b", "text": "bienes sustitutos", "correct": false},
+            {"id": "c", "text": "bienes complementarios", "correct": true},
+            {"id": "d", "text": "bienes independientes", "correct": false}
+          ]
+        },
+        {
+          "id": 64,
+          "type": "single",
+          "question": "¿Qué sucede cuando un estilo de ropa para varones deja de ser una moda?",
+          "options": [
+            {"id": "a", "text": "La oferta se reduce, provocando una suba en el precio de equilibrio.", "correct": false},
+            {"id": "b", "text": "Se contrae la demanda, haciendo que la cantidad y el precio de equilibrio disminuyan.", "correct": true},
+            {"id": "c", "text": "No hay cambios en el mercado, ya que las preferencias no afectan la demanda.", "correct": false},
+            {"id": "d", "text": "Aumenta la demanda, generando un incremento en el precio y la cantidad de equilibrio.", "correct": false}
+          ]
+        },
+        {
+          "id": 65,
+          "type": "single",
+          "question": "La economía es una ciencia social que estudia",
+          "options": [
+            {"id": "a", "text": "Las decisiones del Estado sin intervención de individuos o empresas.", "correct": false},
+            {"id": "b", "text": "Únicamente la producción de bienes sin considerar el comportamiento humano.", "correct": false},
+            {"id": "c", "text": "Conductas humanas que realizan actores racionales para administrar recursos escasos.", "correct": true},
+            {"id": "d", "text": "El funcionamiento de las máquinas utilizadas en los procesos productivos.", "correct": false}
+          ]
+        }
+      ]
+    };
+
     function initQuiz(){
       $('total').textContent = questions.length;
       $('quizTitleHeader').textContent = quizData.title || 'Índice';
@@ -443,7 +1096,7 @@
       }
     }
 
-    function selectQuizType(type){
+    function selectQuizType(type = 'economia'){
       // Guardar estado actual del formulario anterior
       if(selectedQuizType && selectedQuizType !== type){
         quizStates[selectedQuizType] = {
@@ -457,10 +1110,8 @@
 
       selectedQuizType = type;
 
-      // Cargar datos del quiz correspondiente
-      if(type === 'teorico') quizData = quizDataTeorico;
-      else if(type === 'practico') quizData = quizDataPractico;
-      else quizData = quizDataParcial;
+      // Cargar el quiz de Economía
+      quizData = quizDataEconomia;
 
       questions = quizData.questions || [];
 
@@ -1066,1694 +1717,19 @@
     $('reviewIncorrect').addEventListener('click', reviewIncorrect);
     $('summaryModal').addEventListener('click', (e)=>{ if(e.target === $('summaryModal')) closeSummary(); });
 
-    // Quiz type selector - Desktop sidebar
-    $('btnTeorico').addEventListener('click', function(){
-      if(selectedQuizType === 'teorico') return;
-      updateQuizTypeSelection('teorico');
-      selectQuizType('teorico');
+    $('btnEconomia').addEventListener('click', function(){
+      if(selectedQuizType === 'economia') return;
+      updateQuizTypeSelection('economia');
+      selectQuizType('economia');
     });
-    $('btnPractico').addEventListener('click', function(){
-      if(selectedQuizType === 'practico') return;
-      updateQuizTypeSelection('practico');
-      selectQuizType('practico');
-    });
-    $('btnParcial').addEventListener('click', function(){
-      if(selectedQuizType === 'parcial') return;
-      updateQuizTypeSelection('parcial');
-      selectQuizType('parcial');
-    });
-    $('btnTeoricoModal').addEventListener('click', function(){
-      if(selectedQuizType === 'teorico') return;
-      updateQuizTypeSelection('teorico');
-      selectQuizType('teorico');
-    });
-    $('btnPracticoModal').addEventListener('click', function(){
-      if(selectedQuizType === 'practico') return;
-      updateQuizTypeSelection('practico');
-      selectQuizType('practico');
-    });
-    $('btnParcialModal').addEventListener('click', function(){
-      if(selectedQuizType === 'parcial') return;
-      updateQuizTypeSelection('parcial');
-      selectQuizType('parcial');
-    });
-    
-    // Quiz type selector - Mobile buttons (in summary modal)
-    $('btnTeoricoMobile').addEventListener('click', function(){
-      if(selectedQuizType === 'teorico') return;
-      updateQuizTypeSelection('teorico');
-      selectQuizType('teorico');
-      closeSummary();
-    });
-    $('btnPracticoMobile').addEventListener('click', function(){
-      if(selectedQuizType === 'practico') return;
-      updateQuizTypeSelection('practico');
-      selectQuizType('practico');
-      closeSummary();
-    });
-    $('btnParcialMobile').addEventListener('click', function(){
-      if(selectedQuizType === 'parcial') return;
-      updateQuizTypeSelection('parcial');
-      selectQuizType('parcial');
-      closeSummary();
-    });
-    
+
     function updateQuizTypeSelection(type){
-      const mapping = {
-        'teorico': ['btnTeorico','btnTeoricoModal','btnTeoricoMobile'],
-        'practico': ['btnPractico','btnPracticoModal','btnPracticoMobile'],
-        'parcial': ['btnParcial','btnParcialModal','btnParcialMobile']
-      };
-      Object.entries(mapping).forEach(([quizType, ids])=>{
-        ids.forEach(id=>{
-          const btn = $(id);
-          if(btn){
-            btn.classList.toggle('selected', quizType === type);
-          }
-        });
-      });
+      const btn = $('btnEconomia');
+      if(btn){
+        btn.classList.toggle('selected', type === 'economia');
+      }
     }
-    // ========== QUIZ DATA ==========
-    const quizDataTeorico = {
-    "title": "Quiz Teórico",
-    "questions": [
-        {
-        "id": 1,
-        "type": "multiple",
-        "question": "¿Qué bandas de frecuencias son utilizadas para la comunicación satelital?",
-        "options": [
-            {"id": "a", "text": "C (4-8 GHz)", "correct": true},
-            {"id": "b", "text": "L (1-2 GHz)", "correct": false},
-            {"id": "c", "text": "K (18-26,5 GHz)", "correct": false},
-            {"id": "d", "text": "Ku (12,5-18 GHz)", "correct": true},
-            {"id": "e", "text": "Ka (26,5-40 GHz)", "correct": true},
-            {"id": "f", "text": "S (2-4 GHz)", "correct": false},
-            {"id": "g", "text": "X (8-12,5 GHz)", "correct": false}
-        ]
-        },
-        {
-        "id": 2,
-        "type": "tf",
-        "question": "El estándar RS232 contempla una codificación para el '0' binario de [-3; -25] volts",
-        "options": [
-            {"id": "a", "text": "Verdadero", "correct": false},
-            {"id": "b", "text": "Falso", "correct": true}
-        ]
-        },
-        {
-        "id": 3,
-        "type": "single",
-        "question": "El grupo de células que conjuntamente usan todas las frecuencias disponibles se denomina",
-        "options": [
-            {"id": "a", "text": "Clúster", "correct": true},
-            {"id": "b", "text": "Fibra óptica", "correct": false},
-            {"id": "c", "text": "Multiplexación", "correct": false},
-            {"id": "d", "text": "Modulación QAM", "correct": false}
-        ]
-        },
-        {
-        "id": 4,
-        "type": "multiple",
-        "question": "¿En cuáles de las siguientes órbitas deben estar los satélites utilizados en comunicaciones?",
-        "options": [
-            {"id": "a", "text": "LEO", "correct": true},
-            {"id": "b", "text": "ESSO", "correct": false},
-            {"id": "c", "text": "MEO", "correct": true},
-            {"id": "d", "text": "LIO", "correct": false},
-            {"id": "e", "text": "GEO", "correct": true}
-        ]
-        },
-        {
-        "id": 5,
-        "type": "multiple",
-        "question": "Dentro de las características mas importantes de la conexion USB, podemos nombrar que:",
-        "options": [
-            {"id": "a", "text": "No es plug and play", "correct": false},
-            {"id": "b", "text": "Es Hot Plug and Play", "correct": true},
-            {"id": "c", "text": "Su longitud maxima de enlace es de 5 metros", "correct": true},
-            {"id": "d", "text": "Su longitud maxima de enlace es de 10 metros", "correct": false},
-            {"id": "e", "text": "Es plug and play", "correct": true}
-        ]
-        },
-        {
-        "id": 6,
-        "type": "tf",
-        "question": "El índice de refracción del núcleo de una fibra optica es mayor al del recubrimiento",
-        "options": [
-            {"id": "a", "text": "Verdadero", "correct": true},
-            {"id": "b", "text": "Falso", "correct": false}
-        ]
-        },
-        {
-        "id": 7,
-        "type": "multiple",
-        "question": "¿En qué aplicaciones de comunicaciones se prefiere utilizar cables coaxiles?",
-        "options": [
-            {"id": "a", "text": "Conexión del transmisor a la antena en un sistema de comunicaciones inalámbricas (por ejemplo Wi-Fi)", "correct": true},
-            {"id": "b", "text": "Redes de CATV", "correct": true},
-            {"id": "c", "text": "Conexión entre servidores en un Data Center", "correct": false},
-            {"id": "d", "text": "Redes de computadoras", "correct": false},
-            {"id": "e", "text": "Red telefónica", "correct": false}
-        ]
-        },
-        {
-        "id": 8,
-        "type": "tf",
-        "question": "La ganancia del sistema celular de comunicaciones se basa en instalar muy poca cantidad de estaciones base, aumentando la potencia de cada una de ellas, para poder atender a móviles mas alejados",
-        "options": [
-            {"id": "a", "text": "Verdadero", "correct": false},
-            {"id": "b", "text": "Falso", "correct": true}
-        ]
-        },
-        {
-        "id": 9,
-        "type": "multiple",
-        "question": "Si tengo un cable armado como el de la figura, lo usaré para conectar:",
-        "image": "9T.png",
-        "options": [
-            {"id": "a", "text": "Dos Modems entre sí", "correct": false},
-            {"id": "b", "text": "Un Switch a un Router", "correct": true},
-            {"id": "c", "text": "Una PC a un Switch", "correct": true},
-            {"id": "d", "text": "Dos Switch entre sí", "correct": false},
-            {"id": "e", "text": "Un Switch a un Hub", "correct": false},
-            {"id": "f", "text": "Un Access Point a un Router", "correct": true},
-            {"id": "g", "text": "Una Pc a un Router", "correct": false},
-            {"id": "h", "text": "Dos PC entre sí", "correct": false},
-            {"id": "i", "text": "Dos DTE entre sí", "correct": false}
-        ]
-        },
-        {
-        "id": 10,
-        "type": "tf",
-        "question": "Las señales de radiocomunicaciones sólo se propagan por la atmósfera terrestre (o sea, donde hay aire) no existiendo propagación electromagnética en el vacío",
-        "options": [
-            {"id": "a", "text": "Verdadero", "correct": false},
-            {"id": "b", "text": "Falso", "correct": true}
-        ]
-        },
-        {
-        "id": 11,
-        "type": "single",
-        "question": "¿Qué factor limita principalmente la vida útil de un satélite de comunicaciones?",
-        "options": [
-            {"id": "a", "text": "La cantidad de canales de radio que puede utilizar", "correct": false},
-            {"id": "b", "text": "La cantidad de combustible que puede llevar", "correct": true},
-            {"id": "c", "text": "La cantidad de baterías que puede recargar", "correct": false},
-            {"id": "d", "text": "La cantidad de transponder que puede llevar", "correct": false},
-            {"id": "e", "text": "La velocidad de desplazamiento", "correct": false}
-        ]
-        },
-        {
-        "id": 12,
-        "type": "multiple",
-        "question": "Indique cuáles de los siguientes conectores son usados en para conectar el emisor(receptor con el cable de fibra óptica:",
-        "options": [
-            {"id": "a", "text": "Plug RJ 45", "correct": false},
-            {"id": "b", "text": "FC", "correct": true},
-            {"id": "c", "text": "RJ 36", "correct": false},
-            {"id": "d", "text": "LC", "correct": true},
-            {"id": "e", "text": "Jack RJ 45", "correct": false},
-            {"id": "f", "text": "BNC", "correct": false},
-            {"id": "g", "text": "ST", "correct": true},
-            {"id": "h", "text": "SC", "correct": true}
-        ]
-        },
-        {
-        "id": 13,
-        "type": "single",
-        "question": "Indique cuál de los siguientes conectores es usado en la red telefónica para conectar el aparato de abonado con la toma de red:",
-        "options": [
-            {"id": "a", "text": "TE", "correct": false},
-            {"id": "b", "text": "RJ 45", "correct": false},
-            {"id": "c", "text": "BNC", "correct": false},
-            {"id": "d", "text": "RJ 36", "correct": false},
-            {"id": "e", "text": "RJ 11", "correct": true},
-            {"id": "f", "text": "SC", "correct": false},
-            {"id": "g", "text": "ST", "correct": false},
-            {"id": "h", "text": "LC", "correct": false}
-        ]
-        },
-        {
-        "id": 14,
-        "type": "single",
-        "question": "¿Cuál es el principal motivo por el cual se produce un ensanchamiento del pulso de señal conducido por una fibra óptica?",
-        "options": [
-            {"id": "a", "text": "Ancho del núcleo", "correct": false},
-            {"id": "b", "text": "Dopado de la fibra", "correct": false},
-            {"id": "c", "text": "Dispersión cromática (modal)", "correct": true},
-            {"id": "d", "text": "Tipo de revestimiento de la fibra", "correct": false},
-            {"id": "e", "text": "Atenuación", "correct": false}
-        ]
-        },
-        {
-        "id": 15,
-        "type": "multiple",
-        "question": "¿Cuáles son los tres elementos básicos de un sistema de comunicaciones celulares móviles?",
-        "options": [
-            {"id": "a", "text": "Estación base", "correct": true},
-            {"id": "b", "text": "Hexágono", "correct": false},
-            {"id": "c", "text": "Determinación del costo del servicio", "correct": false},
-            {"id": "d", "text": "Regulación y estandarización", "correct": false},
-            {"id": "e", "text": "Generación", "correct": false},
-            {"id": "f", "text": "Terminal móvil", "correct": true},
-            {"id": "g", "text": "Centro de conmutación de móviles", "correct": true}
-        ]
-        },
-        {
-        "id": 16,
-        "type": "multiple",
-        "question": "¿Cuáles son las zonas del espectro electromagnético donde la atenuación de los sistemas de comunicaciones que utiliza fibra óptica, presenta mínimos respecto de otras zonas? (Indicarlas en unidades de nm)",
-        "options": [
-            {"id": "a", "text": "730", "correct": false},
-            {"id": "b", "text": "1330", "correct": true},
-            {"id": "c", "text": "900", "correct": false},
-            {"id": "d", "text": "1550", "correct": true},
-            {"id": "e", "text": "1300", "correct": false},
-            {"id": "f", "text": "850", "correct": true}
-        ]
-        },
-        {
-        "id": 17,
-        "type": "single",
-        "question": "¿Cuál es la finalidad del blindaje en un cable STP?",
-        "options": [
-            {"id": "a", "text": "Proteger a los cables de cortocircuitos eléctricos", "correct": false},
-            {"id": "b", "text": "Evitar la pérdida de señal (que pueda ser captada por un intruso)", "correct": false},
-            {"id": "c", "text": "Reducir la absorción de la interferencia electromagnética externa", "correct": true},
-            {"id": "d", "text": "Reducir la atenuación del cable", "correct": false},
-            {"id": "e", "text": "Proteger a los pares de la humedad", "correct": false}
-        ]
-        },
-        {
-        "id": 18,
-        "type": "single",
-        "question": "¿Cómo se arma un cable, para conectar dos PC, utilizando las normas T-568A y T-568B?",
-        "options": [
-            {"id": "a", "text": "(D) Cruzando todos los pares", "correct": false},
-            {"id": "b", "text": "(B) Cruzando el par 4 con el 5 de la norma T-568-A en ambos extremos", "correct": false},
-            {"id": "c", "text": "(C) En un extremo utilizo norma T-568-A y en el otro T-568-B", "correct": true},
-            {"id": "d", "text": "(A) Utilizo en ambos extremos norma T-568-A", "correct": false}
-        ]
-        },
-        {
-        "id": 19,
-        "type": "tf",
-        "question": "La transmisión en serie de la información digital (bits) a través de un cable único u otros medios es menos efectiva en cuanto a costo que la transmisión en paralero a través de múltiples cables",
-        "options": [
-            {"id": "a", "text": "Verdadero", "correct": false},
-            {"id": "b", "text": "Falso", "correct": true}
-        ]
-        },
-        {
-        "id": 20,
-        "type": "tf",
-        "question": "Si necesito implementar un sistema de comunicaciones de gran ancho de banda y que posea estabilidad de funcionamiento, preferiré instalar una red Wi-Fi",
-        "options": [
-            {"id": "a", "text": "Verdadero", "correct": false},
-            {"id": "b", "text": "Falso", "correct": true}
-        ]
-        },
-        {
-        "id": 21,
-        "type": "multiple",
-        "question": "¿Cuales de los siguientes son estándares de telefonía celular movil analógica?",
-        "options": [
-            {"id": "a", "text": "CDMA 2000", "correct": false},
-            {"id": "b", "text": "UMTS", "correct": false},
-            {"id": "c", "text": "NMT", "correct": true},
-            {"id": "d", "text": "Claro", "correct": false},
-            {"id": "e", "text": "GSM", "correct": false},
-            {"id": "f", "text": "AMPS", "correct": true},
-            {"id": "g", "text": "Multicom", "correct": false}
-        ]
-        },
-        {
-        "id": 22,
-        "type": "single",
-        "question": "El nivel de protección del [a] ante perturbaciones externas es mayor al ofrecido por [b]. Sin embargo es más costoso y requiere más instalación. Por esto, la pantalla del [c] para que sea más eficaz requiere una configuración de interconexión con tierra (dotada de continuidad hasta el terminal).",
-        "options": [
-            {"id": "a", "text": "[a]=Wireless [b]=Coaxial [c]= Par telefónico", "correct": false},
-            {"id": "b", "text": "[a]=STP [b]=UTP [c]= STP", "correct": true},
-            {"id": "c", "text": "[a]=Patch Panel [b]=STP [c]= Multipar telefónico", "correct": false}
-        ]
-        },
-        {
-        "id": 23,
-        "type": "tf",
-        "question": "La categoría de mayor ancho de banda utilizada hoy en día en instalaciones de cableado estructurado, es la categoría 6A",
-        "options": [
-            {"id": "a", "text": "Verdadero", "correct": true},
-            {"id": "b", "text": "Falso", "correct": false}
-        ]
-        },
-        {
-        "id": 24,
-        "type": "multiple",
-        "question": "Indique cuáles de las siguientes características corresponden a una transmisión en serie asincrónica",
-        "options": [
-            {"id": "a", "text": "El primer bit que se transmite es el de menor peso (LSB)", "correct": true},
-            {"id": "b", "text": "El primer bit que se transmite es el de mayor peso (MSB)", "correct": false},
-            {"id": "c", "text": "El tiempo entre caracter debe ser fijo", "correct": false},
-            {"id": "d", "text": "Cada caracter va precedido del bit de arranque y finaliza con el bit de parada", "correct": true},
-            {"id": "e", "text": "En el receptor se necesita recibir el bit de arranque para lograr el sincronismo de su propio reloj para detectar correctamente el caracter que le está llegando", "correct": true},
-            {"id": "f", "text": "Los caracteres a transmitir se juntan en la UART y luego van precedidos de un bit de arranque y finalizan con un bit de parada", "correct": false},
-            {"id": "g", "text": "En reposo, el nivel lógico de la línea es '1'", "correct": true},
-            {"id": "h", "text": "Los caracteres se transmiten aisladamente, caracter por caracter", "correct": true}
-        ]
-        },
-        {
-        "id": 25,
-        "type": "single",
-        "question": "En los conector RJ-45, los pines que se utilizan para la transmisión y recepción de datos son:",
-        "options": [
-            {"id": "a", "text": "1, 4, 5, 7", "correct": false},
-            {"id": "b", "text": "1, 2, 3, 6", "correct": true},
-            {"id": "c", "text": "Ninguna es correcta", "correct": false},
-            {"id": "d", "text": "1, 2, 3, 4", "correct": false}
-        ]
-        },
-        {
-        "id": 26,
-        "type": "multiple",
-        "question": "¿Cómo se denomina el subsistema que interconecta armarios de telecomunicaciones?",
-        "options": [
-            {"id": "a", "text": "Area de Acceso", "correct": false},
-            {"id": "b", "text": "Subsistema troncal (backbone)", "correct": true},
-            {"id": "c", "text": "Armario de telecomunicaciones", "correct": false},
-            {"id": "d", "text": "Facilidad de Entrada", "correct": true},
-            {"id": "e", "text": "Cruzada telefónica", "correct": false}
-        ]
-        },
-        {
-        "id": 27,
-        "type": "single",
-        "question": "¿Qué proceso permite aumentar la cantidad de abonados atendidos por un sistema celular de comunicaciones en una determinada zona?",
-        "image": "27T.png",
-        "options": [
-            {"id": "a", "text": "Subdivisión de la celdas", "correct": true},
-            {"id": "b", "text": "Aumento de la potencia de señal radiada por la antena de la estación base", "correct": false},
-            {"id": "c", "text": "Confirmación del haz emitido por la antena", "correct": false},
-            {"id": "d", "text": "Sectorización", "correct": false},
-            {"id": "e", "text": "Clusterización", "correct": false}
-        ]
-        },
-        {
-        "id": 28,
-        "type": "single",
-        "question": "La herramienta de la figura, se usa para:",
-        "image": "28T.png",
-        "options": [
-            {"id": "a", "text": "Empalar dos fibras ópticas monomodo", "correct": false},
-            {"id": "b", "text": "Impactar un jack RJ45 en la toma de pared (roseta)", "correct": false},
-            {"id": "c", "text": "Crimpear un conector RJ45 a un cable UTP", "correct": true},
-            {"id": "d", "text": "Armar un panel de conexión (patch pannel) en el armario", "correct": false},
-            {"id": "e", "text": "Empalar two fibras ópticas multimodo", "correct": false}
-        ]
-        },
-        {
-        "id": 29,
-        "type": "single",
-        "question": "Si deseo conectar directamente dos PC entre sí, necesitaré un cable de conexión (patch cord):",
-        "options": [
-            {"id": "a", "text": "Cable Canal", "correct": false},
-            {"id": "b", "text": "Directo", "correct": false},
-            {"id": "c", "text": "De consola", "correct": false},
-            {"id": "d", "text": "Coaxil", "correct": false},
-            {"id": "e", "text": "Cruzado", "correct": true}
-        ]
-        },
-        {
-        "id": 30,
-        "type": "single",
-        "question": "¿Cuál es la longitud máxima permitida independientemente del medio de transmisión en el Cableado Horizontal?",
-        "options": [
-            {"id": "a", "text": "45 metros", "correct": false},
-            {"id": "b", "text": "100 metros", "correct": true},
-            {"id": "c", "text": "90 metros", "correct": false},
-            {"id": "d", "text": "58 metros", "correct": false},
-            {"id": "e", "text": "105 metros", "correct": false}
-        ]
-        },
-        {
-        "id": 31,
-        "type": "single",
-        "question": "Identifique los siguientes tipos de conductores:",
-        "image": "31T.png",
-        "options": [
-            {"id": "a", "text": "a = UTP | b = FTP | c = STP | d = S-FTP", "correct": true},
-            {"id": "b", "text": "a = S-FTP | b = FTP | c = STP | d = UTP", "correct": false},
-            {"id": "c", "text": "a = FTP | b = UTP | c = S-FTP | d = STP", "correct": false},
-            {"id": "d", "text": "a = STP | b = FTP | c = UTP | d = S-FTP", "correct": false}
-        ]
-        },
-        {
-        "id": 32,
-        "type": "multiple",
-        "question": "¿Cuáles de los siguientes se pueden considerar factores que aumentan la atenuación en un conductor de fibra óptica?",
-        "options": [
-            {"id": "a", "text": "Radios de curvatura inapropiados (demasiado pequeños)", "correct": true},
-            {"id": "b", "text": "Dispersión cromática", "correct": true},
-            {"id": "c", "text": "Humedad ambiente", "correct": false},
-            {"id": "d", "text": "Radiación nuclear", "correct": true},
-            {"id": "e", "text": "Excesiva cantidad de canales multiplexados en WDM", "correct": false},
-            {"id": "f", "text": "Bandas de absorción", "correct": true},
-            {"id": "g", "text": "Conductores de fibra óptica próximos que conducen otras señales de comunicaciones", "correct": false},
-            {"id": "h", "text": "Interferencias electromagnéticas externas", "correct": false}
-        ]
-        },
-        {
-        "id": 33,
-        "type": "tf",
-        "question": "El parametro estructural, utilizado para determinar el numero de modos, es directamente proporcional a la longitud de onda e inversamente proporcional a la apertura numerica",
-        "options": [
-            {"id": "a", "text": "Falso", "correct": true},
-            {"id": "b", "text": "Verdadero", "correct": false}
-        ]
-        },
-        {
-        "id": 34,
-        "type": "single",
-        "question": "¿Cual es la definición correcta al hablar de un cable STP?",
-        "options": [
-            {"id": "a", "text": "Cable de pares trenzados laminado blindado individual", "correct": false},
-            {"id": "b", "text": "Cable de pares trenzados donde se le añade una malla metálica al apantallamiento global", "correct": false},
-            {"id": "c", "text": "Cable de par trenzado donde el apantallamiento envuelve a todo el grupo de pares trenzados", "correct": false},
-            {"id": "d", "text": "Cable semejante al UTP que añade un recubrimiento metálico por cada par", "correct": true}
-        ]
-        },
-        {
-        "id": 35,
-        "type": "multiple",
-        "question": "¿Cuales de los siguientes, son instrumentos con los cuales se puede comprobar si un cable de conexion (patch cord) está correctamente armado?",
-        "options": [
-            {"id": "a", "text": "Certificadores de cableado", "correct": true},
-            {"id": "b", "text": "Analizador de espectro", "correct": false},
-            {"id": "c", "text": "OTDR", "correct": false},
-            {"id": "d", "text": "Multímetro digital", "correct": false},
-            {"id": "e", "text": "Probadores de cable UTP (LAN Tester)", "correct": true}
-        ]
-        },
-        {
-        "id": 36,
-        "type": "single",
-        "question": "Las órbitas Geoestacionarias sobre la que se encuentran los satélites de comunicaciones, su ubican un plano",
-        "options": [
-            {"id": "a", "text": "polar", "correct": false},
-            {"id": "b", "text": "perpendicular al ecuador terrestre", "correct": false},
-            {"id": "c", "text": "ecuatorial", "correct": true},
-            {"id": "d", "text": "infinito", "correct": false},
-            {"id": "e", "text": "meridional", "correct": false}
-        ]
-        },
-        {
-        "id": 37,
-        "type": "multiple",
-        "question": "La herramienta de la figura, se usa para:",
-        "image": "37T.png",
-        "options": [
-            {"id": "a", "text": "Empalar dos fibras ópticas monomodo", "correct": false},
-            {"id": "b", "text": "Conectar los cables UTP a un panel de conexión (patch pannel) en el armario", "correct": true},
-            {"id": "c", "text": "Impactar un jack RJ45 en la toma de pared (roseta)", "correct": true},
-            {"id": "d", "text": "Empalar dos fibras ópticas multimodo", "correct": false},
-            {"id": "e", "text": "Crimpear un conector RJ45 a un cable UTP", "correct": false}
-        ]
-        },
-        {
-        "id": 38,
-        "type": "single",
-        "question": "¿Cuál es el conductor preferido para implantar el backbone de campus?",
-        "options": [
-            {"id": "a", "text": "UTP", "correct": false},
-            {"id": "b", "text": "USB 3.1 GEN 2", "correct": false},
-            {"id": "c", "text": "Antenas de radio", "correct": false},
-            {"id": "d", "text": "Fibra óptica", "correct": true},
-            {"id": "e", "text": "Satélites", "correct": false}
-        ]
-        },
-        {
-        "id": 39,
-        "type": "multiple",
-        "question": "Para poder desarrollar una infraestructura de red 5G, será necesario implementar:",
-        "options": [
-            {"id": "a", "text": "Conformación de los haces de radio emitidos por las antenas", "correct": true},
-            {"id": "b", "text": "Frecuencias muy bajas (300 Hz a 3 kHz)", "correct": false},
-            {"id": "c", "text": "Emisión omnidireccional sin control", "correct": false},
-            {"id": "d", "text": "Full Duplex", "correct": true},
-            {"id": "e", "text": "Uso de un solo canal por celda", "correct": false},
-            {"id": "f", "text": "Celdas muy pequeñas (pico o nanoceldas)", "correct": true},
-            {"id": "g", "text": "Frecuencias muy altas (de 30 a 300GHz)", "correct": true},
-            {"id": "h", "text": "Tecnologías de radio por múltiples canales", "correct": true},
-            {"id": "i", "text": "Half Duplex", "correct": false},
-            {"id": "j", "text": "Uso exclusivo de macroceldas de gran tamaño", "correct": false}
-        ]
-        },
-        {
-        "id": 40,
-        "type": "single",
-        "question": "Indique qué tipo de técnica de acceso múltiple corresponde a cada gráfico:",
-        "image": "40T.png",
-        "options": [
-            {"id": "a", "text": "1 = TDMA | 2 = CDMA | 3 = FDMA", "correct": false},
-            {"id": "b", "text": "1 = CDMA | 2 = FDMA | 3 = TDMA", "correct": false},
-            {"id": "c", "text": "1 = FDMA | 2 = TDMA | 3 = CDMA", "correct": true}
-        ]
-        },
-        {
-        "id": 41,
-        "type": "single",
-        "question": "Si queremos utilizar una fibra monomodo, que variable del parametro estructural conviene modificar?",
-        "options": [
-            {"id": "a", "text": "Radio del nucleo", "correct": true},
-            {"id": "b", "text": "Frecuencia", "correct": false},
-            {"id": "c", "text": "Longitud de onda", "correct": false},
-            {"id": "d", "text": "Apertura numérica", "correct": false}
-        ]
-        },
-        {
-        "id": 42,
-        "type": "single",
-        "question": "La torsión del cable UTP se realiza",
-        "options": [
-            {"id": "a", "text": "(D) Ninguna de las anteriores", "correct": false},
-            {"id": "b", "text": "(B) Disminuir la atenuación", "correct": false},
-            {"id": "c", "text": "(A) Disminuir el ISI", "correct": false},
-            {"id": "d", "text": "(C) Disminuir la paradiafonía", "correct": true}
-        ]
-        },
-        {
-        "id": 43,
-        "type": "single",
-        "question": "A que es igual el dBd",
-        "options": [
-            {"id": "a", "text": "dBd = 2.15 * dBi", "correct": false},
-            {"id": "b", "text": "dBd = dBi + 1.25 dB", "correct": false},
-            {"id": "c", "text": "dBd = dBi + 2.15 dB", "correct": false},
-            {"id": "d", "text": "dBd = dBi - 2.15 dB", "correct": true}
-        ]
-        },
-        {
-        "id": 44,
-        "type": "multiple",
-        "question": "A que nos referimos como vector poynting?",
-        "options": [
-            {"id": "a", "text": "Vector que se utiliza para determinar el recorrido de los haces de luz en la fibra optica", "correct": false},
-            {"id": "b", "text": "Al producto vectorial entre el campo magnetico y el campo electrico", "correct": true},
-            {"id": "c", "text": "Vector que nos indica la trayectoria que recorre una señal", "correct": false},
-            {"id": "d", "text": "Al producto entre la frecuencia y la longitud de onda", "correct": false},
-            {"id": "e", "text": "Vector que nos indica la maxima potencia de la señal que estemos propagando", "correct": true}
-        ]
-        },
-        {
-        "id": 45,
-        "type": "tf",
-        "question": "Con la tecnología Zigbee, es posible crear una pequeña red inalámbrica con dispositivos que se conectan entre sí a través de una red con topología de malla, utilizan un lenguaje de comunicación común entre ellos, sin necesidad de que cada uno esté conectado al router de manera individual. Y no es necesario el uso de un puente o hub, para acceder a internet. Cada dispositivo Zigbee puede hacerlo individualmente",
-        "options": [
-            {"id": "a", "text": "Falso", "correct": true},
-            {"id": "b", "text": "Verdadero", "correct": false}
-        ]
-        },
-        {
-        "id": 46,
-        "type": "single",
-        "question": "Las normas del cableado estructurado ... y ... son totalmente compatibles y equivalentes en cuanto a la topología del cableado, medios conductores sugeridos y procedimientos de medición de parámetros dielectricos",
-        "options": [
-            {"id": "a", "text": "ISO/IEC 11801 y ANSI/EIA/TIA 568", "correct": true},
-            {"id": "b", "text": "ISO Y IEEE 802.3", "correct": false},
-            {"id": "c", "text": "ANSI/EIA/TIA 1005 e ISO 11801", "correct": false}
-        ]
-        },
-        {
-        "id": 47,
-        "type": "single",
-        "question": "¿Qué se logra mediante el trenzado de los hilos en un cable CAT-5?",
-        "options": [
-            {"id": "a", "text": "(C) Reducir la longitud de los conductores y por ende la atenuación", "correct": false},
-            {"id": "b", "text": "(A) El cable queda más delgado", "correct": false},
-            {"id": "c", "text": "(D) Permite que 6 pares entren en el espacio de 4 pares", "correct": false},
-            {"id": "d", "text": "(B) Es más económico", "correct": false},
-            {"id": "e", "text": "(E) Ninguna correcta", "correct": true}
-        ]
-        },
-        {
-        "id": 48,
-        "type": "multiple",
-        "question": "¿Cuáles de los siguientes son estándares de transmisión de bits en paralelo?",
-        "options": [
-            {"id": "a", "text": "USB", "correct": false},
-            {"id": "b", "text": "Centronics", "correct": true},
-            {"id": "c", "text": "RS232-C", "correct": false},
-            {"id": "d", "text": "LPT", "correct": true},
-            {"id": "e", "text": "Cable Modem", "correct": false}
-        ]
-        },
-        {
-        "id": 49,
-        "type": "multiple",
-        "question": "¿Cuáles de los siguientes son estándares de telefonía celular movil digital?",
-        "options": [
-            {"id": "a", "text": "CTI", "correct": false},
-            {"id": "b", "text": "GSM", "correct": true},
-            {"id": "c", "text": "NMT", "correct": false},
-            {"id": "d", "text": "CDMA 2000", "correct": true},
-            {"id": "e", "text": "UMTS", "correct": true},
-            {"id": "f", "text": "Movicom", "correct": false},
-            {"id": "g", "text": "AMPS", "correct": false}
-        ]
-        },
-        {
-        "id": 50,
-        "type": "single",
-        "question": "Cuando decimos que es: 'Lugar en el que ingresan los servicios de telecomunicaciones al edificio y/o dónde llegan las canalizaciones de interconexión con otros edificios de la misma corporación (por ejemplo, si se trata de un 'campus').'",
-        "options": [
-            {"id": "a", "text": "Sala de Equipos", "correct": false},
-            {"id": "b", "text": "Facilidades de entrada", "correct": true},
-            {"id": "c", "text": "Canalizaciones de 'Montantes' ('Back-bone')", "correct": false},
-            {"id": "d", "text": "Áreas de trabajo", "correct": false}
-        ]
-        },
-        {
-        "id": 51,
-        "type": "multiple",
-        "question": "Los factores intrínsecos que determinan la atenuación en la fibra óptica generan la presencia de:",
-        "options": [
-            {"id": "a", "text": "Dispersion cromatica", "correct": true},
-            {"id": "b", "text": "Bandas de absorcion cromatica", "correct": false},
-            {"id": "c", "text": "Bandas de dispersion cromatica", "correct": false},
-            {"id": "d", "text": "Bandas de absorcion", "correct": true},
-            {"id": "e", "text": "Variacion de la atenuacion en funcion de la frecuencia", "correct": false}
-        ]
-        },
-        {
-        "id": 52,
-        "type": "single",
-        "question": "El cable coaxial tiene un conductor central constituido por un [OPCION 1] (que transporta la información) rodeado por un [OPCION 2]. Sobre este se presenta una malla trenzada que actúa como apantallamiento, protegiendo los datos que se transmiten. [OPCION 3] actúa como masa, proveyendo un camino de retorno para la señal. Finalmente, todo esto queda recubierto con [OPCION 4]. ¿Qué combinación completa correctamente la secuencia?",
-        "options": [
-          {"id": "a", "text": "[\"núcleo sólido de cobre\", \"aislante\", \"la malla de hilo trenzada\", \"una cubierta de esmalte de plástico\"]", "correct": true},
-          {"id": "b", "text": "[\"aislante\", \"núcleo sólido de cobre\", \"una cubierta de esmalte de plástico\", \"la malla de hilo trenzada\"]", "correct": false},
-          {"id": "c", "text": "[\"la malla de hilo trenzada\", \"aislante\", \"núcleo sólido de cobre\", \"una cubierta de esmalte de plástico\"]", "correct": false},
-          {"id": "d", "text": "[\"núcleo sólido de cobre\", \"una cubierta de esmalte de plástico\", \"la malla de hilo trenzada\", \"aislante\"]", "correct": false}
-        ]
-        },
-        {
-        "id": 53,
-        "type": "multiple",
-        "question": "Si necesitara implementar una red de computadoras que transmita información a una tasa de 1 Gb/s, necesitaré una instalación de cableado estructurado que certifique algunas de las siguientes categorías:",
-        "options": [
-            {"id": "a", "text": "Categoría 6", "correct": true},
-            {"id": "b", "text": "Categoría 5e", "correct": true},
-            {"id": "c", "text": "Categoría 1", "correct": false},
-            {"id": "d", "text": "Categoría 6A", "correct": true},
-            {"id": "e", "text": "Categoría 5", "correct": false}
-        ]
-        },
-        {
-        "id": 54,
-        "type": "single",
-        "question": "¿Qué representa el perfil de una fibra óptica?",
-        "options": [
-            {"id": "a", "text": "(C) La variación del índice de refracción del núcleo en función del radio", "correct": true},
-            {"id": "b", "text": "(A) La variación del índice de reflexión del núcleo en función del radio", "correct": false},
-            {"id": "c", "text": "(B) La variación del índice de refracción del recubrimiento en función del radio", "correct": false},
-            {"id": "d", "text": "(D) La variación del índice de reflexión del recubrimiento en función del radio", "correct": false}
-        ]
-        },
-        {
-        "id": 55,
-        "type": "single",
-        "question": "Si necesito empalmar dos fibras ópticas del tipo monomodo (SM), deberé utilizar como herramienta:",
-        "options": [
-            {"id": "a", "text": "Una fusionadora", "correct": true},
-            {"id": "b", "text": "Un probador de cables", "correct": false},
-            {"id": "c", "text": "Podré hacer un empalme mecánico (manual)", "correct": false},
-            {"id": "d", "text": "Una herramienta de impacto", "correct": false},
-            {"id": "e", "text": "Un destornillador", "correct": false},
-            {"id": "f", "text": "Un OTDR", "correct": false},
-            {"id": "g", "text": "Un certificador de cableado", "correct": false},
-            {"id": "h", "text": "Una pinza crimpeadora", "correct": false}
-        ]
-        },
-        {
-        "id": 56,
-        "type": "single",
-        "question": "Si necesito implementar un sistema de comunicaciones en el menor tiempo posible, preferiré utilizar como medio conductor",
-        "options": [
-            {"id": "a", "text": "Par Telefonico", "correct": false},
-            {"id": "b", "text": "Cable UTP", "correct": true},
-            {"id": "c", "text": "Fibra Optica", "correct": false},
-            {"id": "d", "text": "Cable Coaxil", "correct": false},
-        ]
-        },
-        {
-        "id": 57,
-        "type": "multiple",
-        "question": "Se dice que un estándar de jure u oficial, es definido por grupos u organizaciones oficiales cuya función es crear y difundir estándares. Entre las organizaciones internacionales de normalización en telecomunicaciones podemos citar:",
-        "options": [
-            {"id": "a", "text": "Microsoft", "correct": false},
-            {"id": "b", "text": "AFA", "correct": false},
-            {"id": "c", "text": "IEEE", "correct": true},
-            {"id": "d", "text": "FIFA", "correct": false},
-            {"id": "e", "text": "ENACOM", "correct": false},
-            {"id": "f", "text": "ITU", "correct": true},
-            {"id": "g", "text": "ISO/IEC", "correct": true},
-            {"id": "h", "text": "ANSI/EIA/TIA", "correct": true}
-        ]
-        },
-        {
-        "id": 58,
-        "type": "single",
-        "question": "Como se calcula la impedancia de una antena?",
-        "options": [
-            {"id": "a", "text": "Resistencia de radiacion + Resistencia de perdidas + reactancia de la antena + Perdida en el espacio libre", "correct": false},
-            {"id": "b", "text": "reactancia de la antena + frecuencia", "correct": false},
-            {"id": "c", "text": "Resistencia de radiacion + Resistencia de perdidas", "correct": false},
-            {"id": "d", "text": "Resistencia de radiacion + Resistencia de perdidas + reactancia de la antena", "correct": true}
-        ]
-        },
-        {
-        "id": 59,
-        "type": "multiple",
-        "question": "En qué bandas de frecuencia puede trabajar un acceso point que utiliza norma 802.11n",
-        "options": [
-            {"id": "a", "text": "5GHz", "correct": true},
-            {"id": "b", "text": "2,4GHz", "correct": true},
-            {"id": "c", "text": "2,4MHz", "correct": false},
-            {"id": "d", "text": "5MHz", "correct": false},
-            {"id": "e", "text": "3GHz", "correct": false}
-        ]
-        },
-        {
-        "id": 60,
-        "type": "single",
-        "question": "¿Cuáles de los siguientes conductores es más delgado, posee mayor atenuación y tiene menor ancho de banda?",
-        "options": [
-            {"id": "a", "text": "UTP", "correct": false},
-            {"id": "b", "text": "STP", "correct": false},
-            {"id": "c", "text": "Pares telefónicos", "correct": true},
-            {"id": "d", "text": "FTP", "correct": false},
-            {"id": "e", "text": "Cables Coaxiles", "correct": false}
-        ]
-        },
-        {
-        "id": 61,
-        "type": "multiple",
-        "question": "¿Cuáles de los siguientes son estándares de transmisión de bits en serie?",
-        "options": [
-            {"id": "a", "text": "LPT", "correct": false},
-            {"id": "b", "text": "Cable Modem", "correct": true},
-            {"id": "c", "text": "Centronics", "correct": false},
-            {"id": "d", "text": "USB", "correct": true},
-            {"id": "e", "text": "RS232-C", "correct": true}
-        ]
-        },
-        {
-        "id": 62,
-        "type": "single",
-        "question": "¿Cual es la categoría de cable que permite como mínimo una velocidad de transmision de 1Gbps de transferencia?",
-        "options": [
-            {"id": "a", "text": "Categoría 1", "correct": false},
-            {"id": "b", "text": "Categoría 3", "correct": false},
-            {"id": "c", "text": "Categoría 5", "correct": false},
-            {"id": "d", "text": "Categoría 5e", "correct": true}
-        ]
-        },
-        {
-        "id": 63,
-        "type": "single",
-        "question": "El índice de refracción del núcleo de una fibra óptica representa la relación entre: [A/B]=A respecto de B",
-        "options": [
-            {"id": "a", "text": "b) la velocidad de propagación de la luz en el vacío respecto a la velocidad de propagación de la luz en el núcleo de la FO", "correct": true},
-            {"id": "b", "text": "c) la velocidad de propagación de la luz en el núcleo de la FO respecto a la velocidad de propagación de la luz en el vacío", "correct": false},
-            {"id": "c", "text": "d) la velocidad de propagación de la luz en el recubrimiento respecto a la velocidad de propagación de la luz en el núcleo de la FO", "correct": false},
-            {"id": "d", "text": "a) la velocidad de propagación de la luz en el núcleo de la FO respecto a la velocidad de propagación de la luz en el recubrimiento", "correct": false}
-        ]
-        },
-        {
-        "id": 64,
-        "type": "single",
-        "question": "En .... se llevan a cabo tareas de normalización y coordinación a nivel internacional en redes de telecomunicaciones celulares moviles.",
-        "options": [
-            {"id": "a", "text": "ITU", "correct": true},
-            {"id": "b", "text": "IEEE", "correct": false},
-            {"id": "c", "text": "ENACOM", "correct": false},
-            {"id": "d", "text": "ISO", "correct": false},
-            {"id": "e", "text": "ANSI/EIA/TIA", "correct": false},
-            {"id": "f", "text": "FCC", "correct": false}
-        ]
-        },
-        {
-        "id": 65,
-        "type": "single",
-        "question": "¿Cómo se llama el proceso de transferir una llamada en curso entre dos células cuando el móvil se desplaza?",
-        "options": [
-            {"id": "a", "text": "HangOver", "correct": false},
-            {"id": "b", "text": "TakeOver", "correct": false},
-            {"id": "c", "text": "HandOver", "correct": true},
-            {"id": "d", "text": "Breakout", "correct": false}
-        ]
-        },
-        {
-        "id": 66,
-        "type": "single",
-        "question": "Si deseo conectar una PC a un Switch, necesitaré un cable de conexión (patch cord):",
-        "options": [
-            {"id": "a", "text": "Directo", "correct": true},
-            {"id": "b", "text": "Cruzado", "correct": false},
-            {"id": "c", "text": "Coaxil", "correct": false},
-            {"id": "d", "text": "De consola", "correct": false},
-            {"id": "e", "text": "Cable Canal", "correct": false}
-        ]
-        },
-        {
-        "id": 67,
-        "type": "multiple",
-        "question": "Si tengo un cable armado como el de la figura, lo usaré para conectar:",
-        "image": "67T.png",
-        "options": [
-            {"id": "a", "text": "Dos PC entre si", "correct": true},
-            {"id": "b", "text": "Una PC a un switch", "correct": false},
-            {"id": "c", "text": "Un Switch a un Router", "correct": false},
-            {"id": "d", "text": "Un Access Point a un Router", "correct": false},
-            {"id": "e", "text": "Dos Modems entre si", "correct": true},
-            {"id": "f", "text": "Un Router a una PC", "correct": true},
-            {"id": "g", "text": "Dos DTE entre si", "correct": true},
-            {"id": "h", "text": "Dos Switch entre si", "correct": true},
-            {"id": "i", "text": "Un Switch a un Hub", "correct": true}
-        ]
-        },
-        {
-        "id": 68,
-        "type": "multiple",
-        "question": "¿Cuáles de las siguientes son causas que provocan la atenuación de una señal en un conductor de Fibra óptica?",
-        "options": [
-            {"id": "a", "text": "Humedad", "correct": false},
-            {"id": "b", "text": "Microcurvaturas en la instalación del conductor de fibra óptica", "correct": true},
-            {"id": "c", "text": "Dispersión Rayleigh", "correct": true},
-            {"id": "d", "text": "Material del revestimiento del cable de fibra óptica", "correct": false},
-            {"id": "e", "text": "Absorción intrínseca", "correct": true},
-            {"id": "f", "text": "Cantidad de longitudes de onda multiplexadas dentro de la Fibra Optica", "correct": false},
-            {"id": "g", "text": "Tipo de terreno donde se instala el conductor de fibra óptica", "correct": false},
-            {"id": "h", "text": "Profundidad de enterramiento del cable de fibra óptica", "correct": false}
-        ]
-        },
-        {
-        "id": 69,
-        "type": "single",
-        "question": "¿Cómo se determina el ángulo de aceptación en una fibra óptica?",
-        "options": [
-            {"id": "a", "text": "(D) arcsen(n2/n1)", "correct": true},
-            {"id": "b", "text": "(E) Sen (n2/n1)", "correct": false},
-            {"id": "c", "text": "(A) arccos(n1/n2)", "correct": false},
-            {"id": "d", "text": "(C) arcsen(n1/n2)", "correct": false},
-            {"id": "e", "text": "(B) arccos(n2/n1)", "correct": false}
-        ]
-        },
-        {
-        "id": 70,
-        "type": "single",
-        "question": "¿Qué implica no cumplir con el ángulo de aceptación de la fibra optica?",
-        "options": [
-            {"id": "a", "text": "Perder luz por el recubrimiento", "correct": true},
-            {"id": "b", "text": "Aumentar la absorción de la luz en el nucleo", "correct": false},
-            {"id": "c", "text": "Posibilitar el acoplamiento con fibras multimodo", "correct": false},
-            {"id": "d", "text": "Ganar luz por el recubrimiento", "correct": false},
-            {"id": "e", "text": "Disminuir la absorción de la luz en el nucleo", "correct": false}
-        ]
-        },
-        {
-        "id": 71,
-        "type": "tf",
-        "question": "La tecnología de acceso inalámbrico Bluetooth está orientada sólo a la conexión punto a punto o red de malla de pocos nodos.",
-        "options": [
-            {"id": "a", "text": "Falso", "correct": true},
-            {"id": "b", "text": "Verdadero", "correct": false}
-        ]
-        },
-        {
-        "id": 72,
-        "type": "multiple",
-        "question": "Si necesitara implementar una red de computadoras que transmita información a una tasa de 10 Gb/s, necesitaré una instalación de cableado estructurado que certifique algunas de las siguientes categorías:",
-        "options": [
-            {"id": "a", "text": "Categoría 8", "correct": true},
-            {"id": "b", "text": "Clase A", "correct": false},
-            {"id": "c", "text": "Categoría 6A", "correct": true},
-            {"id": "d", "text": "Categoría 5e", "correct": false},
-            {"id": "e", "text": "Clase E", "correct": false},
-            {"id": "f", "text": "Categoría 5", "correct": false},
-            {"id": "g", "text": "Clase F", "correct": true},
-            {"id": "h", "text": "Categoría 1", "correct": false}
-        ]
-        },
-        {
-        "id": 73,
-        "type": "single",
-        "question": "En la zona de fresnel, que porcentaje aun se considera estable para un enlace?",
-        "options": [
-            {"id": "a", "text": "60% de la zona 1", "correct": true},
-            {"id": "b", "text": "40% de la zona 1", "correct": false},
-            {"id": "c", "text": "60% de toda la zona", "correct": false},
-            {"id": "d", "text": "50% de toda la zona", "correct": false},
-            {"id": "e", "text": "50% de la zona 1", "correct": false}
-        ]
-        },
-        {
-        "id": 74,
-        "type": "single",
-        "question": "Cual es el medio conductor que posee escaso ancho de banda y gran atenuación",
-        "options": [
-            {"id": "a", "text": "UTP Cat 5", "correct": false},
-            {"id": "b", "text": "UTP Cat 6", "correct": false},
-            {"id": "c", "text": "Par Telefonico", "correct": true},
-            {"id": "d", "text": "Fibra Optica SM", "correct": false},
-            {"id": "e", "text": "Fibra Optica MM", "correct": false},
-            {"id": "f", "text": "Coaxil", "correct": false}
-        ]
-        },
-        {
-        "id": 75,
-        "type": "single",
-        "question": "Indique los distintos tipos de fibras opticas que podemos tener utilizadas en comunicaciones:",
-        "image": "75T.png",
-        "options": [
-            {"id": "a", "text": "a = Monomodo (SM), b = Multimodo de Índice Gradual (MM), c = Multimodo de Salto de Índice (MM)", "correct": false},
-            {"id": "b", "text": "a = Monomodo (SM), b = Multimodo de Salto de Índice (MM), c = Multimodo de Índice Gradual (MM)", "correct": true},
-            {"id": "c", "text": "a = De modo Único (UM), b = Multimodo de Salto de Índice (MM), c = Multimodo de Índice Positivo (MM)", "correct": false},
-            {"id": "d", "text": "a = Multimodo de Índice Gradual (MM), b = Multimodo de Salto de Índice (MM), c = Monomodo (SM)", "correct": false},
-            {"id": "e", "text": "a = Multimodo de Salto de Índice (MM), b = Monomodo (SM), c = Multimodo de Índice Gradual (MM)", "correct": false}
-        ]
-        },
-        {
-        "id": 76,
-        "type": "single",
-        "question": "Indique cuál de los siguientes conectores es usado en cableado estructurado para armar la toma de red del área de trabajo:",
-        "options": [
-            {"id": "a", "text": "LC", "correct": false},
-            {"id": "b", "text": "RJ 36", "correct": false},
-            {"id": "c", "text": "Plug RJ 45", "correct": false},
-            {"id": "d", "text": "ST", "correct": false},
-            {"id": "e", "text": "BNC", "correct": false},
-            {"id": "f", "text": "Jack RJ 45", "correct": true},
-            {"id": "g", "text": "SC", "correct": false},
-            {"id": "h", "text": "FC", "correct": false}
-        ]
-        },
-        {
-        "id": 77,
-        "type": "multiple",
-        "question": "Indique cuáles de los siguientes son subsistemas componentes del cableado estructurado según la norma ANSI/EIA/TIA 568:",
-        "options": [
-            {"id": "a", "text": "Subsistema de interconexión (backbone)", "correct": true},
-            {"id": "b", "text": "Equipo certificador de enlace permanente", "correct": false},
-            {"id": "c", "text": "Toma de telecomunicaciones", "correct": false},
-            {"id": "d", "text": "Cuarto de equipos", "correct": true},
-            {"id": "e", "text": "Armario de Telecomunicaciones (Telecommunication room)", "correct": true},
-            {"id": "f", "text": "Switch", "correct": false},
-            {"id": "g", "text": "Canaletas de guiado", "correct": false},
-            {"id": "h", "text": "Subsistema horizontal (o secundario)", "correct": true},
-            {"id": "i", "text": "Equipo terminal de usuario", "correct": false},
-            {"id": "j", "text": "Area de trabajo", "correct": true}
-        ]
-        },
-        {
-        "id": 78,
-        "type": "single",
-        "question": "¿Cómo se denomina el subsistema donde se conecta el acceso del proveedor de conectividad a Internet (o telefonía)?",
-        "options": [
-            {"id": "a", "text": "Cruzada telefónica", "correct": false},
-            {"id": "b", "text": "Facilidad de Entrada", "correct": true},
-            {"id": "c", "text": "Armario de telecomunicaciones", "correct": false},
-            {"id": "d", "text": "Area de Acceso", "correct": false},
-            {"id": "e", "text": "Subsistema troncal (backbone)", "correct": false}
-        ]
-        },
-        {
-        "id": 79,
-        "type": "single",
-        "question": "La dispersión cromática de la FO depende de:",
-        "options": [
-            {"id": "a", "text": "La regularidad de las distancias interatómicas en el núcleo de la FO", "correct": false},
-            {"id": "b", "text": "Ninguna respuesta es correcta", "correct": false},
-            {"id": "c", "text": "La longitud de la FO", "correct": false},
-            {"id": "d", "text": "La variación de las características isotrópicas del núcleo de la FO", "correct": false},
-            {"id": "e", "text": "La falta de homogeneidad en la FO y CEO emisores", "correct": true}
-        ]
-        },
-        {
-        "id": 80,
-        "type": "tf",
-        "question": "Si necesito implementar un sistema de comunicaciones de gran ancho de banda y que posea estabilidad en la tasa de bits de funcionamiento, preferiré instalar una red con cableado estructurado, en lugar de una red inalámbrica",
-        "options": [
-            {"id": "a", "text": "Falso", "correct": false},
-            {"id": "b", "text": "Verdadero", "correct": true}
-        ]
-        },
-        {
-        "id": 81,
-        "type": "tf",
-        "question": "La tecnología Bluetooth se clasifica en: Version (determina la potencia del transmisor) y Clase (determina la velocidad de transferencia de datos). Y opera en los rangoes de frecuencia de 2.4GHz y 5GHz",
-        "options": [
-            {"id": "a", "text": "Verdadero", "correct": false},
-            {"id": "b", "text": "Falso", "correct": true}
-        ]
-        },
-        {
-        "id": 82,
-        "type": "tf",
-        "question": "Las señales de radiocomunicaciones se propagan por cualquier medio, incluso en el vacío",
-        "options": [
-            {"id": "a", "text": "Falso", "correct": false},
-            {"id": "b", "text": "Verdadero", "correct": true}
-        ]
-        },
-        {
-        "id": 83,
-        "type": "single",
-        "question": "¿A que se denomina cableado horizontal?",
-        "options": [
-            {"id": "a", "text": "Se denomina al cableado que une diferentes edificios de un Campus", "correct": false},
-            {"id": "b", "text": "Se denomina al conjunto de cables y conectores que van desde el armario de comunicaciones (AC), hasta las rosetas del puesto de trabajo", "correct": true},
-            {"id": "c", "text": "Se denomina al BackBone de fibra optica que coencta diferentes pisos de un edificio", "correct": false}
-        ]
-        },
-        {
-        "id": 84,
-        "type": "single",
-        "question": "¿Cual es la longitud maxima de un cable de categoría 5e que se puede utilizar?",
-        "options": [
-            {"id": "a", "text": "95 metros", "correct": false},
-            {"id": "b", "text": "80 metros", "correct": false},
-            {"id": "c", "text": "100 metros", "correct": true},
-            {"id": "d", "text": "71 metros", "correct": false}
-        ]
-        },
-        {
-        "id": 85,
-        "type": "multiple",
-        "question": "¿Cuál de las siguientes normas de cableado estructurado para telecomunicaciones multipropósito?",
-        "options": [
-            {"id": "a", "text": "ISO/IEC 11801", "correct": true},
-            {"id": "b", "text": "IEEE 802.3", "correct": false},
-            {"id": "c", "text": "ANSI/EIA/TIA 568", "correct": true},
-            {"id": "d", "text": "IRAM 569", "correct": false},
-            {"id": "e", "text": "ISO", "correct": false},
-            {"id": "f", "text": "IEEE 802.1", "correct": false}
-        ]
-        },
-        {
-        "id": 86,
-        "type": "tf",
-        "question": "La eficiencia de la tecnología inalámbrica NFC radice en poseer una muy alta velocidad de transferencia de datos a corta distancia.",
-        "options": [
-            {"id": "a", "text": "Falso", "correct": true},
-            {"id": "b", "text": "Verdadero", "correct": false}
-        ]
-        },
-        {
-        "id": 87,
-        "type": "multiple",
-        "question": "En una FO la ley de snell nos permite encontrar:",
-        "options": [
-            {"id": "a", "text": "Su reflexión total interna", "correct": true},
-            {"id": "b", "text": "El ángulo de acoplamiento entre el foco-conversor y la FO", "correct": false},
-            {"id": "c", "text": "Ninguna es correcta", "correct": false},
-            {"id": "d", "text": "el ángulo de acoplamiento entre 2 FO", "correct": false},
-            {"id": "e", "text": "Su ángulo de aceptación", "correct": true},
-            {"id": "f", "text": "Su apertura numérica", "correct": true}
-        ]
-        },
-        {
-        "id": 88,
-        "type": "multiple",
-        "question": "¿Cuáles de estas organizaciones tienen funciones de normalización en Internet?",
-        "options": [
-            {"id": "a", "text": "FIFA", "correct": false},
-            {"id": "b", "text": "ENACOM", "correct": false},
-            {"id": "c", "text": "IEEE", "correct": false},
-            {"id": "d", "text": "AFA", "correct": false},
-            {"id": "e", "text": "IETF", "correct": true},
-            {"id": "f", "text": "Microsoft", "correct": false},
-            {"id": "g", "text": "ITU", "correct": false},
-            {"id": "h", "text": "IANA", "correct": true}
-        ]
-        },
-        {
-        "id": 89,
-        "type": "single",
-        "question": "Si necesito armar un cable de conexión (patch cord), deberé utilizar como herramienta:",
-        "options": [
-            {"id": "a", "text": "Un probador de cables", "correct": false},
-            {"id": "b", "text": "Un OTDR", "correct": false},
-            {"id": "c", "text": "Un destornillador", "correct": false},
-            {"id": "d", "text": "Un certificador de cableado", "correct": false},
-            {"id": "e", "text": "Una pinza crimpeadora", "correct": true},
-            {"id": "f", "text": "Un pinza 'pico de loro'", "correct": false},
-            {"id": "g", "text": "Una herramienta de impacto", "correct": false},
-            {"id": "h", "text": "Una empalmadora por fusión", "correct": false}
-        ]
-        },
-        {
-        "id": 90,
-        "type": "single",
-        "question": "El 5G mejorará la conectividad y [__] y [__] considerablemente el tiempo de latencia. Seleccione la combinación correcta:",
-        "options": [
-          {"id": "a", "text": "[\"Cobertura\", \"Reducirá\"]", "correct": false},
-          {"id": "b", "text": "[\"Reducirá\", \"Cobertura\"]", "correct": false},
-          {"id": "c", "text": "[\"Ancho de Banda\", \"Aumentará\"]", "correct": false},
-          {"id": "d", "text": "[\"Capacidad\", \"Reducirá\"]", "correct": false},
-          {"id": "e", "text": "[\"Ancho de banda\", \"Reducirá\"]", "correct": true}
-        ]
-        },
-        {
-        "id": 91,
-        "type": "text",
-        "question": "¿Cuál es la longitud máxima que puede tener el enlace permanente? (Responde solo con números, sin unidades.)",
-        "correctAnswer": ["90"],
-        "numericAnswer": 90,
-        "tolerance": 0,
-        "toleranceUnit": "metros"
-        },
-        {
-        "id": 92,
-        "type": "single",
-        "question": "¿Cuál fue la generación de telecomunicaciones móviles que permitió el acceso a internet desde los terminales de telefonía?",
-        "options": [
-            {"id": "a", "text": "1 G", "correct": false},
-            {"id": "b", "text": "GSM", "correct": false},
-            {"id": "c", "text": "3 G", "correct": true},
-            {"id": "d", "text": "2 G", "correct": false},
-            {"id": "e", "text": "AMPS", "correct": false}
-        ]
-        },
-        {
-        "id": 93,
-        "type": "multiple",
-        "question": "Las ventanas de transmisión para una FO dependen de:",
-        "options": [
-            {"id": "a", "text": "La relación entre los índices de refracción del núcleo y del recubrimiento", "correct": false},
-            {"id": "b", "text": "La frecuencia de la señal a transmitir", "correct": true},
-            {"id": "c", "text": "Ninguna respuesta es correcta", "correct": false},
-            {"id": "d", "text": "El dopado del núcleo de la FO", "correct": true}
-        ]
-        },
-        {
-        "id": 94,
-        "type": "single",
-        "question": "Si tuviera que enviar una señal eléctrica de mucha potencia por un conductor (por ejemplo para alimentar una antena de un transmisor de radiocomunicaciones), elegiría un conductor:",
-        "options": [
-            {"id": "a", "text": "Par telefónico", "correct": false},
-            {"id": "b", "text": "Wireless", "correct": false},
-            {"id": "c", "text": "Fibra óptica monomado", "correct": false},
-            {"id": "d", "text": "Coaxil", "correct": true},
-            {"id": "e", "text": "UTP", "correct": false}
-        ]
-        },
-        {
-        "id": 95,
-        "type": "tf",
-        "question": "La tecnología Wimax de acceso móvil, bajo el estandar IEEE802.16.e se utiliza en enlaces del tipo LOS.",
-        "options": [
-            {"id": "a", "text": "Verdadero", "correct": false},
-            {"id": "b", "text": "Falso", "correct": true}
-        ]
-        },
-        {
-        "id": 96,
-        "type": "multiple",
-        "question": "Cuales son los dos tipos de espectro ensanchado",
-        "options": [
-            {"id": "a", "text": "TDMA", "correct": false},
-            {"id": "b", "text": "DSSS", "correct": true},
-            {"id": "c", "text": "FHSS", "correct": true},
-            {"id": "d", "text": "OFDMA", "correct": false},
-            {"id": "e", "text": "ODSS", "correct": false}
-        ]
-        },
-        {
-        "id": 97,
-        "type": "multiple",
-        "question": "En una fibra óptica la ley de Snell nos permite:",
-        "options": [
-            {"id": "a", "text": "e. Encontrar el número de modos de propagación de una FO", "correct": true},
-            {"id": "b", "text": "c. Ninguna correcta", "correct": false},
-            {"id": "c", "text": "d. Definir las ventanas de transmisión para una FO", "correct": false},
-            {"id": "d", "text": "a. Encontrar las razones por la cual la luz es absorbida por el núcleo de la FO", "correct": false},
-            {"id": "e", "text": "b. Calcular las condiciones de trabajo para no perder luz por el recubrimiento", "correct": true}
-        ]
-        },
-        {
-        "id": 98,
-        "type": "multiple",
-        "question": "La dispersión cromática de la FO depende de:",
-        "options": [
-            {"id": "a", "text": "Ninguna es correcta", "correct": false},
-            {"id": "b", "text": "La falta de homogeneidad en la FO y CEO emisores", "correct": false},
-            {"id": "c", "text": "La longitud de la FO", "correct": false},
-            {"id": "d", "text": "La variación de las características isotrópicas del núcleo de la FO", "correct": true},
-            {"id": "e", "text": "La regularidad de las distancias interatómicas en el núcleo de la FO", "correct": true}
-        ]
-        },
-        {
-        "id": 99,
-        "type": "single",
-        "question": "Identifique tipo de cable:",
-        "image": "99T.png",
-        "options": [
-            {"id": "a", "text": "STP, Multipar telefónico,Coaxial", "correct": false},
-            {"id": "b", "text": "FTP, UTP,CTP", "correct": false},
-            {"id": "c", "text": "UTP, FTP, STP", "correct": true}
-        ]
-        },
-        {
-        "id": 100,
-        "type": "tf",
-        "question": "Se puede considerar al ALOHA ranurado como un tipo de TDM",
-        "options": [
-            {"id": "a", "text": "Falso", "correct": true},
-            {"id": "b", "text": "Verdadero", "correct": false}
-        ]
-        },
-        {
-        "id": 101,
-        "type": "single",
-        "question": "Las ventanas de transmisión para una FO dependen de sus características, definidas por:",
-        "options": [
-            {"id": "a", "text": "Ninguna respuesta es correcta", "correct": true},
-            {"id": "b", "text": "El fenomeno de absorción de la luz en el recubrimiento de la FO", "correct": false},
-            {"id": "c", "text": "El dopado del recubrimiento de la FO", "correct": false},
-            {"id": "d", "text": "La presencia de impurezas en en el recubrimiento de la FO", "correct": false}
-        ]
-        },
-        {
-        "id": 102,
-        "type": "tf",
-        "question": "El uso del conector tipo C es obligatorio a partir de la tecnología USB 3,2",
-        "options": [
-            {"id": "a", "text": "Falso", "correct": false},
-            {"id": "b", "text": "Verdadero", "correct": true}
-        ]
-        },
-        {
-        "id": 103,
-        "type": "multiple",
-        "question": "¿Cuáles de los siguientes métodos de acceso múltiple son empleados por los actuales sistemas de telefonía celular móvil 3G y 4G?",
-        "options": [
-            {"id": "a", "text": "CDMA", "correct": true},
-            {"id": "b", "text": "FDMA", "correct": true},
-            {"id": "c", "text": "TDMA", "correct": true},
-            {"id": "d", "text": "5 G", "correct": false},
-            {"id": "e", "text": "DAMA", "correct": false}
-        ]
-        },
-        {
-        "id": 104,
-        "type": "multiple",
-        "question": "El ruido que puede afectar la propagación de las ondas electromagnética puede ser producido por:",
-        "options": [
-            {"id": "a", "text": "Ruido producto del golpeteo de herramientas", "correct": false},
-            {"id": "b", "text": "Radiación solar (ruido provocado por las explosiones solares)", "correct": true},
-            {"id": "c", "text": "arranque y parada de motores eléctricos", "correct": true},
-            {"id": "d", "text": "Humedad del ambiente", "correct": false},
-            {"id": "e", "text": "Ruido de instrumentos musicales", "correct": false},
-            {"id": "f", "text": "Emisiones electromagnéticas provenientes del espacio", "correct": true},
-            {"id": "g", "text": "Ruidos de automóviles en la calle", "correct": false}
-        ]
-        },
-        {
-        "id": 105,
-        "type": "tf",
-        "question": "La relación Señal a Ruido de cuantificación mejora con el aumento de los niveles de cuantificación",
-        "options": [
-            {"id": "a", "text": "Verdadero", "correct": true},
-            {"id": "b", "text": "Falso", "correct": false}
-        ]
-        },
-        {
-        "id": 106,
-        "type": "tf",
-        "question": "La categoría de mayor ancho de banda utilizada hoy en día en instalaciones de cableado estructurado, es la categoría 1",
-        "options": [
-            {"id": "a", "text": "Falso", "correct": true},
-            {"id": "b", "text": "Verdadero", "correct": false}
-        ]
-        },
-        {
-        "id": 107,
-        "type": "single",
-        "question": "Si armamos un cable crossover, los pines 1y 2 de una de las puntas se conectaran a:",
-        "options": [
-            {"id": "a", "text": "Los pines 3 y 6 de la otra", "correct": true},
-            {"id": "b", "text": "Los pines 2 y 7 de la otra", "correct": false},
-            {"id": "c", "text": "Los pines 6 y 8 de la otra", "correct": false},
-            {"id": "d", "text": "Los pines 1 y 8 de la otra", "correct": false},
-            {"id": "e", "text": "Los pines 4 y 5 de la otra", "correct": false},
-            {"id": "f", "text": "Los pines 7 y 8 de la otra", "correct": false}
-        ]
-        },
-        ]
-        };
-
-    const quizDataPractico = 
-        {
-        "title": "Quiz Práctico",
-        "questions": [
-        {
-        "id": 1,
-        "type": "single",
-        "question": "Se necesita realizar una transferencia de datos desde un DTE hacia un DCE a través del interface RS232. ¿Cuál sería el conexionado mínimo necesario que garantice dicha transferencia?",
-        "options": [
-            {"id": "a", "text": "Tx > Rx / GND <> GND", "correct": false},
-            {"id": "b", "text": "TX > Tx / Rx < Rx / GND <> GND / SHIELD - SHIELD", "correct": false},
-            {"id": "c", "text": "Tx > Tx / GND <> GND", "correct": true},
-            {"id": "d", "text": "Rx < Rx / GND <> GND / SHIELD - SHIELD", "correct": false}
-        ]
-        },
-        {
-        "id": 2,
-        "type": "single",
-        "question": "Se desea digitalizar una señal de audio con componentes espectrales no superiores a 16 KHz. Si se utiliza PCM uniforme y la señal varía entre +5V y -5 V. ¿cuál será el máximo error de cuantización absoluto cometido en cada muestra, si las mismas se codifican mediante 8 bits? Determine el ancho de banda de la señal digitalizada en PCM. ¿Qué conclusiones obtiene?",
-        "options": [
-            {"id": "a", "text": "eqmax = 19.53V, B(PCM) = 128HZ", "correct": false},
-            {"id": "b", "text": "eqmax = 19.53mV, B(PCM) = 128HZ", "correct": false},
-            {"id": "c", "text": "eqmax = 19.53mV, B(PCM) = 128KHZ", "correct": true},
-            {"id": "d", "text": "eqmax = 19.53pV, B(PCM) = 128MHZ", "correct": false}
-        ]
-        },
-        {
-        "id": 3,
-        "type": "single",
-        "question": "Se suministra una potencia de 100W a una antena que radia la señal a punto distante a 20k en la dirección de maxima radiación. En dicho punto se mide la densidad de potencia recibida y es = 25,78 [nW/m2]. Determine la ganancia de la antena transmisora en dBi.",
-        "options": [
-            {"id": "a", "text": "2.15 dBi", "correct": false},
-            {"id": "b", "text": "22 dBi", "correct": false},
-            {"id": "c", "text": "16 dBi", "correct": false},
-            {"id": "d", "text": "12 dBi", "correct": false},
-            {"id": "e", "text": "1.14 dBi", "correct": true}
-        ]
-        },
-        {
-        "id": 4,
-        "type": "single",
-        "image": "4P.png",
-        "question": "Un radioenlace por línea de vista que opera a una frecuencia de 12000 MHz tiene una separación de 100 km entre antenas. Las antenas están instaladas en la parte superior de torres de 100 metros de altura, y ambas poseen una ganancia de 28dB. El transmisor tiene una potencia de salida de 30 dBm. Determine el máximo espacio libre que debe existir entre la línea de vista y un obstáculo, tomando en cuenta que el mismo se encuentra a 30 Km de la antena de transmisión.",
-        "options": [
-            {"id": "a", "text": "0.43 m", "correct": false},
-            {"id": "b", "text": "72 m", "correct": false},
-            {"id": "c", "text": "13.74 m", "correct": true},
-            {"id": "d", "text": "0.72 m", "correct": false},
-            {"id": "e", "text": "42 m", "correct": false},
-            {"id": "f", "text": "172 m", "correct": false},
-            {"id": "g", "text": "22.91m", "correct": false}
-        ]
-        },
-        {
-        "id": 5,
-        "type": "multiple",
-        "question": "Realice el presupuesto de enlace para un transmisor y un receptor que operan a una frecuencia de 12 GHz, y están separados por 100 km. El transmisor tiene una potencia de salida de 1W, la antena transmisora tiene una ganancia de 28 dBi y la receptora de 20 dBi. Ambas antenas se encuentran ubicadas en torres de 100 m de altura. La linea de transmisión tiene una longitud de 10 m. y la de recepción de 20 m (el cable que se utilizó en ambos casos tiene una atenuación de 0.3 dB/m). Los conectores de las líneas de transmisión tienen cada uno 0.5 dB de atenuación.\n\na) Determine cuál deberá ser la sensibilidad del receptor para que le permita operar en cualquier condición climática.\nb) Determine el PIRE/EIRP (Potencia Isotrópica Radiada Efectiva)",
-        "options": [
-        { "id": "a", "text": "PIRE/EIRP = 50 dBm", "correct": false },
-        { "id": "b", "text": "Sensibilidad del Receptor = 97 dBm", "correct": false },
-        { "id": "c", "text": "Sensibilidad del Receptor = 37 dBm", "correct": false },
-        { "id": "d", "text": "PIRE/EIRP = -50 dBm", "correct": false },
-        { "id": "e", "text": "PIRE/EIRP = 30 dBm", "correct": false },
-        { "id": "f", "text": "Sensibilidad del Receptor = - 107 dBm", "correct": true },
-        { "id": "g", "text": "Sensibilidad del Receptor = - 87 dBm", "correct": false },
-        { "id": "h", "text": "Sensibilidad del Receptor = 107 dBm", "correct": false },
-        { "id": "i", "text": "PIRE/EIRP = 54 dBm", "correct": true },
-        ]
-        },
-        {
-        "id": 6,
-        "type": "single",
-        "question": "La torre de comunicaciones más alta de todo el planeta se encuentra en Tokio (Tokyo Sky Tree) tiene una altura de 534 metros. Determine el máximo alcance de radio que posee con una antena ubicada en la parte superior de un edificio de 100 pisos, con una altura promedio por piso de 2,5 metros.",
-        "image": "7P.png",
-        "options": [
-            {"id": "a", "text": "168.1 Kilometros cuadrados", "correct": false},
-            {"id": "b", "text": "168.1 Kilometros", "correct": true},
-            {"id": "c", "text": "146.30 Kilometros cuadrados", "correct": false},
-            {"id": "d", "text": "146.30 Kilometros", "correct": false}
-        ]
-        },
-        {
-        "id": 7,
-        "type": "single",
-        "question": "Se suministra una potencia de 25 dBm a una antena parabólica con una ganancia de 25 dBi. Calcule la densidad de potencia que produce en un punto distante a 1 km, en la dirección de máxima radiación.",
-        "options": [
-            {"id": "a", "text": "7,96 [microW/m2]", "correct": true},
-            {"id": "b", "text": "7,96 [nW/m2]", "correct": false},
-            {"id": "c", "text": "796 [microW/m2]", "correct": false},
-            {"id": "d", "text": "100 [nW/m2]", "correct": false},
-            {"id": "e", "text": "796 [microW/m]", "correct": false}
-        ]
-        },
-        {
-        "id": 8,
-        "type": "multiple",
-        "question": "Realice el presupuesto de enlace para un transmisor y un receptor que operan a una frecuencia de 6 GHz y están separados por 40 km. El transmisor tiene una potencia de salida de 2W, la antena transmisora tiene una ganancia de 20 dBi y la receptora de 25 dBi. Ambas antenas se encuentran ubicadas en torres de 100m de altura. a) Determine cual debera ser la sensibilidad del receptor para que le permita operar en cualquier condicion climatica. b) Determine el PIRE/EIRP (Potencia Isotrópica Radiada Efectiva).",
-        "options": [
-        { "id": "a", "text": "PIRE/EIRP = 53 dBm", "correct": false },
-        { "id": "b", "text": "PIRE/EIRP = 24 dBm", "correct": true },
-        { "id": "c", "text": "Sensibilidad del Receptor = 107 dBm", "correct": false },
-        { "id": "d", "text": "Sensibilidad del Receptor = 82 dBm", "correct": false },
-        { "id": "e", "text": "PIRE/EIRP = - 33 dBm", "correct": false },
-        { "id": "f", "text": "Sensibilidad del Receptor = 42 dBm", "correct": false },
-        { "id": "g", "text": "PIRE/EIRP = -53 dBm", "correct": false },
-        { "id": "h", "text": "Sensibilidad del Receptor = - 82 dBm", "correct": false },
-        { "id": "i", "text": "Sensibilidad del Receptor = -167 dBm", "correct": true },
-        ]
-        },
-        {
-        "id": 9,
-        "type": "text",
-        "question": "Si debo armar 15 cables de conexión (patch cord) para un Laboratorio de informática; ¿cuántos conectores RJ45 necesitaré comprar (al menos)?",
-        "correctAnswer": ["30"]
-        },
-        {
-        "id": 10,
-        "type": "text",
-        "question": "La forma en que se indica el tamaño de un conductor de comunicaciones es utilizando la nomenclatura AWG. Indique cuál es el número con el que se expresa el grosor de un cable UTP utilizado en cableado estructurado que responda a la categoría 5.",
-        "correctAnswer": ["24"]
-        },
-        {
-        "id": 11,
-        "type": "single",
-        "question": "En la siguiente figura, indique cuantas celdas constituyen un cluster:",
-        "image": "11P.png",
-        "options": [
-            {"id": "a", "text": "9", "correct": false},
-            {"id": "b", "text": "6", "correct": false},
-            {"id": "c", "text": "7", "correct": true}
-        ]
-        },
-        {
-        "id": 12,
-        "type": "text",
-        "question": "La forma en que se indica el tamaño de un conductor de comunicaciones es utilizando la nomenclatura AWG. Indique cuál es el número con el que se expresa el grosor de un cable UTP utilizado en cableado estructurado que responda a la categoría 6A, 7 y 8.",
-        "correctAnswer": ["23"]
-        },
-        {
-        "id": 13,
-        "type": "single",
-        "image": "13P.png",
-        "question": " Se necesita realizar una transferencia de datos desde un DCE hacia un DTE a través del interface RS232",
-        "options": [
-            {"id": "a", "text": "Opción 1", "correct": false},
-            {"id": "b", "text": "Opción 2", "correct": false},
-            {"id": "c", "text": "Opción 3", "correct": false},
-            {"id": "d", "text": "Opción 4", "correct": true}
-        ]
-        },
-        {
-        "id": 14,
-        "type": "single",
-        "image": "14P.png",
-        "question": "Se necesita realizar una transferencia de datos desde un DTE hacia un DCE a través del interface RS232. ¿Cual seria el conexionado mínimo necesario que garantice dicha transferencia?",
-        "options": [
-            {"id": "a", "text": "Opción 1", "correct": false},
-            {"id": "b", "text": "Opción 2", "correct": false},
-            {"id": "c", "text": "Opción 3", "correct": true},
-            {"id": "d", "text": "Opción 4", "correct": false}
-        ]
-        },
-        {
-        "id": 15,
-        "type": "single",
-        "image": "15P.png",
-        "question": "Se necesita realizar una transferencia de datos entre un DTE y un DCE a través del interface RS232. ¿Cual sera el conexionado minimo necesario para realizarlo que garantice dicha transferencia?",
-        "options": [
-            {"id": "a", "text": "Opción 1", "correct": false},
-            {"id": "b", "text": "Opción 2", "correct": true},
-            {"id": "c", "text": "Opción 3", "correct": false},
-            {"id": "d", "text": "Opción 4", "correct": false}
-        ]
-        },
-        {
-        "id": 16,
-        "type": "single",
-        "question": "Se necesita realizar una transferencia de datos desde un DTE1 hacia un DTE2 a traves del interace RS232. ¿Cual sera el conexionado mínimo necesario que garantice dicha transferencia?",
-        "image": "16P.png",
-        "options": [
-            {"id": "a", "text": "Opción 1", "correct": true},
-            {"id": "b", "text": "Opción 2", "correct": false},
-            {"id": "c", "text": "Opción 3", "correct": false},
-            {"id": "d", "text": "Opción 4", "correct": false}
-        ]
-        },
-        {
-        "id": 17,
-        "type": "single",
-        "question": "Se necesita realizar una transferencia de datos desde un DTE2 hacia un DTE1 a través del interface RS232. ¿Cuál sería el conexionado mínimo necesario que garantice dicha transferencia?",
-        "image": "17P.png",
-        "options": [
-            {"id": "a", "text": "Opción 1", "correct": true},
-            {"id": "b", "text": "Opción 2", "correct": false},
-            {"id": "c", "text": "Opción 3", "correct": false},
-            {"id": "d", "text": "Opción 4", "correct": false}
-        ]
-        },
-        {
-        "id": 18,
-        "type": "single",
-        "question": "Se necesita realizar una transferencia de datos entre un DTE1 y un DTE2 a traves del interface RS232. ¿Cual sera el conexionado minimo necesario que garantice dicha transferencia?",
-        "image": "18P.png",
-        "options": [
-            {"id": "a", "text": "Opción 1", "correct": true},
-            {"id": "b", "text": "Opción 2", "correct": false},
-            {"id": "c", "text": "Opción 3", "correct": false},
-            {"id": "d", "text": "Opción 4", "correct": false}
-        ]
-        },
-        {
-          "id": 19,
-          "type": "single",
-          "question": " Se necesita realizar una transferencia de datos desde un DTE hacia un  DCE a través del interface RS232. Verificando previamente si el DCE se encuentra encendido. ¿Cuál sería el conexionado mínimo necesario que garantice dicha transferencia?",
-          "image": "19P.png",
-          "options": [
-              {"id": "a", "text": "Opción 1", "correct": false},
-              {"id": "b", "text": "Opción 2", "correct": true},
-              {"id": "c", "text": "Opción 3", "correct": false},
-              {"id": "d", "text": "Opción 4", "correct": false}
-          ]
-        },
-        {
-          "id": 20,
-          "type": "single",
-          "question": " Se necesita realizar una transferencia de datos desde un DCE hacia un DTE a través del interface RS232. Verificando previamente si el DTE se encuentra encendido. ¿Cuál sería el conexionado minimo necesario que garantice dicha transferencia?",
-          "image": "20P.png",
-          "options": [
-              {"id": "a", "text": "Opción 1", "correct": true},
-              {"id": "b", "text": "Opción 2", "correct": false},
-              {"id": "c", "text": "Opción 3", "correct": false},
-              {"id": "d", "text": "Opción 4", "correct": false}
-          ]
-        },
-        {
-          "id": 21,
-          "type":"single" ,
-          "question":  " Se necesita realizar una transferencia de datos entre un DTE y un DCE a través del interface RS232. Verificando previamente si el DCE seencuentra encendido.¿Cuál seria el conexionado minimo necesario que garantice dicha transferencia?",
-          "image": "21P.png",
-          "options":
-          [
-              {"id": "a", "text": "Opción 1", "correct": true},
-              {"id": "b", "text": "Opción 2", "correct": false},
-              {"id": "c", "text": "Opción 3", "correct": false},
-              {"id": "d", "text": "Opción 4", "correct": false}
-          ]
-        },
-        {
-          "id": 22,
-          "type": "single", 
-          "question": " Se necesita realizar una transferencia de datos desde un DCE hacia un DTE a través del interface R5232. Verificando previamente si el DCE se encuentra encendido y listo para recibir datos.  ¿Cuál sería el conexionado mínimo necesario que garantice dicha transferencia?",
-          "image": "22P.png",
-          "options": [
-              {"id": "a", "text": "Opción 1", "correct": true},
-              {"id": "b", "text": "Opción 2", "correct": false},
-              {"id": "c", "text": "Opción 3", "correct": false},
-              {"id": "d", "text": "Opción 4", "correct": false}
-          ]
-        },
-        {
-        "id": 23,
-        "type": "single",
-        "question": "Interface de Tiempo IEEE 1284 en modo SPP que representa la primera transferencia, de un caracter, a una impresora en forma correcta. ¿Cuál de los siguientes gráficos es el correcto?",
-        "image": "23P.png",
-        "options": [
-            {"id": "a", "text": "Opción 1", "correct": true},
-            {"id": "b", "text": "Opción 2", "correct": false},
-            {"id": "c", "text": "Opción 3", "correct": false}
-        ]
-        },
-        {
-        "id": 24,
-        "type": "single",
-        "question": "De acuerdo a lo establecido en cuanto a las secuencias de las señales para sincronizar una transferencia de datos entre una computadora y el periférico, en caso de que dicho dispositivo sea una IMPRESORA, ¿cual sería el orden correcto de estas señales en el dominio del tiempo?",
-        "options": [
-            {"id": "a", "text": "SELECT - INIT - DATA - STROBE NEGADO - BUSY - ACK NEGADO", "correct": true},
-            {"id": "b", "text": "SELECT - INIT - DATA- BUSY - STROBE NEGADO - ACK NEGADO", "correct": false},
-            {"id": "c", "text": "SELECT - DATA - INIT- BUSY - STROBE NEGADO - ACK NEGADO", "correct": false},
-            {"id": "d", "text": "SELECT - DATA - INIT- BUSY - ACK NEGADO - STROBE NEGADO", "correct": false}
-        ]
-        },
-        {
-        "id": 25,
-        "type": "single",
-        "question": "¿Que líneas se utilizan para verificar si el dispositivo esta listo para recibir datos?",
-        "options": [
-            {"id": "a", "text": "20 y 6", "correct": true},
-            {"id": "b", "text": "16 y 3", "correct": false},
-            {"id": "c", "text": "5 y 4", "correct": false},
-            {"id": "d", "text": "2 y 14", "correct": false}
-        ]
-        },
-        {
-        "id": 26,
-        "type": "single",
-        "question": "¿Qué líneas se utilizan para verificar si el dispositivo esta encendido?",
-        "options": [
-            {"id": "a", "text": "2 y 14", "correct": false},
-            {"id": "b", "text": "4 y 5", "correct": true},
-            {"id": "c", "text": "20 y 6", "correct": false},
-            {"id": "d", "text": "3 y 16", "correct": false}
-        ]
-        },
-        {
-        "id": 27,
-        "type": "single",
-        "question": "Un sistema de comunicación opera con un transmisor y un receptor a una frecuencia de 2.4 GHz y una distancia de 70 km. El transmisor tiene una potencia de salida de 31.62 mW, la antena transmisora con una ganancia de 25 dBi se encuentra instalada en la parte superior de una torre de 70 metros de altura y a una distancia del transmisor de 30 metros. La antena receptora, con una ganancia de 25 dBi, está instalada en la parte superior de una torre de 90 metros de altura y a una distancia de 10 metros del receptor. El cable coaxial que interconecta las antenas con sus respectivos equipos posee una atenuación de 0.029 dB/m y los conectores utilizados tienen una atenuación de 0.05 dB.\n\na) Calcule la potencia entregada al receptor en dBm.\nb) Calcule el margen de desvanecimiento del sistema, considerando que el receptor tiene una sensibilidad de -90 dBm.\nc) Determine si el sistema es operativo dentro de las condiciones que se establecen como estándar.",
-        "options": [
-        {"id": "a",
-        "text": "Opción 1: Resuelto y es la respuesta correcta.",
-        "correct": true},
-        ]
-        }
-        ]
-        };
-
-    const parcialQuestionIds = [17, 23, 29, 30, 31, 34, 42, 54, 59, 62, 72, 79, 93, 98, 99, 101];
-    const parcialSourceOverrides = { 23: 'practico' };
-
-    const quizDataParcial = {
-      title: 'Quiz Parcial',
-      questions: parcialQuestionIds.map(id => {
-        let source = null;
-        const preferredSource = parcialSourceOverrides[id];
-
-        if(preferredSource === 'practico'){
-          source = quizDataPractico.questions.find(q => q.id === id);
-        } else if(preferredSource === 'teorico'){
-          source = quizDataTeorico.questions.find(q => q.id === id);
-        }
-
-        if(!source){
-          source = quizDataTeorico.questions.find(q => q.id === id) || quizDataPractico.questions.find(q => q.id === id);
-        }
-
-        if(!source){
-          console.warn(`Pregunta con id ${id} no encontrada para el quiz Parcial.`);
-          return null;
-        }
-
-        return JSON.parse(JSON.stringify(source));
-      }).filter(Boolean)
-    };
   </script>
 </body>
 </html>
+
