@@ -403,8 +403,8 @@
           "question": "En un mercado de competencia perfecta el productor o empresario busca ...",
           "options": [
             {"id": "a", "text": "Determinar cuánto y como producir en función de sus preferencias", "correct": false},
-            {"id": "b", "text": "Maximizar los beneficios maximizando su utilidad por unidad monetaria invertida", "correct": true},
-            {"id": "c", "text": "Minimizar costos y maximizar los beneficios recibidos", "correct": false},
+            {"id": "b", "text": "Maximizar los beneficios maximizando su utilidad por unidad monetaria invertida", "correct": false},
+            {"id": "c", "text": "Minimizar costos y maximizar los beneficios recibidos", "correct": true},
             {"id": "d", "text": "Maximizar su utilidad por unidad monetaria gastada", "correct": false}
           ]
         },
@@ -506,7 +506,7 @@
           "options": [
             {"id": "a", "text": "Igual al costo fijo independientemente de la cantidad producida.", "correct": false},
             {"id": "b", "text": "Por debajo del costo medio en cualquier nivel de producción.", "correct": false},
-            {"id": "c", "text": "Por encima del punto donde el Cme corta el Cmg.", "correct": false},
+            {"id": "c", "text": "Por encima del punto donde el Cme corta el Cmg.", "correct": true},
             {"id": "d", "text": "Siempre menor que el costo marginal en el punto de equilibrio.", "correct": false}
           ]
         },
@@ -527,9 +527,9 @@
           "question": "Sobre la Economía como ciencia se puede afirmar que...",
           "options": [
             {"id": "a", "text": "Se centra en el análisis de los costos marginales, los que se utilizan para elegir las necesidades del consumidor a satisfacer", "correct": false},
-            {"id": "b", "text": "Se ocupa de la asignación eficiente de la riqueza y se funda en el principio de escasez", "correct": false},
+            {"id": "b", "text": "Se ocupa de la asignación eficiente de la riqueza y se funda en el principio de escasez", "correct": true},
             {"id": "c", "text": "Se ocupa de establecer y aplicar sanciones para lograr conductas consideradas positivas para la sociedad", "correct": false},
-            {"id": "d", "text": "Se ocupa de determinar las necesidades a satisfacer con los recursos ilimitados a los que tienen acceso", "correct": true}
+            {"id": "d", "text": "Se ocupa de determinar las necesidades a satisfacer con los recursos ilimitados a los que tienen acceso", "correct": false}
           ]
         },
         {
@@ -806,8 +806,8 @@
           "type": "single",
           "question": "El óptimo de explotación se define como el punto en el cual el Cvme corta o se iguala al Costo marginal e indica un punto donde se encuentran cubiertos los costos de producción.",
           "options": [
-            {"id": "a", "text": "Verdadero", "correct": true},
-            {"id": "b", "text": "Falso", "correct": false}
+            {"id": "a", "text": "Verdadero", "correct": false},
+            {"id": "b", "text": "Falso", "correct": true}
           ]
         },
         {
@@ -837,8 +837,8 @@
           "type": "single",
           "question": "El efecto Renta es una de las razones de la pendiente de la curva de la demanda y nos indica que al aumentar el ingreso disponible del consumidor aumentará la cantidad demandada de un bien normal.",
           "options": [
-            {"id": "a", "text": "Verdadero", "correct": false},
-            {"id": "b", "text": "Falso", "correct": true}
+            {"id": "a", "text": "Verdadero", "correct": true},
+            {"id": "b", "text": "Falso", "correct": false}
           ]
         },
         {
@@ -846,8 +846,8 @@
           "type": "single",
           "question": "Al aumentar el precio de un bien sustituto aumenta la demanda del bien principal y viceversa",
           "options": [
-            {"id": "a", "text": "Verdadero", "correct": true},
-            {"id": "b", "text": "Falso", "correct": false}
+            {"id": "a", "text": "Verdadero", "correct": false},
+            {"id": "b", "text": "Falso", "correct": true}
           ]
         },
         {
@@ -1073,7 +1073,6 @@
         }
       ]
     };
-
     function initQuiz(){
       $('total').textContent = questions.length;
       $('quizTitleHeader').textContent = quizData.title || 'Índice';
