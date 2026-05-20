@@ -5,244 +5,190 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Preguntero Economía - Parcial 1</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
   <style>
     :root{
-      --bg:#160517;
-      --card:#1c0f24;
-      --muted:#9fb0d6;
-      --accent:#6366f1;
-      --accent-alt:#4f46e5;
-      --border:rgba(205, 99, 241, 0.1);
-      --accent-soft:rgba(191, 99, 241, 0.1);
+      --bg:#0f131a;
+      --surface:#161b22;
+      --surface-2:#1d2430;
+      --text:#e6edf3;
+      --muted:#9aa7b7;
+      --border:#2d3746;
+      --accent:#6f8cff;
+      --accent-soft:#25314f;
+      --success:#2d8a57;
+      --error:#b6464f;
+      --shadow-sm:0 1px 2px rgba(0,0,0,0.22);
+      --shadow-md:0 10px 28px rgba(0,0,0,0.3);
+      --radius-sm:10px;
+      --radius-md:14px;
     }
+
     *{box-sizing:border-box}
-    body{background:linear-gradient(180deg,#160517 0%,var(--bg) 100%);color:#e8eef8;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,'Helvetica Neue',Arial;min-height:100vh;margin:0;padding:0}
-    .container-quiz{max-width:1400px;margin:0 auto;padding:12px;width:100%;height:100vh;display:flex;flex-direction:column}
-    .card-quiz{background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));border:1px solid var(--border);border-radius:12px;padding:14px;height:calc(100vh - 24px);transition:.3s;display:flex;flex-direction:column;overflow:hidden}
-    .sidebar{min-width:120px}
-    .quiz-sidebar{display:flex;flex-direction:column;gap:16px;height:100%;overflow:hidden}
-    .sidebar-content{display:flex;flex-direction:column;flex:1;overflow:hidden}
-    
-    #indexList{display:grid;grid-template-columns:repeat(auto-fill,minmax(32px,1fr));grid-auto-rows:32px;gap:4px;flex:1;overflow-y:auto;overflow-x:hidden;padding:8px;align-items:start;justify-items:center;min-height:0;scrollbar-width:none;-ms-overflow-style:none}
-    #indexList::-webkit-scrollbar{display:none}
-    
-    .q-index-btn{width:100%;height:100%;border-radius:6px;padding:0;border:1px solid var(--border);background:transparent;color:var(--muted);font-size:.70rem;display:flex;align-items:center;justify-content:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;touch-action:manipulation;transition:all 0.2s ease}
-    .q-index-btn.active{box-shadow:0 6px 18px rgba(99,102,241,0.25);background:rgba(99,102,241,0.08);color:var(--accent);border-color:rgba(99,102,241,0.18)}
-    .q-index-btn.correct{background:rgba(34,197,94,0.08);color:#86efac;border-color:rgba(34,197,94,0.14)}
-    .q-index-btn.incorrect{background:rgba(239,68,68,0.06);color:#fca5a5;border-color:rgba(239,68,68,0.14)}
-    .q-index-btn:hover{transform:scale(1.05);border-color:var(--accent)}
-
-    /* Navegación rápida para muchas preguntas */
-    .index-navigation{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--border);margin-bottom:8px}
-    .index-page-info{font-size:0.75rem;color:var(--muted)}
-    .index-pagination{display:flex;gap:4px}
-    .page-btn{width:28px;height:28px;border-radius:4px;border:1px solid var(--border);background:transparent;color:var(--muted);font-size:0.7rem;display:flex;align-items:center;justify-content:center;cursor:pointer}
-    .page-btn.active{background:var(--accent-soft);color:var(--accent);border-color:var(--accent)}
-    .page-btn:hover{background:rgba(255,255,255,0.05)}
-
-    .question-title{font-weight:600;font-size:0.8rem}
-    .q-meta{color:var(--muted);font-size:.60rem}
-    .text-end{font-size: 0.30rem;}
-    .option{display:flex;align-items:center;gap:12px;padding:12px;border-radius:10px;border:1px solid var(--border);cursor:pointer;background:transparent;transition:.3s}
-    .option input{margin:0}
-    .option:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,0.55)}
-    .option.correct{border-color:rgba(34,197,94,0.6)!important;background:linear-gradient(90deg,rgba(34,197,94,0.25),rgba(34,197,94,0.15))!important;color:#86efac;box-shadow:0 4px 12px rgba(34,197,94,0.3)}
-    .option.incorrect{border-color:rgba(239,68,68,0.6)!important;background:linear-gradient(90deg,rgba(239,68,68,0.25),rgba(239,68,68,0.15))!important;color:#fca5a5;box-shadow:0 4px 12px rgba(239,68,68,0.3)}
-    .option .label-text{font-weight:600; font-size:0.8rem;}
-    .text-input-container{margin-top:16px}
-    .text-answer-input{width:100%;padding:12px 16px;border-radius:8px;border:2px solid var(--border);background:rgba(255,255,255,0.03);color:#e8eef8;font-size:1rem;transition:.3s;font-family:inherit}
-    .text-answer-input:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(99,102,241,0.12)}
-    .text-answer-input::placeholder{color:var(--muted)}
-    .text-answer-input.correct-input{border-color:rgba(34,197,94,0.6);background:rgba(34,197,94,0.08)}
-    .text-answer-input.incorrect-input{border-color:rgba(239,68,68,0.6);background:rgba(239,68,68,0.08)}
-    .image-options{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-top:16px}
-    .image-option{position:relative;cursor:pointer;border:3px solid var(--border);border-radius:10px;overflow:hidden;transition:.3s;background:rgba(0,0,0,0.2)}
-    .image-option:hover{transform:scale(1.03);box-shadow:0 8px 20px rgba(99,102,241,0.25);border-color:rgba(99,102,241,0.3)}
-    .image-option input[type=radio]{position:absolute;top:10px;right:10px;width:24px;height:24px;cursor:pointer;z-index:10}
-    .image-option img{width:100%;height:auto;display:block;min-height:120px;max-height:200px;object-fit:cover}
-    .image-option.selected{border-color:var(--accent);box-shadow:0 4px 16px rgba(99,102,241,0.25)}
-    .image-option.correct{border-color:rgba(34,197,94,0.7);box-shadow:0 4px 16px rgba(34,197,94,0.4)}
-    .image-option.incorrect{border-color:rgba(239,68,68,0.7);box-shadow:0 4px 16px rgba(239,68,68,0.4)}
-    .question-image{width:100%;height:auto;max-width:400px;max-height:240px;object-fit:contain;border:1px solid var(--border);border-radius:10px;margin:12px auto;background:rgba(0,0,0,0.12);display:block}
-    .question-image-large{max-width:640px;max-height:420px}
-
-    /* BOTONES DE TIPO: evitar overflow en móviles - label con ellipsis */
-    .quiz-type-btn{padding:10px 12px;border-radius:8px;border:1px solid var(--border);background:rgba(255,255,255,0.02);color:var(--muted);font-size:.85rem;font-weight:600;cursor:pointer;transition:.2s;display:flex;align-items:center;gap:8px;justify-content:flex-start;width:100%;position:relative;overflow:hidden}
-    .quiz-type-btn .emoji{font-size:1.1rem;flex:0 0 auto}
-    .quiz-type-btn .label{display:inline-block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:calc(100% - 40px)}
-    .quiz-type-btn:hover{transform:translateX(2px);box-shadow:0 4px 12px rgba(0,0,0,0.4);background:rgba(255,255,255,0.04);border-color:var(--accent)}
-    .quiz-type-btn.selected{background:linear-gradient(135deg,var(--accent-soft),rgba(79,70,229,0.08));border-color:var(--accent);color:var(--accent);box-shadow:0 3px 10px rgba(79,70,229,0.18)}
-
-    /* Ajustes para que el label muestre completo cuando el selector está centrado (pantalla inicial) */
-    .quiz-type-selector.center .quiz-type-btn .label{max-width:100%;white-space:normal}
-
-    /* Estilo para mostrar respuesta correcta */
-    .correct-answer-feedback {
-      margin-top: 10px;
-      padding: 10px;
-      background: rgba(34, 197, 94, 0.1);
-      border: 1px solid rgba(34, 197, 94, 0.3);
-      border-radius: 8px;
-      color: #86efac;
-      font-size: 0.9rem;
+    body{
+      margin:0;
+      min-height:100vh;
+      background:var(--bg);
+      color:var(--text);
+      font-family:"Inter","Source Sans 3",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
+      line-height:1.45;
     }
 
-    @media (max-width:767px){
-      .container-quiz{height:100vh;padding:8px}.card-quiz{height:calc(100vh - 16px);padding:10px}.main-layout{height:100%}.quiz-main-content{height:100%;display:flex;flex-direction:column}.question-image{max-height:220px;max-width:100%}.mobile-index-toggle{display:inline-flex!important}.mobile-summary-toggle{display:inline-flex!important}.sidebar-content{display:none!important}.keyboard-hint{display:none!important}.controls{flex-direction:column!important;gap:8px;align-items:stretch!important;margin-top:auto!important}
-
-      /* Botones de navegación en móvil: solo íconos grandes */
-      .controls{display:flex!important;flex-direction:column;gap:8px}
-      .controls .btn{min-width:unset;width:100%;padding:12px;margin:0;border-radius:8px;font-size:1.3rem}
-      .controls>div:first-child{display:flex;gap:6px;width:100%}
-      .controls>div:first-child .btn{flex:1;margin:0}
-      .controls .q-meta{text-align:center;order:-1;margin-bottom:6px}
-      
-      /* MEJORAS PARA EL ÍNDICE EN MÓVIL */
-      #indexList{grid-template-columns:repeat(auto-fill,minmax(30px,1fr));grid-auto-rows:30px;gap:3px}
-      .image-options{grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:8px}.image-option img{max-height:150px}.index-panel{margin:10px auto;max-height:calc(100vh - 60px);padding:10px}#indexListOverlay{max-height:calc(100vh - 140px);overflow-y:auto}
-
-      /* Ajustes específicos de tamaño en móviles para los botones de tipo */
-      .quiz-type-btn{padding:8px 10px;font-size:.95rem}
-      .quiz-type-btn .emoji{font-size:1rem}
-      .quiz-type-btn .label{max-width:calc(100% - 36px);white-space:normal}
-      .quiz-type-selector.center{padding:18px}
-      
-      /* Navegación en móvil para índice */
-      .index-navigation{padding:6px 0;margin-bottom:6px}
-      .index-page-info{font-size:0.7rem}
-      .page-btn{width:26px;height:26px;font-size:0.65rem}
-    }
-
-    @media (max-width:480px){.controls .btn{font-size:.8rem;padding:8px 10px}.card-quiz{padding:8px}.container-quiz{padding:6px}
-      /* en pantallas muy pequeñas reducimos aún más el texto dentro del botón si es necesario */
-      .quiz-type-btn{font-size:.9rem}
-      .quiz-type-btn .label{max-width:calc(100% - 34px);white-space:normal}
-      /* cuando el selector está centrado en pantallas pequeñas permitimos texto en varias líneas para mostrar la palabra completa */
-      .quiz-type-selector.center .quiz-type-btn .label{white-space:normal}
-      
-      /* MEJORAS PARA EL ÍNDICE EN PANTALLAS MUY PEQUEÑAS */
-      #indexList{grid-template-columns:repeat(auto-fill,minmax(28px,1fr));grid-auto-rows:28px;gap:2px}
-      .q-index-btn{font-size:0.65rem}
-      
-      /* Imagenes aún más pequeñas en pantallas muy pequeñas */
-      .question-image{max-height:170px}
-    }
-
-    .mobile-index-toggle,.mobile-summary-toggle{position:fixed;right:10px;z-index:1100;display:none;padding:6px 10px;border-radius:18px;font-size:.75rem;box-shadow:0 4px 12px rgba(0,0,0,0.6);background:var(--card);border:1px solid var(--border);color:var(--muted);cursor:pointer;white-space:nowrap;max-width:calc(100vw - 20px)}
-    .mobile-index-toggle{bottom:75px}
-    .mobile-summary-toggle{bottom:15px}
-    .index-overlay{position:fixed;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0.6),rgba(0,0,0,0.65));display:none;z-index:1200;padding:18px}
-    .index-overlay.open{display:block}
-    .index-panel{max-width:720px;margin:40px auto;background:var(--card);border:1px solid var(--border);padding:12px;border-radius:12px;max-height:80vh;overflow:hidden;display:flex;flex-direction:column}
-    #indexListOverlay{overflow-y:auto;flex:1;display:grid;grid-template-columns:repeat(auto-fill,minmax(40px,1fr));grid-auto-rows:40px;gap:4px;padding:8px;min-height:0;scrollbar-width:none;-ms-overflow-style:none}
-    #indexListOverlay::-webkit-scrollbar{display:none}
-    .controls .btn{min-width:70px;font-size:1.2rem;padding:10px 14px}
-    @media (min-width:768px){.controls{display:none!important}}
-    .status-line{color:var(--muted);font-size:.88rem}
-    .sidebar-bottom{margin-top:auto;padding-top:12px;flex-shrink:0}
-    .sidebar-nav-buttons{display:none;gap:4px;margin-top:8px}
-    .sidebar-nav-buttons .btn{flex:1;font-size:1.2rem;padding:10px 8px;min-width:0}
-    .sidebar-type-row{display:none;gap:4px;margin-bottom:8px}
-    .sidebar-type-row .btn{flex:1;font-size:1.1rem;padding:8px 6px;min-width:0}
-    @media (min-width:768px){.sidebar-nav-buttons{display:flex}.sidebar-type-row{display:flex}}
-    .summary-modal{position:fixed;inset:0;background:rgba(0,0,0,0.85);display:none;z-index:2000;align-items:center;justify-content:center;padding:16px;backdrop-filter:blur(8px)}
-    .summary-modal.show{display:flex}
-    .summary-content{background:var(--card);border:2px solid var(--border);border-radius:16px;padding:24px 20px;max-width:420px;width:100%;max-height:90vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,0.8);animation:slideIn .3s ease-out;scrollbar-width:none;-ms-overflow-style:none}
-    .summary-content::-webkit-scrollbar{display:none}
-    @keyframes slideIn{from{transform:translateY(-30px);opacity:0}to{transform:translateY(0);opacity:1}}
-    .summary-title{font-size:1.2rem;font-weight:700;text-align:center;margin-bottom:15px;color:var(--accent)}
-    .summary-score{font-size:2.2rem;font-weight:700;text-align:center;margin:16px 0}
-    .summary-score.excellent{color:#22c55e}.summary-score.good{color:#7dd3c6}.summary-score.fair{color:#fbbf24}.summary-score.poor{color:#ef4444}
-    .summary-stats{display:grid;gap:8px;margin:16px 0}
-    .stat-row{display:flex;justify-content:space-between;padding:10px;background:rgba(255,255,255,0.03);border-radius:8px;border:1px solid(var(--border))}
-    .stat-label{color:var(--muted);font-size:.88rem}
-    .stat-value{font-weight:700;font-size:1rem}
-    .stat-value.green{color:#86efac}.stat-value.red{color:#fca5a5}.stat-value.gray{color:var(--muted)}
-    .summary-actions{display:grid;gap:8px;margin-top:16px}
-    .summary-actions .btn{width:100%;padding:10px;font-size:.9rem}
-    .quiz-type-selector{display:flex;flex-direction:column;gap:8px;padding:12px;background:rgba(99,102,241,0.03);border-radius:10px;border:1px solid var(--border);margin-bottom:16px}
-    .quiz-type-selector.hidden{display:none}
-    .quiz-type-selector h6{margin:0 0 8px 0;font-size:.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
-    .quiz-type-selector-mobile{display:none}
-    @media (max-width:767px){.quiz-type-selector-mobile{display:block}}
-    .quiz-type-selector-mobile .btn.selected{background:linear-gradient(135deg,var(--accent-soft),rgba(79,70,229,0.08));border-color:var(--accent);color:var(--accent)}
-    .main-layout.center-mode{display:flex!important;align-items:center;justify-content:center}
-    .quiz-type-selector.center{max-width:400px;padding:20px;margin:auto}
-    @media (max-width:767px){.quiz-type-selector.center{max-width:90%;padding:24px}.quiz-sidebar{display:none!important}.main-layout.center-mode .quiz-sidebar{display:flex!important}}
-    .quiz-type-btn{padding:10px 12px;border-radius:8px;border:1px solid var(--border);background:rgba(255,255,255,0.02);color:var(--muted);font-size:.85rem;font-weight:600;cursor:pointer;transition:.2s;display:flex;align-items:center;gap:8px;justify-content:flex-start;width:100%;position:relative}
-    .quiz-type-btn .emoji{font-size:1.1rem}
-    .quiz-type-btn .label{font-size:.8rem;line-height:1.2}
-    .quiz-type-btn.selected{background:linear-gradient(135deg,var(--accent-soft),rgba(79,70,229,0.08));border-color:var(--accent);color:var(--accent);box-shadow:0 3px 10px rgba(79,70,229,0.18)}
-    .quiz-type-btn .emoji{font-size:1.1rem}
-    .quiz-type-btn .label{font-size:.8rem;line-height:1.2}
-    .btn-primary{background:var(--accent);border-color:var(--accent)}
-    .btn-primary:hover,.btn-primary:focus{background:var(--accent-alt);border-color:var(--accent-alt)}
-    .btn-outline-light{color:var(--muted);border-color:var(--border)}
-    .btn-outline-light:hover{background:rgba(255,255,255,0.06);color:#dbe5ef;border-color:var(--accent)}
-    @media (min-width:768px){.main-layout{display:grid!important;grid-template-columns:300px 1fr;gap:24px;flex:1;overflow:hidden}.main-layout .quiz-sidebar{width:100%;display:flex;flex-direction:column;overflow:hidden}.main-layout .quiz-main-content{overflow-y:auto;scrollbar-width:none;-ms-overflow-style:none}.main-layout .quiz-main-content::-webkit-scrollbar{display:none}}
+    .container-quiz{max-width:1400px;margin:0 auto;padding:16px;width:100%;height:100vh;display:flex;flex-direction:column}
+    .card-quiz{background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:18px;height:calc(100vh - 32px);display:flex;flex-direction:column;overflow:hidden;box-shadow:var(--shadow-md)}
     .main-layout{flex:1;display:flex;flex-direction:column;overflow:hidden}
     .quiz-main-content{overflow-y:auto;scrollbar-width:none;-ms-overflow-style:none}
     .quiz-main-content::-webkit-scrollbar{display:none}
-  @media (max-width: 767px) {
-  .question-container button,
-  #prevBtn, #checkBtn, #nextBtn {
-    font-size: 14px !important;
-    padding: 10px 14px !important;
-    margin: 8px 0 !important;
-    width: 100% !important;
-    white-space: normal !important;
-    overflow: visible !important;
-    text-overflow: unset !important;
-  }
+    @media (min-width:768px){
+      .main-layout{display:grid!important;grid-template-columns:300px 1fr;gap:20px}
+      .main-layout .quiz-sidebar,.main-layout .quiz-main-content{overflow:hidden}
+      .main-layout .quiz-main-content{overflow-y:auto}
+      .controls{display:none!important}
+    }
 
-  #modeSelector button {
-    font-size: 16px !important;
-    padding: 12px 16px !important;
-    margin: 6px 0 !important;
-    width: 100% !important;
-    white-space: normal !important;
-  }
-}
+    .quiz-sidebar{display:flex;flex-direction:column;gap:14px;height:100%;overflow:hidden}
+    .sidebar-content{display:flex;flex-direction:column;flex:1;overflow:hidden}
+    .sidebar-bottom{margin-top:auto;padding-top:12px;flex-shrink:0}
+    .status-line,.q-meta,.index-page-info,.stat-label{color:var(--muted)}
+    .status-line{font-size:.9rem}
+    .q-meta,.index-page-info{font-size:.75rem}
+    .question-title{font-weight:700;font-size:1rem}
 
-/* Additional fixes to ensure buttons adapt on very small screens and centered selector shows full text */
-@media (max-width:767px){
-  /* Make the nav button group wrap and each button be flexible so none overflows */
-  .controls > div:first-child{display:flex;flex-direction:row;gap:8px;flex-wrap:wrap;align-items:center}
-  .controls > div:first-child .btn{flex:1 1 0;min-width:0;margin:6px 4px;padding:10px 12px;border-radius:8px}
+    .quiz-type-selector{display:flex;flex-direction:column;gap:10px;padding:14px;background:var(--surface-2);border:1px solid var(--border);border-radius:var(--radius-md);margin-bottom:10px}
+    .quiz-type-selector.hidden{display:none}
+    .quiz-type-selector h6{margin:0 0 4px;font-size:.76rem;text-transform:uppercase;letter-spacing:.04em;color:var(--muted)}
+    .quiz-type-selector.center{max-width:420px;padding:22px;margin:auto}
+    .quiz-type-selector.center .quiz-type-btn .label{max-width:100%;white-space:normal}
+    .main-layout.center-mode{display:flex!important;align-items:center;justify-content:center}
+    .quiz-type-btn{padding:11px 12px;border-radius:var(--radius-sm);border:1px solid var(--border);background:var(--surface);color:var(--muted);font-size:.9rem;font-weight:600;display:flex;align-items:center;gap:10px;width:100%;text-align:left;cursor:pointer;transition:border-color .2s,background-color .2s,color .2s}
+    .quiz-type-btn .emoji{font-size:1rem;flex:0 0 auto}
+    .quiz-type-btn .label{display:inline-block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:calc(100% - 36px)}
+    .quiz-type-btn:hover{border-color:#46546b;background:#1b2230;color:#c6d2df}
+    .quiz-type-btn.selected{background:var(--accent-soft);border-color:#6f8cff;color:#d5dfff}
 
-  /* Ensure each nav button allows wrapping and shows full text */
-  #prevBtn,#checkBtn,#nextBtn{white-space:normal;overflow:visible;text-overflow:clip}
+    #indexList,#indexListOverlay{display:grid;gap:5px;padding:8px;min-height:0;scrollbar-width:none;-ms-overflow-style:none}
+    #indexList{grid-template-columns:repeat(auto-fill,minmax(34px,1fr));grid-auto-rows:34px;flex:1;overflow-y:auto;overflow-x:hidden;align-items:start;justify-items:center}
+    #indexListOverlay{grid-template-columns:repeat(auto-fill,minmax(40px,1fr));grid-auto-rows:40px;flex:1;overflow-y:auto}
+    #indexList::-webkit-scrollbar,#indexListOverlay::-webkit-scrollbar{display:none}
+    .q-index-btn{width:100%;height:100%;padding:0;border-radius:9px;border:1px solid var(--border);background:var(--surface);color:var(--muted);font-size:.72rem;display:flex;align-items:center;justify-content:center;transition:.2s}
+    .q-index-btn:hover{border-color:#6f8cff;color:#ccd6e0}
+    .q-index-btn.active{background:var(--accent-soft);border-color:#6f8cff;color:#d5dfff}
+    .q-index-btn.correct{background:var(--success);border-color:var(--success);color:#ffffff}
+    .q-index-btn.incorrect{background:var(--error);border-color:var(--error);color:#ffffff}
 
-  /* If the selector is centered (initial screen), always show full labels */
-  .quiz-type-selector.center .quiz-type-btn,.main-layout.center-mode .quiz-type-btn{white-space:normal}
-  .quiz-type-selector.center .quiz-type-btn .label,.main-layout.center-mode .quiz-type-btn .label{white-space:normal;max-width:100%}
+    .index-navigation{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--border);margin-bottom:8px}
+    .index-pagination{display:flex;gap:4px}
+    .page-btn{width:30px;height:30px;border-radius:8px;border:1px solid var(--border);background:var(--surface);color:var(--muted);font-size:.74rem;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:.2s}
+    .page-btn:hover{background:#1b2230}
+    .page-btn.active{background:var(--accent-soft);border-color:#6f8cff;color:#d5dfff}
 
-}
+    .option{display:flex;align-items:center;gap:12px;padding:13px;border-radius:12px;border:1px solid var(--border);cursor:pointer;background:var(--surface);transition:border-color .2s,background-color .2s}
+    .option input{margin:0}
+    .option:hover{border-color:#4b5a72;background:#1b2230}
+    .option .label-text{font-weight:500;font-size:.88rem}
+    .option.correct{border-color:var(--success)!important;background:var(--success)!important;color:#ffffff}
+    .option.incorrect{border-color:var(--error)!important;background:var(--error)!important;color:#ffffff}
 
-/* Nuevos estilos para el modal de resumen compacto */
-@media (max-width:767px){
-  .summary-content {
-    max-width: 90%;
-    padding: 16px;
-  }
-  .summary-title {
-    font-size: 1.2rem;
-    margin-bottom: 12px;
-  }
-  .summary-score {
-    font-size: 1.8rem;
-    margin: 12px 0;
-  }
-  .summary-stats {
-    margin: 12px 0;
-  }
-  .stat-row {
-    padding: 8px;
-  }
-  .stat-label, .stat-value {
-    font-size: 0.85rem;
-  }
-}
+    .text-input-container{margin-top:16px}
+    .text-answer-input{width:100%;padding:13px 14px;border-radius:11px;border:1px solid var(--border);background:var(--surface);color:var(--text);font-size:1rem;font-family:inherit;transition:.2s}
+    .text-answer-input::placeholder{color:#7f8da1}
+    .text-answer-input:focus{outline:none;border-color:#6f8cff;box-shadow:0 0 0 3px #25314f}
+    .text-answer-input.correct-input{border-color:var(--success);background:var(--success);color:#ffffff}
+    .text-answer-input.incorrect-input{border-color:var(--error);background:var(--error);color:#ffffff}
+
+    .correct-answer-feedback{margin-top:12px;padding:11px 12px;border-radius:10px;border:1px solid var(--success);background:var(--success);color:#ffffff;font-size:.88rem}
+    .image-options{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-top:16px}
+    .image-option{position:relative;cursor:pointer;border:1px solid var(--border);border-radius:12px;overflow:hidden;transition:border-color .2s,background-color .2s;background:var(--surface)}
+    .image-option:hover{border-color:#6f8cff}
+    .image-option input[type=radio]{position:absolute;top:10px;right:10px;width:22px;height:22px;cursor:pointer;z-index:10}
+    .image-option img{width:100%;height:auto;display:block;min-height:120px;max-height:200px;object-fit:cover}
+    .image-option.selected{border-color:#6f8cff;background:#25314f}
+    .image-option.correct{border-color:var(--success);background:var(--success)}
+    .image-option.incorrect{border-color:var(--error);background:var(--error)}
+    .question-image{width:100%;height:auto;max-width:420px;max-height:260px;object-fit:contain;border:1px solid var(--border);border-radius:12px;margin:14px auto;background:var(--surface);display:block}
+    .question-image-large{max-width:640px;max-height:420px}
+
+    .btn-primary{background:#6f8cff;border-color:#6f8cff;color:#eef3ff}
+    .btn-primary:hover,.btn-primary:focus{background:#5e79e8;border-color:#5e79e8}
+    .btn-outline-light{color:#c3cfdd;border-color:#3a4659;background:var(--surface)}
+    .btn-outline-light:hover{background:#1b2230;color:#e6edf3;border-color:#6f8cff}
+
+    .sidebar-type-row,.sidebar-nav-buttons{display:none;gap:6px}
+    .sidebar-type-row{margin-bottom:8px}
+    .sidebar-nav-buttons{margin-top:8px}
+    .sidebar-type-row .btn,.sidebar-nav-buttons .btn{flex:1;min-width:0}
+    .sidebar-type-row .btn{font-size:1rem;padding:8px}
+    .sidebar-nav-buttons .btn{font-size:1.1rem;padding:9px}
+    @media (min-width:768px){.sidebar-nav-buttons,.sidebar-type-row{display:flex}}
+
+    .mobile-index-toggle,.mobile-summary-toggle{position:fixed;right:10px;z-index:1100;display:none;padding:8px 12px;border-radius:18px;font-size:.8rem;background:var(--surface);border:1px solid var(--border);color:#c3cfdd;box-shadow:var(--shadow-sm);cursor:pointer;white-space:nowrap;max-width:calc(100vw - 20px)}
+    .mobile-index-toggle{bottom:75px}
+    .mobile-summary-toggle{bottom:15px}
+    .index-overlay{position:fixed;inset:0;background:#06090e;display:none;z-index:1200;padding:18px}
+    .index-overlay.open{display:block}
+    .index-panel{max-width:720px;margin:40px auto;background:var(--surface);border:1px solid var(--border);padding:14px;border-radius:16px;max-height:80vh;overflow:hidden;display:flex;flex-direction:column;box-shadow:var(--shadow-md)}
+
+    .summary-modal{position:fixed;inset:0;background:#06090e;display:none;z-index:2000;align-items:center;justify-content:center;padding:16px}
+    .summary-modal.show{display:flex}
+    .summary-content{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:22px 18px;max-width:430px;width:100%;max-height:90vh;overflow-y:auto;box-shadow:var(--shadow-md);animation:slideIn .2s ease-out;scrollbar-width:none;-ms-overflow-style:none}
+    .summary-content::-webkit-scrollbar{display:none}
+    .summary-title{font-size:1.14rem;font-weight:700;text-align:center;margin-bottom:14px;color:#d9e2ec}
+    .summary-score{font-size:2rem;font-weight:700;text-align:center;margin:14px 0}
+    .summary-score.excellent{color:var(--success)}
+    .summary-score.good{color:#9fb3c8}
+    .summary-score.fair{color:#e0b35f}
+    .summary-score.poor{color:var(--error)}
+    .summary-stats{display:grid;gap:8px;margin:14px 0}
+    .stat-row{display:flex;justify-content:space-between;padding:10px;background:var(--surface-2);border-radius:10px;border:1px solid var(--border)}
+    .stat-value{font-weight:700;font-size:.95rem;color:#d9e2ec}
+    .stat-value.green{color:#2f855a}
+    .stat-value.red{color:#c2414b}
+    .stat-value.gray{color:#64748b}
+    .summary-actions{display:grid;gap:8px;margin-top:14px}
+    .summary-actions .btn{width:100%;padding:10px;font-size:.9rem}
+    @keyframes slideIn{from{transform:translateY(-14px);opacity:0}to{transform:translateY(0);opacity:1}}
+
+    .controls .btn{min-width:70px;font-size:1.05rem;padding:9px 12px}
+
+    @media (max-width:767px){
+      #qArea{margin-bottom:10px}
+      .container-quiz{height:100vh;padding:10px}
+      .card-quiz{height:calc(100vh - 20px);padding:12px;border-radius:14px}
+      .main-layout{height:100%}
+      .quiz-main-content{height:100%;display:flex;flex-direction:column}
+      .quiz-sidebar{display:none!important}
+      .main-layout.center-mode .quiz-sidebar{display:flex!important}
+      .quiz-type-selector.center{max-width:90%;padding:20px}
+      .quiz-type-btn .label{white-space:normal;max-width:100%}
+      .controls{display:flex!important;flex-direction:column;gap:8px;align-items:stretch!important;margin-top:14px!important;padding-top:4px}
+      .controls>div:first-child{display:flex;flex-direction:row;gap:8px;flex-wrap:wrap;width:100%}
+      .controls>div:first-child .btn{flex:1 1 0;min-width:0;margin:0}
+      .controls .btn,#prevBtn,#checkBtn,#nextBtn{width:100%!important;white-space:normal!important;overflow:visible!important}
+      .controls .q-meta{text-align:center;order:-1;margin-bottom:6px}
+      .mobile-index-toggle,.mobile-summary-toggle{display:inline-flex!important}
+      .sidebar-content,.keyboard-hint{display:none!important}
+      #indexList{grid-template-columns:repeat(auto-fill,minmax(30px,1fr));grid-auto-rows:30px;gap:3px}
+      #indexListOverlay{max-height:calc(100vh - 140px);overflow-y:auto}
+      .index-panel{margin:10px auto;max-height:calc(100vh - 60px);padding:10px}
+      .index-navigation{padding:6px 0;margin-bottom:6px}
+      .page-btn{width:26px;height:26px;font-size:.65rem}
+      .image-options{grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:8px}
+      .image-option img{max-height:150px}
+      .question-image{max-height:220px;max-width:100%}
+      .summary-content{max-width:90%;padding:16px}
+      .summary-score{font-size:1.72rem}
+      .stat-row{padding:8px}
+      .stat-label,.stat-value{font-size:.85rem}
+    }
+
+    @media (max-width:480px){
+      .container-quiz{padding:8px}
+      .card-quiz{padding:10px}
+      .controls .btn{font-size:.9rem;padding:8px 10px}
+      #indexList{grid-template-columns:repeat(auto-fill,minmax(28px,1fr));grid-auto-rows:28px;gap:2px}
+      .q-index-btn{font-size:.65rem}
+      .question-image{max-height:170px}
+    }
 </style>
 </head>
 <body>
@@ -253,7 +199,7 @@
           <div class="quiz-type-selector" id="quizTypeSelector">
             <h6>Seleccione la materia</h6>
             <button class="quiz-type-btn" id="btnEconomia" data-type="economia">
-              <span class="emoji">📈</span>
+              <span class="emoji"><i class="bi bi-graph-up"></i></span>
               <span class="label">Economía</span>
             </button>
           </div>
@@ -276,12 +222,12 @@
               <hr style="border-color:var(--border);margin:12px 0">
               <div class="status-line mb-2">Puntaje: <strong id="score">0</strong> / <span id="total"></span></div>
               <div class="sidebar-type-row">
-                <button class="btn btn-sm btn-outline-light" id="showSummaryBtn" title="Ver Resumen">📊</button>
+                <button class="btn btn-sm btn-outline-light" id="showSummaryBtn" title="Ver Resumen"><i class="bi bi-bar-chart"></i></button>
               </div>
               <div class="sidebar-nav-buttons">
-                <button id="prevBtnSidebar" class="btn btn-outline-light" title="Anterior">←</button>
-                <button id="checkBtnSidebar" class="btn btn-primary" title="Comprobar">✓</button>
-                <button id="nextBtnSidebar" class="btn btn-outline-light" title="Siguiente">→</button>
+                <button id="prevBtnSidebar" class="btn btn-outline-light" title="Anterior"><i class="bi bi-arrow-left"></i></button>
+                <button id="checkBtnSidebar" class="btn btn-primary" title="Comprobar"><i class="bi bi-check-lg"></i></button>
+                <button id="nextBtnSidebar" class="btn btn-outline-light" title="Siguiente"><i class="bi bi-arrow-right"></i></button>
               </div>
             </div>
           </div>
@@ -305,16 +251,16 @@
 
           <div class="d-flex justify-content-between align-items-center mt-3 controls">
             <div>
-              <button id="prevBtn" class="btn btn-outline-light" title="Anterior">←</button>
-              <button id="checkBtn" class="btn btn-primary" title="Comprobar">✓</button>
-              <button id="nextBtn" class="btn btn-outline-light" title="Siguiente">→</button>
+              <button id="prevBtn" class="btn btn-outline-light" title="Anterior"><i class="bi bi-arrow-left"></i></button>
+              <button id="checkBtn" class="btn btn-primary" title="Comprobar"><i class="bi bi-check-lg"></i></button>
+              <button id="nextBtn" class="btn btn-outline-light" title="Siguiente"><i class="bi bi-arrow-right"></i></button>
             </div>
             <div class="q-meta keyboard-hint">Enter → Comprobar</div>
           </div>
         </div>
       </div>
-      <button class="btn btn-sm btn-outline-light mobile-index-toggle" id="openIndexBtn" aria-controls="indexList" aria-expanded="false">☰ Índice</button>
-      <button class="btn btn-sm btn-outline-light mobile-summary-toggle" id="mobileSummaryBtn">📊 Resumen</button>
+      <button class="btn btn-sm btn-outline-light mobile-index-toggle" id="openIndexBtn" aria-controls="indexList" aria-expanded="false"><i class="bi bi-list"></i> Índice</button>
+      <button class="btn btn-sm btn-outline-light mobile-summary-toggle" id="mobileSummaryBtn"><i class="bi bi-bar-chart"></i> Resumen</button>
     </div>
   </div>
 
@@ -341,29 +287,29 @@
   <!-- Modal de resumen final -->
   <div class="summary-modal" id="summaryModal">
     <div class="summary-content">
-      <div class="summary-title">🎉 Quiz de Economía Completado</div>
+      <div class="summary-title"><i class="bi bi-trophy"></i> Quiz de Economía Completado</div>
       <div class="summary-score" id="summaryScore">0%</div>
       <div class="summary-stats">
         <div class="stat-row">
-          <span class="stat-label">✅ Correctas</span>
+          <span class="stat-label"><i class="bi bi-check-circle"></i> Correctas</span>
           <span class="stat-value green" id="statCorrect">0</span>
         </div>
         <div class="stat-row">
-          <span class="stat-label">❌ Incorrectas</span>
+          <span class="stat-label"><i class="bi bi-x-circle"></i> Incorrectas</span>
           <span class="stat-value red" id="statIncorrect">0</span>
         </div>
         <div class="stat-row">
-          <span class="stat-label">⚪ Sin responder</span>
+          <span class="stat-label"><i class="bi bi-dash-circle"></i> Sin responder</span>
           <span class="stat-value gray" id="statUnanswered">0</span>
         </div>
         <div class="stat-row">
-          <span class="stat-label">📊 Total de preguntas</span>
+          <span class="stat-label"><i class="bi bi-clipboard-data"></i> Total de preguntas</span>
           <span class="stat-value" id="statTotal">0</span>
         </div>
       </div>
       <div class="summary-actions">
-        <button class="btn btn-primary" id="restartQuiz">🔄 Reiniciar Quiz</button>
-        <button class="btn btn-outline-light" id="reviewIncorrect">📝 Repasar Incorrectas</button>
+        <button class="btn btn-primary" id="restartQuiz"><i class="bi bi-arrow-clockwise"></i> Reiniciar Quiz</button>
+        <button class="btn btn-outline-light" id="reviewIncorrect"><i class="bi bi-journal-text"></i> Repasar Incorrectas</button>
         <button class="btn btn-outline-light" id="closeSummary">Cerrar</button>
       </div>
     </div>
@@ -395,43 +341,45 @@
       .replace(/'/g,'&#39;');
 
     const quizDataEconomia = {
-      "title": "Economía Parcial 1",
+      "title": "Preguntas Economía Parcial 2",
       "questions": [
         {
           "id": 1,
           "type": "single",
-          "question": "En un mercado de competencia perfecta el productor o empresario busca ...",
+          "question": "En economía, a través de la intervención estatal:",
           "options": [
-            {"id": "a", "text": "Determinar cuánto y como producir en función de sus preferencias", "correct": false},
-            {"id": "b", "text": "Maximizar los beneficios maximizando su utilidad por unidad monetaria invertida", "correct": false},
-            {"id": "c", "text": "Minimizar costos y maximizar los beneficios recibidos", "correct": true},
-            {"id": "d", "text": "Maximizar su utilidad por unidad monetaria gastada", "correct": false}
+            {"id": "a", "text": "Solamente se establecen precios máximos", "correct": false},
+            {"id": "b", "text": "Se regulan procedimientos, productos y mercados", "correct": true},
+            {"id": "c", "text": "Establece el funcionamiento de la Administración Pública", "correct": false},
+            {"id": "d", "text": "Los precios máximos benefician a los productores", "correct": false}
           ]
         },
         {
           "id": 2,
           "type": "single",
-          "question": "En un mercado de competencia perfecta, donde el precio del bien X es $50, la empresa A produce una cantidad en el cual su CMg es de $80. La empresa, para maximizar beneficio, debería aumentar su precio de venta a $80.",
+          "question": "En caso de déficit de la Balanza de Pagos, puede:",
           "options": [
-            {"id": "a", "text": "Falso", "correct": true},
-            {"id": "b", "text": "Verdadero", "correct": false}
+            {"id": "a", "text": "Adquirir bienes de capital para equilibrarla", "correct": false},
+            {"id": "b", "text": "Solicitar financiamiento a Bancos u Organismos Internacionales", "correct": true},
+            {"id": "c", "text": "Prestar dinero a otros países", "correct": false},
+            {"id": "d", "text": "Incrementar sus reservas", "correct": false}
           ]
         },
         {
           "id": 3,
           "type": "single",
-          "question": "En un mercado en equilibrio, ante una disminución de la demanda ...",
+          "question": "Son indicadores de calidad de vida:",
           "options": [
-            {"id": "a", "text": "nos encontramos en situación de escasez y los productores deberán subir los precios", "correct": false},
-            {"id": "b", "text": "la curva de la oferta se desplaza a la izquierda", "correct": false},
-            {"id": "c", "text": "nos encontramos ante un exceso de oferta y los productores deberán bajar los precios", "correct": true},
-            {"id": "d", "text": "la curva de la demanda se desplaza a la derecha", "correct": false}
+            {"id": "a", "text": "Indice de Desarrollo Humano y Huella Hídrica", "correct": true},
+            {"id": "b", "text": "Tipo de cambio y Curva de Lorenz", "correct": false},
+            {"id": "c", "text": "PBI y tipo de cambio", "correct": false},
+            {"id": "d", "text": "Curva de Lorenz y PBI per cápita", "correct": false}
           ]
         },
         {
           "id": 4,
-          "type": "single",
-          "question": "La función de Utilidad Total nos permite asignar un valor numérico a la satisfacción de canastas de consumo posibles, mientras que la Utilidad Marginal nos muestra la utilidad o satisfacción que nos otorga consumir una unidad más del bien en cuestión.",
+          "type": "truefalse",
+          "question": "El Deflactor del Producto Bruto Interno (PBI), es el cociente entre PBI nominal y PBI real, generalmente se expresa como la tasa (%) y refleja las variaciones de precios de bienes consumidos, de capital, del sector privado y del sector público.",
           "options": [
             {"id": "a", "text": "Verdadero", "correct": true},
             {"id": "b", "text": "Falso", "correct": false}
@@ -439,30 +387,28 @@
         },
         {
           "id": 5,
-          "type": "single",
-          "question": "Defina brevemente el concepto de oferta",
+          "type": "truefalse",
+          "question": "El tipo de cambio Real se puede definir como la cantidad de moneda nacional ($) necesaria para adquirir una unidad de moneda extranjera o divisa, a valor del comprador o exportador y del vendedor o importador; la diferencia es el margen que representa el costo de la intermediación del agente cambiario.",
           "options": [
-            {"id": "a", "text": "Es la relación entre el ingreso del consumidor y su nivel de consumo.", "correct": false},
-            {"id": "b", "text": "Es el deseo ilimitado de adquirir bienes y servicios sin considerar el precio.", "correct": false},
-            {"id": "c", "text": "Es la cantidad de bienes que los consumidores desean comprar a distintos precios.", "correct": false},
-            {"id": "d", "text": "Es la cantidad de un bien o servicio que se desea ofertar a determinado precio.", "correct": true}
+            {"id": "a", "text": "Verdadero", "correct": false},
+            {"id": "b", "text": "Falso", "correct": true}
           ]
         },
         {
           "id": 6,
           "type": "single",
-          "question": "Indique la afirmación correcta:",
+          "question": "Respecto del Ahorro, considerado en economía como Inversión, se puede afirmar que:",
           "options": [
-            {"id": "a", "text": "Los monopolios son mercados en equilibrio, donde el precio ha sido determinado con anterioridad por los actores", "correct": false},
-            {"id": "b", "text": "El precio mínimo se encuentra por debajo del punto de equilibrio del mercado y es importante porque mejora la situación del consumidor a corto plazo", "correct": false},
-            {"id": "c", "text": "En la competencia monopolística el marketing es fundamental para diferenciar el producto", "correct": true},
-            {"id": "d", "text": "Las principales barreras de entrada y salida a los mercados se encuentran en lo que se denomina competencia perfecta", "correct": false}
+            {"id": "a", "text": "Un aumento en la Inversión Bruta Interna implica una disminución del Producto Bruto Interno (PBI)", "correct": false},
+            {"id": "b", "text": "Un país progresa cuando la inversión Neta Interna es menos a cero.", "correct": false},
+            {"id": "c", "text": "La inversión de Neta Interna representa el valor de la depreciación de los bienes del capital.", "correct": false},
+            {"id": "d", "text": "La inversión Neta Interna se calcula como la diferencia entre la Inversión Bruta Interna y la Inversión de Reposición.", "correct": true}
           ]
         },
         {
           "id": 7,
-          "type": "single",
-          "question": "La función producción a partir del punto de inflexión sigue creciendo aunque son rendimientos decrecientes y a partir del máximo técnico es decreciente ya que el producto marginal es negativo",
+          "type": "truefalse",
+          "question": "La inflación de Demanda es la que surge de la suba del gasto público (G) o privado (C), que incrementa la demanda de bienes de capital. Se incrementa: el consumo, la inversión, el gasto público, las exportaciones y se eleva el precio del equilibrio del mercado con un incremento de la producción.",
           "options": [
             {"id": "a", "text": "Verdadero", "correct": true},
             {"id": "b", "text": "Falso", "correct": false}
@@ -470,372 +416,377 @@
         },
         {
           "id": 8,
-          "type": "single",
-          "question": "Los precios máximos, o precios cuidados en Argentina, se implementan para favorecer al productor y se encuentran por debajo del punto de equilibrio",
+          "type": "truefalse",
+          "question": "Se puede definir a la inflación como el aumento sustancial, sostenido y continuo del nivel general de precios de los bienes y servicios de una economía en un periodo de tiempo determinado, el incremento debe ser importante en su cuantía, en forma repetida y constante o continua, no de forma ocasional.",
           "options": [
-            {"id": "a", "text": "Verdadero", "correct": false},
-            {"id": "b", "text": "Falso", "correct": true}
+            {"id": "a", "text": "Verdadero", "correct": true},
+            {"id": "b", "text": "Falso", "correct": false}
           ]
         },
         {
           "id": 9,
           "type": "single",
-          "question": "En un mercado de competencia perfecta es correcto aseverar que",
+          "question": "El Producto Bruto Interno (PBI) se define como la sumatoria de:",
           "options": [
-            {"id": "a", "text": "El precio es determinado por el Estado mediante regulaciones directas.", "correct": false},
-            {"id": "b", "text": "El precio lo fija la empresa con mayor participación en el mercado.", "correct": false},
-            {"id": "c", "text": "El precio lo determina el mercado porque hay igualdad entre sus actores.", "correct": true},
-            {"id": "d", "text": "El precio surge de acuerdos entre empresas para maximizar beneficios.", "correct": false}
+            {"id": "a", "text": "Valor Agregado Bruto de Productos Finales.", "correct": true},
+            {"id": "b", "text": "Consumo de las empresas del sector privado y Gasto del sector público.", "correct": false},
+            {"id": "c", "text": "Valor Agregado Neto y Exportaciones Netas.", "correct": false},
+            {"id": "d", "text": "Valor Agregado Bruto menos Depreciaciones.", "correct": false}
           ]
         },
         {
           "id": 10,
           "type": "single",
-          "question": "Imaginemos que la economía de un país se expande de una manera que incrementa los ingresos de mucha gente. ¿Qué sucedería en el mercado de algún automóvil de gama media?",
+          "question": "El PBI nos permite cuantificar ...",
           "options": [
-            {"id": "a", "text": "Al ser un bien normal, la demanda se desplaza haciendo que el precio y la cantidad de equilibrio, aumenten", "correct": true},
-            {"id": "b", "text": "No hay ninguna variación en ese mercado", "correct": false},
-            {"id": "c", "text": "Hay una expansión de la oferta, haciendo que el precio de equilibrio disminuya y la cantidad de equilibrio aumente.", "correct": false},
-            {"id": "d", "text": "Al ser un bien inferior, la curva de la demanda se desplaza haciendo que el precio y la cantidad de equilibrio, disminuyan.", "correct": false}
+            {"id": "a", "text": "La calidad de vida de la población", "correct": false},
+            {"id": "b", "text": "Las externalidades negativas generadas por la actividad productiva", "correct": false},
+            {"id": "c", "text": "Los productos finales de una economía", "correct": true},
+            {"id": "d", "text": "La distribución de la riqueza de una economía", "correct": false}
           ]
         },
         {
           "id": 11,
           "type": "single",
-          "question": "En un gráfico de Costos unitarios se afirma que una empresa maximiza beneficios cuando el ingreso marginal se encuentra:",
+          "question": "La teoría de las ventajas comparativas:",
           "options": [
-            {"id": "a", "text": "Igual al costo fijo independientemente de la cantidad producida.", "correct": false},
-            {"id": "b", "text": "Por debajo del costo medio en cualquier nivel de producción.", "correct": false},
-            {"id": "c", "text": "Por encima del punto donde el Cme corta el Cmg.", "correct": true},
-            {"id": "d", "text": "Siempre menor que el costo marginal en el punto de equilibrio.", "correct": false}
+            {"id": "a", "text": "Si un país es mas eficiente en todo lo que produce, no le conviene intercambiar con otro país", "correct": false},
+            {"id": "b", "text": "Fundamenta el comercio internacional solo en función del gusto y las costumbres de los países", "correct": false},
+            {"id": "c", "text": "No permite predecir la dirección del comercio según patrones de especialización de los países", "correct": false},
+            {"id": "d", "text": "Se basa en un intercambio según su eficiencia comparativa y relativa y permite predecir la dirección del comercio internacional", "correct": true}
           ]
         },
         {
           "id": 12,
-          "type": "single",
-          "question": "En el modelo de circuito económico simple se puede afirmar que",
+          "type": "truefalse",
+          "question": "El gasto corriente es aquel que se destina a bienes de capital, cuya financiación supera un período fiscal.",
           "options": [
-            {"id": "a", "text": "Se consideran las interacciones del sector externo", "correct": false},
-            {"id": "b", "text": "Es importante evaluar la inversión y la participación del sector público", "correct": false},
-            {"id": "c", "text": "Participa el sector financiero otorgando capital al productor", "correct": false},
-            {"id": "d", "text": "Son actores los consumidores racionales y los productores en función de su beneficio", "correct": true}
+            {"id": "a", "text": "Verdadero", "correct": false},
+            {"id": "b", "text": "Falso", "correct": true}
           ]
         },
         {
           "id": 13,
           "type": "single",
-          "question": "Sobre la Economía como ciencia se puede afirmar que...",
+          "question": "En caso de déficit fiscal, para lograr el equilibrio el gobierno puede:",
           "options": [
-            {"id": "a", "text": "Se centra en el análisis de los costos marginales, los que se utilizan para elegir las necesidades del consumidor a satisfacer", "correct": false},
-            {"id": "b", "text": "Se ocupa de la asignación eficiente de la riqueza y se funda en el principio de escasez", "correct": true},
-            {"id": "c", "text": "Se ocupa de establecer y aplicar sanciones para lograr conductas consideradas positivas para la sociedad", "correct": false},
-            {"id": "d", "text": "Se ocupa de determinar las necesidades a satisfacer con los recursos ilimitados a los que tienen acceso", "correct": false}
+            {"id": "a", "text": "Aumentar los impuestos y disminuir el gasto público", "correct": true},
+            {"id": "b", "text": "Fijar nuevos impuestos para aumentar su recaudación y contraer la economía, afectando en particular al sector privado", "correct": false},
+            {"id": "c", "text": "Disminuir los impuestos y activar el sector privado", "correct": false},
+            {"id": "d", "text": "Aumentar el gasto corriente y así expandir la economía en general", "correct": false}
           ]
         },
         {
           "id": 14,
-          "type": "single",
-          "question": "La demanda de dispositivos de almacenamiento de información presenta variaciones cuando ...",
+          "type": "truefalse",
+          "question": "El nivel general de precios, se expresa mediante índices de precios y son una medida de los precios actuales de un conjunto representativo de bienes y servicios, calculados en términos relativos respecto a un año base y ponderados conforme a la proporción de consumo de cada bien en un periodo determinado.",
           "options": [
-            {"id": "a", "text": "varía el ingreso disponible del consumidor", "correct": true},
-            {"id": "b", "text": "las empresas prefieren producir mas cantidad", "correct": false},
-            {"id": "c", "text": "se mantiene constante el trabajo remoto ofrecido", "correct": false},
-            {"id": "d", "text": "varía el tipo de cambio al ser un producto importado", "correct": false}
+            {"id": "a", "text": "Verdadero", "correct": true},
+            {"id": "b", "text": "Falso", "correct": false}
           ]
         },
         {
           "id": 15,
-          "type": "single",
-          "question": "Respecto de la función producción es correcto afirmar que:",
+          "type": "truefalse",
+          "question": "Noruega y Suecia producen igualmente carnes y pescados, los suecos prefieren la carne y los noruegos el pescado, por lo tanto del intercambio entre ambos países se incrementa el bienestar humano y la satisfacción de los habitantes.",
           "options": [
-            {"id": "a", "text": "presenta tres tramos, en el primero la función es creciente con rendimientos crecientes, en el segundo la función continúa creciendo con rendimientos decrecientes y en el tercero decrece con rendimientos decrecientes", "correct": true},
-            {"id": "b", "text": "el máximo técnico es el punto óptimo de mayor eficiencia productiva y es el punto en el que se obtendrá el máximo de beneficios", "correct": false},
-            {"id": "c", "text": "el punto de inflexión indica el momento a partir del cual la función presenta rendimientos decrecientes", "correct": false},
-            {"id": "d", "text": "presenta tres tramos, los dos primeros son crecientes con rendimientos crecientes y el tercero es decreciente con rendimientos decrecientes", "correct": false}
+            {"id": "a", "text": "Verdadero", "correct": true},
+            {"id": "b", "text": "Falso", "correct": false}
           ]
         },
         {
           "id": 16,
           "type": "single",
-          "question": "Cuando en una paritaria se resuelve un incremento de salarios de los panaderos, se origina un aumento de la cantidad ofertada de pan sin modificar la función oferta",
+          "question": "Se entiende por Cuenta de Inversión:",
           "options": [
-            {"id": "a", "text": "Falso", "correct": true},
-            {"id": "b", "text": "Verdadero", "correct": false}
+            {"id": "a", "text": "Al Plan de Gobierno aprobado mediante ley de Presupuesto para un período determinado.", "correct": false},
+            {"id": "b", "text": "Al Presupuesto efectivamente ejecutado durante un periodo determinado, que debe aprobarse por ley", "correct": true},
+            {"id": "c", "text": "Al Presupuesto cuando no fue aprobado por ley.", "correct": false},
+            {"id": "d", "text": "Al Presupuesto que no pudo ejecutarse durante un periodo determinado", "correct": false}
           ]
         },
         {
           "id": 17,
           "type": "single",
-          "question": "Si la elasticidad cruzada entre nafta y vehículos corresponde a un valor menor que cero, puede afirmar que …",
+          "question": "Los impuestos:",
           "options": [
-            {"id": "a", "text": "Son bienes complementarios porque al aumentar el precio de uno de ellos disminuye la demanda del otro.", "correct": true},
-            {"id": "b", "text": "La demanda de ambos bienes aumenta simultáneamente ante cambios de precio.", "correct": false},
-            {"id": "c", "text": "Son bienes independientes ya que no existe relación entre sus demandas.", "correct": false},
-            {"id": "d", "text": "Son bienes sustitutos porque al aumentar el precio de uno aumenta la demanda del otro.", "correct": false}
+            {"id": "a", "text": "Son obligaciones surgidas de la potestad tributaria del Estado para cumplir con sus fines: brindar seguridad, justicia, salud y educacion", "correct": true},
+            {"id": "b", "text": "Existen impuestos nacionales, provinciales y municipales", "correct": false},
+            {"id": "c", "text": "El legislador no puede crear impuestos", "correct": false},
+            {"id": "d", "text": "Requieren de una actividad del Estado como contraprestación al pago del contribuyente", "correct": false}
           ]
         },
         {
           "id": 18,
           "type": "single",
-          "question": "Se considera que el mercado es un espacio físico, por ejemplo un centro comercial o una feria instalada en una plaza o espacio público o privado, donde se realizan transacciones entre la oferta y la demanda.",
+          "question": "El Sector Público cumple ciertas funciones en la economía de un país:",
           "options": [
-            {"id": "a", "text": "Falso", "correct": true},
-            {"id": "b", "text": "Verdadero", "correct": false}
+            {"id": "a", "text": "Ninguna es correcta", "correct": false},
+            {"id": "b", "text": "Solamente brinda Justicia, Seguridad y Defensa e incorpora otras funciones ligadas a la economía en épocas extraordinarias (guerras, pandemia, etc.).", "correct": false},
+            {"id": "c", "text": "Solamente brinda Justicia, Seguridad y Defensa.", "correct": false},
+            {"id": "d", "text": "Su finalidad es modificar o controlar las conductas privadas", "correct": true}
           ]
         },
         {
           "id": 19,
           "type": "single",
-          "question": "Los factores productivos en economía representan",
+          "question": "La variable macroeconómica Producto Bruto Interno (PBI) incluye en su cálculo:",
           "options": [
-            {"id": "a", "text": "El capital que se destina al consumo", "correct": false},
-            {"id": "b", "text": "Los recursos utilizados en los procesos productivos de manera combinada", "correct": true},
-            {"id": "c", "text": "Los recursos que nos ofrece la naturaleza tal como se extraen de la misma", "correct": false},
-            {"id": "d", "text": "Sólo la información o conocimiento que tenemos de cada proceso de producción", "correct": false}
+            {"id": "a", "text": "La distribución de la riqueza en una economía", "correct": false},
+            {"id": "b", "text": "Los productos finales de una economía.", "correct": true},
+            {"id": "c", "text": "La cantidad de vida de la población.", "correct": false},
+            {"id": "d", "text": "Las externalidades negativas generadas por la actividad productiva.", "correct": false}
           ]
         },
         {
           "id": 20,
           "type": "single",
-          "question": "En un mercado en equilibrio cuando aumenta la oferta nos encontramos ante una situación de exceso que genera una disminución del precio de equilibrio y un aumento en la cantidad de equilibrio.",
+          "question": "El tipo de cambio del euro en relación con el peso, en un mercado de divisas:",
           "options": [
-            {"id": "a", "text": "Verdadero", "correct": true},
-            {"id": "b", "text": "Falso", "correct": false}
+            {"id": "a", "text": "Se deprecia cuando disminuye el tipo de cambio", "correct": false},
+            {"id": "b", "text": "Se deprecia cuando aumenta el tipo de cambio", "correct": true},
+            {"id": "c", "text": "Siempre mantiene su valor relativo", "correct": false},
+            {"id": "d", "text": "Siempre se aprecia porque es una moneda fuerte", "correct": false}
           ]
         },
         {
           "id": 21,
           "type": "single",
-          "question": "Un consumidor maximiza su utilidad cuando",
+          "question": "La Balanza de Pagos:",
           "options": [
-            {"id": "a", "text": "su utilidad marginal es creciente y la utilidad total alcanza su punto máximo", "correct": false},
-            {"id": "b", "text": "iguala la utilidad marginal de los productos consumidos por unidad monetaria de peso gastado", "correct": true},
-            {"id": "c", "text": "organiza su gasto en cualquiera de las posibilidades de consumo según su limitación presupuestaria", "correct": false},
-            {"id": "d", "text": "iguala la utilidad total de los productos consumidos por unidad monetaria de peso gastado", "correct": false}
+            {"id": "a", "text": "En la cuenta de capital se registran las importaciones", "correct": false},
+            {"id": "b", "text": "En la cuenta de capital se registran transacciones de montos importantes como turismo, transporte y comunicaciones", "correct": false},
+            {"id": "c", "text": "En la cuenta corriente registra la balanza comercial (exportaciones e importaciones) y la balanza de servicios, entre los que se incluye el turismo y las comunicaciones", "correct": true},
+            {"id": "d", "text": "Se la puede definir como una serie de registros contables sistematizados de las transacciones propias del sector público", "correct": false}
           ]
         },
         {
           "id": 22,
           "type": "single",
-          "question": "Entre las fallas de mercado, las externalidades positivas se generan cuando ...",
+          "question": "El tipo de cambio:",
           "options": [
-            {"id": "a", "text": "se trata de un monopolio natural", "correct": false},
-            {"id": "b", "text": "existe una importante asimetría de información entre productor y consumidor", "correct": false},
-            {"id": "c", "text": "el productor mejora el ambiente con su actividad", "correct": true},
-            {"id": "d", "text": "el marketing es una herramienta importante para diferenciar el producto", "correct": false}
+            {"id": "a", "text": "Nominal es un indicador del precio de una canasta de bienes y servicios de un país respecto de otro", "correct": false},
+            {"id": "b", "text": "Es el precio de la divisa e indica su abundancia o escasez relativa", "correct": true},
+            {"id": "c", "text": "Real es el costo de la intermediación del agente cambiario", "correct": false},
+            {"id": "d", "text": "Comprador menos Vendedor es la cantidad de pesos necesaria para adquirir un dólar", "correct": false}
           ]
         },
         {
           "id": 23,
           "type": "single",
-          "question": "En un mercado en equilibrio es correcto afirmar que ...",
+          "question": "El principio de las ventajas comparativas sostiene que cada país se concentrará en la producción de los bienes en los que resulta mas eficiente respecto de otro, en consecuencia:",
           "options": [
-            {"id": "a", "text": "El punto de equilibrio es estable mientras no existan incentivos que generen cambios de comportamiento en los consumidores o los productores.", "correct": true},
-            {"id": "b", "text": "El equilibrio se mantiene aunque existan cambios en los gustos o ingresos de los consumidores.", "correct": false},
-            {"id": "c", "text": "El precio de equilibrio es fijado por el productor con mayor participación en el mercado.", "correct": false},
-            {"id": "d", "text": "El equilibrio no depende de la oferta ni de la demanda del mercado.", "correct": false}
+            {"id": "a", "text": "Importará bienes sin considerar su eficiencia productiva", "correct": false},
+            {"id": "b", "text": "Importará los bienes en los que resulte comparativamente mas eficiente", "correct": false},
+            {"id": "c", "text": "Exportará los bienes en los que resulte comparativamente menos eficiente", "correct": false},
+            {"id": "d", "text": "Exportará los bienes en los que resulte comparativamente más eficiente", "correct": true}
           ]
         },
         {
           "id": 24,
           "type": "single",
-          "question": "Al incrementarse el ingreso disponible del consumidor ocurre un desplazamiento de la curva de la demanda de la canasta de alimentos y se incrementa el precio de equilibrio de los mismos.",
+          "question": "Respecto a la moneda y dinero:",
           "options": [
-            {"id": "a", "text": "Verdadero", "correct": true},
-            {"id": "b", "text": "Falso", "correct": false}
+            {"id": "a", "text": "Surge cuando se pasa de una economía de subsistencia a otra de intercambio.", "correct": true},
+            {"id": "b", "text": "Sirve para realizar trueques", "correct": false},
+            {"id": "c", "text": "Medio de pago aceptado por la comunidad para realizar algunas transacciones.", "correct": false},
+            {"id": "d", "text": "Ninguna es correcta.", "correct": false}
           ]
         },
         {
           "id": 25,
           "type": "single",
-          "question": "La función producción en su primer tramo presenta rendimientos crecientes y en su último tramo resulta decreciente",
+          "question": "Un aumento del Riesgo País implica:",
           "options": [
-            {"id": "a", "text": "Verdadero", "correct": true},
-            {"id": "b", "text": "Falso", "correct": false}
+            {"id": "a", "text": "Que el país no puede cumplir con sus obligaciones", "correct": true},
+            {"id": "b", "text": "Que en un proceso de refinanciación de deuda es aconsejable aumentar el plazo de recupero de la inversión", "correct": false},
+            {"id": "c", "text": "Una disminución de la tasa de interés de los bonos de deuda", "correct": false},
+            {"id": "d", "text": "Una mayor seguridad al momento de invertir en el país", "correct": false}
           ]
         },
         {
           "id": 26,
-          "type": "single",
-          "question": "Indique la opción incorrecta:",
+          "type": "truefalse",
+          "question": "Un sistema de cambio fijo es aquel en el que el tipo de cambio es determinado enteramente por el mercado, mientras que un sistema de cambio dirigido es aquel en el que el valor de algunas monedas fluctúa libremente y el de otras es el resultado de la intervención del estado en el mercado.",
           "options": [
-            {"id": "a", "text": "Las fallas de los mercados pueden subsanarse a través de la intervención del estado, por ejemplo fijando precios máximos para beneficiar al consumidor", "correct": false},
-            {"id": "b", "text": "La globalización, a través de la tecnología, el acceso a la información y la ausencia de fronteras, permite innovar y generar nuevas herramientas y oportunidades", "correct": false},
-            {"id": "c", "text": "Los servicios, como la intervención financiera, el transporte y el turismo corresponden al sector productivo secundario, ya que el factor trabajo le otorga un mayor valor agregado", "correct": true},
-            {"id": "d", "text": "La economía analiza como utilizar eficientemente los recursos y conducir a la eficiencia de los mercados", "correct": false}
+            {"id": "a", "text": "Verdadero", "correct": false},
+            {"id": "b", "text": "Falso", "correct": true}
           ]
         },
         {
           "id": 27,
           "type": "single",
-          "question": "La Frontera de Posibilidades de la Producción es un modelo que nos indica ...",
+          "question": "El tipo de cambio: (indica cuál es la definición correcta)",
           "options": [
-            {"id": "a", "text": "Como una economía distribuye eficientemente los recursos escasos de que dispone", "correct": true},
-            {"id": "b", "text": "Diferentes alternativas para utilizar los recursos ilimitados", "correct": false},
-            {"id": "c", "text": "Como la economía mantiene nuestros recursos naturales", "correct": false},
-            {"id": "d", "text": "Como toma decisiones el consumidor", "correct": false}
+            {"id": "a", "text": "Es el precio de la divisa e indica su abundancia o escasez relativa.", "correct": true},
+            {"id": "b", "text": "Nominal es un indicador del precio de una canasta de bienes y servicios de un país respecto al otro.", "correct": false},
+            {"id": "c", "text": "Comprador menos Vendedor es la cantidad de pesos necesaria para adquirir un dólar.", "correct": false},
+            {"id": "d", "text": "Real es el costo de la indeterminación del agente de cambio.", "correct": false}
           ]
         },
         {
           "id": 28,
           "type": "single",
-          "question": "Son ejemplos de costos fijos:",
+          "question": "Las entidades que crean dinero son:",
           "options": [
-            {"id": "a", "text": "Sueldo de ingeniero de calidad, seguros e impuestos", "correct": true},
-            {"id": "b", "text": "Alquiler del edificio y sueldo de operarios", "correct": false},
-            {"id": "c", "text": "Alquiler del edificio, impuestos y materia prima", "correct": false},
-            {"id": "d", "text": "Sueldos de personal de administración y operarios", "correct": false}
+            {"id": "a", "text": "Cualquier entidad financiera puede emitir dinero", "correct": false},
+            {"id": "b", "text": "Banco central y bancos comerciales", "correct": true},
+            {"id": "c", "text": "El Poder Ejecutivo de cada gobierno", "correct": false},
+            {"id": "d", "text": "Ninguna de las opciones es correcta.", "correct": false}
           ]
         },
         {
           "id": 29,
           "type": "single",
-          "question": "La economía de un país produce únicamente dos bienes, vestidos y alimentos, y tiene todos sus recursos en plena eficiencia de producción. En una situación inicial, produce 250 de vestidos y 150 de alimentos. Con la creciente demanda que se produce en torno a los alimentos, se decide duplicar su producción, pero para ello debe reasignar sus recursos, debiendo reducir un 50% la producción de vestidos. ¿Cuál es el costo de oportunidad de pasar de la situación inicial a esta última?",
+          "question": "La Demanda Monetaria:",
           "options": [
-            {"id": "a", "text": "El país puede producir todo lo que desea de alimentos, sin necesidad de renunciar a ninguna unidad de vestidos.", "correct": false},
-            {"id": "b", "text": "Por cada 10 unidades adicionales de alimentos, el país debe renunciar a 50 unidades de vestidos.", "correct": false},
-            {"id": "c", "text": "Por cada unidad adicional de alimentos, el país debe renunciar a 1,5 unidades de vestidos.", "correct": false},
-            {"id": "d", "text": "Por cada unidad adicional de alimentos, el país debe renunciar a 0,83 unidades de vestidos", "correct": true}
+            {"id": "a", "text": "Es independiente de la tasa de interés", "correct": false},
+            {"id": "b", "text": "Para los monetaristas es independiente del nivel de ingreso", "correct": false},
+            {"id": "c", "text": "Disminuye cuando aumenta la credibilidad de la moneda", "correct": false},
+            {"id": "d", "text": "Es la cantidad de efectivo que desean tener los agentes económicos para sus transacciones", "correct": true}
           ]
         },
         {
           "id": 30,
           "type": "single",
-          "question": "El concepto de nueva economía se basa en un sistema económico global, abierto donde la tecnología y el conocimiento permiten un mayor desarrollo e innovación",
+          "question": "La Contabilidad Nacional se define como:",
+          "options": [
+            {"id": "a", "text": "Registros sistematizados transaccionales de la vida económica de un país", "correct": true},
+            {"id": "b", "text": "Registros sistematizados de gastos corrientes del sector público", "correct": false},
+            {"id": "c", "text": "Registros de las transacciones que lleva a cabo el sector externo", "correct": false},
+            {"id": "d", "text": "Normas contables que rigen la renta nacional", "correct": false}
+          ]
+        },
+        {
+          "id": 31,
+          "type": "single",
+          "question": "La deuda Pública se considera interna cuando:",
+          "options": [
+            {"id": "a", "text": "El acreedor es una persona física o jurídica extranjera", "correct": false},
+            {"id": "b", "text": "Siempre que sea contraída por el gobierno de un país extranjero sin importar quien sea el acreedor o la moneda establecida para su cumplimiento.", "correct": false},
+            {"id": "c", "text": "Se establece su cumplimiento en moneda extranjera, por ejemplo en dólares.", "correct": false},
+            {"id": "d", "text": "El acreedor es una persona física o jurídica nacional.", "correct": true}
+          ]
+        },
+        {
+          "id": 32,
+          "type": "truefalse",
+          "question": "Cuando el tipo de cambio de un país desciende en relación con la moneda de otro país, la moneda nacional sufre una apreciación y la extranjera una depreciación.",
+          "options": [
+            {"id": "a", "text": "Verdadero", "correct": false},
+            {"id": "b", "text": "Falso", "correct": true}
+          ]
+        },
+        {
+          "id": 33,
+          "type": "single",
+          "question": "Los Impuestos indirectos gravan:",
+          "options": [
+            {"id": "a", "text": "La renta y las sucesiones.", "correct": false},
+            {"id": "b", "text": "La renta y la propiedad como ganancias e inmobiliario.", "correct": false},
+            {"id": "c", "text": "La propiedad como inmobiliario y automotores.", "correct": false},
+            {"id": "d", "text": "El consumo, como el Impuesto al Valor Agregado (IVA)", "correct": true}
+          ]
+        },
+        {
+          "id": 34,
+          "type": "single",
+          "question": "En el Sistema Tributario Argentino:",
+          "options": [
+            {"id": "a", "text": "Los impuestos directos como el IVA son coparticipables", "correct": false},
+            {"id": "b", "text": "Los impuestos indirectos corresponden a las provincias y no son coparticipables", "correct": false},
+            {"id": "c", "text": "Los aranceles a la importación y las retenciones corresponden a las provincias", "correct": false},
+            {"id": "d", "text": "Los municipios cobran tasas, por ejemplo al alumbrado público", "correct": true}
+          ]
+        },
+        {
+          "id": 35,
+          "type": "truefalse",
+          "question": "Son Agentes financieros que no crean dinero, los intermediarios financieros tales como Compañías de Seguros, Fondos de Jubilaciones y Pensiones, Fondos de Inversión, Bolsa de Valores y Administradoras de Crédito.",
           "options": [
             {"id": "a", "text": "Verdadero", "correct": true},
             {"id": "b", "text": "Falso", "correct": false}
           ]
         },
         {
-          "id": 31,
-          "type": "single",
-          "question": "La ley de rendimientos marginales decrecientes indica que los costos totales, al aumentar el PT alcanzan un máximo y luego decrecen",
-          "options": [
-            {"id": "a", "text": "Verdadero", "correct": false},
-            {"id": "b", "text": "Falso", "correct": true}
-          ]
-        },
-        {
-          "id": 32,
-          "type": "single",
-          "question": "La economía del país A tiene la posibilidad de dedicar sus recursos a la producción de medicamentos o celulares. Las opciones eficientes entre las que tiene para elegir son las siguientes: A(10000 cel / 0 med), B(9150 cel / 1000 med), C(8230 cel / 1950 med), D(7100 cel / 2810 med), E(5800 cel / 3600 med), F(4350 cel / 4300 med). ¿Cuál de las siguientes combinaciones es posible producir?",
-          "options": [
-            {"id": "a", "text": "Podría producir 3600 unidades de medicamentos y 5800 unidades de celulares.", "correct": true},
-            {"id": "b", "text": "Podría producir 4300 unidades de medicamentos y 5800 unidades de celulares.", "correct": false},
-            {"id": "c", "text": "Podría producir 3600 unidades de medicamentos y 4350 unidades de celulares.", "correct": false},
-            {"id": "d", "text": "Podría producir 2000 unidades de medicamentos y 10000 unidades de celulares.", "correct": false}
-          ]
-        },
-        {
-          "id": 33,
-          "type": "single",
-          "question": "La función producción desde su punto de inflexión crece a ritmo creciente para decrecer en su último tramo debido a que su rendimiento es decreciente",
-          "options": [
-            {"id": "a", "text": "Verdadero", "correct": false},
-            {"id": "b", "text": "Falso", "correct": true}
-          ]
-        },
-        {
-          "id": 34,
-          "type": "single",
-          "question": "Si consideramos que el turismo a casa de familiares y amigos es un bien inferior, podemos afirmar que, al aumentar el ingreso disponible ...",
-          "options": [
-            {"id": "a", "text": "la cantidad demandada aumentará en la misma proporción", "correct": false},
-            {"id": "b", "text": "su curva de la oferta se desplazará a la izquierda", "correct": false},
-            {"id": "c", "text": "la cantidad ofertada aumentará en la misma proporción", "correct": false},
-            {"id": "d", "text": "su curva de la demanda se desplazará a la izquierda", "correct": true}
-          ]
-        },
-        {
-          "id": 35,
-          "type": "single",
-          "question": "Cuando la Oferta y la demanda se encuentran en un mercado, es correcto afirmar que",
-          "options": [
-            {"id": "a", "text": "El precio del mercado es fijado exclusivamente por el productor con mayor capacidad.", "correct": false},
-            {"id": "b", "text": "La oferta de ese mercado puede calcularse como la sumatoria de las ofertas de los productores que participan en él.", "correct": true},
-            {"id": "c", "text": "La demanda del mercado se calcula considerando únicamente a los consumidores con mayores ingresos.", "correct": false},
-            {"id": "d", "text": "La oferta y la demanda no influyen en la determinación del precio de equilibrio.", "correct": false}
-          ]
-        },
-        {
           "id": 36,
           "type": "single",
-          "question": "Son ejemplos de costos variables:",
+          "question": "El sistema de tipo de cambio: (flotante con bandas)",
           "options": [
-            {"id": "a", "text": "Impuestos fijos y gastos financieros permanentes.", "correct": false},
-            {"id": "b", "text": "Alquiler, seguros y amortización de maquinaria.", "correct": false},
-            {"id": "c", "text": "Sueldos administrativos y costos fijos de oficina.", "correct": false},
-            {"id": "d", "text": "Materia prima, insumos y materiales.", "correct": true}
+            {"id": "a", "text": "Puede ser flotante entre un piso y un techo, con intervención estatal cuando resulta mayor al valor superior o menor al inferior.", "correct": true},
+            {"id": "b", "text": "Se refiere al conjunto de normas que regulan las transacciones nacionales.", "correct": false},
+            {"id": "c", "text": "Es fijo cuando es producto del equilibrio de mercado", "correct": false},
+            {"id": "d", "text": "Es fluctuante cuando lo determina el gobierno.", "correct": false}
           ]
         },
         {
           "id": 37,
           "type": "single",
-          "question": "En un mercado de competencia monopolística el producto es homogéneo y existe una fuerte competencia ya que no hay barreras de entrada y salida.",
+          "question": "La oferta Monetaria en relación con la tasa de encaje se puede afirmar que:",
           "options": [
-            {"id": "a", "text": "Falso", "correct": true},
-            {"id": "b", "text": "Verdadero", "correct": false}
+            {"id": "a", "text": "Si la tasa de encaje aumenta, la Oferta Monetaria aumenta.", "correct": false},
+            {"id": "b", "text": "Si la tasa de encaje aumenta, la Oferta Monetaria disminuye.", "correct": true},
+            {"id": "c", "text": "Si la tasa de encaje disminuye, la Oferta Monetaria disminuye.", "correct": false},
+            {"id": "d", "text": "La variación en la tasa de encaje no afecta la oferta Monetaria.", "correct": false}
           ]
         },
         {
           "id": 38,
           "type": "single",
-          "question": "El siguiente cuadro muestra cómo es el comportamiento de la demanda del mercado del Bien X. Suponga que el precio está en una situación inicial de $4 y pasa a $3. (Precio 5→0 unidades, Precio 4→4 unidades, Precio 3→8 unidades, Precio 2→12 unidades, Precio 1→16 unidades, Precio 0→20 unidades). ¿Cuál es la elasticidad precio de la demanda en ese tramo?",
+          "question": "Un impuesto se considera progresivo cuando:",
           "options": [
-            {"id": "a", "text": "La elasticidad precio de la demanda del Bien X en ese tramo es perfectamente inelástica.", "correct": false},
-            {"id": "b", "text": "La elasticidad precio de la demanda del Bien X en ese tramo es perfectamente elástica.", "correct": false},
-            {"id": "c", "text": "La elasticidad precio de la demanda del Bien X en ese tramo es igual a 1.", "correct": false},
-            {"id": "d", "text": "La elasticidad precio de la demanda del Bien X en ese tramo es igual a 4", "correct": true}
+            {"id": "a", "text": "A mayor renta del contribuyente aporta un porcentaje mayor", "correct": true},
+            {"id": "b", "text": "A mayor renta del contribuyente aporta un porcentaje menor", "correct": false},
+            {"id": "c", "text": "El porcentaje a aportar no depende de la renta del contribuyente", "correct": false},
+            {"id": "d", "text": "Todos los contribuyentes aportan un monto igual", "correct": false}
           ]
         },
         {
           "id": 39,
-          "type": "single",
-          "question": "Si la elasticidad renta de la demanda de camperas para nieve en Suecia es de 0,75, se puede afirmar que se trata de ...",
+          "type": "truefalse",
+          "question": "El ingreso (Y) privado se define como la sumatoria de los ingresos producidos por los factores: el alquiler de la tierra, el interés del capital y los salarios y beneficios por los servicios que presta.",
           "options": [
-            {"id": "a", "text": "un bien normal necesario", "correct": true},
-            {"id": "b", "text": "un bien sustituto", "correct": false},
-            {"id": "c", "text": "un bien inferior", "correct": false},
-            {"id": "d", "text": "un bien de lujo", "correct": false},
-            {"id": "e", "text": "un bien complementario", "correct": false}
+            {"id": "a", "text": "Verdadero", "correct": true},
+            {"id": "b", "text": "Falso", "correct": false}
           ]
         },
         {
           "id": 40,
           "type": "single",
-          "question": "El óptimo de explotación se define como el punto en el cual el Cvme corta o se iguala al Costo marginal e indica un punto donde se encuentran cubiertos los costos de producción.",
+          "question": "El sistema de tipo de cambio: (intervención estatal)",
           "options": [
-            {"id": "a", "text": "Verdadero", "correct": false},
-            {"id": "b", "text": "Falso", "correct": true}
+            {"id": "a", "text": "Es fijo cuando es producto del equilibrio de mercado", "correct": false},
+            {"id": "b", "text": "Se refiere al conjunto de normas que regulan las transacciones nacionales", "correct": false},
+            {"id": "c", "text": "Puede ser flotante entre un piso y un techo, con intervención estatal cuando se supera algún valor", "correct": true},
+            {"id": "d", "text": "Es fluctuante cuando lo determina el gobierno", "correct": false}
           ]
         },
         {
           "id": 41,
           "type": "single",
-          "question": "El costo de oportunidad en economía representa",
+          "question": "El YBI a costo de factores se calcula como:",
           "options": [
-            {"id": "a", "text": "La cantidad de otro bien al que se renuncia cuando se elige entre alternativas posibles", "correct": true},
-            {"id": "b", "text": "La cantidad de bienes y servicios recibidos como contraprestación", "correct": false},
-            {"id": "c", "text": "El costo monetario de los servicios prestados", "correct": false},
-            {"id": "d", "text": "El costo monetario de los bienes adquiridos", "correct": false}
+            {"id": "a", "text": "Salario + Beneficios", "correct": false},
+            {"id": "b", "text": "Productos - Insumos", "correct": false},
+            {"id": "c", "text": "Salario + Alquiler + Interés + Beneficios", "correct": true},
+            {"id": "d", "text": "Consumo + Gasto Público + Inversión", "correct": false}
           ]
         },
         {
           "id": 42,
           "type": "single",
-          "question": "Si el mercado de los teléfonos celulares se encuentra en equilibrio y se produce un aumento de las preferencias de los consumidores por ellos, el desplazamiento de la curva de la demanda muestra que...",
+          "question": "Se consideran parte del consumo de bienes y servicios del estado el gasto corriente, gasto de inversión y gasto social, sobre lo que es correcto afirmar que:",
           "options": [
-            {"id": "a", "text": "Disminuye la cantidad demandada y aumenta su precio", "correct": false},
-            {"id": "b", "text": "Aumenta la cantidad demandada y aumenta su precio", "correct": true},
-            {"id": "c", "text": "Aumenta la cantidad demandada y disminuye su precio", "correct": false},
-            {"id": "d", "text": "Disminuye la cantidad demandada y disminuye su precio", "correct": false}
+            {"id": "a", "text": "Los salarios y erogaciones que el sector público abona a sus empleados y proveedores de servicios son parte del gasto corriente", "correct": true},
+            {"id": "b", "text": "Los Programas de Seguridad Social que brindan cobertura de salud, educación y subsidios o transferencias a personas con algún tipo de discapacidad son parte del gasto de inversión.", "correct": false},
+            {"id": "c", "text": "Los bienes adquiridos para la producción de otros bienes son parte del gasto social.", "correct": false},
+            {"id": "d", "text": "Los bienes que utiliza el sector público para llevar a cabo sus funciones corresponden a gasto en bienes de capital.", "correct": false}
           ]
         },
         {
           "id": 43,
-          "type": "single",
-          "question": "El efecto Renta es una de las razones de la pendiente de la curva de la demanda y nos indica que al aumentar el ingreso disponible del consumidor aumentará la cantidad demandada de un bien normal.",
+          "type": "truefalse",
+          "question": "A través de la regulación se lleva a cabo el control de entrada y salida de mercados, tal como, la oferta del producto, el control de precios y calidades, la protección del ambiente, el otorgamiento de licencias, permisos, autorizaciones.",
           "options": [
             {"id": "a", "text": "Verdadero", "correct": true},
             {"id": "b", "text": "Falso", "correct": false}
@@ -844,235 +795,548 @@
         {
           "id": 44,
           "type": "single",
-          "question": "Al aumentar el precio de un bien sustituto aumenta la demanda del bien principal y viceversa",
+          "question": "En lo que respecta a los sistemas de tipo de cambio:",
           "options": [
-            {"id": "a", "text": "Verdadero", "correct": true},
-            {"id": "b", "text": "Falso", "correct": false}
+            {"id": "a", "text": "Todas son correctas", "correct": true},
+            {"id": "b", "text": "Algunos sistemas contemplan la intervención estatal para controlar el valor del tipo de cambio.", "correct": false},
+            {"id": "c", "text": "Algunos sistemas consideran el mercado cambiario el espacio para determinar el valor del tipo de cambio.", "correct": false},
+            {"id": "d", "text": "Establecen bandas de fluctuación del valor del tipo de cambio.", "correct": false}
           ]
         },
         {
           "id": 45,
           "type": "single",
-          "question": "La elasticidad de la demanda es",
+          "question": "Los bancos comerciales, tanto públicos como privados:",
           "options": [
-            {"id": "a", "text": "Solo se utiliza para determinar bienes sustitutos de normales", "correct": false},
-            {"id": "b", "text": "Una medida de la intensidad de respuesta de un producto, bien o servicio, ante la variación de los determinantes", "correct": true},
-            {"id": "c", "text": "Una medida de la variación del ingreso disponible del consumidor", "correct": false},
-            {"id": "d", "text": "Una medida de la variación de la tecnología en el proceso productivo", "correct": false}
+            {"id": "a", "text": "Participan en la determinación de la Demanda Monetaria a través de los préstamos que otorgan", "correct": false},
+            {"id": "b", "text": "Miden su rentabilidad a través del spread bancario que se calcula como la diferencia entre la tasa de encaje y la tasa de interés", "correct": false},
+            {"id": "c", "text": "Determinan la tasa de encaje legal que se aplica en el sector financiero según sus necesidades técnicas de credibilidad", "correct": false},
+            {"id": "d", "text": "Realizan tareas de intermediación financiera, según normas del BCRA que es la autoridad del sector financiero", "correct": true}
           ]
         },
         {
           "id": 46,
           "type": "single",
-          "question": "¿Qué sucede en el mercado de pollo si aumentara el precio de la carne vacuna?",
+          "question": "La Deuda Pública se considera externa cuando:",
           "options": [
-            {"id": "a", "text": "Ninguna de las opciones es correcta.", "correct": false},
-            {"id": "b", "text": "Al ser bienes sustitutos, se desplaza la curva de demanda en el mercado del pollo, haciendo que aumente el precio y la cantidad de equilibrio", "correct": true},
-            {"id": "c", "text": "Como son bienes complementarios, se contrae la oferta en el mercado del pollo", "correct": false},
-            {"id": "d", "text": "No repercute en el mercado del pollo.", "correct": false}
+            {"id": "a", "text": "Siempre que sea contraída por el gobierno de un país sin importar quien sea el acreedor", "correct": false},
+            {"id": "b", "text": "El acreedor es una persona física o jurídica extranjera", "correct": true},
+            {"id": "c", "text": "El acreedor es una persona física o jurídica nacional", "correct": false},
+            {"id": "d", "text": "Se establece su cumplimiento en moneda nacional (pesos).", "correct": false}
           ]
         },
         {
           "id": 47,
           "type": "single",
-          "question": "Supongamos que el mal tiempo eleva el precio del trigo. ¿Qué sucede con el mercado del pan, por ejemplo?",
+          "question": "El sistema financiero está conformado por:",
           "options": [
-            {"id": "a", "text": "Hay un desplazamiento de la curva de oferta, disminuyendo la cantidad de equilibrio y aumentando el precio de equilibrio", "correct": true},
-            {"id": "b", "text": "No hay ninguna variación del precio ni la cantidad de equilibrio en el mercado del pan.", "correct": false},
-            {"id": "c", "text": "Hay un desplazamiento de la curva de demanda, haciendo que aumente el precio y la cantidad de equilibrio.", "correct": false},
-            {"id": "d", "text": "Aumenta el precio y la cantidad de equilibrio en el mercado del pan", "correct": false}
+            {"id": "a", "text": "Sólo entidades que crean dinero como las Compañías de Seguro y las Administradoras de Fondeos de Jubilaciones y Pensiones", "correct": false},
+            {"id": "b", "text": "Entidades que crean dinero como el Banco Central, la Bolsa de Valores y los Fondos de Inversión, y otras que no crean dinero como las Administradoras de Fondos de Jubilaciones y Pensiones", "correct": false},
+            {"id": "c", "text": "Entidades que crean dinero como los bancos comerciales y otras que no crean dinero como las Compañías de Seguro", "correct": true},
+            {"id": "d", "text": "Sólo entidades que crean dinero, como los bancos comerciales públicos y privados", "correct": false}
           ]
         },
         {
           "id": 48,
-          "type": "single",
-          "question": "¿La sociedad puede elegir entre una combinación de bienes situadas a la derecha de la frontera de posibilidades de la producción?",
-          "options": [
-            {"id": "a", "text": "No, porque no le interesa esa combinación de bienes", "correct": false},
-            {"id": "b", "text": "Si, porque es una combinación de bienes accesible y eficiente", "correct": false},
-            {"id": "c", "text": "Si, porque es una combinación accesible aunque ineficiente", "correct": false},
-            {"id": "d", "text": "No, porque es una combinación de bienes inaccesible", "correct": true}
-          ]
-        },
-        {
-          "id": 49,
-          "type": "single",
-          "question": "Si aumentan los aranceles para la compra del algún bien extranjero, ¿qué sucede con un bien sustituto que se produce en el país?",
-          "options": [
-            {"id": "a", "text": "Se desplaza la demanda, logrando un mayor precio y cantidad de equilibrio del bien nacional.", "correct": true},
-            {"id": "b", "text": "Aumenta la producción del bien extranjero.", "correct": false},
-            {"id": "c", "text": "No se produce ninguna modificación en el mercado del bien local.", "correct": false},
-            {"id": "d", "text": "Se contrae la oferta del bien nacional, haciendo que el precio de equilibrio se mayor y la cantidad de equilibrio se menor", "correct": false}
-          ]
-        },
-        {
-          "id": 50,
-          "type": "single",
-          "question": "Permaneciendo constantes todos los demás factores que tienen que ver con la conducta del consumidor las cantidades demandadas varían en el mismo sentido que las variaciones de precios",
-          "options": [
-            {"id": "a", "text": "Falso", "correct": true},
-            {"id": "b", "text": "Verdadero", "correct": false}
-          ]
-        },
-        {
-          "id": 51,
-          "type": "single",
-          "question": "Sobre los factores de producción se afirma que:",
-          "options": [
-            {"id": "a", "text": "Todos los factores de producción son fijos en el corto plazo.", "correct": false},
-            {"id": "b", "text": "El trabajo no se considera un factor de producción en la economía.", "correct": false},
-            {"id": "c", "text": "La materia prima es un factor fijo mientras que el trabajo es siempre constante.", "correct": false},
-            {"id": "d", "text": "Tanto la materia prima como el trabajo se consideran factores de producción variable porque dependen del nivel de producción.", "correct": true}
-          ]
-        },
-        {
-          "id": 52,
-          "type": "single",
-          "question": "Desde el punto de vista de la economía, se pueden definir los Bienes como ...",
-          "options": [
-            {"id": "a", "text": "Objetos materiales que satisfacen una necesidad y pueden ser bienes intermedios o finales, entre otros", "correct": true},
-            {"id": "b", "text": "Objetos materiales, ilimitados y gratuitos", "correct": false},
-            {"id": "c", "text": "Aquellos que se encuentran libremente en la naturaleza, como los animales y los vegetales", "correct": false},
-            {"id": "d", "text": "Una actividad personal e intangible, generalmente perecedera", "correct": false}
-          ]
-        },
-        {
-          "id": 53,
-          "type": "single",
-          "question": "Se considera que una empresa minimiza pérdidas cuando el ingreso marginal supera el costo medio",
-          "options": [
-            {"id": "a", "text": "Verdadero", "correct": false},
-            {"id": "b", "text": "Falso", "correct": true}
-          ]
-        },
-        {
-          "id": 54,
-          "type": "single",
-          "question": "Una razón por la cual la curva de la demanda del mercado de pasajes aéreos tiene pendiente negativa es:",
-          "options": [
-            {"id": "a", "text": "por los efectos renta y sustitución", "correct": true},
-            {"id": "b", "text": "por el denominado efecto sustitución", "correct": false},
-            {"id": "c", "text": "por la proporción del gasto de los consumidores", "correct": false},
-            {"id": "d", "text": "por el denominado efecto renta", "correct": false}
-          ]
-        },
-        {
-          "id": 55,
-          "type": "single",
-          "question": "Las necesidades pueden definirse como...",
-          "options": [
-            {"id": "a", "text": "Carencias colectivas y públicas solamente", "correct": false},
-            {"id": "b", "text": "Carencias objetivas que se resuelven por el transcurso del tiempo", "correct": false},
-            {"id": "c", "text": "Sensación de carencia subjetiva que puede ser individual o social", "correct": true},
-            {"id": "d", "text": "Carencias de tipo biológico e individual", "correct": false}
-          ]
-        },
-        {
-          "id": 56,
-          "type": "single",
-          "question": "Si la empresa A se encuentra en un mercado de competencia perfecta y está operando en un nivel de producción donde: CMg = $150, IMg = $200 y su Beneficio es de $400",
-          "options": [
-            {"id": "a", "text": "La empresa está maximizando beneficios para ese nivel de producción", "correct": false},
-            {"id": "b", "text": "La empresa podría maximizar beneficios si aumentara su nivel de producción, para que IMg sea igual que el CMg.", "correct": true},
-            {"id": "c", "text": "La empresa podría maximizar beneficios si disminuyera su nivel de producción, para que haya una mayor diferencia entre el CMg y el IMg.", "correct": false},
-            {"id": "d", "text": "Ninguna de las opciones es correcta.", "correct": false}
-          ]
-        },
-        {
-          "id": 57,
-          "type": "single",
-          "question": "Cuando en una paritaria se resuelve un incremento de salarios de los panaderos, se origina un aumento de la cantidad ofertada de pan lo que lleva a un nuevo precio de equilibrio mayor que el anterior",
-          "options": [
-            {"id": "a", "text": "Verdadero", "correct": false},
-            {"id": "b", "text": "Falso", "correct": true}
-          ]
-        },
-        {
-          "id": 58,
-          "type": "single",
-          "question": "Un costo es considerado fijo cuando no varía con el nivel de producción y mantiene esta característica a lo largo del tiempo, sin importar el plazo que estemos analizando",
-          "options": [
-            {"id": "a", "text": "Verdadero", "correct": false},
-            {"id": "b", "text": "Falso", "correct": true}
-          ]
-        },
-        {
-          "id": 59,
-          "type": "single",
-          "question": "Indique la afirmación correcta (sobre competencia perfecta e IMg/IMe)",
-          "options": [
-            {"id": "a", "text": "La función beneficios presenta un mínimo cuando los costos resultan mínimos también", "correct": false},
-            {"id": "b", "text": "Hay competencia perfecta cuando el gobierno establece el precio de venta", "correct": false},
-            {"id": "c", "text": "En competencia perfecta la curva de la demanda es perfectamente inelástica", "correct": false},
-            {"id": "d", "text": "En un mercado de competencia perfecta el Ime es igual al Img e igual, a su vez, al Precio de venta que resulta del mercado aceptante", "correct": true}
-          ]
-        },
-        {
-          "id": 60,
-          "type": "single",
-          "question": "Un costo es considerado fijo cuando no varía con el nivel de producción y mantiene esta característica a lo largo del corto plazo, ya que a largo plazo todos los costos se consideran variables",
+          "type": "truefalse",
+          "question": "El desarrollo sostenible se define como aquel que respeta los recursos naturales, permite la regeneración de los ecosistemas, y se funda en tres aspectos fundamentales: social, económico y ambiental.",
           "options": [
             {"id": "a", "text": "Verdadero", "correct": true},
             {"id": "b", "text": "Falso", "correct": false}
           ]
         },
         {
+          "id": 49,
+          "type": "single",
+          "question": "La Balanza de Pagos: (cuenta corriente y cuenta capital)",
+          "options": [
+            {"id": "a", "text": "En la cuenta de capital se registran las importaciones.", "correct": false},
+            {"id": "b", "text": "En la cuenta corriente registra la balanza comercial (exportaciones e importaciones) y la balanza de servicios, entre los que se incluye el turismo y las comunicaciones.", "correct": true},
+            {"id": "c", "text": "Se puede definir como una serie de registros contables sistematizados de las transacciones propias del sector público.", "correct": false},
+            {"id": "d", "text": "En la cuenta de capital se registran transacciones de montos importantes como turismo, transporte y comunicaciones.", "correct": false}
+          ]
+        },
+        {
+          "id": 50,
+          "type": "single",
+          "question": "Para calcular la Renta Nacional desde el Producto:",
+          "options": [
+            {"id": "a", "text": "Se deben sumar el total de productos finales en un período determinado.", "correct": true},
+            {"id": "b", "text": "Se deben sumar el total de productos e insumos en un período determinado.", "correct": false},
+            {"id": "c", "text": "Se deben sumar el Consumo, la Inversión de una economía.", "correct": false},
+            {"id": "d", "text": "Se deben sumar los ingresos del Sector Privado y el Sector Público.", "correct": false}
+          ]
+        },
+        {
+          "id": 51,
+          "type": "truefalse",
+          "question": "El gasto corriente es aquel que se destina a bienes de capital, cuya financiación supera un periodo fiscal. (segunda aparición)",
+          "options": [
+            {"id": "a", "text": "Verdadero", "correct": false},
+            {"id": "b", "text": "Falso", "correct": true}
+          ]
+        },
+        {
+          "id": 52,
+          "type": "truefalse",
+          "question": "En la economía en colores se realiza un análisis sectorial, identificando por color cada aspecto incluido; la ciencia, el consumo, el arte, el ambiente, la tecnología y actividades no registradas y prohibidas.",
+          "options": [
+            {"id": "a", "text": "Verdadero", "correct": true},
+            {"id": "b", "text": "Falso", "correct": false}
+          ]
+        },
+        {
+          "id": 53,
+          "type": "single",
+          "question": "La Oferta Monetaria:",
+          "options": [
+            {"id": "a", "text": "Incluye efectivo + depósitos y se mide a través de los agregados monetarios M0; M1; M2 y M3", "correct": true},
+            {"id": "b", "text": "Deriva del crédito bancario e incluye efectivo + depósitos", "correct": false},
+            {"id": "c", "text": "Deriva del crédito bancario e incluye solamente el efectivo circulante", "correct": false},
+            {"id": "d", "text": "Se mide a partir de agregados monetarios M0; M1; M2 y M3", "correct": false}
+          ]
+        },
+        {
+          "id": 54,
+          "type": "single",
+          "question": "Son funciones del Banco Central de la República Argentina (BCRA):",
+          "options": [
+            {"id": "a", "text": "Emitir moneda de curso legal, emisión primaria, y regular la emisión secundaria de los bancos comerciales públicos y privados.", "correct": true},
+            {"id": "b", "text": "Emitir moneda de curso legal en función de la política fiscal desarrollada.", "correct": false},
+            {"id": "c", "text": "Desarrollar y ejecutar la Política Fiscal.", "correct": false},
+            {"id": "d", "text": "Registrar las transacciones de la balanza de pagos.", "correct": false}
+          ]
+        },
+        {
+          "id": 55,
+          "type": "single",
+          "question": "El tipo de cambio: (utilidad práctica)",
+          "options": [
+            {"id": "a", "text": "Ninguna es correcta.", "correct": false},
+            {"id": "b", "text": "Es la relación entre el valor del oro con una divisa.", "correct": false},
+            {"id": "c", "text": "Muestra la relación de una moneda nacional con la tasa de interés del mercado.", "correct": false},
+            {"id": "d", "text": "Me sirve por si quiero viajar a Estados Unidos, por ejemplo.", "correct": true}
+          ]
+        },
+        {
+          "id": 56,
+          "type": "truefalse",
+          "question": "La Renta Nacional se define como el Producto Nacional Neto a costo de factores (PNNcf) y puede calcularse desde el producto, desde el ingreso o desde el gasto, obteniéndose el mismo resultado en términos monetarios.",
+          "options": [
+            {"id": "a", "text": "Verdadero", "correct": true},
+            {"id": "b", "text": "Falso", "correct": false}
+          ]
+        },
+        {
+          "id": 57,
+          "type": "single",
+          "question": "Indique cuáles de las siguientes variables macroeconómicas se consideran indicadores de desarrollo, pero no de calidad de vida:",
+          "options": [
+            {"id": "a", "text": "Índice de Desarrollo Humano (IDH) y Huella Hídrica", "correct": false},
+            {"id": "b", "text": "Curva de Lorenz y Producto Bruto Interno per cápita (PBI per cápita)", "correct": true},
+            {"id": "c", "text": "Producto Bruto Interno (PBI) y Huella de Carbono", "correct": false}
+          ]
+        },
+        {
+          "id": 58,
+          "type": "single",
+          "question": "La economía negra analiza economías ilegales como:",
+          "options": [
+            {"id": "a", "text": "El tráfico de armas.", "correct": true},
+            {"id": "b", "text": "La evasión de impuestos.", "correct": false},
+            {"id": "c", "text": "Todas son correctas.", "correct": false},
+            {"id": "d", "text": "El trabajo informal.", "correct": false}
+          ]
+        },
+        {
+          "id": 59,
+          "type": "single",
+          "question": "En el Sistema Tributario Argentino: (coparticipación)",
+          "options": [
+            {"id": "a", "text": "La nación recauda los impuestos indirectos que son coparticipables", "correct": true},
+            {"id": "b", "text": "Los impuestos aduaneros corresponden a la nación y son coparticipables.", "correct": false},
+            {"id": "c", "text": "Los impuestos aduaneros corresponden a las provincias.", "correct": false},
+            {"id": "d", "text": "Las provincias y los municipios recaudan impuestos indirectos.", "correct": false}
+          ]
+        },
+        {
+          "id": 60,
+          "type": "single",
+          "question": "La moneda y el dinero conceptualmente ...",
+          "options": [
+            {"id": "a", "text": "...se consideran medio de pago de tributos.", "correct": false},
+            {"id": "b", "text": "...se consideran medio de pago en transacciones de sector financiero.", "correct": false},
+            {"id": "c", "text": "...son herramientas de trueque", "correct": false},
+            {"id": "d", "text": "...surgen al avanzar de una economía de subsistencia a otra de intercambio.", "correct": true}
+          ]
+        },
+        {
           "id": 61,
           "type": "single",
-          "question": "Indique la afirmación incorrecta (sobre producto medio y producto marginal):",
+          "question": "El valor del tipo de cambio del dólar respecto al peso:",
           "options": [
-            {"id": "a", "text": "El producto medio del factor variable es el cambio observado en el producto total por cada unidad adicional de factor variable y mide la tasa de crecimiento de la función producción.", "correct": true},
-            {"id": "b", "text": "El producto marginal del factor variable se puede definir como el cambio del producto total por unidad adicional de factor variable", "correct": false},
-            {"id": "c", "text": "El producto marginal del factor variable es la pendiente de la función producción y mide la tasa de crecimiento del producto total", "correct": false},
-            {"id": "d", "text": "El Producto Medio del Factor variable se define como la cantidad de producto total promedio por cada unidad de factor variable y mide su productividad o eficiencia", "correct": false}
+            {"id": "a", "text": "Aumenta si crecen las importaciones netas.", "correct": true},
+            {"id": "b", "text": "Lo determina el Poder Ejecutivo.", "correct": false},
+            {"id": "c", "text": "Se determina en relación a los precios internacionales de los alimentos.", "correct": false},
+            {"id": "d", "text": "Aumenta si crecen las exportaciones netas.", "correct": false}
           ]
         },
         {
           "id": 62,
           "type": "single",
-          "question": "Indique la afirmación incorrecta (sobre costos):",
+          "question": "Respecto del Ahorro, considerado en economía como Inversión, se puede afirmar que: (segunda aparición)",
           "options": [
-            {"id": "a", "text": "El costo total es la suma de los costos fijos y los costos variables.", "correct": false},
-            {"id": "b", "text": "Los costos totales representan sólo las erogaciones que debo realizar cuando no se produce.", "correct": true},
-            {"id": "c", "text": "Los costos variables cambian según la cantidad producida.", "correct": false},
-            {"id": "d", "text": "Los costos fijos son aquellos que no dependen del nivel de producción.", "correct": false}
+            {"id": "a", "text": "La Inversión de Neta Interna representa el valor de la depreciación de los bienes de capital", "correct": false},
+            {"id": "b", "text": "Un aumento en la Inversión Bruta Interna implica una disminución del Producto Bruto Interno (PBI).", "correct": false},
+            {"id": "c", "text": "Un país progresa cuando la Inversión Neta Interna es menor a cero.", "correct": false},
+            {"id": "d", "text": "La inversión Neta Interna se calcula como la diferencia entre la Inversión Bruta Interna y la Inversión de Reposición.", "correct": true}
           ]
         },
         {
           "id": 63,
           "type": "single",
-          "question": "Si aumenta el precio del café en un 1% y, al mismo tiempo, la demanda de azúcar se reduce en un 6%, se puede afirmar que el café y el azúcar son:",
+          "question": "Cuando los países intercambian bienes:",
           "options": [
-            {"id": "a", "text": "bienes inferiores", "correct": false},
-            {"id": "b", "text": "bienes sustitutos", "correct": false},
-            {"id": "c", "text": "bienes complementarios", "correct": true},
-            {"id": "d", "text": "bienes independientes", "correct": false}
+            {"id": "a", "text": "No obtienen mayores ventajas a través del intercambio", "correct": false},
+            {"id": "b", "text": "Solo lo hacen en los casos en que se encuentren en igualdad de producción", "correct": false},
+            {"id": "c", "text": "No presentan diferencias en los gustos ni preferencias de cada sociedad", "correct": false},
+            {"id": "d", "text": "Se benefician a través de economías de escala y crean una serie de ventajas significativas para la producción de esos bienes", "correct": true}
           ]
         },
         {
           "id": 64,
           "type": "single",
-          "question": "¿Qué sucede cuando un estilo de ropa para varones deja de ser una moda?",
+          "question": "La economía verde hace mención a:",
           "options": [
-            {"id": "a", "text": "La oferta se reduce, provocando una suba en el precio de equilibrio.", "correct": false},
-            {"id": "b", "text": "Se contrae la demanda, haciendo que la cantidad y el precio de equilibrio disminuyan.", "correct": true},
-            {"id": "c", "text": "No hay cambios en el mercado, ya que las preferencias no afectan la demanda.", "correct": false},
-            {"id": "d", "text": "Aumenta la demanda, generando un incremento en el precio y la cantidad de equilibrio.", "correct": false}
+            {"id": "a", "text": "Al avance tecnológico y el cuidado ambiental.", "correct": false},
+            {"id": "b", "text": "Mejoramiento del bienestar humano, equidad social y reducir los riesgos ambientales.", "correct": true},
+            {"id": "c", "text": "La tendencia a adquirir, gastar y consumir bienes no siempre necesarios.", "correct": false},
+            {"id": "d", "text": "Reducir los riesgos ambientales", "correct": false}
           ]
         },
         {
           "id": 65,
           "type": "single",
-          "question": "La economía es una ciencia social que estudia",
+          "question": "La Demanda Monetaria: (segunda aparición)",
           "options": [
-            {"id": "a", "text": "Las decisiones del Estado sin intervención de individuos o empresas.", "correct": false},
-            {"id": "b", "text": "Únicamente la producción de bienes sin considerar el comportamiento humano.", "correct": false},
-            {"id": "c", "text": "Conductas humanas que realizan actores racionales para administrar recursos escasos.", "correct": true},
-            {"id": "d", "text": "El funcionamiento de las máquinas utilizadas en los procesos productivos.", "correct": false}
+            {"id": "a", "text": "Disminuye cuando aumenta la credibilidad de la moneda.", "correct": false},
+            {"id": "b", "text": "Para los monetaristas es independiente del nivel de ingreso.", "correct": false},
+            {"id": "c", "text": "Se define como la cantidad de efectivo que desean tener los agentes económicos para sus transacciones.", "correct": true},
+            {"id": "d", "text": "Es independiente de la tasa de interés.", "correct": false}
+          ]
+        },
+        {
+          "id": 66,
+          "type": "truefalse",
+          "question": "La Inflación Monetaria se relaciona con la demanda de dinero, que depende en forma inversa de la tasa de inflación. Cuando es alta, los agentes económicos se desprenden más rápidamente de la moneda nacional, el estado gasta por encima de sus ingresos tributarios y financia el déficit fiscal con el aumento de emisión monetaria, que se traslada al sector privado.",
+          "options": [
+            {"id": "a", "text": "Verdadero", "correct": true},
+            {"id": "b", "text": "Falso", "correct": false}
+          ]
+        },
+        {
+          "id": 67,
+          "type": "single",
+          "question": "Respecto a la emisión secundaria del dinero:",
+          "options": [
+            {"id": "a", "text": "Lo puede realizar cualquier entidad financiera.", "correct": false},
+            {"id": "b", "text": "Se lleva a cabo por medio de los bancos comerciales, a través de los ahorros y préstamos", "correct": true},
+            {"id": "c", "text": "Se encarga el BCRA", "correct": false},
+            {"id": "d", "text": "No hay emisión secundaria de dinero", "correct": false}
+          ]
+        },
+        {
+          "id": 68,
+          "type": "single",
+          "question": "El cálculo del Producto Bruto Interno (PBI) incluye:",
+          "options": [
+            {"id": "a", "text": "Los bienes finales o de consumo generados por una economía", "correct": true},
+            {"id": "b", "text": "La contaminación ambiental", "correct": false},
+            {"id": "c", "text": "Las actividades de voluntariado", "correct": false},
+            {"id": "d", "text": "La distribución de la riqueza de la población", "correct": false}
+          ]
+        },
+        {
+          "id": 69,
+          "type": "single",
+          "question": "En el Sector Financiero:",
+          "options": [
+            {"id": "a", "text": "Los bancos comerciales públicos y privados no participan del proceso de emisión monetaria ya que sólo lo hace el BCRA", "correct": false},
+            {"id": "b", "text": "El BCRA es el encargado de la emisión de moneda secundaria y de otorgar préstamos a empresas", "correct": false},
+            {"id": "c", "text": "El BCRA tiene a su cargo el monopolio de la emisión primaria de moneda y la custodia de las reservas del país", "correct": true},
+            {"id": "d", "text": "El BCRA emite moneda juntamente con todas las demás entidades que integran el sector financiero", "correct": false}
+          ]
+        },
+        {
+          "id": 70,
+          "type": "single",
+          "question": "El Producto Bruto Interno se define como la sumatoria de: (tercera aparición)",
+          "options": [
+            {"id": "a", "text": "Valor Agregado Bruto de Productos Finales", "correct": true},
+            {"id": "b", "text": "Consumo de empresas y Gasto del sector público", "correct": false},
+            {"id": "c", "text": "Valor Agregado Neto y Exportaciones Netas", "correct": false},
+            {"id": "d", "text": "Valor Agregado Bruto menos Depreciaciones", "correct": false}
+          ]
+        },
+        {
+          "id": 71,
+          "type": "single",
+          "question": "Respecto de la inflación, se considera que:",
+          "options": [
+            {"id": "a", "text": "Se origina por la disminución del tipo de cambio que afecta los costos de los factores de la producción que utilizan materia prima importada", "correct": false},
+            {"id": "b", "text": "Se origina por la flexibilidad de la oferta para reaccionar rápidamente ante éstos cambios, por ejemplo en una región agroindustrial", "correct": false},
+            {"id": "c", "text": "Tiene como consecuencia un mayor poder adquisitivo de la moneda para el consumidor", "correct": false},
+            {"id": "d", "text": "Es el aumento de los precios de una canasta de productos, bienes servicios que consumen las familias, en forma continua, por un periodo de tiempo, en un lugar determinado", "correct": true}
+          ]
+        },
+        {
+          "id": 72,
+          "type": "single",
+          "question": "A mayor encaje legal del BCRA sobre los Bancos Comerciales:",
+          "options": [
+            {"id": "a", "text": "Mayor liquidez en la economía.", "correct": false},
+            {"id": "b", "text": "Menor liquidez en la economía.", "correct": true},
+            {"id": "c", "text": "No influye en la liquidez de la economía.", "correct": false},
+            {"id": "d", "text": "Ninguna es correcta.", "correct": false}
+          ]
+        },
+        {
+          "id": 73,
+          "type": "single",
+          "question": "Si la Inversión es el destino del ahorro:",
+          "options": [
+            {"id": "a", "text": "La Inversión de Reposición representa la depreciación del capital", "correct": true},
+            {"id": "b", "text": "Un aumento en la Inversión Bruta Interna implica una disminución del PBI", "correct": false},
+            {"id": "c", "text": "La inversión Bruta Interna se calcula como la diferencia entre la Inversión Neta Interna y la Inversión de Reposición", "correct": false},
+            {"id": "d", "text": "Un país progresa cuando la Inversión Neta Interna es menor a cero", "correct": false}
+          ]
+        },
+        {
+          "id": 74,
+          "type": "single",
+          "question": "En una economía abierta:",
+          "options": [
+            {"id": "a", "text": "Los países intercambian bienes porque las sociedades presentan diferentes preferencias o gustos, aun en igualdad de condiciones de producción", "correct": false},
+            {"id": "b", "text": "Los países intercambian bienes según sus ventajas comparativas, especializándose en aquello en lo que son más eficientes", "correct": true},
+            {"id": "c", "text": "Los países pueden intercambiar bienes y servicios entre sí sin que existan barreras arancelarias", "correct": false},
+            {"id": "d", "text": "El comercio internacional se fundamenta en las sociedades que se autoabastecen", "correct": false}
+          ]
+        },
+        {
+          "id": 75,
+          "type": "single",
+          "question": "Los Impuestos indirectos gravan: (segunda aparición)",
+          "options": [
+            {"id": "a", "text": "La renta y la propiedad como ganancias e inmobiliario", "correct": false},
+            {"id": "b", "text": "La propiedad como inmobiliario y automotores", "correct": false},
+            {"id": "c", "text": "El consumo, como el IVA", "correct": true},
+            {"id": "d", "text": "La renta y las sucesiones", "correct": false}
+          ]
+        },
+        {
+          "id": 76,
+          "type": "single",
+          "question": "El estado interviene en un sistema de tipo de cambio:",
+          "options": [
+            {"id": "a", "text": "Fluctuante y Fijo", "correct": true},
+            {"id": "b", "text": "Fijo.", "correct": false},
+            {"id": "c", "text": "Libre", "correct": false},
+            {"id": "d", "text": "Fluctuante.", "correct": false}
+          ]
+        },
+        {
+          "id": 77,
+          "type": "single",
+          "question": "El aumento en la compra de bienes y servicios del exterior:",
+          "options": [
+            {"id": "a", "text": "Genera una mayor oferta de dólares en la economía del país.", "correct": false},
+            {"id": "b", "text": "Ninguna es correcta", "correct": false},
+            {"id": "c", "text": "Aumenta la demanda de divisas en el país.", "correct": true},
+            {"id": "d", "text": "Genera una mayor entrada de divisas al país.", "correct": false}
+          ]
+        },
+        {
+          "id": 78,
+          "type": "single",
+          "question": "La definición de PBI:",
+          "options": [
+            {"id": "a", "text": "Incluye una valoración de la calidad de vida de los habitantes de una región", "correct": false},
+            {"id": "b", "text": "Incluye las destrucciones ocasionadas por catástrofes naturales, pero no las reconstrucciones", "correct": false},
+            {"id": "c", "text": "Considera las desigualdades en la distribución de la riqueza y género", "correct": false},
+            {"id": "d", "text": "Prescinde de los costes ecológicos y sociales", "correct": true}
+          ]
+        },
+        {
+          "id": 79,
+          "type": "single",
+          "question": "La oferta monetaria se incrementa:",
+          "options": [
+            {"id": "a", "text": "Disminuyendo la tasa de encaje", "correct": true},
+            {"id": "b", "text": "Aumentando la tasa de interés", "correct": false},
+            {"id": "c", "text": "Aumentando la tasa de encaje", "correct": false},
+            {"id": "d", "text": "Con emisión de moneda del Banco Central", "correct": false}
+          ]
+        },
+        {
+          "id": 80,
+          "type": "single",
+          "question": "Sobre el PBI se afirma que:",
+          "options": [
+            {"id": "a", "text": "Considera la depreciación de los bienes", "correct": false},
+            {"id": "b", "text": "Considera las actividades de voluntariado", "correct": false},
+            {"id": "c", "text": "Contabiliza bienes y servicios producidos en una región durante un periodo de tiempo", "correct": true},
+            {"id": "d", "text": "Incluye en su cálculo la producción de bienes intermedios", "correct": false}
+          ]
+        },
+        {
+          "id": 81,
+          "type": "truefalse",
+          "question": "Para calcular el ingreso público se consideran los Ingresos genuinos del sector público, donde los más importantes son los tributos o contribuciones que realizamos para el cumplimiento de los fines Estado: seguridad, justicia, salud, educación, entre otros.",
+          "options": [
+            {"id": "a", "text": "Verdadero", "correct": true},
+            {"id": "b", "text": "Falso", "correct": false}
+          ]
+        },
+        {
+          "id": 82,
+          "type": "single",
+          "question": "La Renta Nacional de un país:",
+          "options": [
+            {"id": "a", "text": "Se calcula a través del ingreso ya que se relaciona con el Ingreso Neto Interno (YNI)", "correct": false},
+            {"id": "b", "text": "Se calcula solamente a través del gasto público", "correct": false},
+            {"id": "c", "text": "Puede calcularse desde el enfoque del producto, del gasto o del ingreso, de forma tal que se obtiene el mismo valor", "correct": true},
+            {"id": "d", "text": "Se calcula a través del producto ya que se relaciona con el Producto Bruto Interno (PBI)", "correct": false}
+          ]
+        },
+        {
+          "id": 83,
+          "type": "truefalse",
+          "question": "El efecto fiscal de la inflación se produce ante el aumento de los ingresos nominales de los trabajadores en relación de dependencia, que ingresan a categorías superiores de aportes impositivos (impuesto a las ganancias) generando una disminución del ingreso disponible de los consumidores. Se genera un aumento del déficit público por disminución de la recaudación fiscal.",
+          "options": [
+            {"id": "a", "text": "Verdadero", "correct": true},
+            {"id": "b", "text": "Falso", "correct": false}
+          ]
+        },
+        {
+          "id": 84,
+          "type": "single",
+          "question": "La economía gris:",
+          "options": [
+            {"id": "a", "text": "Todas son correctas.", "correct": false},
+            {"id": "b", "text": "Analiza economías ilegales (tráfico de armas, terrorismo, etc.)", "correct": false},
+            {"id": "c", "text": "Tiene por objetivo estudiar el avance tecnológico para reducir costos.", "correct": false},
+            {"id": "d", "text": "Analiza trabajos informales, que generan empleo en las economías en desarrollo.", "correct": true}
+          ]
+        },
+        {
+          "id": 85,
+          "type": "single",
+          "question": "El Sistema de Contabilidad Nacional se define como ...",
+          "options": [
+            {"id": "a", "text": "...las normas contables que rigen la contabilidad nacional, e incluyen a la renta nacional", "correct": true},
+            {"id": "b", "text": "...los registros de las transacciones del sector externo como la balanza comercial", "correct": false},
+            {"id": "c", "text": "...las normas del balance contable del Banco Central de la República Argentina", "correct": false},
+            {"id": "d", "text": "...los registros sistematizados de las transacciones de la vida económica de un país en un período determinado de tiempo", "correct": false}
+          ]
+        },
+        {
+          "id": 86,
+          "type": "single",
+          "question": "La Deuda Pública se considera externa cuando: (segunda aparición)",
+          "options": [
+            {"id": "a", "text": "El acreedor es una persona física o jurídica nacional", "correct": false},
+            {"id": "b", "text": "Se establece su cumplimiento en pesos", "correct": false},
+            {"id": "c", "text": "Siempre que sea contraída por el gobierno de un país sin importar quien sea el acreedor", "correct": false},
+            {"id": "d", "text": "El acreedor es una persona física o jurídica extranjera", "correct": true}
+          ]
+        },
+        {
+          "id": 87,
+          "type": "single",
+          "question": "Ante un aumento inflacionario de precios:",
+          "options": [
+            {"id": "a", "text": "Se observa una disminución del poder adquisitivo del ingreso afectando en menor medida a los asalariados", "correct": false},
+            {"id": "b", "text": "Es posible medirlo mediante un índice de precios que refleje el incremento de los precios de una canasta de bienes y servicios", "correct": true},
+            {"id": "c", "text": "El poder adquisitivo del ingreso disponible de los consumidores se mantienen porque los salarios aumentan en igual proporción", "correct": false},
+            {"id": "d", "text": "Aquellos que cuentan con menores ingresos tienden a invertir en bienes inmuebles o moneda extranjera", "correct": false}
+          ]
+        },
+        {
+          "id": 88,
+          "type": "truefalse",
+          "question": "El tipo de cambio considerado Efectivo o de bolsillo es el efectivamente cobrado por el exportador y pagado por el importador y se calcula a partir del tipo de cambio nominal y los aranceles, gravámenes o derechos al comercio exterior que deba abonar.",
+          "options": [
+            {"id": "a", "text": "Verdadero", "correct": true},
+            {"id": "b", "text": "Falso", "correct": false}
+          ]
+        },
+        {
+          "id": 89,
+          "type": "single",
+          "question": "Sobre la Oferta Monetaria en relación con la tasa de encaje se puede afirmar que:",
+          "options": [
+            {"id": "a", "text": "La variación en la tasa de encaje no afecta la Oferta Monetaria", "correct": false},
+            {"id": "b", "text": "Si la tasa de encaje disminuye, la Oferta Monetaria disminuye", "correct": false},
+            {"id": "c", "text": "Si la tasa de encaje aumenta, la Oferta Monetaria aumenta", "correct": false},
+            {"id": "d", "text": "Si la tasa de encaje aumenta, la Oferta Monetaria disminuye", "correct": true}
+          ]
+        },
+        {
+          "id": 90,
+          "type": "single",
+          "question": "La inflación:",
+          "options": [
+            {"id": "a", "text": "Fortalece el sistema de precios cuando es elevada", "correct": false},
+            {"id": "b", "text": "Es la disminución de los precios de una canasta de productos en forma continua por un periodo de tiempo en un lugar determinado", "correct": false},
+            {"id": "c", "text": "Ocasiona una disminución del poder adquisitivo de los consumidores", "correct": true},
+            {"id": "d", "text": "Tiene como consecuencia un mayor poder adquisitivo de la moneda", "correct": false}
+          ]
+        },
+        {
+          "id": 91,
+          "type": "single",
+          "question": "En el mercado de divisas del dólar:",
+          "options": [
+            {"id": "a", "text": "El peso se deprecia cuando aumenta el tipo de cambio del dólar.", "correct": true},
+            {"id": "b", "text": "Hay menor oferta de dólares si disminuyen las exportaciones.", "correct": false},
+            {"id": "c", "text": "El peso se deprecia cuando disminuye el tipo de cambio del dólar.", "correct": false},
+            {"id": "d", "text": "Hay mayor oferta de dólares si aumentan las importaciones.", "correct": false}
+          ]
+        },
+        {
+          "id": 92,
+          "type": "single",
+          "question": "Entre las causas de la inflación se pueden mencionar:",
+          "options": [
+            {"id": "a", "text": "El incremento de la oferta", "correct": false},
+            {"id": "b", "text": "La disminución del costo de factores", "correct": false},
+            {"id": "c", "text": "La rigidez de la oferta", "correct": true},
+            {"id": "d", "text": "La disminución del tipo de cambio", "correct": false}
+          ]
+        },
+        {
+          "id": 93,
+          "type": "single",
+          "question": "Entre las causas de la inflación se puede mencionar: (segunda aparición, énfasis en sector agropecuario)",
+          "options": [
+            {"id": "a", "text": "La disminución del tipo de cambio considerando que la materia prima utilizada es importada", "correct": false},
+            {"id": "b", "text": "La rigidez de la oferta, por ejemplo en el sector agropecuario y ganadero", "correct": true},
+            {"id": "c", "text": "El incremento de la oferta en caso de un incentivo en la producción.", "correct": false},
+            {"id": "d", "text": "La disminución del costo de factores de producción.", "correct": false}
+          ]
+        },
+        {
+          "id": 94,
+          "type": "truefalse",
+          "question": "De las funciones Consumo y Ahorro, es correcto afirmar que la suma de la propensión marginal al consumo y la propensión marginal al ahorro es siempre mayor que 1.",
+          "options": [
+            {"id": "a", "text": "Verdadero", "correct": false},
+            {"id": "b", "text": "Falso", "correct": true}
           ]
         }
       ]
     };
+
     function initQuiz(){
       $('total').textContent = questions.length;
       $('quizTitleHeader').textContent = quizData.title || 'Índice';
@@ -1585,29 +1849,29 @@
       d.style.left='50%'; 
       d.style.transform='translateX(-50%)'; 
       d.style.bottom='18px'; 
-      d.style.padding='12px 20px'; 
-      d.style.borderRadius='8px'; 
+      d.style.padding='10px 16px'; 
+      d.style.borderRadius='10px'; 
       d.style.zIndex=9999; 
-      d.style.fontWeight=700;
-      d.style.fontSize='1rem';
-      d.style.boxShadow='0 8px 24px rgba(0,0,0,0.5)';
+      d.style.fontWeight=600;
+      d.style.fontSize='0.92rem';
+      d.style.boxShadow='0 8px 20px rgba(15,23,42,0.16)';
       
       if(type === 'success'){
-        d.style.background='linear-gradient(135deg, rgba(34,197,94,0.95), rgba(22,163,74,0.95))';
-        d.style.border='2px solid rgba(34,197,94,0.6)';
-        d.style.color='#fff';
+        d.style.background='#2d8a57';
+        d.style.border='1px solid #2d8a57';
+        d.style.color='#ffffff';
       } else if(type === 'error'){
-        d.style.background='linear-gradient(135deg, rgba(239,68,68,0.95), rgba(220,38,38,0.95))';
-        d.style.border='2px solid rgba(239,68,68,0.6)';
-        d.style.color='#fff';
+        d.style.background='#b6464f';
+        d.style.border='1px solid #b6464f';
+        d.style.color='#ffffff';
       } else if(type === 'warning'){
-        d.style.background='linear-gradient(135deg, rgba(251,191,36,0.95), rgba(245,158,11,0.95))';
-        d.style.border='2px solid rgba(251,191,36,0.6)';
-        d.style.color='#000';
+        d.style.background='#a87818';
+        d.style.border='1px solid #a87818';
+        d.style.color='#ffffff';
       } else {
-        d.style.background='rgba(255,255,255,0.1)'; 
-        d.style.border='1px solid var(--border)';
-        d.style.color='#e6eef6';
+        d.style.background='#25314f'; 
+        d.style.border='1px solid #25314f';
+        d.style.color='#ffffff';
       }
       
       document.body.appendChild(d);
@@ -1685,7 +1949,6 @@
     }
 
     function restartQuiz(){
-      if(!confirm('¿Estás seguro de reiniciar el quiz? Se perderá todo el progreso.')) return;
       state.answers = Array(questions.length).fill(null);
       state.checked = Array(questions.length).fill(false);
       state.score = 0;
@@ -1731,4 +1994,3 @@
   </script>
 </body>
 </html>
-
