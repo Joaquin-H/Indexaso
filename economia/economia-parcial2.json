@@ -1,0 +1,2328 @@
+{
+  "title": "Preguntas Economía Parcial 2",
+  "questions": [
+    {
+      "id": 1,
+      "type": "single",
+      "question": "En economía, a través de la intervención estatal:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Solamente se establecen precios máximos",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Se regulan procedimientos, productos y mercados",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "Establece el funcionamiento de la Administración Pública",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Los precios máximos benefician a los productores",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "type": "single",
+      "question": "En caso de déficit de la Balanza de Pagos, puede:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Adquirir bienes de capital para equilibrarla",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Solicitar financiamiento a Bancos u Organismos Internacionales",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "Prestar dinero a otros países",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Incrementar sus reservas",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "type": "single",
+      "question": "Son indicadores de calidad de vida:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Indice de Desarrollo Humano y Huella Hídrica",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Tipo de cambio y Curva de Lorenz",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "PBI y tipo de cambio",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Curva de Lorenz y PBI per cápita",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "type": "truefalse",
+      "question": "El Deflactor del Producto Bruto Interno (PBI), es el cociente entre PBI nominal y PBI real, generalmente se expresa como la tasa (%) y refleja las variaciones de precios de bienes consumidos, de capital, del sector privado y del sector público.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Verdadero",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Falso",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "type": "truefalse",
+      "question": "El tipo de cambio Real se puede definir como la cantidad de moneda nacional ($) necesaria para adquirir una unidad de moneda extranjera o divisa, a valor del comprador o exportador y del vendedor o importador; la diferencia es el margen que representa el costo de la intermediación del agente cambiario.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Verdadero",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Falso",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "type": "single",
+      "question": "Respecto del Ahorro, considerado en economía como Inversión, se puede afirmar que:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Un aumento en la Inversión Bruta Interna implica una disminución del Producto Bruto Interno (PBI)",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Un país progresa cuando la inversión Neta Interna es menos a cero.",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "La inversión de Neta Interna representa el valor de la depreciación de los bienes del capital.",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "La inversión Neta Interna se calcula como la diferencia entre la Inversión Bruta Interna y la Inversión de Reposición.",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "type": "truefalse",
+      "question": "La inflación de Demanda es la que surge de la suba del gasto público (G) o privado (C), que incrementa la demanda de bienes de capital. Se incrementa: el consumo, la inversión, el gasto público, las exportaciones y se eleva el precio del equilibrio del mercado con un incremento de la producción.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Verdadero",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Falso",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "type": "truefalse",
+      "question": "Se puede definir a la inflación como el aumento sustancial, sostenido y continuo del nivel general de precios de los bienes y servicios de una economía en un periodo de tiempo determinado, el incremento debe ser importante en su cuantía, en forma repetida y constante o continua, no de forma ocasional.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Verdadero",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Falso",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "type": "single",
+      "question": "El Producto Bruto Interno (PBI) se define como la sumatoria de:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Valor Agregado Bruto de Productos Finales.",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Consumo de las empresas del sector privado y Gasto del sector público.",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Valor Agregado Neto y Exportaciones Netas.",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Valor Agregado Bruto menos Depreciaciones.",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "type": "single",
+      "question": "El PBI nos permite cuantificar ...",
+      "options": [
+        {
+          "id": "a",
+          "text": "La calidad de vida de la población",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Las externalidades negativas generadas por la actividad productiva",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Los productos finales de una economía",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "text": "La distribución de la riqueza de una economía",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "type": "single",
+      "question": "La teoría de las ventajas comparativas:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Si un país es mas eficiente en todo lo que produce, no le conviene intercambiar con otro país",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Fundamenta el comercio internacional solo en función del gusto y las costumbres de los países",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "No permite predecir la dirección del comercio según patrones de especialización de los países",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Se basa en un intercambio según su eficiencia comparativa y relativa y permite predecir la dirección del comercio internacional",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "type": "truefalse",
+      "question": "El gasto corriente es aquel que se destina a bienes de capital, cuya financiación supera un período fiscal.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Verdadero",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Falso",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "type": "single",
+      "question": "En caso de déficit fiscal, para lograr el equilibrio el gobierno puede:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Aumentar los impuestos y disminuir el gasto público",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Fijar nuevos impuestos para aumentar su recaudación y contraer la economía, afectando en particular al sector privado",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Disminuir los impuestos y activar el sector privado",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Aumentar el gasto corriente y así expandir la economía en general",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "type": "truefalse",
+      "question": "El nivel general de precios, se expresa mediante índices de precios y son una medida de los precios actuales de un conjunto representativo de bienes y servicios, calculados en términos relativos respecto a un año base y ponderados conforme a la proporción de consumo de cada bien en un periodo determinado.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Verdadero",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Falso",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "type": "truefalse",
+      "question": "Noruega y Suecia producen igualmente carnes y pescados, los suecos prefieren la carne y los noruegos el pescado, por lo tanto del intercambio entre ambos países se incrementa el bienestar humano y la satisfacción de los habitantes.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Verdadero",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Falso",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "type": "single",
+      "question": "Se entiende por Cuenta de Inversión:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Al Plan de Gobierno aprobado mediante ley de Presupuesto para un período determinado.",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Al Presupuesto efectivamente ejecutado durante un periodo determinado, que debe aprobarse por ley",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "Al Presupuesto cuando no fue aprobado por ley.",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Al Presupuesto que no pudo ejecutarse durante un periodo determinado",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "type": "single",
+      "question": "Los impuestos:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Son obligaciones surgidas de la potestad tributaria del Estado para cumplir con sus fines: brindar seguridad, justicia, salud y educacion",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Existen impuestos nacionales, provinciales y municipales",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "El legislador no puede crear impuestos",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Requieren de una actividad del Estado como contraprestación al pago del contribuyente",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "type": "single",
+      "question": "El Sector Público cumple ciertas funciones en la economía de un país:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Ninguna es correcta",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Solamente brinda Justicia, Seguridad y Defensa e incorpora otras funciones ligadas a la economía en épocas extraordinarias (guerras, pandemia, etc.).",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Solamente brinda Justicia, Seguridad y Defensa.",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Su finalidad es modificar o controlar las conductas privadas",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "type": "single",
+      "question": "La variable macroeconómica Producto Bruto Interno (PBI) incluye en su cálculo:",
+      "options": [
+        {
+          "id": "a",
+          "text": "La distribución de la riqueza en una economía",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Los productos finales de una economía.",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "La cantidad de vida de la población.",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Las externalidades negativas generadas por la actividad productiva.",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "type": "single",
+      "question": "El tipo de cambio del euro en relación con el peso, en un mercado de divisas:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Se deprecia cuando disminuye el tipo de cambio",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Se deprecia cuando aumenta el tipo de cambio",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "Siempre mantiene su valor relativo",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Siempre se aprecia porque es una moneda fuerte",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "type": "single",
+      "question": "La Balanza de Pagos:",
+      "options": [
+        {
+          "id": "a",
+          "text": "En la cuenta de capital se registran las importaciones",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "En la cuenta de capital se registran transacciones de montos importantes como turismo, transporte y comunicaciones",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "En la cuenta corriente registra la balanza comercial (exportaciones e importaciones) y la balanza de servicios, entre los que se incluye el turismo y las comunicaciones",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "text": "Se la puede definir como una serie de registros contables sistematizados de las transacciones propias del sector público",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "type": "single",
+      "question": "El tipo de cambio:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Nominal es un indicador del precio de una canasta de bienes y servicios de un país respecto de otro",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Es el precio de la divisa e indica su abundancia o escasez relativa",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "Real es el costo de la intermediación del agente cambiario",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Comprador menos Vendedor es la cantidad de pesos necesaria para adquirir un dólar",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "type": "single",
+      "question": "El principio de las ventajas comparativas sostiene que cada país se concentrará en la producción de los bienes en los que resulta mas eficiente respecto de otro, en consecuencia:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Importará bienes sin considerar su eficiencia productiva",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Importará los bienes en los que resulte comparativamente mas eficiente",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Exportará los bienes en los que resulte comparativamente menos eficiente",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Exportará los bienes en los que resulte comparativamente más eficiente",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "type": "single",
+      "question": "Respecto a la moneda y dinero:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Surge cuando se pasa de una economía de subsistencia a otra de intercambio.",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Sirve para realizar trueques",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Medio de pago aceptado por la comunidad para realizar algunas transacciones.",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Ninguna es correcta.",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "type": "single",
+      "question": "Un aumento del Riesgo País implica:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Que el país no puede cumplir con sus obligaciones",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Que en un proceso de refinanciación de deuda es aconsejable aumentar el plazo de recupero de la inversión",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Una disminución de la tasa de interés de los bonos de deuda",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Una mayor seguridad al momento de invertir en el país",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 26,
+      "type": "truefalse",
+      "question": "Un sistema de cambio fijo es aquel en el que el tipo de cambio es determinado enteramente por el mercado, mientras que un sistema de cambio dirigido es aquel en el que el valor de algunas monedas fluctúa libremente y el de otras es el resultado de la intervención del estado en el mercado.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Verdadero",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Falso",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "id": 27,
+      "type": "single",
+      "question": "El tipo de cambio: (indica cuál es la definición correcta)",
+      "options": [
+        {
+          "id": "a",
+          "text": "Es el precio de la divisa e indica su abundancia o escasez relativa.",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Nominal es un indicador del precio de una canasta de bienes y servicios de un país respecto al otro.",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Comprador menos Vendedor es la cantidad de pesos necesaria para adquirir un dólar.",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Real es el costo de la indeterminación del agente de cambio.",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 28,
+      "type": "single",
+      "question": "Las entidades que crean dinero son:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Cualquier entidad financiera puede emitir dinero",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Banco central y bancos comerciales",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "El Poder Ejecutivo de cada gobierno",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Ninguna de las opciones es correcta.",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 29,
+      "type": "single",
+      "question": "La Demanda Monetaria:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Es independiente de la tasa de interés",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Para los monetaristas es independiente del nivel de ingreso",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Disminuye cuando aumenta la credibilidad de la moneda",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Es la cantidad de efectivo que desean tener los agentes económicos para sus transacciones",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "id": 30,
+      "type": "single",
+      "question": "La Contabilidad Nacional se define como:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Registros sistematizados transaccionales de la vida económica de un país",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Registros sistematizados de gastos corrientes del sector público",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Registros de las transacciones que lleva a cabo el sector externo",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Normas contables que rigen la renta nacional",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 31,
+      "type": "single",
+      "question": "La deuda Pública se considera interna cuando:",
+      "options": [
+        {
+          "id": "a",
+          "text": "El acreedor es una persona física o jurídica extranjera",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Siempre que sea contraída por el gobierno de un país extranjero sin importar quien sea el acreedor o la moneda establecida para su cumplimiento.",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Se establece su cumplimiento en moneda extranjera, por ejemplo en dólares.",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "El acreedor es una persona física o jurídica nacional.",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "id": 32,
+      "type": "truefalse",
+      "question": "Cuando el tipo de cambio de un país desciende en relación con la moneda de otro país, la moneda nacional sufre una apreciación y la extranjera una depreciación.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Verdadero",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Falso",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "id": 33,
+      "type": "single",
+      "question": "Los Impuestos indirectos gravan:",
+      "options": [
+        {
+          "id": "a",
+          "text": "La renta y las sucesiones.",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "La renta y la propiedad como ganancias e inmobiliario.",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "La propiedad como inmobiliario y automotores.",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "El consumo, como el Impuesto al Valor Agregado (IVA)",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "id": 34,
+      "type": "single",
+      "question": "En el Sistema Tributario Argentino:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Los impuestos directos como el IVA son coparticipables",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Los impuestos indirectos corresponden a las provincias y no son coparticipables",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Los aranceles a la importación y las retenciones corresponden a las provincias",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Los municipios cobran tasas, por ejemplo al alumbrado público",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "id": 35,
+      "type": "truefalse",
+      "question": "Son Agentes financieros que no crean dinero, los intermediarios financieros tales como Compañías de Seguros, Fondos de Jubilaciones y Pensiones, Fondos de Inversión, Bolsa de Valores y Administradoras de Crédito.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Verdadero",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Falso",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 36,
+      "type": "single",
+      "question": "El sistema de tipo de cambio: (flotante con bandas)",
+      "options": [
+        {
+          "id": "a",
+          "text": "Puede ser flotante entre un piso y un techo, con intervención estatal cuando resulta mayor al valor superior o menor al inferior.",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Se refiere al conjunto de normas que regulan las transacciones nacionales.",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Es fijo cuando es producto del equilibrio de mercado",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Es fluctuante cuando lo determina el gobierno.",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 37,
+      "type": "single",
+      "question": "La oferta Monetaria en relación con la tasa de encaje se puede afirmar que:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Si la tasa de encaje aumenta, la Oferta Monetaria aumenta.",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Si la tasa de encaje aumenta, la Oferta Monetaria disminuye.",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "Si la tasa de encaje disminuye, la Oferta Monetaria disminuye.",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "La variación en la tasa de encaje no afecta la oferta Monetaria.",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 38,
+      "type": "single",
+      "question": "Un impuesto se considera progresivo cuando:",
+      "options": [
+        {
+          "id": "a",
+          "text": "A mayor renta del contribuyente aporta un porcentaje mayor",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "A mayor renta del contribuyente aporta un porcentaje menor",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "El porcentaje a aportar no depende de la renta del contribuyente",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Todos los contribuyentes aportan un monto igual",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 39,
+      "type": "truefalse",
+      "question": "El ingreso (Y) privado se define como la sumatoria de los ingresos producidos por los factores: el alquiler de la tierra, el interés del capital y los salarios y beneficios por los servicios que presta.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Verdadero",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Falso",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 40,
+      "type": "single",
+      "question": "El sistema de tipo de cambio: (intervención estatal)",
+      "options": [
+        {
+          "id": "a",
+          "text": "Es fijo cuando es producto del equilibrio de mercado",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Se refiere al conjunto de normas que regulan las transacciones nacionales",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Puede ser flotante entre un piso y un techo, con intervención estatal cuando se supera algún valor",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "text": "Es fluctuante cuando lo determina el gobierno",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 41,
+      "type": "single",
+      "question": "El YBI a costo de factores se calcula como:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Salario + Beneficios",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Productos - Insumos",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Salario + Alquiler + Interés + Beneficios",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "text": "Consumo + Gasto Público + Inversión",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 42,
+      "type": "single",
+      "question": "Se consideran parte del consumo de bienes y servicios del estado el gasto corriente, gasto de inversión y gasto social, sobre lo que es correcto afirmar que:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Los salarios y erogaciones que el sector público abona a sus empleados y proveedores de servicios son parte del gasto corriente",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Los Programas de Seguridad Social que brindan cobertura de salud, educación y subsidios o transferencias a personas con algún tipo de discapacidad son parte del gasto de inversión.",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Los bienes adquiridos para la producción de otros bienes son parte del gasto social.",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Los bienes que utiliza el sector público para llevar a cabo sus funciones corresponden a gasto en bienes de capital.",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 43,
+      "type": "truefalse",
+      "question": "A través de la regulación se lleva a cabo el control de entrada y salida de mercados, tal como, la oferta del producto, el control de precios y calidades, la protección del ambiente, el otorgamiento de licencias, permisos, autorizaciones.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Verdadero",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Falso",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 44,
+      "type": "single",
+      "question": "En lo que respecta a los sistemas de tipo de cambio:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Todas son correctas",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Algunos sistemas contemplan la intervención estatal para controlar el valor del tipo de cambio.",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Algunos sistemas consideran el mercado cambiario el espacio para determinar el valor del tipo de cambio.",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Establecen bandas de fluctuación del valor del tipo de cambio.",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 45,
+      "type": "single",
+      "question": "Los bancos comerciales, tanto públicos como privados:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Participan en la determinación de la Demanda Monetaria a través de los préstamos que otorgan",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Miden su rentabilidad a través del spread bancario que se calcula como la diferencia entre la tasa de encaje y la tasa de interés",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Determinan la tasa de encaje legal que se aplica en el sector financiero según sus necesidades técnicas de credibilidad",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Realizan tareas de intermediación financiera, según normas del BCRA que es la autoridad del sector financiero",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "id": 46,
+      "type": "single",
+      "question": "La Deuda Pública se considera externa cuando:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Siempre que sea contraída por el gobierno de un país sin importar quien sea el acreedor",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "El acreedor es una persona física o jurídica extranjera",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "El acreedor es una persona física o jurídica nacional",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Se establece su cumplimiento en moneda nacional (pesos).",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 47,
+      "type": "single",
+      "question": "El sistema financiero está conformado por:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Sólo entidades que crean dinero como las Compañías de Seguro y las Administradoras de Fondeos de Jubilaciones y Pensiones",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Entidades que crean dinero como el Banco Central, la Bolsa de Valores y los Fondos de Inversión, y otras que no crean dinero como las Administradoras de Fondos de Jubilaciones y Pensiones",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Entidades que crean dinero como los bancos comerciales y otras que no crean dinero como las Compañías de Seguro",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "text": "Sólo entidades que crean dinero, como los bancos comerciales públicos y privados",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 48,
+      "type": "truefalse",
+      "question": "El desarrollo sostenible se define como aquel que respeta los recursos naturales, permite la regeneración de los ecosistemas, y se funda en tres aspectos fundamentales: social, económico y ambiental.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Verdadero",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Falso",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 49,
+      "type": "single",
+      "question": "La Balanza de Pagos: (cuenta corriente y cuenta capital)",
+      "options": [
+        {
+          "id": "a",
+          "text": "En la cuenta de capital se registran las importaciones.",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "En la cuenta corriente registra la balanza comercial (exportaciones e importaciones) y la balanza de servicios, entre los que se incluye el turismo y las comunicaciones.",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "Se puede definir como una serie de registros contables sistematizados de las transacciones propias del sector público.",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "En la cuenta de capital se registran transacciones de montos importantes como turismo, transporte y comunicaciones.",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 50,
+      "type": "single",
+      "question": "Para calcular la Renta Nacional desde el Producto:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Se deben sumar el total de productos finales en un período determinado.",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Se deben sumar el total de productos e insumos en un período determinado.",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Se deben sumar el Consumo, la Inversión de una economía.",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Se deben sumar los ingresos del Sector Privado y el Sector Público.",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 51,
+      "type": "truefalse",
+      "question": "El gasto corriente es aquel que se destina a bienes de capital, cuya financiación supera un periodo fiscal. (segunda aparición)",
+      "options": [
+        {
+          "id": "a",
+          "text": "Verdadero",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Falso",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "id": 52,
+      "type": "truefalse",
+      "question": "En la economía en colores se realiza un análisis sectorial, identificando por color cada aspecto incluido; la ciencia, el consumo, el arte, el ambiente, la tecnología y actividades no registradas y prohibidas.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Verdadero",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Falso",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 53,
+      "type": "single",
+      "question": "La Oferta Monetaria:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Incluye efectivo + depósitos y se mide a través de los agregados monetarios M0; M1; M2 y M3",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Deriva del crédito bancario e incluye efectivo + depósitos",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Deriva del crédito bancario e incluye solamente el efectivo circulante",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Se mide a partir de agregados monetarios M0; M1; M2 y M3",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 54,
+      "type": "single",
+      "question": "Son funciones del Banco Central de la República Argentina (BCRA):",
+      "options": [
+        {
+          "id": "a",
+          "text": "Emitir moneda de curso legal, emisión primaria, y regular la emisión secundaria de los bancos comerciales públicos y privados.",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Emitir moneda de curso legal en función de la política fiscal desarrollada.",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Desarrollar y ejecutar la Política Fiscal.",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Registrar las transacciones de la balanza de pagos.",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 55,
+      "type": "single",
+      "question": "El tipo de cambio: (utilidad práctica)",
+      "options": [
+        {
+          "id": "a",
+          "text": "Ninguna es correcta.",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Es la relación entre el valor del oro con una divisa.",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Muestra la relación de una moneda nacional con la tasa de interés del mercado.",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Me sirve por si quiero viajar a Estados Unidos, por ejemplo.",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "id": 56,
+      "type": "truefalse",
+      "question": "La Renta Nacional se define como el Producto Nacional Neto a costo de factores (PNNcf) y puede calcularse desde el producto, desde el ingreso o desde el gasto, obteniéndose el mismo resultado en términos monetarios.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Verdadero",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Falso",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 57,
+      "type": "single",
+      "question": "Indique cuáles de las siguientes variables macroeconómicas se consideran indicadores de desarrollo, pero no de calidad de vida:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Índice de Desarrollo Humano (IDH) y Huella Hídrica",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Curva de Lorenz y Producto Bruto Interno per cápita (PBI per cápita)",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "Producto Bruto Interno (PBI) y Huella de Carbono",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 58,
+      "type": "single",
+      "question": "La economía negra analiza economías ilegales como:",
+      "options": [
+        {
+          "id": "a",
+          "text": "El tráfico de armas.",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "La evasión de impuestos.",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Todas son correctas.",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "El trabajo informal.",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 59,
+      "type": "single",
+      "question": "En el Sistema Tributario Argentino: (coparticipación)",
+      "options": [
+        {
+          "id": "a",
+          "text": "La nación recauda los impuestos indirectos que son coparticipables",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Los impuestos aduaneros corresponden a la nación y son coparticipables.",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Los impuestos aduaneros corresponden a las provincias.",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Las provincias y los municipios recaudan impuestos indirectos.",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 60,
+      "type": "single",
+      "question": "La moneda y el dinero conceptualmente ...",
+      "options": [
+        {
+          "id": "a",
+          "text": "...se consideran medio de pago de tributos.",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "...se consideran medio de pago en transacciones de sector financiero.",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "...son herramientas de trueque",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "...surgen al avanzar de una economía de subsistencia a otra de intercambio.",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "id": 61,
+      "type": "single",
+      "question": "El valor del tipo de cambio del dólar respecto al peso:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Aumenta si crecen las importaciones netas.",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Lo determina el Poder Ejecutivo.",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Se determina en relación a los precios internacionales de los alimentos.",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Aumenta si crecen las exportaciones netas.",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 62,
+      "type": "single",
+      "question": "Respecto del Ahorro, considerado en economía como Inversión, se puede afirmar que: (segunda aparición)",
+      "options": [
+        {
+          "id": "a",
+          "text": "La Inversión de Neta Interna representa el valor de la depreciación de los bienes de capital",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Un aumento en la Inversión Bruta Interna implica una disminución del Producto Bruto Interno (PBI).",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Un país progresa cuando la Inversión Neta Interna es menor a cero.",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "La inversión Neta Interna se calcula como la diferencia entre la Inversión Bruta Interna y la Inversión de Reposición.",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "id": 63,
+      "type": "single",
+      "question": "Cuando los países intercambian bienes:",
+      "options": [
+        {
+          "id": "a",
+          "text": "No obtienen mayores ventajas a través del intercambio",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Solo lo hacen en los casos en que se encuentren en igualdad de producción",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "No presentan diferencias en los gustos ni preferencias de cada sociedad",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Se benefician a través de economías de escala y crean una serie de ventajas significativas para la producción de esos bienes",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "id": 64,
+      "type": "single",
+      "question": "La economía verde hace mención a:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Al avance tecnológico y el cuidado ambiental.",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Mejoramiento del bienestar humano, equidad social y reducir los riesgos ambientales.",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "La tendencia a adquirir, gastar y consumir bienes no siempre necesarios.",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Reducir los riesgos ambientales",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 65,
+      "type": "single",
+      "question": "La Demanda Monetaria: (segunda aparición)",
+      "options": [
+        {
+          "id": "a",
+          "text": "Disminuye cuando aumenta la credibilidad de la moneda.",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Para los monetaristas es independiente del nivel de ingreso.",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Se define como la cantidad de efectivo que desean tener los agentes económicos para sus transacciones.",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "text": "Es independiente de la tasa de interés.",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 66,
+      "type": "truefalse",
+      "question": "La Inflación Monetaria se relaciona con la demanda de dinero, que depende en forma inversa de la tasa de inflación. Cuando es alta, los agentes económicos se desprenden más rápidamente de la moneda nacional, el estado gasta por encima de sus ingresos tributarios y financia el déficit fiscal con el aumento de emisión monetaria, que se traslada al sector privado.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Verdadero",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Falso",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 67,
+      "type": "single",
+      "question": "Respecto a la emisión secundaria del dinero:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Lo puede realizar cualquier entidad financiera.",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Se lleva a cabo por medio de los bancos comerciales, a través de los ahorros y préstamos",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "Se encarga el BCRA",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "No hay emisión secundaria de dinero",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 68,
+      "type": "single",
+      "question": "El cálculo del Producto Bruto Interno (PBI) incluye:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Los bienes finales o de consumo generados por una economía",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "La contaminación ambiental",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Las actividades de voluntariado",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "La distribución de la riqueza de la población",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 69,
+      "type": "single",
+      "question": "En el Sector Financiero:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Los bancos comerciales públicos y privados no participan del proceso de emisión monetaria ya que sólo lo hace el BCRA",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "El BCRA es el encargado de la emisión de moneda secundaria y de otorgar préstamos a empresas",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "El BCRA tiene a su cargo el monopolio de la emisión primaria de moneda y la custodia de las reservas del país",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "text": "El BCRA emite moneda juntamente con todas las demás entidades que integran el sector financiero",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 70,
+      "type": "single",
+      "question": "El Producto Bruto Interno se define como la sumatoria de: (tercera aparición)",
+      "options": [
+        {
+          "id": "a",
+          "text": "Valor Agregado Bruto de Productos Finales",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Consumo de empresas y Gasto del sector público",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Valor Agregado Neto y Exportaciones Netas",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Valor Agregado Bruto menos Depreciaciones",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 71,
+      "type": "single",
+      "question": "Respecto de la inflación, se considera que:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Se origina por la disminución del tipo de cambio que afecta los costos de los factores de la producción que utilizan materia prima importada",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Se origina por la flexibilidad de la oferta para reaccionar rápidamente ante éstos cambios, por ejemplo en una región agroindustrial",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Tiene como consecuencia un mayor poder adquisitivo de la moneda para el consumidor",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Es el aumento de los precios de una canasta de productos, bienes servicios que consumen las familias, en forma continua, por un periodo de tiempo, en un lugar determinado",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "id": 72,
+      "type": "single",
+      "question": "A mayor encaje legal del BCRA sobre los Bancos Comerciales:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Mayor liquidez en la economía.",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Menor liquidez en la economía.",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "No influye en la liquidez de la economía.",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Ninguna es correcta.",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 73,
+      "type": "single",
+      "question": "Si la Inversión es el destino del ahorro:",
+      "options": [
+        {
+          "id": "a",
+          "text": "La Inversión de Reposición representa la depreciación del capital",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Un aumento en la Inversión Bruta Interna implica una disminución del PBI",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "La inversión Bruta Interna se calcula como la diferencia entre la Inversión Neta Interna y la Inversión de Reposición",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Un país progresa cuando la Inversión Neta Interna es menor a cero",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 74,
+      "type": "single",
+      "question": "En una economía abierta:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Los países intercambian bienes porque las sociedades presentan diferentes preferencias o gustos, aun en igualdad de condiciones de producción",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Los países intercambian bienes según sus ventajas comparativas, especializándose en aquello en lo que son más eficientes",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "Los países pueden intercambiar bienes y servicios entre sí sin que existan barreras arancelarias",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "El comercio internacional se fundamenta en las sociedades que se autoabastecen",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 75,
+      "type": "single",
+      "question": "Los Impuestos indirectos gravan: (segunda aparición)",
+      "options": [
+        {
+          "id": "a",
+          "text": "La renta y la propiedad como ganancias e inmobiliario",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "La propiedad como inmobiliario y automotores",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "El consumo, como el IVA",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "text": "La renta y las sucesiones",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 76,
+      "type": "single",
+      "question": "El estado interviene en un sistema de tipo de cambio:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Fluctuante y Fijo",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Fijo.",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Libre",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Fluctuante.",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 77,
+      "type": "single",
+      "question": "El aumento en la compra de bienes y servicios del exterior:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Genera una mayor oferta de dólares en la economía del país.",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Ninguna es correcta",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Aumenta la demanda de divisas en el país.",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "text": "Genera una mayor entrada de divisas al país.",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 78,
+      "type": "single",
+      "question": "La definición de PBI:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Incluye una valoración de la calidad de vida de los habitantes de una región",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Incluye las destrucciones ocasionadas por catástrofes naturales, pero no las reconstrucciones",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Considera las desigualdades en la distribución de la riqueza y género",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Prescinde de los costes ecológicos y sociales",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "id": 79,
+      "type": "single",
+      "question": "La oferta monetaria se incrementa:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Disminuyendo la tasa de encaje",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Aumentando la tasa de interés",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Aumentando la tasa de encaje",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Con emisión de moneda del Banco Central",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 80,
+      "type": "single",
+      "question": "Sobre el PBI se afirma que:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Considera la depreciación de los bienes",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Considera las actividades de voluntariado",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Contabiliza bienes y servicios producidos en una región durante un periodo de tiempo",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "text": "Incluye en su cálculo la producción de bienes intermedios",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 81,
+      "type": "truefalse",
+      "question": "Para calcular el ingreso público se consideran los Ingresos genuinos del sector público, donde los más importantes son los tributos o contribuciones que realizamos para el cumplimiento de los fines Estado: seguridad, justicia, salud, educación, entre otros.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Verdadero",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Falso",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 82,
+      "type": "single",
+      "question": "La Renta Nacional de un país:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Se calcula a través del ingreso ya que se relaciona con el Ingreso Neto Interno (YNI)",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Se calcula solamente a través del gasto público",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Puede calcularse desde el enfoque del producto, del gasto o del ingreso, de forma tal que se obtiene el mismo valor",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "text": "Se calcula a través del producto ya que se relaciona con el Producto Bruto Interno (PBI)",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 83,
+      "type": "truefalse",
+      "question": "El efecto fiscal de la inflación se produce ante el aumento de los ingresos nominales de los trabajadores en relación de dependencia, que ingresan a categorías superiores de aportes impositivos (impuesto a las ganancias) generando una disminución del ingreso disponible de los consumidores. Se genera un aumento del déficit público por disminución de la recaudación fiscal.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Verdadero",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Falso",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 84,
+      "type": "single",
+      "question": "La economía gris:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Todas son correctas.",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Analiza economías ilegales (tráfico de armas, terrorismo, etc.)",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Tiene por objetivo estudiar el avance tecnológico para reducir costos.",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Analiza trabajos informales, que generan empleo en las economías en desarrollo.",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "id": 85,
+      "type": "single",
+      "question": "El Sistema de Contabilidad Nacional se define como ...",
+      "options": [
+        {
+          "id": "a",
+          "text": "...las normas contables que rigen la contabilidad nacional, e incluyen a la renta nacional",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "...los registros de las transacciones del sector externo como la balanza comercial",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "...las normas del balance contable del Banco Central de la República Argentina",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "...los registros sistematizados de las transacciones de la vida económica de un país en un período determinado de tiempo",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 86,
+      "type": "single",
+      "question": "La Deuda Pública se considera externa cuando: (segunda aparición)",
+      "options": [
+        {
+          "id": "a",
+          "text": "El acreedor es una persona física o jurídica nacional",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Se establece su cumplimiento en pesos",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Siempre que sea contraída por el gobierno de un país sin importar quien sea el acreedor",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "El acreedor es una persona física o jurídica extranjera",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "id": 87,
+      "type": "single",
+      "question": "Ante un aumento inflacionario de precios:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Se observa una disminución del poder adquisitivo del ingreso afectando en menor medida a los asalariados",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Es posible medirlo mediante un índice de precios que refleje el incremento de los precios de una canasta de bienes y servicios",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "El poder adquisitivo del ingreso disponible de los consumidores se mantienen porque los salarios aumentan en igual proporción",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Aquellos que cuentan con menores ingresos tienden a invertir en bienes inmuebles o moneda extranjera",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 88,
+      "type": "truefalse",
+      "question": "El tipo de cambio considerado Efectivo o de bolsillo es el efectivamente cobrado por el exportador y pagado por el importador y se calcula a partir del tipo de cambio nominal y los aranceles, gravámenes o derechos al comercio exterior que deba abonar.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Verdadero",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Falso",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 89,
+      "type": "single",
+      "question": "Sobre la Oferta Monetaria en relación con la tasa de encaje se puede afirmar que:",
+      "options": [
+        {
+          "id": "a",
+          "text": "La variación en la tasa de encaje no afecta la Oferta Monetaria",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Si la tasa de encaje disminuye, la Oferta Monetaria disminuye",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Si la tasa de encaje aumenta, la Oferta Monetaria aumenta",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Si la tasa de encaje aumenta, la Oferta Monetaria disminuye",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "id": 90,
+      "type": "single",
+      "question": "La inflación:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Fortalece el sistema de precios cuando es elevada",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Es la disminución de los precios de una canasta de productos en forma continua por un periodo de tiempo en un lugar determinado",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Ocasiona una disminución del poder adquisitivo de los consumidores",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "text": "Tiene como consecuencia un mayor poder adquisitivo de la moneda",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 91,
+      "type": "single",
+      "question": "En el mercado de divisas del dólar:",
+      "options": [
+        {
+          "id": "a",
+          "text": "El peso se deprecia cuando aumenta el tipo de cambio del dólar.",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Hay menor oferta de dólares si disminuyen las exportaciones.",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "El peso se deprecia cuando disminuye el tipo de cambio del dólar.",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Hay mayor oferta de dólares si aumentan las importaciones.",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 92,
+      "type": "single",
+      "question": "Entre las causas de la inflación se pueden mencionar:",
+      "options": [
+        {
+          "id": "a",
+          "text": "El incremento de la oferta",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "La disminución del costo de factores",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "La rigidez de la oferta",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "text": "La disminución del tipo de cambio",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 93,
+      "type": "single",
+      "question": "Entre las causas de la inflación se puede mencionar: (segunda aparición, énfasis en sector agropecuario)",
+      "options": [
+        {
+          "id": "a",
+          "text": "La disminución del tipo de cambio considerando que la materia prima utilizada es importada",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "La rigidez de la oferta, por ejemplo en el sector agropecuario y ganadero",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "El incremento de la oferta en caso de un incentivo en la producción.",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "La disminución del costo de factores de producción.",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 94,
+      "type": "truefalse",
+      "question": "De las funciones Consumo y Ahorro, es correcto afirmar que la suma de la propensión marginal al consumo y la propensión marginal al ahorro es siempre mayor que 1.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Verdadero",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Falso",
+          "correct": true
+        }
+      ]
+    }
+  ]
+}

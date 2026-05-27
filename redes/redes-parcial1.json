@@ -1,0 +1,2116 @@
+{
+  "title": "Preguntas Redes Parcial 1",
+  "questions": [
+    {
+      "id": 1,
+      "type": "single",
+      "question": "¿Cuándo un router descarta un paquete IP?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Cuando su TTL llega a cero",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Cuando su TTL llegó a 255",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Cuando no trae la máscara de subred",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Cuando el campo ToS no está marcado",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "Cuando el tamaño es menor a 1460 Bytes",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "type": "single",
+      "question": "En la creación de VLAN estática:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Un administrador debe crear la VLAN en el switch y luego agregar los puertos a ella",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "El Switch Raiz le indica a los otros a qué VLAN pertenecen",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "De acuerdo al tipo de host será la VLAN a la que pertenezcan",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "A medida que las estaciones se conectan, el switch les asigna una VLAN disponible",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "De acuerdo al protocolo del tráfico, es la VLAN a la que pertenecerá el puerto",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "type": "multiple",
+      "question": "Se necesita configurar 3 hosts con direcciones IP que puedan ser enrutadas a través de Internet. ¿Cuáles de las siguientes direcciones cumplen?",
+      "options": [
+        {
+          "id": "a",
+          "text": "181.0.0.1",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "172.64.12.0",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "172.16.223.125",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "192.168.23.252",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "198.234.255.95",
+          "correct": true
+        },
+        {
+          "id": "f",
+          "text": "10.172.13.65",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "type": "multiple",
+      "question": "Los puertos del switch que soportan VLAN se asocian correctamente con:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Puertos de acceso → Etiquetado (tagged), Puertos troncales → Sin etiquetar (untagged)",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Puertos de acceso → Sin etiquetar (untagged), Puertos troncales → Etiquetado (tagged)",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "type": "multiple",
+      "question": "Respecto de las técnicas de reenvío de tramas de los switch, asocie correctamente:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Lee los primeros 64 Bytes de la trama y luego reenvía → Fragment free",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Es el método más lento ya que almacena toda la trama y controla errores → Store and Forward",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "Transfiere las tramas al puerto destino apenas lee la MAC destino → Cut-through",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "type": "single",
+      "question": "¿Cuál es la máxima tasa de bits a la que funcionará una LAN Ethernet si el switch tiene 24 puertos de 1 Gb/s, dos puertos de fibra de 10 Gb/s, cableado categoría 6 y las PC tienen Fast Ethernet?",
+      "options": [
+        {
+          "id": "a",
+          "text": "24 Gb/s",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "2,4 Gb/s",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "22,4 Gb/s",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "1 Gb/s",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "100 Mb/s",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "type": "multiple",
+      "question": "Una WLAN es una red:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Inalámbrica",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "De difusión",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "Utiliza el protocolo CSMA/CA",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "text": "Full Duplex",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "El ancho de banda total se divide en partes iguales",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "type": "single",
+      "question": "Un administrador ha subneteado la red 172.16.0.0 con máscara 255.255.255.224. Duplicó la IP 172.16.2.121 en dos equipos de la misma subred. ¿Qué IP podría asignarse en reemplazo?",
+      "options": [
+        {
+          "id": "a",
+          "text": "172.16.2.100",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "172.16.2.127",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "172.16.1.80",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "172.16.1.64",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "172.16.2.128",
+          "correct": false
+        },
+        {
+          "id": "f",
+          "text": "172.16.2.64",
+          "correct": false
+        },
+        {
+          "id": "g",
+          "text": "172.16.2.96",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "type": "tf",
+      "question": "La red del campus de la UTN Facultad Regional Córdoba es una red MAN.",
+      "correctAnswer": false
+    },
+    {
+      "id": 12,
+      "type": "single",
+      "question": "Si una estación de trabajo se encuentra a 180 metros del armario principal de la red:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Podré colocar un switch en un punto intermedio para repetir la señal",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Reemplazaré el cable UTP por coaxial",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Deberé ubicar la estación en otra VLAN",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Podré empalmar dos cables UTP de 90 m",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "type": "tf",
+      "question": "Los mensajes ICMP se envían utilizando el encabezado IP básico.",
+      "correctAnswer": true
+    },
+    {
+      "id": 14,
+      "type": "single",
+      "question": "Si tuviera que elegir un tipo de red que brinde garantía de entrega sin demora, en orden y ancho de banda constante, elegiría:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Red conmutada por circuitos",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Red conmutada por paquetes",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Red conmutada por etiquetas",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Red por Difusión",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "type": "multiple",
+      "question": "Si hablamos de Internet, podemos decir que es una red:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Conmutada por paquetes",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Tolerante a fallas",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "Amplia cobertura geográfica",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "text": "Basada en protocolos normalizados y públicos",
+          "correct": true
+        },
+        {
+          "id": "e",
+          "text": "Conmutada por circuitos",
+          "correct": false
+        },
+        {
+          "id": "f",
+          "text": "Que no posee redundancia",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "type": "tf",
+      "question": "En una captura de paquetes, se observa que la dirección MAC del router de la LAN es ec:43:f6:b5:b4:f4.",
+      "correctAnswer": true
+    },
+    {
+      "id": 17,
+      "type": "single",
+      "question": "De acuerdo a un análisis espectral con inSSIDer, ¿en qué canal convendría ubicar un Access Point para minimizar interferencia?",
+      "options": [
+        {
+          "id": "a",
+          "text": "1",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "6",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "7",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "4",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "11",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "type": "multiple",
+      "question": "Su ISP le ha asignado un espacio completo de clase C pública. Debe armar 3 subredes que soporten 60 hosts cada una. ¿Cuáles son direcciones de red que satisfacen el requisito?",
+      "options": [
+        {
+          "id": "a",
+          "text": "193.16.2.0",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "193.16.2.64",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "193.16.2.128",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "text": "195.16.2.65",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "192.16.2.127",
+          "correct": false
+        },
+        {
+          "id": "f",
+          "text": "255.255.255.192",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "type": "multiple",
+      "question": "¿Cuál es el rango de direcciones privadas definidas en el RFC 1918?",
+      "options": [
+        {
+          "id": "a",
+          "text": "10.0.0.0 - 10.255.255.255",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "172.16.0.0 - 172.31.255.255",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "192.168.0.0 - 192.168.255.255",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "text": "127.0.0.0 - 127.255.255.255",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "224.0.0.0 - 239.255.255.255",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "type": "multiple",
+      "question": "Indique los modos de funcionamiento de un Access Point doméstico:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Modo Access Point / Bridge (conexión por cable UTP al módem para extender cobertura)",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Modo Repetidor (conexión inalámbrica para extender cobertura)",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "Modo Router (otorga direcciones IP y es puerta de enlace)",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "text": "Modo Cliente",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "type": "tf",
+      "question": "Microsoft Azure: en una captura, la dirección MAC del servidor de Microsoft es ec:43:f6:b5:b4:f4.",
+      "correctAnswer": false
+    },
+    {
+      "id": 24,
+      "type": "single",
+      "question": "¿Cuál es el propósito principal del Protocolo de Árbol de Expansión (IEEE 802.1D)?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Garantizar que no se creen loops cuando hay trayectorias redundantes en una LAN",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Elegir el mejor camino hacia el servidor de red",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Interconectar VLAN",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Garantizar que no haya broadcasts",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "type": "text",
+      "question": "¿Cuál es el comando que permite observar la dirección MAC de la placa de red de un host?",
+      "correctAnswer": [
+        "ipconfig/all"
+      ]
+    },
+    {
+      "id": 26,
+      "type": "multiple",
+      "question": "¿Cuáles de las siguientes características corresponden a Variable Length Subnet Mask (VLSM)? (Seleccione dos)",
+      "options": [
+        {
+          "id": "a",
+          "text": "Permite tomar una subred y volverla a dividir en subredes más pequeñas",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Permite crear para pocos hosts, máscaras largas",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "Exige que todas las áreas tengan la misma máscara",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Se implementa solo con direcciones privadas",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 27,
+      "type": "single",
+      "question": "La estandarización o normalización presenta la siguiente ventaja:",
+      "options": [
+        {
+          "id": "a",
+          "text": "El usuario posee mayor libertad y flexibilidad al seleccionar productos de diferentes fabricantes",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "El usuario debe elegir una sola empresa",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Aumento del costo de fabricación",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Exige conectar dispositivos del mismo fabricante",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 28,
+      "type": "single",
+      "question": "Una placa de red recibe una trama, calcula el CRC y el resultado no coincide. ¿Qué hace la placa?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Descarta la trama",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Desencapsula y entrega a capa superior",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Pide retransmisión al origen",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Descarta e informa al origen",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 29,
+      "type": "single",
+      "question": "El campo de la trama Ethernet que permite verificar la integridad es:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Secuencia de verificación de trama (FCS)",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Preámbulo",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Tipo",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "CTS",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 30,
+      "type": "single",
+      "question": "¿Qué tecnología permite conectividad inalámbrica en entornos rurales?",
+      "options": [
+        {
+          "id": "a",
+          "text": "IEEE 802.16 (WiMAX)",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "IEEE 802.11 (Wi-Fi)",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "IEEE 802.15 (Bluetooth)",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "IEEE 802.3 (Ethernet)",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 31,
+      "type": "image-select",
+      "image": "topologia_villa_maria.png",
+      "question": "Para la siguiente topología de red, determine las direcciones IP que podrían usarse para satisfacer los requisitos de direcciones de host en la subred de Villa María (PC1, PC2, PC3).",
+      "options": [
+        {
+          "id": "a",
+          "text": "PC1: 192.168.16.226, PC2: 192.168.16.227, PC3: 192.168.16.238",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "PC1: 192.168.16.238, PC2: 192.168.16.241, PC3: 192.168.16.227",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 32,
+      "type": "image-select",
+      "image": "switches_3.png",
+      "question": "Si en una LAN se tienen 3 switches interconectados como en la figura, ¿hasta cuántos dominios de colisión podría haber?",
+      "options": [
+        {
+          "id": "a",
+          "text": "82",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "72",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 33,
+      "type": "image-select",
+      "image": "dominios_broadcast.png",
+      "question": "Indique cuántos dominios de broadcast existen en la figura.",
+      "options": [
+        {
+          "id": "a",
+          "text": "3",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "1",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "2",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 34,
+      "type": "image-select",
+      "image": "switch_raiz.png",
+      "question": "De acuerdo al protocolo IEEE 802.1D, ¿cuál de los siguientes switches se convertirá en el raíz de la topología?",
+      "options": [
+        {
+          "id": "a",
+          "text": "CAT1",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "CAT2",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "CAT3",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "CAT4",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 35,
+      "type": "image-select",
+      "image": "topologia_mac_switch.png",
+      "question": "A partir de la topología y tabla de direcciones MAC del switch, indique por cuáles puertos se transmitirá la trama si la máquina E envía datos a la máquina B.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Puerto 3",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Puertos 1, 3 y 8",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Puertos 1, 3, 5 y 8",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Puertos 1, 2, 3, 4, 6, 7 y 8",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 36,
+      "type": "image-select",
+      "image": "topologia_villa_maria.png",
+      "question": "Para la topología de red, ¿cuáles podrían ser las direcciones de la puerta de enlace predeterminada de las subredes de Córdoba, Río Cuarto y Villa María?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Córdoba: 192.168.16.1, Río Cuarto: 192.168.16.129, Villa María: 192.168.16.193",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Córdoba: 192.168.16.1, Río Cuarto: 192.168.16.1, Villa María: 192.168.16.1",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 37,
+      "type": "image-select",
+      "image": "topologia_villa_maria.png",
+      "question": "Para la siguiente topología de red, determine las máscaras que podrían usarse para satisfacer los requisitos de direcciones de host en cada subred (Villa María, Río Cuarto, Córdoba, Enlaces WAN).",
+      "options": [
+        {
+          "id": "a",
+          "text": "Villa María: /27, Río Cuarto: /26, Córdoba: /25, Enlaces WAN: /30",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Villa María: /24, Río Cuarto: /24, Córdoba: /24, Enlaces WAN: /30",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 38,
+      "type": "multiple",
+      "question": "Indique los números de estándares IEEE que se corresponden con las siguientes tecnologías: Wi-Max, Token Ring, Bluetooth, Wi-Fi, Ethernet.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Wi-Max→802.16, Token Ring→802.5, Bluetooth→802.15, Wi-Fi→802.11, Ethernet→802.3",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Wi-Max→802.11, Token Ring→802.3, Bluetooth→802.16, Wi-Fi→802.15, Ethernet→802.5",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 39,
+      "type": "image-select",
+      "image": "switches_3.png",
+      "question": "¿Hasta cuántos dominios de colisión podría haber en la figura de 3 switches interconectados? (variante)",
+      "options": [
+        {
+          "id": "a",
+          "text": "82",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "72",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 40,
+      "type": "multiple",
+      "question": "¿Cuál es el rango de direcciones privadas según RFC 1918? (versión alternativa)",
+      "options": [
+        {
+          "id": "a",
+          "text": "10.0.0.0 a 10.255.255.255",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "172.16.0.0 a 172.31.255.255",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "192.168.0.0 a 192.168.255.255",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "text": "169.254.0.0 a 169.254.255.255",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 43,
+      "type": "multiple",
+      "question": "Es utilizado para enviar mensajes de error e información operativa (ICMP), como por ejemplo: (seleccione las 4 correctas)",
+      "options": [
+        {
+          "id": "a",
+          "text": "Un router no tiene suficiente espacio en su memoria para alojar el datagrama que recibió y debe descartarlo",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "El destino recibió un paquete duplicado",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Un host no puede ser localizado",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "text": "La conexión está muy lenta",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "El ancho de banda de línea no es suficiente para transmitir ese datagrama",
+          "correct": false
+        },
+        {
+          "id": "f",
+          "text": "Un datagrama ya pasó por varios routers y al no encontrar el destino, debe ser descartado",
+          "correct": true
+        },
+        {
+          "id": "g",
+          "text": "Un router avisa al host origen de algún problema en el procesamiento del datagrama",
+          "correct": true
+        },
+        {
+          "id": "h",
+          "text": "El destino recibió un paquete con errores en los datos",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 44,
+      "type": "multiple",
+      "question": "Luego de la convergencia del protocolo Spanning Tree, indique cuál de las siguientes opciones asocia correctamente los estados de los puertos troncales con sus descripciones.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Escuchando → El puerto no puede enviar o recibir datos pero envía y recibe BPDU; Desabilitado → Administrativamente abajo; Aprendiendo → envía BPDU y aprende MAC; Bloqueado → solo recibe BPDU; Reenviando → envía y recibe datos, MAC, BPDU",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Bloqueado → envía y recibe BPDU y datos; Aprendiendo → solo recibe BPDU; Escuchando → administrativamente abajo; Reenviando → aprende MAC; Desabilitado → no hace nada",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Aprendiendo → envía y recibe datos; Escuchando → aprende MAC; Desabilitado → recibe BPDU; Bloqueado → envía BPDU; Reenviando → administrativamente abajo",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Reenviando → solo recibe BPDU; Bloqueado → envía y recibe datos; Escuchando → aprende MAC; Aprendiendo → administrativamente abajo; Desabilitado → envía BPDU",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 45,
+      "type": "single",
+      "question": "A partir de las direcciones IP: 200.15.43.0/24, 200.15.50.0/24, 200.15.39.0/24, indique cuál es la superred (resumen de rutas) correcta que debería publicar un ISP.",
+      "options": [
+        {
+          "id": "a",
+          "text": "200.15.32.0/19",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "200.15.32.0/18",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "200.15.38.0/19",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "200.15.32.0/20",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "200.15.48.0/19",
+          "correct": false
+        },
+        {
+          "id": "f",
+          "text": "200.15.48.0/20",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 46,
+      "type": "multiple",
+      "question": "Teniendo en cuenta la arquitectura de Internet, las conexiones de tránsito se caracterizan por (seleccione tres):",
+      "options": [
+        {
+          "id": "a",
+          "text": "Permiten conectar operadores de diferente jerarquía",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "El operador de menor jerarquía debe pagar una conexión al operador de mayor jerarquía",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "El proveedor le da acceso al cliente sólo algunas de sus rutas",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "El proveedor le da acceso al cliente a todas sus rutas",
+          "correct": true
+        },
+        {
+          "id": "e",
+          "text": "Pueden ser públicas o privadas",
+          "correct": false
+        },
+        {
+          "id": "f",
+          "text": "Permiten el intercambio de tráfico sin costo entre operadores",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 47,
+      "type": "single",
+      "question": "Dada la siguiente dirección de subred 189.45.8.0/25, determine cuál de los siguientes es un rango de direcciones válidas.",
+      "options": [
+        {
+          "id": "a",
+          "text": "189.45.8.1 - 189.45.8.126",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "189.45.8.1 - 189.45.8.254",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "189.45.8.1 - 189.45.11.254",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "189.45.8.0 - 189.45.8.255",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 48,
+      "type": "single",
+      "question": "¿Cuál de las siguientes clasificaciones de redes es decreciente con respecto al área de cobertura?",
+      "options": [
+        {
+          "id": "a",
+          "text": "WAN - MAN - LAN - PAN",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "LAN - MAN - WAN - PAN",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "MAN - WAN - LAN - PAN",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "PAN - LAN - MAN - WAN",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "WAN - SAN - MAN - LAN",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 49,
+      "type": "single",
+      "question": "Si una placa de red recibe una trama cuya MAC de origen es FF:FF:FF:FF:FF:FF, ¿qué hace?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Descarta la trama",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Difunde la trama",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Procesa la trama",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Encapsula la trama",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 50,
+      "type": "multiple",
+      "question": "Se dice que un Access Point es un tipo de Bridge porque interconecta redes cableadas que funcionan con el protocolo ______ con dispositivos inalámbricos que ejecutan ______. Complete correctamente.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Access Point, Bridge, IEEE 802.3, IEEE 802.11",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Router, Switch, IEEE 802.5, IEEE 802.15",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Access Point, Router, PPP, RS232",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Bridge, Access Point, IEEE 802.11, IEEE 802.3",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 51,
+      "type": "text",
+      "question": "¿Cuál es el comando que se ejecutó desde el cmd de Windows 10 de un host para obtener como respuesta una salida de traceroute?",
+      "correctAnswer": [
+        "tracert"
+      ]
+    },
+    {
+      "id": 52,
+      "type": "single",
+      "question": "Un router posee dos interfaces FastEthernet y una interfaz serial. Si recibe por una de sus interfaces FastEthernet un paquete de 1000 bytes y debe encaminarlo a la interfaz serial cuya MTU es de 1500 bytes, ¿qué se deberá hacer?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Encapsular dicho paquete en una trama",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Descartar siempre el paquete",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Dividir el paquete en tres fragmentos",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Descartar el paquete sólo si el bit MF está activo",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "Dividir el paquete en dos fragmentos",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 53,
+      "type": "single",
+      "question": "La siguiente dirección 01:00:5E:00:04:C9 aparece en el campo destino de una trama. Indique cuál de las siguientes afirmaciones es correcta.",
+      "options": [
+        {
+          "id": "a",
+          "text": "La trama sera procesada solo por un grupo de maquinas de la LAN",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Nunca puede aparecer esa direccion en el campo destino de una trama",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "La trama sera procesada solo por una PC",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Es una direccion jerarquica",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "Todas las PC de la LAN procesaran la trama",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 54,
+      "type": "multiple",
+      "question": "Cuáles de las siguientes direcciones IP podrá utilizar un administrador de red, si desea implementar un esquema de direccionamiento IP con 20 subredes, maximizando la cantidad de hosts por subred (seleccione dos):",
+      "options": [
+        {
+          "id": "a",
+          "text": "140.56.0.0/22",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "189.85.0.0/23",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "100.0.0.0/14",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "text": "98.0.0.0/15",
+          "correct": true
+        },
+        {
+          "id": "e",
+          "text": "190.60.0.0/21",
+          "correct": false
+        },
+        {
+          "id": "f",
+          "text": "199.60.5.0/29",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 56,
+      "type": "multiple",
+      "question": "Indique cuál de las siguientes son direcciones de broadcast (seleccione dos):",
+      "options": [
+        {
+          "id": "a",
+          "text": "192.168.28.75/29",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "100.50.51.255/22",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "100.50.53.255/22",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "192.168.28.71/29",
+          "correct": true
+        },
+        {
+          "id": "e",
+          "text": "100.50.51.254/22",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 57,
+      "type": "single",
+      "question": "Cuál de las siguientes es una organización voluntaria que emite estándares internacionales en cualquier ámbito científico y tecnológico, industrial, de infraestructura, seguridad, electrónica, tecnología de información, etc.",
+      "options": [
+        {
+          "id": "a",
+          "text": "DoD",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "ISO",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "IAB",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "ITU",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "TCP/IP",
+          "correct": false
+        },
+        {
+          "id": "f",
+          "text": "IEEE",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 61,
+      "type": "single",
+      "question": "En la implementación del protocolo Spanning Tree (STP), todos los puertos del switch raíz son:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Puertos raíz",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Puertos designados",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "Puertos bloqueados",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 62,
+      "type": "single",
+      "question": "En el método de acceso CSMA/CA, el mensaje RTS (Request to Send) contiene:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Números de puerto origen y destino",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Relación IP – MAC del dispositivo destino",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Direcciones MAC del dispositivo origen y destino",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "text": "Direcciones IP del dispositivo origen y destino",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 63,
+      "type": "single",
+      "question": "En el método de acceso CSMA/CA, el mensaje RTS (Request to Send) lo envía:",
+      "options": [
+        {
+          "id": "a",
+          "text": "La placa de red Ethernet",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "El hub",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "El dispositivo destino (CTS - ACK - NAK)",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "El switch",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "El dispositivo de origen",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "id": 64,
+      "type": "single",
+      "question": "¿Cuál de los siguientes dispositivos difunde la señal a todos sus puertos, creando un solo dominio de colisión?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Router",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Bridge",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Switch",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Hub",
+          "correct": true
+        },
+        {
+          "id": "e",
+          "text": "NIC (placa de red)",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 66,
+      "type": "single",
+      "question": "En el método de acceso CSMA/CA, el mensaje RTS es:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Una trama de datos",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Una trama de administración",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Un campo de la trama 802.3",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Una trama de control",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "id": 67,
+      "type": "single",
+      "question": "El comando tracert o traceroute se basa en:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Enviar segmentos UDP variando el TTL de 1 a 30",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Enviar mensajes echo request variando el TTL desde 30 a 1",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Enviar mensajes echo request haciendo variar el TTL de 1 a 30",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "text": "Enviar paquetes IP variando el número de fragmento entre 1 y 30",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 68,
+      "type": "single",
+      "question": "¿Qué tecnología permite la utilización de un mouse inalámbrico y una PC?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Ethernet",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "IEEE 802.11 (Wi-Fi)",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "IEEE 802.15 (Bluetooth)",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "text": "WiMax",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "WAN",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 69,
+      "type": "multiple",
+      "question": "Una placa de red recibe y procesa una trama si la dirección de destino es (seleccione 2):",
+      "options": [
+        {
+          "id": "a",
+          "text": "255.255.255.255",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Su dirección IP",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Su dirección MAC",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "text": "La dirección del gateway",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "FF:FF:FF:FF:FF:FF",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "id": 70,
+      "type": "multiple",
+      "question": "¿Cuáles de las siguientes características corresponden a las VLANs? (seleccione 3):",
+      "options": [
+        {
+          "id": "a",
+          "text": "Cada VLAN es un dominio de broadcast",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Se implementa sobre hubs configurables",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Se configura en los enlaces troncales entre switches",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "text": "Se agrega una etiqueta al paquete IPv4 en los enlaces troncales",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "Se implementa mediante el protocolo IEEE 802.1q",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "id": 71,
+      "type": "single",
+      "question": "¿En cuál de los siguientes dispositivos se ejecuta CSMA/CD?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Placas de red inalámbricas",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Hubs",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Placas de red Ethernet",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "text": "Cable UTP",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 72,
+      "type": "single",
+      "question": "WiFi es una red de:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Banda angosta, dúplex, LAN",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Banda ancha, dúplex, LAN",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Banda ancha, semidúplex, WAN",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Banda ancha, semidúplex, LAN",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "id": 73,
+      "type": "single",
+      "question": "¿Cuál de las siguientes es una infraestructura que permite a diferentes Internet Service Providers (ISP) el intercambio de tráfico de Internet entre sus redes, a través de conexiones peering?",
+      "options": [
+        {
+          "id": "a",
+          "text": "ARPA",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Internet Service Provider",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Internet Exchange Point (IXP)",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "text": "Internet Engineering Task Force",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "Internet Message Point",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 74,
+      "type": "single",
+      "question": "Indique la secuencia correcta de las PDU (Protocol Data Unit) en el equipo origen de una transmisión:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Datos, segmentos, paquetes, tramas, bits",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Bits, tramas, paquetes, segmentos, datos",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Segmentos, datos, paquetes, bits, tramas",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Bits, tramas, segmentos, paquetes, datos",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "Datos, paquetes, segmentos, tramas, bits",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 75,
+      "type": "single",
+      "question": "Los Request for Comments (RFC) son:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Documentos técnicos establecidos por el IEEE",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Bases de datos que asocian dominios con direcciones IP",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Estándares que definen la arquitectura de un sistema operativo",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Documentos técnicos que describen el funcionamiento de los protocolos de Internet",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "id": 76,
+      "type": "single",
+      "question": "Si se quiere que una trama sea procesada por todos los dispositivos de una determinada LAN, la dirección de destino será:",
+      "options": [
+        {
+          "id": "a",
+          "text": "FF:FF:FF:FF:FF:FF",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "127.0.0.1",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "01:00:5E:98:76:54",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "255.255.255.255",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 77,
+      "type": "single",
+      "question": "Una PC tiene que enviar un archivo de 5 Kbytes a través de la tecnología Fast Ethernet. Si desea maximizar el uso de la MTU (Maximum Transmission Unit), ello implica que enviará:",
+      "options": [
+        {
+          "id": "a",
+          "text": "5 tramas",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "2 tramas",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "4 tramas",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "text": "3 tramas",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "1 trama",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 78,
+      "type": "single",
+      "question": "La cantidad máxima de bits que se pueden pedir prestados para crear subredes en una dirección IP clase A es:",
+      "options": [
+        {
+          "id": "a",
+          "text": "22 bits",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "5 bits",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "14 bits",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "21 bits",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "6 bits",
+          "correct": false
+        },
+        {
+          "id": "f",
+          "text": "13 bits",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 79,
+      "type": "single",
+      "question": "La sigla WAN significa:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Wonderful Area Network",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Wall Area Network",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Wise Area Network",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Wide Area Network",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "id": 80,
+      "type": "multiple",
+      "question": "Según la direccionalidad de los datos, una red se puede clasificar en: (seleccione todas las que correspondan)",
+      "options": [
+        {
+          "id": "a",
+          "text": "Difusión",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Broadcast",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Simplex",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "text": "Dúplex o Fulldúplex",
+          "correct": true
+        },
+        {
+          "id": "e",
+          "text": "Semidúplex o Halfdúplex",
+          "correct": true
+        },
+        {
+          "id": "f",
+          "text": "Punto a punto",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 81,
+      "type": "single",
+      "question": "La red de televisión por cable (CATV) es un tipo de red:",
+      "options": [
+        {
+          "id": "a",
+          "text": "PAN",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "LAN",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "WAN",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "WLAN",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "MAN",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "id": 82,
+      "type": "multiple",
+      "question": "Bluetooth es un tipo de red: (seleccione todas las que correspondan)",
+      "options": [
+        {
+          "id": "a",
+          "text": "Móvil o inalámbrica",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "PAN",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "MAN",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Fija o alambrada",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "LAN",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 83,
+      "type": "single",
+      "question": "La arquitectura TCP/IP surgió en:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Argentina",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Alemania",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Asia",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "EEUU",
+          "correct": true
+        },
+        {
+          "id": "e",
+          "text": "Europa",
+          "correct": false
+        },
+        {
+          "id": "f",
+          "text": "Japón",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 84,
+      "type": "tf",
+      "question": "La arquitectura TCP/IP tiene más capas o niveles que el Modelo OSI.",
+      "correctAnswer": false
+    },
+    {
+      "id": 85,
+      "type": "single",
+      "question": "La sigla TCP significa:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Transport Control Protocol",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Transfer Control Protocol",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Terminal Control Protocol",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Transmission Control Protocol",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "id": 86,
+      "type": "single",
+      "question": "Indique el orden correcto de las capas o niveles de la arquitectura TCP/IP:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Aplicación – Interred – Transporte – Host a red",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Transporte – Aplicación – Interred – Host a red",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Aplicación – Transporte – Interred – Host a red",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "text": "Aplicación – Host a red – Transporte – Interred",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 87,
+      "type": "single",
+      "question": "¿Cuál de las siguientes representa la notación de prefijo de la máscara de subred 255.255.255.252?",
+      "options": [
+        {
+          "id": "a",
+          "text": "/30",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "/29",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "/31",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "/28",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 88,
+      "type": "single",
+      "question": "¿Qué método de autenticación de los dispositivos inalámbricos se implementa en las grandes empresas?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Enterprise (cuenta con un servidor y una BD con todos los usuarios)",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "General",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Personal",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Individual",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "Global",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 89,
+      "type": "tf",
+      "question": "Las RFC (Request For Comments) son un conjunto de documentos que sirven de referencia para la comunidad de Internet, utilizados para la implementación, estandarización y discusión de normas, estándares, tecnologías y protocolos, emitidas por el IETF.",
+      "correctAnswer": true
+    },
+    {
+      "id": 90,
+      "type": "tf",
+      "question": "IXP es una infraestructura física que permite a diferentes ISP el intercambio de tráfico de Internet entre sus redes, mediante conexiones de peering.",
+      "correctAnswer": true
+    }
+  ]
+}
