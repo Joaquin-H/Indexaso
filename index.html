@@ -335,6 +335,10 @@
     
     let currentPage = 0;
     const getQuestionsPerPage = () => currentQuizConfig?.questionsPerPage || 45;
+    const getTotalPages = () => Math.max(1, Math.ceil(questions.length / getQuestionsPerPage()));
+    const clampCurrentPage = () => {
+      currentPage = Math.min(Math.max(currentPage, 0), getTotalPages() - 1);
+    };
 
     const $ = id => document.getElementById(id);
     const escapeHtml = (str='') => str
@@ -355,7 +359,7 @@
         title: 'Preguntas Redes Parcial 1',
         jsonPath: 'redes/redes-parcial1.json',
         resourceBase: 'redes/resources/',
-        questionsPerPage: 45
+        questionsPerPage: 55
       }
     };
 
@@ -466,6 +470,8 @@
         // Estado nuevo para este tipo
         state = { current:0, answers:Array(questions.length).fill(null), checked:Array(questions.length).fill(false), score:0 };
       }
+      currentPage = Math.floor((state.current || 0) / getQuestionsPerPage());
+      clampCurrentPage();
 
       initQuiz();
     }
@@ -477,7 +483,8 @@
       
       // Calcular número de páginas
       const questionsPerPage = getQuestionsPerPage();
-      const totalPages = Math.ceil(questions.length / questionsPerPage);
+      const totalPages = getTotalPages();
+      clampCurrentPage();
       
       // Mostrar navegación si hay más de una página
       if(totalPages > 1) {
@@ -521,7 +528,8 @@
       
       // Calcular número de páginas
       const questionsPerPage = getQuestionsPerPage();
-      const totalPages = Math.ceil(questions.length / questionsPerPage);
+      const totalPages = getTotalPages();
+      clampCurrentPage();
       
       // Mostrar navegación si hay más de una página
       if(totalPages > 1) {
@@ -689,7 +697,9 @@
         const span = document.createElement('div'); span.className='label-text'; span.textContent = opt.text;
         wrap.appendChild(input); wrap.appendChild(span); opts.appendChild(wrap);
 
-        wrap.addEventListener('click', ()=>{
+        wrap.addEventListener('click', (event)=>{
+          if(event.target === input) return;
+          event.preventDefault();
           if(q.type === 'multiple') input.checked = !input.checked; else input.checked = true;
           saveAnswer();
         });
