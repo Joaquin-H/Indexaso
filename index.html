@@ -5333,41 +5333,6 @@
         { "id": "c", "text": "140.9.2.127", "correct": false },
         { "id": "d", "text": "140.9.2.192", "correct": false }
       ]
-    },
-    {
-      "id": 211,
-      "type": "text",
-      "category": "teorica",
-      "question": "Defina qué es un protocolo de red. Mencione tres ejemplos de protocolos indicando a qué capa de la arquitectura TCP/IP pertenece cada uno.",
-      "correctAnswer": "Un protocolo de red es un conjunto de reglas y formatos que permiten la comunicación entre dispositivos. Ejemplos: HTTP (Aplicación), TCP (Transporte), IP (Interred). También pueden mencionarse UDP (Transporte), FTP (Aplicación), ICMP (Interred), etc."
-    },
-    {
-      "id": 212,
-      "type": "text",
-      "category": "teorica",
-      "question": "¿Cuál es la finalidad de las direcciones de loopback (por ejemplo, 127.0.0.1 en IPv4 o ::1 en IPv6)?",
-      "correctAnswer": "Las direcciones de loopback se utilizan para verificar el correcto funcionamiento de la pila de protocolos TCP/IP en el propio equipo, sin necesidad de estar conectado a una red física. Permiten que un dispositivo se envíe paquetes a sí mismo, útil para pruebas de conectividad interna (ping a 127.0.0.1). No salen al medio de transmisión."
-    },
-    {
-      "id": 213,
-      "type": "text",
-      "category": "teorica",
-      "question": "Explique la diferencia entre encapsulamiento y desencapsulamiento de datos en una arquitectura de red.",
-      "correctAnswer": "Encapsulamiento: proceso en el origen donde cada capa agrega su cabecera a los datos (formando segmentos, paquetes, tramas, bits). Desencapsulamiento: proceso inverso en el destino donde cada capa elimina su cabecera y entrega el resto a la capa superior. Los routers desencapsulan hasta la capa de interred para leer la IP destino y luego re-encapsulan."
-    },
-    {
-      "id": 214,
-      "type": "text",
-      "category": "teorica",
-      "question": "Explique qué es la fragmentación en IPv4 y describa los flags del encabezado IP (DF y MF).",
-      "correctAnswer": "Fragmentación: mecanismo por el cual un router divide un paquete IPv4 en fragmentos más pequeños cuando el tamaño excede la MTU del enlace de salida. Flags: DF (Don't Fragment): si está en 1, el paquete no puede fragmentarse; si se necesita fragmentar, se descarta y se envía ICMP al origen. MF (More Fragments): se pone a 1 en todos los fragmentos excepto en el último, indicando que vienen más fragmentos. El campo Fragment Offset indica la posición del fragmento dentro del paquete original."
-    },
-    {
-      "id": 215,
-      "type": "text",
-      "category": "teorica",
-      "question": "En una configuración de red, ¿qué función cumple el gateway por defecto? ¿Qué ocurre si está mal configurado (por ejemplo, IP fuera de la subred o faltante)?",
-      "correctAnswer": "El gateway por defecto es la dirección IP del router que permite a un host comunicarse con equipos fuera de su subred local. Debe pertenecer a la misma subred que la IP del host. Si está mal configurado (IP fuera de la subred o faltante), el host solo tendrá conectividad dentro de su LAN, pero no podrá acceder a Internet ni a otras redes."
     }
   ]
 }
