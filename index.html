@@ -76,8 +76,10 @@
     .category-mode-btn[data-category="all"].active{background:#46546b;border-color:#65748a}
     .category-mode-btn[data-category="teorica"].active{background:#287c6a;border-color:#3aa58f}
     .category-mode-btn[data-category="practica"].active{background:#9a6a20;border-color:#c98b2f}
+    .category-mode-btn[data-category="clase"].active{background:#4d65a8;border-color:#6f8cff}
     .card-quiz.mode-teorica{border-color:#3aa58f}
     .card-quiz.mode-practica{border-color:#c98b2f}
+    .card-quiz.mode-clase{border-color:#6f8cff}
     .card-quiz.mode-all{border-color:#65748a}
 
     #indexList,#indexListOverlay{display:grid;gap:5px;padding:8px;min-height:0;scrollbar-width:none;-ms-overflow-style:none}
@@ -260,6 +262,7 @@
               <button class="category-mode-btn" data-category="all">Todos <span data-category-count="all"></span></button>
               <button class="category-mode-btn" data-category="teorica">Teórico <span data-category-count="teorica"></span></button>
               <button class="category-mode-btn" data-category="practica">Práctico <span data-category-count="practica"></span></button>
+              <button class="category-mode-btn" data-category="clase">Preguntas clase <span data-category-count="clase"></span></button>
             </div>
           </div>
           <div class="d-flex justify-content-between align-items-start mb-2">
@@ -3040,29 +3043,6 @@
       ]
     },
     {
-      "id": 32,
-      "type": "image-select",
-      "image": "switches_3.png",
-      "category": "practica",
-      "question": "¿Hasta cuántos dominios de colisión podría haber en la figura de 3 switches interconectados? (variante)",
-      "options": [
-        { "id": "a", "text": "82", "correct": true },
-        { "id": "b", "text": "72", "correct": false }
-      ]
-    },
-    {
-      "id": 33,
-      "type": "multiple",
-      "category": "teorica",
-      "question": "¿Cuál es el rango de direcciones privadas según RFC 1918? (versión alternativa)",
-      "options": [
-        { "id": "a", "text": "10.0.0.0 a 10.255.255.255", "correct": true },
-        { "id": "b", "text": "172.16.0.0 a 172.31.255.255", "correct": true },
-        { "id": "c", "text": "192.168.0.0 a 192.168.255.255", "correct": true },
-        { "id": "d", "text": "169.254.0.0 a 169.254.255.255", "correct": false }
-      ]
-    },
-    {
       "id": 34,
       "type": "multiple",
       "category": "teorica",
@@ -3159,7 +3139,7 @@
       "id": 41,
       "type": "multiple",
       "category": "teorica",
-      "question": "Se dice que un Access Point es un tipo de Bridge porque interconecta redes cableadas que funcionan con el protocolo ______ con dispositivos inalámbricos que ejecutan ______. Complete correctamente.",
+      "question": "Se dice que un ______ es un tipo de ______ porque interconecta redes cableadas que funcionan con el protocolo ______ con dispositivos inalámbricos que ejecutan ______. Complete correctamente.",
       "options": [
         { "id": "a", "text": "Access Point, Bridge, IEEE 802.3, IEEE 802.11", "correct": true },
         { "id": "b", "text": "Router, Switch, IEEE 802.5, IEEE 802.15", "correct": false },
@@ -5350,7 +5330,8 @@
     const CATEGORY_MODES = {
       all: 'Todos',
       teorica: 'Teórico',
-      practica: 'Práctico'
+      practica: 'Práctico',
+      clase: 'Preguntas clase'
     };
 
     let quizData = {};
@@ -5407,6 +5388,7 @@
       quizRedesParcial1: {
         title: 'Preguntas Redes Parcial 1',
         jsonPath: 'redes/redes-parcial1.json',
+        extraJsonPaths: ['redes/redes-preguntas-clase.json'],
         resourceBase: 'redes/resources/',
         embeddedDataId: 'quizRedesParcial1Data',
         questionsPerPage: 55,
@@ -5421,9 +5403,7 @@
       if(!config) throw new Error(`Quiz no configurado: ${type}`);
       let rawData;
       try {
-        const response = await fetch(config.jsonPath, { cache: 'no-store' });
-        if(!response.ok) throw new Error(`No se pudo cargar ${config.jsonPath}`);
-        rawData = await response.json();
+        rawData = await fetchQuizJson(config.jsonPath);
       } catch (error) {
         rawData = loadEmbeddedQuizData(config);
         if(!rawData) throw error;
@@ -5431,8 +5411,30 @@
       const data = Array.isArray(rawData)
         ? { title: config.title, questions: rawData }
         : { title: rawData.title || config.title, questions: rawData.questions || [] };
+
+      for(const jsonPath of config.extraJsonPaths || []){
+        try {
+          const extraData = coerceQuizData(await fetchQuizJson(jsonPath), config.title);
+          data.questions.push(...extraData.questions);
+        } catch (error) {
+          console.warn(`No se pudo cargar ${jsonPath}`, error);
+        }
+      }
+
       data.questions = data.questions.map(normalizeQuestion);
       return data;
+    }
+
+    async function fetchQuizJson(path){
+      const response = await fetch(path, { cache: 'no-store' });
+      if(!response.ok) throw new Error(`No se pudo cargar ${path}`);
+      return response.json();
+    }
+
+    function coerceQuizData(rawData, fallbackTitle){
+      return Array.isArray(rawData)
+        ? { title: fallbackTitle, questions: rawData }
+        : { title: rawData.title || fallbackTitle, questions: rawData.questions || [] };
     }
 
     function loadEmbeddedQuizData(config){
@@ -5474,10 +5476,12 @@
     function getCategoryCounts(){
       return allQuestions.reduce((acc, q) => {
         acc.all++;
-        if(q.category === 'teorica') acc.teorica++;
-        if(q.category === 'practica') acc.practica++;
+        if(CATEGORY_MODES[q.category]) acc[q.category] = (acc[q.category] || 0) + 1;
         return acc;
-      }, { all:0, teorica:0, practica:0 });
+      }, Object.keys(CATEGORY_MODES).reduce((acc, mode) => {
+        acc[mode] = 0;
+        return acc;
+      }, {}));
     }
 
     function getFilteredQuestions(){
@@ -5542,7 +5546,7 @@
       selector.classList.toggle('visible', enabled);
       selector.dataset.mode = selectedCategoryMode;
 
-      document.querySelector('.card-quiz')?.classList.remove('mode-all','mode-teorica','mode-practica');
+      document.querySelector('.card-quiz')?.classList.remove(...Object.keys(CATEGORY_MODES).map(mode => `mode-${mode}`));
       if(enabled) document.querySelector('.card-quiz')?.classList.add(`mode-${selectedCategoryMode}`);
 
       const counts = getCategoryCounts();

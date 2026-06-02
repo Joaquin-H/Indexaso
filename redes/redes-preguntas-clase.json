@@ -1,0 +1,313 @@
+{
+  "title": "Preguntas clase Redes",
+  "questions": [
+    {
+      "id": "clase-1",
+      "type": "single",
+      "question": "¿Dónde es correcto implementar redundancia dentro de una topología de red?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Solo en los puntos únicos de fallo (enlaces y dispositivos críticos)",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "En todos los equipos finales (PCs, impresoras)",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Exclusivamente en los switches de acceso",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Nunca conviene implementar redundancia porque genera bucles",
+          "correct": false
+        }
+      ],
+      "category": "clase"
+    },
+    {
+      "id": "clase-2",
+      "type": "single",
+      "question": "¿Qué es un 'sistema extendido' o 'ampliado' (Extended Service Set, ESS) en redes inalámbricas?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Un conjunto de múltiples puntos de acceso (APs) conectados a la misma red cableada, que comparten el mismo SSID y permiten roaming",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Un único punto de acceso que cubre un área muy extensa usando antenas de alta ganancia",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Una red inalámbrica sin punto de acceso, formada solo por dispositivos en modo ad-hoc",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Un repetidor inalámbrico que extiende la señal de un router doméstico",
+          "correct": false
+        }
+      ],
+      "category": "clase"
+    },
+    {
+      "id": "clase-3",
+      "type": "single",
+      "question": "¿Qué son los bucles de red (loops), por qué se generan y cómo se evitan? (seleccione la opción correcta)",
+      "options": [
+        {
+          "id": "a",
+          "text": "Son caminos redundantes entre switches que provocan tormentas de broadcast; se evitan con el protocolo Spanning Tree (STP)",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Son fallas en el cableado que generan interferencia; se evitan usando cables blindados",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Son configuraciones erróneas en los routers que duplican paquetes; se evitan con listas de acceso",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Son ataques de denegación de servicio; se evitan con firewalls",
+          "correct": false
+        }
+      ],
+      "category": "clase"
+    },
+    {
+      "id": "clase-4",
+      "type": "single",
+      "question": "¿Cuál se considera el primer protocolo de Internet y qué relación tuvo IBM en el desarrollo de los protocolos iniciales?",
+      "options": [
+        {
+          "id": "a",
+          "text": "NCP (Network Control Protocol) fue el primero; IBM desarrolló su propia arquitectura SNA y contribuyó a estándares de red",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "TCP/IP fue el primero, creado enteramente por IBM",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "El primer protocolo fue ARP, e IBM solo fabricaba hardware",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Ethernet fue el primer protocolo; IBM no tuvo participación",
+          "correct": false
+        }
+      ],
+      "category": "clase"
+    },
+    {
+      "id": "clase-5",
+      "type": "single",
+      "question": "¿Cuáles son las normas y estándares principales que rigen las telecomunicaciones y redes de datos?",
+      "options": [
+        {
+          "id": "a",
+          "text": "IEEE (802.x), IETF (RFCs), ITU-T, ISO (OSI)",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Solo IEEE y TCP/IP",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "ANSI, W3C y Bluetooth SIG",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "FCC, ICANN y Microsoft",
+          "correct": false
+        }
+      ],
+      "category": "clase"
+    },
+    {
+      "id": "clase-6",
+      "type": "single",
+      "question": "¿Qué dispositivos de red son necesarios para configurar e implementar VLANs?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Switches que soporten el estándar IEEE 802.1Q y, para comunicación entre VLANs, un router o un switch de capa 3",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Solo hubs y repetidores",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Access points y bridges",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Módems y gateways de red",
+          "correct": false
+        }
+      ],
+      "category": "clase"
+    },
+    {
+      "id": "clase-7",
+      "type": "single",
+      "question": "¿Cuál es la función principal de un puente (bridge) al extender una LAN compartida y por qué un switch es considerado una mejor alternativa?",
+      "options": [
+        {
+          "id": "a",
+          "text": "El bridge conecta dos segmentos de red y filtra tráfico por MAC; el switch es un bridge multipuerto que ofrece mayor velocidad y segmentación",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "El bridge repite la señal amplificada; el switch es peor porque crea más colisiones",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "El bridge asigna direcciones IP; el switch no puede hacerlo",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Ambos son iguales, solo cambia el nombre",
+          "correct": false
+        }
+      ],
+      "category": "clase"
+    },
+    {
+      "id": "clase-8",
+      "type": "single",
+      "question": "¿Qué acción toma un router cuando recibe un paquete con una dirección IP de broadcast (255.255.255.255 o broadcast de subred) y cómo ayuda esto a la división de dominios?",
+      "options": [
+        {
+          "id": "a",
+          "text": "El router no reenvía el broadcast a otras redes, limitando el dominio de broadcast y mejorando la eficiencia",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "El router retransmite el broadcast a todas sus interfaces, extendiendo el dominio",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "El router responde con su propia dirección MAC y descarta el paquete",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "El router convierte el broadcast en multicast",
+          "correct": false
+        }
+      ],
+      "category": "clase"
+    },
+    {
+      "id": "clase-9",
+      "type": "single",
+      "question": "¿Qué resultados de diagnóstico se obtienen al consultar una dirección de broadcast utilizando comandos de consola (por ejemplo, hacer ping al broadcast o revisar configuración con ipconfig)?",
+      "options": [
+        {
+          "id": "a",
+          "text": "El ping a la dirección de broadcast generalmente no recibe respuesta (muchos SO lo ignoran), e ipconfig muestra la configuración IP local, no respuestas broadcast",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Se obtiene una respuesta de todos los equipos de la subred y ipconfig muestra la dirección de broadcast",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "El comando ping genera una tormenta de broadcast y ipconfig la detiene",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Solo los routers responden al ping de broadcast",
+          "correct": false
+        }
+      ],
+      "category": "clase"
+    },
+    {
+      "id": "clase-10",
+      "type": "single",
+      "question": "¿En qué capa del modelo OSI opera y se clasifica el protocolo ARP (Address Resolution Protocol)?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Opera entre la capa 2 (Enlace de datos) y la capa 3 (Red), aunque comúnmente se le asigna a la capa 2 porque trabaja con direcciones MAC",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Pertenece exclusivamente a la capa de Red",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Es un protocolo de la capa de Transporte",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "No pertenece al modelo OSI",
+          "correct": false
+        }
+      ],
+      "category": "clase"
+    },
+    {
+      "id": "clase-11",
+      "type": "single",
+      "question": "¿Qué significa y cómo funciona la tecnología MU-MIMO (Multi-User, Multiple-Input, Multiple-Output) en redes inalámbricas?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Permite que un punto de acceso (AP) se comunique simultáneamente con múltiples dispositivos, mejorando la eficiencia y el rendimiento en Wi-Fi 5/6",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Es una técnica de modulación que duplica el ancho de banda usando múltiples antenas, pero solo para un usuario",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Es un estándar de cableado estructurado para redes Ethernet",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Es un protocolo de enrutamiento para redes malladas",
+          "correct": false
+        }
+      ],
+      "category": "clase"
+    }
+  ]
+}

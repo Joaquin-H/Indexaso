@@ -363,29 +363,6 @@
       ]
     },
     {
-      "id": 32,
-      "type": "image-select",
-      "image": "switches_3.png",
-      "category": "practica",
-      "question": "¿Hasta cuántos dominios de colisión podría haber en la figura de 3 switches interconectados? (variante)",
-      "options": [
-        { "id": "a", "text": "82", "correct": true },
-        { "id": "b", "text": "72", "correct": false }
-      ]
-    },
-    {
-      "id": 33,
-      "type": "multiple",
-      "category": "teorica",
-      "question": "¿Cuál es el rango de direcciones privadas según RFC 1918? (versión alternativa)",
-      "options": [
-        { "id": "a", "text": "10.0.0.0 a 10.255.255.255", "correct": true },
-        { "id": "b", "text": "172.16.0.0 a 172.31.255.255", "correct": true },
-        { "id": "c", "text": "192.168.0.0 a 192.168.255.255", "correct": true },
-        { "id": "d", "text": "169.254.0.0 a 169.254.255.255", "correct": false }
-      ]
-    },
-    {
       "id": 34,
       "type": "multiple",
       "category": "teorica",
@@ -482,7 +459,7 @@
       "id": 41,
       "type": "multiple",
       "category": "teorica",
-      "question": "Se dice que un Access Point es un tipo de Bridge porque interconecta redes cableadas que funcionan con el protocolo ______ con dispositivos inalámbricos que ejecutan ______. Complete correctamente.",
+      "question": "Se dice que un ______ es un tipo de ______ porque interconecta redes cableadas que funcionan con el protocolo ______ con dispositivos inalámbricos que ejecutan ______. Complete correctamente.",
       "options": [
         { "id": "a", "text": "Access Point, Bridge, IEEE 802.3, IEEE 802.11", "correct": true },
         { "id": "b", "text": "Router, Switch, IEEE 802.5, IEEE 802.15", "correct": false },
