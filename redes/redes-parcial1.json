@@ -959,8 +959,8 @@
       "category": "teorica",
       "question": "El algoritmo para determinar el checksum del IPv4 se calcula:",
       "options": [
-        { "id": "a", "text": "En el origen, en el destino y dos veces en cada salto", "correct": false },
-        { "id": "b", "text": "En el origen, en el destino, y una vez en cada salto", "correct": true }
+        { "id": "a", "text": "En el origen, en el destino y dos veces en cada salto", "correct": true },
+        { "id": "b", "text": "En el origen, en el destino, y una vez en cada salto", "correct": false }
       ]
     },
     {
