@@ -320,8 +320,8 @@
       "type": "truefalse",
       "question": "Cuando el tipo de cambio de un país desciende en relación con la moneda de otro país, la moneda nacional sufre una apreciación y la extranjera una depreciación.",
       "options": [
-        { "id": "a", "text": "Verdadero", "correct": false },
-        { "id": "b", "text": "Falso", "correct": true }
+        { "id": "a", "text": "Verdadero", "correct": true },
+        { "id": "b", "text": "Falso", "correct": false }
       ]
     },
     {
@@ -358,7 +358,7 @@
     {
       "id": 35,
       "type": "single",
-      "question": "El sistema de tipo de cambio: (flotante con bandas)",
+      "question": "El sistema de tipo de cambio:",
       "options": [
         { "id": "a", "text": "Puede ser flotante entre un piso y un techo, con intervención estatal cuando resulta mayor al valor superior o menor al inferior.", "correct": true },
         { "id": "b", "text": "Se refiere al conjunto de normas que regulan las transacciones nacionales.", "correct": false },
@@ -484,17 +484,6 @@
     {
       "id": 47,
       "type": "single",
-      "question": "La Balanza de Pagos: (cuenta corriente y cuenta capital)",
-      "options": [
-        { "id": "a", "text": "En la cuenta de capital se registran las importaciones.", "correct": false },
-        { "id": "b", "text": "En la cuenta corriente registra la balanza comercial (exportaciones e importaciones) y la balanza de servicios, entre los que se incluye el turismo y las comunicaciones.", "correct": true },
-        { "id": "c", "text": "Se puede definir como una serie de registros contables sistematizados de las transacciones propias del sector público.", "correct": false },
-        { "id": "d", "text": "En la cuenta de capital se registran transacciones de montos importantes como turismo, transporte y comunicaciones.", "correct": false }
-      ]
-    },
-    {
-      "id": 48,
-      "type": "single",
       "question": "Para calcular la Renta Nacional desde el Producto:",
       "options": [
         { "id": "a", "text": "Se deben sumar el total de productos finales en un período determinado.", "correct": true },
@@ -504,7 +493,7 @@
       ]
     },
     {
-      "id": 49,
+      "id": 48,
       "type": "truefalse",
       "question": "En la economía en colores se realiza un análisis sectorial, identificando por color cada aspecto incluido; la ciencia, el consumo, el arte, el ambiente, la tecnología y actividades no registradas y prohibidas.",
       "options": [
@@ -513,7 +502,7 @@
       ]
     },
     {
-      "id": 50,
+      "id": 49,
       "type": "single",
       "question": "La Oferta Monetaria:",
       "options": [
@@ -524,7 +513,7 @@
       ]
     },
     {
-      "id": 51,
+      "id": 50,
       "type": "single",
       "question": "Son funciones del Banco Central de la República Argentina (BCRA):",
       "options": [
@@ -535,7 +524,7 @@
       ]
     },
     {
-      "id": 52,
+      "id": 51,
       "type": "single",
       "question": "El tipo de cambio: (utilidad práctica)",
       "options": [
@@ -546,7 +535,7 @@
       ]
     },
     {
-      "id": 53,
+      "id": 52,
       "type": "truefalse",
       "question": "La Renta Nacional se define como el Producto Nacional Neto a costo de factores (PNNcf) y puede calcularse desde el producto, desde el ingreso o desde el gasto, obteniéndose el mismo resultado en términos monetarios.",
       "options": [
@@ -555,7 +544,7 @@
       ]
     },
     {
-      "id": 54,
+      "id": 53,
       "type": "single",
       "question": "Indique cuáles de las siguientes variables macroeconómicas se consideran indicadores de desarrollo, pero no de calidad de vida:",
       "options": [
@@ -565,7 +554,7 @@
       ]
     },
     {
-      "id": 55,
+      "id": 54,
       "type": "single",
       "question": "La economía negra analiza economías ilegales como:",
       "options": [
@@ -576,7 +565,7 @@
       ]
     },
     {
-      "id": 56,
+      "id": 55,
       "type": "single",
       "question": "En el Sistema Tributario Argentino: (coparticipación)",
       "options": [
@@ -587,7 +576,7 @@
       ]
     },
     {
-      "id": 57,
+      "id": 56,
       "type": "single",
       "question": "La moneda y el dinero conceptualmente ...",
       "options": [
@@ -598,7 +587,7 @@
       ]
     },
     {
-      "id": 58,
+      "id": 57,
       "type": "single",
       "question": "El valor del tipo de cambio del dólar respecto al peso:",
       "options": [
@@ -609,7 +598,7 @@
       ]
     },
     {
-      "id": 59,
+      "id": 58,
       "type": "single",
       "question": "Cuando los países intercambian bienes:",
       "options": [
@@ -620,7 +609,7 @@
       ]
     },
     {
-      "id": 60,
+      "id": 59,
       "type": "single",
       "question": "La economía verde hace mención a:",
       "options": [
@@ -631,7 +620,7 @@
       ]
     },
     {
-      "id": 61,
+      "id": 60,
       "type": "truefalse",
       "question": "La Inflación Monetaria se relaciona con la demanda de dinero, que depende en forma inversa de la tasa de inflación. Cuando es alta, los agentes económicos se desprenden más rápidamente de la moneda nacional, el estado gasta por encima de sus ingresos tributarios y financia el déficit fiscal con el aumento de emisión monetaria, que se traslada al sector privado.",
       "options": [
@@ -640,7 +629,7 @@
       ]
     },
     {
-      "id": 62,
+      "id": 61,
       "type": "single",
       "question": "Respecto a la emisión secundaria del dinero:",
       "options": [
@@ -651,7 +640,7 @@
       ]
     },
     {
-      "id": 63,
+      "id": 62,
       "type": "single",
       "question": "El cálculo del Producto Bruto Interno (PBI) incluye:",
       "options": [
@@ -662,7 +651,7 @@
       ]
     },
     {
-      "id": 64,
+      "id": 63,
       "type": "single",
       "question": "En el Sector Financiero:",
       "options": [
@@ -673,7 +662,7 @@
       ]
     },
     {
-      "id": 65,
+      "id": 64,
       "type": "single",
       "question": "Respecto de la inflación, se considera que:",
       "options": [
@@ -684,7 +673,7 @@
       ]
     },
     {
-      "id": 66,
+      "id": 65,
       "type": "single",
       "question": "A mayor encaje legal del BCRA sobre los Bancos Comerciales:",
       "options": [
@@ -695,7 +684,7 @@
       ]
     },
     {
-      "id": 67,
+      "id": 66,
       "type": "single",
       "question": "Si la Inversión es el destino del ahorro:",
       "options": [
@@ -706,7 +695,7 @@
       ]
     },
     {
-      "id": 68,
+      "id": 67,
       "type": "single",
       "question": "En una economía abierta:",
       "options": [
@@ -717,7 +706,7 @@
       ]
     },
     {
-      "id": 69,
+      "id": 68,
       "type": "single",
       "question": "El estado interviene en un sistema de tipo de cambio:",
       "options": [
@@ -728,7 +717,7 @@
       ]
     },
     {
-      "id": 70,
+      "id": 69,
       "type": "single",
       "question": "El aumento en la compra de bienes y servicios del exterior:",
       "options": [
@@ -739,7 +728,7 @@
       ]
     },
     {
-      "id": 71,
+      "id": 70,
       "type": "single",
       "question": "La definición de PBI:",
       "options": [
@@ -750,7 +739,7 @@
       ]
     },
     {
-      "id": 72,
+      "id": 71,
       "type": "single",
       "question": "La oferta monetaria se incrementa:",
       "options": [
@@ -761,7 +750,7 @@
       ]
     },
     {
-      "id": 73,
+      "id": 72,
       "type": "single",
       "question": "Sobre el PBI se afirma que:",
       "options": [
@@ -772,7 +761,7 @@
       ]
     },
     {
-      "id": 74,
+      "id": 73,
       "type": "truefalse",
       "question": "Para calcular el ingreso público se consideran los Ingresos genuinos del sector público, donde los más importantes son los tributos o contribuciones que realizamos para el cumplimiento de los fines Estado: seguridad, justicia, salud, educación, entre otros.",
       "options": [
@@ -781,7 +770,7 @@
       ]
     },
     {
-      "id": 75,
+      "id": 74,
       "type": "single",
       "question": "La Renta Nacional de un país:",
       "options": [
@@ -792,7 +781,7 @@
       ]
     },
     {
-      "id": 76,
+      "id": 75,
       "type": "truefalse",
       "question": "El efecto fiscal de la inflación se produce ante el aumento de los ingresos nominales de los trabajadores en relación de dependencia, que ingresan a categorías superiores de aportes impositivos (impuesto a las ganancias) generando una disminución del ingreso disponible de los consumidores. Se genera un aumento del déficit público por disminución de la recaudación fiscal.",
       "options": [
@@ -801,7 +790,7 @@
       ]
     },
     {
-      "id": 77,
+      "id": 76,
       "type": "single",
       "question": "La economía gris:",
       "options": [
@@ -812,7 +801,7 @@
       ]
     },
     {
-      "id": 78,
+      "id": 77,
       "type": "single",
       "question": "El Sistema de Contabilidad Nacional se define como ...",
       "options": [
@@ -823,7 +812,7 @@
       ]
     },
     {
-      "id": 79,
+      "id": 78,
       "type": "single",
       "question": "Ante un aumento inflacionario de precios:",
       "options": [
@@ -834,7 +823,7 @@
       ]
     },
     {
-      "id": 80,
+      "id": 79,
       "type": "truefalse",
       "question": "El tipo de cambio considerado Efectivo o de bolsillo es el efectivamente cobrado por el exportador y pagado por el importador y se calcula a partir del tipo de cambio nominal y los aranceles, gravámenes o derechos al comercio exterior que deba abonar.",
       "options": [
@@ -843,7 +832,7 @@
       ]
     },
     {
-      "id": 81,
+      "id": 80,
       "type": "single",
       "question": "La inflación:",
       "options": [
@@ -854,7 +843,7 @@
       ]
     },
     {
-      "id": 82,
+      "id": 81,
       "type": "single",
       "question": "En el mercado de divisas del dólar:",
       "options": [
@@ -865,7 +854,7 @@
       ]
     },
     {
-      "id": 83,
+      "id": 82,
       "type": "single",
       "question": "Entre las causas de la inflación se pueden mencionar:",
       "options": [
@@ -876,7 +865,7 @@
       ]
     },
     {
-      "id": 84,
+      "id": 83,
       "type": "truefalse",
       "question": "De las funciones Consumo y Ahorro, es correcto afirmar que la suma de la propensión marginal al consumo y la propensión marginal al ahorro es siempre mayor que 1.",
       "options": [
@@ -885,7 +874,7 @@
       ]
     },
     {
-      "id": 85,
+      "id": 84,
       "type": "single",
       "question": "Qué predice fundamentalmente la teoría de las ventajas comparativas de David Ricardo respecto del comercio internacional",
       "options": [
@@ -896,7 +885,7 @@
       ]
     },
     {
-      "id": 86,
+      "id": 85,
       "type": "single",
       "question": "La variable macroeconómica Producto Bruto Interno (PBI) incluye en su cálculo:",
       "options": [
