@@ -898,17 +898,6 @@
     {
       "id": 86,
       "type": "single",
-      "question": "El principio de las ventajas comparativas sostiene que cada país se concentrará en la producción de los bienes en los que resulta mas eficiente respecto de otro, en consecuencia:",
-      "options": [
-        { "id": "a", "text": "Importará bienes sin considerar su eficiencia productiva.", "correct": false },
-        { "id": "b", "text": "Exportará los bienes en los que resulte comparativamente menos eficiente.", "correct": false },
-        { "id": "c", "text": "Exportará los bienes en los que resulte comparativamente más eficiente.", "correct": true },
-        { "id": "d", "text": "Importará los bienes en los que resulte comparativamente mas eficiente.", "correct": false }
-      ]
-    },
-    {
-      "id": 87,
-      "type": "single",
       "question": "La variable macroeconómica Producto Bruto Interno (PBI) incluye en su cálculo:",
       "options": [
         { "id": "a", "text": "Los bienes finales o de consumo generados por una economía.", "correct": true },
