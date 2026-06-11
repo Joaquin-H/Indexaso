@@ -1,0 +1,729 @@
+[
+  {
+    "id": 1,
+    "type": "multiple",
+    "category": "teorica",
+    "unidad": "Unidad 1",
+    "question": "Elija la o las opciones correctas relacionadas con el concepto de temperatura.",
+    "options": [
+      { "id": "a", "text": "La temperatura de un sistema es la energía calórica del mismo", "correct": false },
+      { "id": "b", "text": "La temperatura es el calor que se transmite a un cuerpo", "correct": false },
+      { "id": "c", "text": "La temperatura de un cuerpo es una medida de la energía cinética de los átomos y moléculas del cuerpo", "correct": true },
+      { "id": "d", "text": "Una propiedad física que varía con la temperatura se denomina propiedad termométrica", "correct": true },
+      { "id": "e", "text": "La temperatura es una sensación física que nos provoca un cuerpo cuando lo tocamos", "correct": false }
+    ]
+  },
+  {
+    "id": 2,
+    "type": "truefalse",
+    "category": "teorica",
+    "unidad": "Unidad 1",
+    "question": "El trabajo realizado sobre un gas para llevarlo de un estado inicial a un estado final depende de la trayectoria seguida entre los puntos que definen dichos estados inicial y final.",
+    "options": [
+      { "id": "a", "text": "Verdadero", "correct": true },
+      { "id": "b", "text": "Falso", "correct": false }
+    ]
+  },
+  {
+    "id": 3,
+    "type": "single",
+    "category": "teorica",
+    "unidad": "Unidad 1",
+    "question": "El calor latente siempre...",
+    "options": [
+      { "id": "a", "text": "Forma parte del calor específico", "correct": false },
+      { "id": "b", "text": "Está relacionado con el calor específico", "correct": false },
+      { "id": "c", "text": "Es igual al equivalente mecánico del calor", "correct": false },
+      { "id": "d", "text": "Interviene en el cambio de fase", "correct": true }
+    ]
+  },
+  {
+    "id": 4,
+    "type": "multiple",
+    "category": "teorica",
+    "unidad": "Unidad 1",
+    "question": "Elija la o las opciones correctas en relación al concepto de calor.",
+    "options": [
+      { "id": "a", "text": "La cantidad de calor transferida es igual al producto de la capacidad calorífica del sistema por el cambio de temperatura que experimenta, siempre que no ocurran cambios de fase", "correct": true },
+      { "id": "b", "text": "El calor es energía que se transfiere por diferencia de temperatura", "correct": true },
+      { "id": "c", "text": "Si un cuerpo tiene más calor acumulado entonces está a mayor temperatura", "correct": false },
+      { "id": "d", "text": "El calor se mide solamente en unidades de Calorías", "correct": false },
+      { "id": "e", "text": "El calor latente de vaporización es el calor necesario para evaporar una masa m de una sustancia", "correct": true }
+    ]
+  },
+  {
+    "id": 5,
+    "type": "multiple",
+    "category": "teorica",
+    "unidad": "Unidad 1",
+    "image": "Pregunta5.png",
+    "question": "A partir de la representación gráfica de la figura (termómetro de gas a volumen constante), elija la o las afirmaciones correctas.",
+    "options": [
+      { "id": "a", "text": "Representa la ley de variación de un termómetro a volumen constante", "correct": true },
+      { "id": "b", "text": "A partir de la gráfica es posible determinar el cero absoluto de temperatura", "correct": true },
+      { "id": "c", "text": "La escala Kelvin de temperaturas. La gráfica representa la ecuación de un gas ideal es p.V = n.R.T", "correct": true },
+      { "id": "d", "text": "El punto triple corresponde a -273 Celsius y es fácilmente realizable en cualquier laboratorio", "correct": false }
+    ]
+  },
+  {
+    "id": 6,
+    "type": "truefalse",
+    "category": "teorica",
+    "unidad": "Unidad 1",
+    "question": "Una sustancia puede mantener su temperatura constante aunque reciba calor.",
+    "options": [
+      { "id": "a", "text": "Verdadero", "correct": true },
+      { "id": "b", "text": "Falso", "correct": false }
+    ]
+  },
+  {
+    "id": 7,
+    "type": "single",
+    "category": "teorica",
+    "unidad": "Unidad 1",
+    "question": "Se añaden cantidades iguales de calor a dos objetos distintos que están a la misma temperatura inicial. ¿Qué factores pueden hacer que la temperatura final de los dos objetos sean diferentes?",
+    "options": [
+      { "id": "a", "text": "El calor específico", "correct": false },
+      { "id": "b", "text": "Las masas", "correct": false },
+      { "id": "c", "text": "El calor específico y masa", "correct": true },
+      { "id": "d", "text": "Las temperaturas", "correct": false }
+    ]
+  },
+  {
+    "id": 8,
+    "type": "truefalse",
+    "category": "teorica",
+    "unidad": "Unidad 1",
+    "image": "Pregunta8.png",
+    "question": "En función del esquema indicado podemos afirmar que si la temperatura de equilibrio del sistema es de 40 grados centígrados, la capacidad calorífica del hielo es mayor que la del metal.",
+    "options": [
+      { "id": "a", "text": "Verdadero", "correct": false },
+      { "id": "b", "text": "Falso", "correct": true }
+    ]
+  },
+  {
+    "id": 9,
+    "type": "truefalse",
+    "category": "teorica",
+    "unidad": "Unidad 1",
+    "question": "En una expansión adiabática la energía interna (U) del sistema disminuye.",
+    "options": [
+      { "id": "a", "text": "Verdadero", "correct": true },
+      { "id": "b", "text": "Falso", "correct": false }
+    ]
+  },
+  {
+    "id": 10,
+    "type": "single",
+    "category": "teorica",
+    "unidad": "Unidad 1",
+    "question": "Unidades del S.I. para magnitudes térmicas:",
+    "options": [
+      { "id": "a", "text": "Calor específico c son J/g", "correct": false },
+      { "id": "b", "text": "Calor de fusión o de vaporización son solo J/°c", "correct": false },
+      { "id": "c", "text": "Capacidad calorífica son J/kg°C", "correct": false },
+      { "id": "d", "text": "Ninguna de las anteriores", "correct": true }
+    ]
+  },
+  {
+    "id": 11,
+    "type": "single",
+    "category": "teorica",
+    "unidad": "Unidad 1",
+    "image": "Pregunta11.png",
+    "question": "En función del esquema indicado (calorímetro con hielo y metal), podemos afirmar el calor cedido por el metal es igual al calor latente de fusión de la masa de hielo más el calor necesario para elevar la temperatura del agua a 40°C.",
+    "options": [
+      { "id": "a", "text": "Verdadero", "correct": true },
+      { "id": "b", "text": "Falso", "correct": false }
+    ]
+  },
+  {
+    "id": 12,
+    "type": "multiple",
+    "category": "teorica",
+    "unidad": "Unidad 1",
+    "image": "Pregunta12.png",
+    "question": "Dada la siguiente situación (dos cuerpos A y B a diferentes temperaturas), elija la o las opciones correctas.",
+    "options": [
+      { "id": "a", "text": "La temperatura de equilibrio quedará más cercana al cuerpo de mayor capacidad calorífica", "correct": true },
+      { "id": "b", "text": "Si TA = 2 TB; entonces la Temperatura T = TA/2", "correct": false },
+      { "id": "c", "text": "CA y CB son los calores específicos de A y B respectivamente", "correct": false }
+    ]
+  },
+  {
+    "id": 13,
+    "type": "single",
+    "category": "teorica",
+    "unidad": "Unidad 1",
+    "question": "Cuando se añade calor a un sistema de gas ideal durante un proceso de expansión isotérmica:",
+    "options": [
+      { "id": "a", "text": "Se efectúa trabajo sobre el sistema", "correct": false },
+      { "id": "b", "text": "La energía interna disminuye", "correct": false },
+      { "id": "c", "text": "El efecto es el mismo que el de un proceso isocórico", "correct": false },
+      { "id": "d", "text": "Nada de lo anterior", "correct": true }
+    ]
+  },
+  {
+    "id": 14,
+    "type": "single",
+    "category": "teorica",
+    "unidad": "Unidad 1",
+    "question": "Elija la opción correcta. En un calentamiento isocórico:",
+    "options": [
+      { "id": "a", "text": "El trabajo es proporcional a la variación de presión del gas", "correct": false },
+      { "id": "b", "text": "La variación de energía interna es nula", "correct": false },
+      { "id": "c", "text": "La energía interna aumenta solamente si se suministra calor", "correct": true }
+    ]
+  },
+  {
+    "id": 15,
+    "type": "truefalse",
+    "category": "teorica",
+    "unidad": "Unidad 1",
+    "question": "En una transformación isotérmica, el trabajo realizado por el sistema es igual al calor añadido al sistema.",
+    "options": [
+      { "id": "a", "text": "Verdadero", "correct": true },
+      { "id": "b", "text": "Falso", "correct": false }
+    ]
+  },
+  {
+    "id": 16,
+    "type": "truefalse",
+    "category": "teorica",
+    "unidad": "Unidad 1",
+    "question": "En una expansión isobárica la energía interna (U) del sistema no permanece constante.",
+    "options": [
+      { "id": "a", "text": "Verdadero", "correct": true },
+      { "id": "b", "text": "Falso", "correct": false }
+    ]
+  },
+  {
+    "id": 17,
+    "type": "truefalse",
+    "category": "teorica",
+    "unidad": "Unidad 2",
+    "question": "En una expansión libre de un gas, éste se encuentra más ordenado después de expandirse a todo el recipiente que cuando estaba confinado en un solo lado.",
+    "options": [
+      { "id": "a", "text": "Verdadero", "correct": false },
+      { "id": "b", "text": "Falso", "correct": true }
+    ]
+  },
+  {
+    "id": 18,
+    "type": "multiple",
+    "category": "teorica",
+    "unidad": "Unidad 2",
+    "question": "En relación a la segunda ley de termodinámica, indicar la o las opciones correctas.",
+    "options": [
+      { "id": "a", "text": "No es posible un proceso cuyo único resultado sea la absorción de calor procedente de un foco y la conversión de este calor en trabajo", "correct": true },
+      { "id": "b", "text": "Es posible un proceso cuyo único resultado sea la absorción de calor procedente de un foco y la conversión de este calor en trabajo", "correct": false },
+      { "id": "c", "text": "No es posible un proceso cuyo único resultado sea la transferencia de calor de un cuerpo de menor temperatura a otro de mayor temperatura", "correct": true },
+      { "id": "d", "text": "Es posible un proceso cuyo único resultado sea la transferencia de calor de un cuerpo de menor temperatura a otro de mayor temperatura", "correct": false }
+    ]
+  },
+  {
+    "id": 19,
+    "type": "truefalse",
+    "category": "teorica",
+    "unidad": "Unidad 2",
+    "question": "La primera ley de la termodinámica describe sistemas para los que el único cambio de energía es el de la energía interna y las transferencias de energía con el medio son mediante calor y trabajo.",
+    "options": [
+      { "id": "a", "text": "Verdadero", "correct": true },
+      { "id": "b", "text": "Falso", "correct": false }
+    ]
+  },
+  {
+    "id": 20,
+    "type": "multiple",
+    "category": "teorica",
+    "unidad": "Unidad 2",
+    "question": "Qué situación no incumple con la segunda ley de la termodinámica.",
+    "options": [
+      { "id": "a", "text": "Convertir energía mecánica totalmente en calor", "correct": true },
+      { "id": "b", "text": "Convertir calor totalmente en trabajo", "correct": false },
+      { "id": "c", "text": "Una máquina cíclica que transfiere energía desde un objeto a otro a mayor temperatura con entrada de energía por trabajo", "correct": true },
+      { "id": "d", "text": "Ninguna de las anteriores", "correct": false }
+    ]
+  },
+  {
+    "id": 21,
+    "type": "single",
+    "category": "teorica",
+    "unidad": "Unidad 2",
+    "question": "En cualquier proceso natural, el cambio de entropía del universo es:",
+    "options": [
+      { "id": "a", "text": "Positivo", "correct": true },
+      { "id": "b", "text": "Negativo", "correct": false },
+      { "id": "c", "text": "Cero", "correct": false },
+      { "id": "d", "text": "Igual al cambio de energía interna", "correct": false }
+    ]
+  },
+  {
+    "id": 22,
+    "type": "single",
+    "category": "teorica",
+    "unidad": "Unidad 2",
+    "question": "¿Qué pasa con la energía interna de una máquina de calor cíclica después de un ciclo completo?",
+    "options": [
+      { "id": "a", "text": "Aumenta", "correct": false },
+      { "id": "b", "text": "No cambia", "correct": true },
+      { "id": "c", "text": "Disminuye", "correct": false },
+      { "id": "d", "text": "Ninguna de las anteriores", "correct": false }
+    ]
+  },
+  {
+    "id": 23,
+    "type": "truefalse",
+    "category": "teorica",
+    "unidad": "Unidad 2",
+    "question": "Carnot demostró que una máquina térmica que funcione reversiblemente entre dos depósitos térmicos es la máquina más eficiente posible.",
+    "options": [
+      { "id": "a", "text": "Verdadero", "correct": true },
+      { "id": "b", "text": "Falso", "correct": false }
+    ]
+  },
+  {
+    "id": 24,
+    "type": "single",
+    "category": "teorica",
+    "unidad": "Unidad 2",
+    "question": "Las máquinas térmicas reales, como el motor de gasolina de un auto, siempre tienen fricción. La eficiencia de una máquina térmica:",
+    "options": [
+      { "id": "a", "text": "Es del 100% cuando las piezas están totalmente sin fricción", "correct": false },
+      { "id": "b", "text": "Depende si la máquina ejecuta un ciclo de Carnot o no", "correct": true },
+      { "id": "c", "text": "Depende de si Tf = 0 K y Tc fuera cualquier temperatura mayor", "correct": false },
+      { "id": "d", "text": "Ninguna de las anteriores", "correct": false }
+    ]
+  },
+  {
+    "id": 25,
+    "type": "single",
+    "category": "teorica",
+    "unidad": "Unidad 2",
+    "question": "En una máquina térmica el sistema...",
+    "options": [
+      { "id": "a", "text": "Realiza trabajo al exterior", "correct": true },
+      { "id": "b", "text": "Recibe trabajo", "correct": false },
+      { "id": "c", "text": "No varía", "correct": false }
+    ]
+  },
+  {
+    "id": 26,
+    "type": "multiple",
+    "category": "teorica",
+    "unidad": "Unidad 2",
+    "question": "Elija una o más opciones correctas. En un proceso cíclico.",
+    "options": [
+      { "id": "a", "text": "El estado inicial y final no siempre coinciden", "correct": false },
+      { "id": "b", "text": "El trabajo neto es integral de p(V).dV a lo largo de la trayectoria cerrada", "correct": true },
+      { "id": "c", "text": "El gas no intercambia calor con el medio", "correct": false },
+      { "id": "d", "text": "No pueden combinarse distintos tipos de transformaciones", "correct": false },
+      { "id": "e", "text": "La variación de energía interna en el ciclo es cero", "correct": true }
+    ]
+  },
+  {
+    "id": 27,
+    "type": "truefalse",
+    "category": "teorica",
+    "unidad": "Unidad 2",
+    "question": "Un proceso cíclico es aquel donde la variación de la energía interna es nula atento que el proceso comienza y termina en el mismo estado.",
+    "options": [
+      { "id": "a", "text": "Verdadero", "correct": true },
+      { "id": "b", "text": "Falso", "correct": false }
+    ]
+  },
+  {
+    "id": 28,
+    "type": "truefalse",
+    "category": "teorica",
+    "unidad": "Unidad 2",
+    "image": "Pregunta28.png",
+    "question": "En la figura podemos afirmar que el proceso termodinámico representado es irreversible.",
+    "options": [
+      { "id": "a", "text": "Verdadero", "correct": false },
+      { "id": "b", "text": "Falso", "correct": true }
+    ]
+  },
+  {
+    "id": 29,
+    "type": "truefalse",
+    "category": "teorica",
+    "unidad": "Unidad 2",
+    "image": "Pregunta29.png",
+    "question": "En la figura podemos afirmar que el proceso termodinámico representado es reversible.",
+    "options": [
+      { "id": "a", "text": "Verdadero", "correct": true },
+      { "id": "b", "text": "Falso", "correct": false }
+    ]
+  },
+  {
+    "id": 30,
+    "type": "truefalse",
+    "category": "teorica",
+    "unidad": "Unidad 2",
+    "question": "El calor fluye del cuerpo de mayor temperatura al de menor temperatura, no existiendo en la actualidad experiencia de laboratorio alguna que incumpla dicho principio y que sea motivo de investigación actual.",
+    "options": [
+      { "id": "a", "text": "Verdadero", "correct": true },
+      { "id": "b", "text": "Falso", "correct": false }
+    ]
+  },
+  {
+    "id": 31,
+    "type": "truefalse",
+    "category": "teorica",
+    "unidad": "Unidad 2",
+    "question": "La conversión de energía mecánica en calor siempre implica un aumento de la aleatoriedad o el desorden, es decir un aumento de entropía.",
+    "options": [
+      { "id": "a", "text": "Verdadero", "correct": true },
+      { "id": "b", "text": "Falso", "correct": false }
+    ]
+  },
+  {
+    "id": 32,
+    "type": "truefalse",
+    "category": "teorica",
+    "unidad": "Unidad 2",
+    "question": "Es imposible construir una máquina térmica que funcionando cíclicamente pueda absorber energía en un depósito caliente y convertirlo completamente en trabajo.",
+    "options": [
+      { "id": "a", "text": "Verdadero", "correct": true },
+      { "id": "b", "text": "Falso", "correct": false }
+    ]
+  },
+  {
+    "id": 33,
+    "type": "truefalse",
+    "category": "teorica",
+    "unidad": "Unidad 3",
+    "question": "La ley de Coulomb refiere a que la fuerza entre cargas aisladas es directamente proporcional al producto de las cargas y directamente proporcional a la distancia que las separa al cuadrado.",
+    "options": [
+      { "id": "a", "text": "Verdadero", "correct": false },
+      { "id": "b", "text": "Falso", "correct": true }
+    ]
+  },
+  {
+    "id": 34,
+    "type": "truefalse",
+    "category": "teorica",
+    "unidad": "Unidad 3",
+    "question": "El enunciado cualitativo de la ley de Gauss refiere que el número neto de líneas de campo eléctrico que salen por cualquier superficie que encierra cargas es proporcional a la carga encerrada dentro de dicha superficie.",
+    "options": [
+      { "id": "a", "text": "Verdadero", "correct": true },
+      { "id": "b", "text": "Falso", "correct": false }
+    ]
+  },
+  {
+    "id": 35,
+    "type": "truefalse",
+    "category": "teorica",
+    "unidad": "Unidad 3",
+    "question": "El campo eléctrico (E1) originado por una carga puntual positiva +q = 1 C en un punto ubicado a una distancia R1 = 1m de la carga es 4 veces más chico que el E2 en un punto ubicado a R=0,5 m, es decir valdría E1=E2/4.",
+    "options": [
+      { "id": "a", "text": "Verdadero", "correct": true },
+      { "id": "b", "text": "Falso", "correct": false }
+    ]
+  },
+  {
+    "id": 36,
+    "type": "truefalse",
+    "category": "teorica",
+    "unidad": "Unidad 3",
+    "question": "La fuerza eléctrica sobre una partícula cargada en un campo eléctrico tiene siempre el mismo sentido que el campo.",
+    "options": [
+      { "id": "a", "text": "Verdadero", "correct": false },
+      { "id": "b", "text": "Falso", "correct": true }
+    ]
+  },
+  {
+    "id": 37,
+    "type": "single",
+    "category": "teorica",
+    "unidad": "Unidad 3",
+    "question": "¿Qué arreglo de cargas eléctricas con densidad de carga constante puede generar en su entorno un campo eléctrico uniforme?",
+    "options": [
+      { "id": "a", "text": "Esfera maciza uniformemente cargada", "correct": false },
+      { "id": "b", "text": "Plano infinito uniformemente cargado", "correct": true },
+      { "id": "c", "text": "Alambre de longitud infinita uniformemente cargado", "correct": false },
+      { "id": "d", "text": "Corteza esférica uniformemente cargada", "correct": false },
+      { "id": "e", "text": "Carga puntual pero de gran valor", "correct": false },
+      { "id": "f", "text": "Ninguno de los anteriores", "correct": false }
+    ]
+  },
+  {
+    "id": 38,
+    "type": "truefalse",
+    "category": "teorica",
+    "unidad": "Unidad 3",
+    "question": "Se coloca un electrón en un campo eléctrico uniforme en el vacío y luego en el mismo lugar se coloca un protón. Comparando las fuerzas de ambas, originadas por el campo eléctrico, el módulo de la fuerza que actúa en el protón es igual al módulo de la fuerza que actúa en el electrón.",
+    "options": [
+      { "id": "a", "text": "Verdadero", "correct": true },
+      { "id": "b", "text": "Falso", "correct": false }
+    ]
+  },
+  {
+    "id": 39,
+    "type": "single",
+    "category": "teorica",
+    "unidad": "Unidad 3",
+    "question": "Las líneas de campo eléctrico de una carga positiva son:",
+    "options": [
+      { "id": "a", "text": "Tangenciales", "correct": false },
+      { "id": "b", "text": "Radiales", "correct": true },
+      { "id": "c", "text": "Concéntricas", "correct": false }
+    ]
+  },
+  {
+    "id": 40,
+    "type": "single",
+    "category": "teorica",
+    "unidad": "Unidad 3",
+    "question": "La magnitud de la fuerza eléctrica es inversamente proporcional a:",
+    "options": [
+      { "id": "a", "text": "La distancia de las cargas", "correct": false },
+      { "id": "b", "text": "La distancia entre las cargas al cuadrado", "correct": true },
+      { "id": "c", "text": "La carga de prueba", "correct": false }
+    ]
+  },
+  {
+    "id": 41,
+    "type": "single",
+    "category": "teorica",
+    "unidad": "Unidad 3",
+    "question": "La magnitud del campo eléctrico en una esfera conductora, en el centro tendrá un valor:",
+    "options": [
+      { "id": "a", "text": "Menor a cero", "correct": false },
+      { "id": "b", "text": "Mayor a cero", "correct": false },
+      { "id": "c", "text": "Igual a cero", "correct": true }
+    ]
+  },
+  {
+    "id": 42,
+    "type": "multiple",
+    "category": "teorica",
+    "unidad": "Unidad 3",
+    "question": "Considere dos superficies Gaussianas esféricas y concéntricas, S1 con radio a y S2 con radio 2a, ambas centradas en el origen. Hay sólo una carga +q en el origen. Compare el flujo eléctrico Φ1 que atraviesa S1 con el Φ2 que atraviesa S2.",
+    "options": [
+      { "id": "a", "text": "Φ2 = Φ1 (son iguales)", "correct": true },
+      { "id": "b", "text": "Φ2 = Φ1/2 (es la mitad)", "correct": false },
+      { "id": "c", "text": "El flujo eléctrico depende solamente de la carga +q que está en el origen", "correct": true },
+      { "id": "d", "text": "Ninguna opción es correcta", "correct": false },
+      { "id": "e", "text": "Φ2 = Φ1/4 (es la cuarta parte)", "correct": false }
+    ]
+  },
+  {
+    "id": 43,
+    "type": "truefalse",
+    "category": "teorica",
+    "unidad": "Unidad 3",
+    "question": "En un conductor en equilibrio electrostático, el valor del campo eléctrico justo abajo de la superficie del conductor cargado es el mismo valor que el campo justo arriba de la superficie.",
+    "options": [
+      { "id": "a", "text": "Verdadero", "correct": false },
+      { "id": "b", "text": "Falso", "correct": true }
+    ]
+  },
+  {
+    "id": 44,
+    "type": "truefalse",
+    "category": "teorica",
+    "unidad": "Unidad 3",
+    "question": "El campo eléctrico creado por una placa infinita cargada uniformemente es uniforme y su valor no depende de la distancia a la misma.",
+    "options": [
+      { "id": "a", "text": "Verdadero", "correct": true },
+      { "id": "b", "text": "Falso", "correct": false }
+    ]
+  },
+  {
+    "id": 45,
+    "type": "truefalse",
+    "category": "teorica",
+    "unidad": "Unidad 4",
+    "question": "Las superficies equipotenciales de una carga puntual negativa son cortezas esféricas concéntricas.",
+    "options": [
+      { "id": "a", "text": "Verdadero", "correct": true },
+      { "id": "b", "text": "Falso", "correct": false }
+    ]
+  },
+  {
+    "id": 46,
+    "type": "multiple",
+    "category": "teorica",
+    "unidad": "Unidad 4",
+    "image": "Pregunta46.png",
+    "question": "Dada la siguiente representación que muestra la modificación que producen 2 cargas positivas en su entorno, elija la o las afirmaciones correctas.",
+    "options": [
+      { "id": "a", "text": "El potencial eléctrico de la configuración nunca puede ser nulo, salvo en el infinito", "correct": true },
+      { "id": "b", "text": "Las líneas rojas representan las líneas de campo eléctrico y las azules un corte transversal de las superficies equipotenciales", "correct": true },
+      { "id": "c", "text": "El valor del potencial eléctrico V5 es igual a cero siempre en esta configuración", "correct": false },
+      { "id": "d", "text": "El valor del potencial V4 es mayor al valor del potencial V3", "correct": true },
+      { "id": "e", "text": "El campo eléctrico no puede ser nulo en el entorno de las cargas, sólo en el infinito", "correct": false }
+    ]
+  },
+  {
+    "id": 47,
+    "type": "multiple",
+    "category": "teorica",
+    "unidad": "Unidad 4",
+    "image": "Pregunta47.png",
+    "question": "Dada la siguiente representación que muestra la modificación que producen 2 cargas positivas en su entorno, elija la o las afirmaciones correctas.",
+    "options": [
+      { "id": "a", "text": "El potencial eléctrico de la configuración puede ser negativo", "correct": false },
+      { "id": "b", "text": "Las líneas rojas representan las líneas de campo eléctrico y las azules representan superficies gaussianas", "correct": false },
+      { "id": "c", "text": "El campo eléctrico puede ser nulo en el espacio entre las cargas pero no así el potencial", "correct": true },
+      { "id": "d", "text": "El valor del potencial V5 es mayor al valor del potencial V3 y ambos son positivos", "correct": true },
+      { "id": "e", "text": "Las líneas de campo eléctrico no siempre son perpendiculares a las superficies equipotenciales que atraviesan", "correct": false }
+    ]
+  },
+  {
+    "id": 48,
+    "type": "multiple",
+    "category": "teorica",
+    "unidad": "Unidad 4",
+    "image": "Pregunta48.png",
+    "question": "Dada la siguiente representación que muestra la modificación que produce un dipolo eléctrico en su entorno, elija la o las afirmaciones correctas.",
+    "options": [
+      { "id": "a", "text": "El valor del potencial eléctrico V4 es igual a cero siempre en esta configuración", "correct": false },
+      { "id": "b", "text": "Las líneas rojas representan las líneas de campo eléctrico y las azules representan superficies gaussianas", "correct": false },
+      { "id": "c", "text": "El valor del potencial V1 es igual al valor del potencial V7", "correct": false },
+      { "id": "d", "text": "Las líneas rojas representan las líneas de campo eléctrico y las azules un corte transversal de las superficies equipotenciales", "correct": true },
+      { "id": "e", "text": "El potencial V7 es menor que el potencial V5", "correct": true }
+    ]
+  },
+  {
+    "id": 49,
+    "type": "multiple",
+    "category": "teorica",
+    "unidad": "Unidad 4",
+    "image": "Pregunta49.png",
+    "question": "Dada la siguiente representación que muestra la modificación que produce el dipolo eléctrico en su entorno, elija la o las afirmaciones correctas.",
+    "options": [
+      { "id": "a", "text": "El valor del potencial V2 es igual al valor del potencial V6 cambiando el signo", "correct": true },
+      { "id": "b", "text": "El potencial V2 es menor que el potencial V1 y ambos son negativos", "correct": false },
+      { "id": "c", "text": "Las líneas azules representan gaussianas para plantear la integral de Gauss", "correct": false },
+      { "id": "d", "text": "Las líneas rojas son las líneas de campo eléctrico y las azules indican superficies equipotenciales", "correct": true },
+      { "id": "e", "text": "En la configuración dada el potencial eléctrico nunca puede ser cero, exceptuando el infinito", "correct": false }
+    ]
+  },
+  {
+    "id": 50,
+    "type": "truefalse",
+    "category": "teorica",
+    "unidad": "Unidad 4",
+    "question": "La energía potencial eléctrica de un sistema de 3 cargas eléctricas positivas de 1 C ubicadas en los vértices de un triángulo equilátero de 1 m de lado es mayor que la energía potencial eléctrica del sistema de las mismas cargas ubicadas en los vértices de un triángulo de 1,5 m de lado.",
+    "options": [
+      { "id": "a", "text": "Verdadero", "correct": true },
+      { "id": "b", "text": "Falso", "correct": false }
+    ]
+  },
+  {
+    "id": 51,
+    "type": "single",
+    "category": "teorica",
+    "unidad": "Unidad 4",
+    "question": "El valor de la diferencia de potencial de dos puntos ubicados en la misma superficie equipotencial será:",
+    "options": [
+      { "id": "a", "text": "Menor a cero", "correct": false },
+      { "id": "b", "text": "Mayor a cero", "correct": false },
+      { "id": "c", "text": "Igual a cero", "correct": true }
+    ]
+  },
+  {
+    "id": 52,
+    "type": "truefalse",
+    "category": "teorica",
+    "unidad": "Unidad 4",
+    "question": "El potencial eléctrico no es una propiedad del sistema (campo-carga), es una propiedad del campo eléctrico E.",
+    "options": [
+      { "id": "a", "text": "Verdadero", "correct": true },
+      { "id": "b", "text": "Falso", "correct": false }
+    ]
+  },
+  {
+    "id": 53,
+    "type": "truefalse",
+    "category": "teorica",
+    "unidad": "Unidad 4",
+    "question": "La energía potencial electrostática de dos cargas puntuales es una cantidad vectorial.",
+    "options": [
+      { "id": "a", "text": "Verdadero", "correct": false },
+      { "id": "b", "text": "Falso", "correct": true }
+    ]
+  },
+  {
+    "id": 54,
+    "type": "truefalse",
+    "category": "teorica",
+    "unidad": "Unidad 5",
+    "question": "La capacitancia de los capacitores depende del valor del voltaje aplicado en sus terminales.",
+    "options": [
+      { "id": "a", "text": "Verdadero", "correct": false },
+      { "id": "b", "text": "Falso", "correct": true }
+    ]
+  },
+  {
+    "id": 55,
+    "type": "truefalse",
+    "category": "teorica",
+    "unidad": "Unidad 5",
+    "question": "Un capacitor de placas paralelas está conectado a una batería. Si un dieléctrico es insertado entre las placas la capacitancia disminuye.",
+    "options": [
+      { "id": "a", "text": "Verdadero", "correct": false },
+      { "id": "b", "text": "Falso", "correct": true }
+    ]
+  },
+  {
+    "id": 56,
+    "type": "single",
+    "category": "teorica",
+    "unidad": "Unidad 5",
+    "question": "Cuando se coloca un dieléctrico en un capacitor (con la batería desconectada), provoca que la diferencia de potencial:",
+    "options": [
+      { "id": "a", "text": "Disminuye", "correct": true },
+      { "id": "b", "text": "Aumenta", "correct": false },
+      { "id": "c", "text": "No varía", "correct": false }
+    ]
+  },
+  {
+    "id": 57,
+    "type": "single",
+    "category": "teorica",
+    "unidad": "Unidad 5",
+    "question": "Cuando se coloca un dieléctrico en un capacitor (con la batería desconectada), provoca que la energía almacenada:",
+    "options": [
+      { "id": "a", "text": "No varía", "correct": false },
+      { "id": "b", "text": "Aumente", "correct": false },
+      { "id": "c", "text": "Disminuya", "correct": true }
+    ]
+  },
+  {
+    "id": 58,
+    "type": "truefalse",
+    "category": "teorica",
+    "unidad": "Unidad 5",
+    "question": "La polarización y ordenamiento de los dipolos dentro de un dieléctrico generan un campo eléctrico que se opone al campo eléctrico externo a dicho elemento.",
+    "options": [
+      { "id": "a", "text": "Verdadero", "correct": true },
+      { "id": "b", "text": "Falso", "correct": false }
+    ]
+  },
+  {
+    "id": 59,
+    "type": "truefalse",
+    "category": "teorica",
+    "unidad": "Unidad 5",
+    "question": "Se tiene una configuración de 4 cargas dispuestas en los vértices de un cuadrado. El campo eléctrico que generan en el centro de dicho cuadrado depende del valor de cada carga y como el módulo de cada fuerza generada en dicho centro se calcula por la ley de Coulomb, decimos que la fuerza resultante es conservativa.",
+    "options": [
+      { "id": "a", "text": "Verdadero", "correct": true },
+      { "id": "b", "text": "Falso", "correct": false }
+    ]
+  },
+{
+    "id": 60,
+    "type": "truefalse",
+    "category": "teorica",
+    "unidad": "Unidad 5",
+    "question": "La capacitancia de un capacitor de placas paralelas con dieléctrico es C = ε₀ A / d (sin dieléctrico).",
+    "options": [
+      { "id": "a", "text": "Verdadero", "correct": false },
+      { "id": "b", "text": "Falso", "correct": true }
+    ]
+  }
+]

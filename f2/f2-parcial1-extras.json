@@ -1,0 +1,646 @@
+[
+  {
+    "id": 1,
+    "type": "multiple",
+    "category": "teorica",
+    "unidad": "Unidad 1",
+    "question": "Elija la o las opciones correctas en relación al concepto de calor (segunda variante).",
+    "options": [
+      { "id": "a", "text": "El agua tiene valores de calor latente de fusión (Lf) y el calor latente de vaporización (Lv) menores que la mayoría de los metales", "correct": false },
+      { "id": "b", "text": "Cuando agregamos hielo a una jarra con limonada para enfriarla, podemos decir que el calor pasa del hielo a la limonada", "correct": false },
+      { "id": "c", "text": "Es necesario llegar a un equilibrio térmico para poder medir adecuadamente la temperatura con termómetro de contacto", "correct": true },
+      { "id": "d", "text": "La cantidad de calor transferida es igual al producto del calor específico del material por el cambio de temperatura que experimenta, siempre que no ocurran cambios de fase", "correct": true },
+      { "id": "e", "text": "El calor es energía que se transfiere por diferencia de temperatura y puede expresarse en unidades de energía mecánica (Joule)", "correct": true }
+    ]
+  },
+  {
+    "id": 2,
+    "type": "truefalse",
+    "category": "teorica",
+    "unidad": "Unidad 1",
+    "question": "En una transformación isotérmica ideal, el trabajo realizado por el sistema puede ser menor a la energía en forma de calor que se le suministra al sistema.",
+    "options": [
+      { "id": "a", "text": "Verdadero", "correct": false },
+      { "id": "b", "text": "Falso", "correct": true }
+    ]
+  },
+  {
+    "id": 3,
+    "type": "single",
+    "category": "teorica",
+    "unidad": "Unidad 1",
+    "question": "Imagine que le dan una muestra de metal y piden determinar el calor específico. Pesa la muestra y obtiene un valor de 28.4 N. Añade con mucho cuidado 1.25x10^4 J de energía calorífica a la muestra y observa que su temperatura aumenta 18.0 °C. El calor específico que tiene la muestra:",
+    "options": [
+      { "id": "a", "text": "Se puede calcular", "correct": true },
+      { "id": "b", "text": "Falta la temperatura inicial", "correct": false },
+      { "id": "c", "text": "Falta la masa del metal", "correct": false },
+      { "id": "d", "text": "No hay datos suficientes", "correct": false }
+    ]
+  },
+  {
+    "id": 4,
+    "type": "single",
+    "category": "teorica",
+    "unidad": "Unidad 1",
+    "question": "¿Cuál de las siguientes afirmaciones es correcta?",
+    "options": [
+      { "id": "a", "text": "Es posible que 2 objetos estén en equilibrio térmico si no están en contacto mutuo", "correct": true },
+      { "id": "b", "text": "La temperatura de un gas aumenta en expansión adiabática", "correct": false },
+      { "id": "c", "text": "La eficiencia de una máquina térmica es c = W / Qf", "correct": false },
+      { "id": "d", "text": "Q y W son variables de estados", "correct": false }
+    ]
+  },
+  {
+    "id": 5,
+    "type": "truefalse",
+    "category": "teorica",
+    "unidad": "Unidad 1",
+    "question": "En una expansión isotérmica la energía interna (U) del sistema varía entre el estado inicial y el estado final.",
+    "options": [
+      { "id": "a", "text": "Verdadero", "correct": false },
+      { "id": "b", "text": "Falso", "correct": true }
+    ]
+  },
+  {
+    "id": 6,
+    "type": "truefalse",
+    "category": "teorica",
+    "unidad": "Unidad 1",
+    "question": "El trabajo de una transformación isotérmica no depende de la temperatura en la que está el sistema (T), solamente depende del cociente de Volumen final y Volumen inicial.",
+    "options": [
+      { "id": "a", "text": "Verdadero", "correct": false },
+      { "id": "b", "text": "Falso", "correct": true }
+    ]
+  },
+  {
+    "id": 7,
+    "type": "truefalse",
+    "category": "teorica",
+    "unidad": "Unidad 1",
+    "question": "Cuando se produce un cambio de fase en una sustancia se observa un cambio de características físicas junto con la variación de temperatura.",
+    "options": [
+      { "id": "a", "text": "Verdadero", "correct": false },
+      { "id": "b", "text": "Falso", "correct": true }
+    ]
+  },
+  {
+    "id": 8,
+    "type": "truefalse",
+    "category": "teorica",
+    "unidad": "Unidad 1",
+    "question": "Cuando una sustancia absorbe calor de una fuente externa puede usar el calor para realizar un cambio de fase y para aumentar su temperatura.",
+    "options": [
+      { "id": "a", "text": "Verdadero", "correct": true },
+      { "id": "b", "text": "Falso", "correct": false }
+    ]
+  },
+  {
+    "id": 9,
+    "type": "truefalse",
+    "category": "teorica",
+    "unidad": "Unidad 1",
+    "question": "Es posible considerar un 'equivalente en agua' que presente los calores específicos y las masas de cada parte del dispositivo denominado calorímetro.",
+    "options": [
+      { "id": "a", "text": "Verdadero", "correct": true },
+      { "id": "b", "text": "Falso", "correct": false }
+    ]
+  },
+  {
+    "id": 10,
+    "type": "single",
+    "category": "teorica",
+    "unidad": "Unidad 1",
+    "question": "Elija la opción correcta. En una expansión isobárica:",
+    "options": [
+      { "id": "a", "text": "El gas cede una cantidad de calor coincidente con el trabajo realizado", "correct": false },
+      { "id": "b", "text": "La energía interna permanece constante", "correct": false },
+      { "id": "c", "text": "El trabajo realizado por el gas es proporcional a la variación de volumen", "correct": true }
+    ]
+  },
+  {
+    "id": 11,
+    "type": "truefalse",
+    "category": "teorica",
+    "unidad": "Unidad 1",
+    "question": "La ecuación de estado del gas ideal relaciona p,V,T y el número de moles n a través de una constante R que es la misma para todos los gases.",
+    "options": [
+      { "id": "a", "text": "Verdadero", "correct": true },
+      { "id": "b", "text": "Falso", "correct": false }
+    ]
+  },
+  {
+    "id": 12,
+    "type": "truefalse",
+    "category": "teorica",
+    "unidad": "Unidad 1",
+    "question": "La gráfica p-V representa la ecuación de estado del gas ideal cuando la temperatura es constante.",
+    "options": [
+      { "id": "a", "text": "Verdadero", "correct": true },
+      { "id": "b", "text": "Falso", "correct": false }
+    ]
+  },
+  {
+    "id": 13,
+    "type": "truefalse",
+    "category": "teorica",
+    "unidad": "Unidad 1",
+    "question": "El trabajo (Wadiab) en una transformación adiabática es proporcional, además de al índice adiabático (γ), a la diferencia entre el producto presión volumen final y el producto presión volumen inicial.",
+    "options": [
+      { "id": "a", "text": "Verdadero", "correct": true },
+      { "id": "b", "text": "Falso", "correct": false }
+    ]
+  },
+  {
+    "id": 14,
+    "type": "truefalse",
+    "category": "teorica",
+    "unidad": "Unidad 1",
+    "question": "El calor específico es la cantidad de energía necesaria para hacer variar la temperatura de una sustancia en 1°C entre dos valores de temperatura preestablecidos.",
+    "options": [
+      { "id": "a", "text": "Verdadero", "correct": false },
+      { "id": "b", "text": "Falso", "correct": true }
+    ]
+  },
+  {
+    "id": 15,
+    "type": "truefalse",
+    "category": "teorica",
+    "unidad": "Unidad 1",
+    "question": "El calor específico del agua es función de la temperatura.",
+    "options": [
+      { "id": "a", "text": "Verdadero", "correct": true },
+      { "id": "b", "text": "Falso", "correct": false }
+    ]
+  },
+  {
+    "id": 16,
+    "type": "truefalse",
+    "category": "teorica",
+    "unidad": "Unidad 1",
+    "question": "Una curva adiabática tiene en cualquier punto menor pendiente que una isoterma en el mismo punto.",
+    "options": [
+      { "id": "a", "text": "Verdadero", "correct": false },
+      { "id": "b", "text": "Falso", "correct": true }
+    ]
+  },
+  {
+    "id": 17,
+    "type": "truefalse",
+    "category": "teorica",
+    "unidad": "Unidad 1",
+    "question": "Cuando hablamos de equilibrio termodinámico de un sistema, implica el equilibrio térmico, mecánico y químico del mismo.",
+    "options": [
+      { "id": "a", "text": "Verdadero", "correct": true },
+      { "id": "b", "text": "Falso", "correct": false }
+    ]
+  },
+  {
+    "id": 18,
+    "type": "truefalse",
+    "category": "teorica",
+    "unidad": "Unidad 1",
+    "question": "Los estados térmicos son magnitudes escalares.",
+    "options": [
+      { "id": "a", "text": "Verdadero", "correct": true },
+      { "id": "b", "text": "Falso", "correct": false }
+    ]
+  },
+  {
+    "id": 19,
+    "type": "truefalse",
+    "category": "teorica",
+    "unidad": "Unidad 1",
+    "question": "El termómetro se puede calibrar poniéndolo en contacto térmico con ambientes en que la temperatura se puede conocer, denominándose puntos fijos.",
+    "options": [
+      { "id": "a", "text": "Verdadero", "correct": true },
+      { "id": "b", "text": "Falso", "correct": false }
+    ]
+  },
+  {
+    "id": 20,
+    "type": "truefalse",
+    "category": "teorica",
+    "unidad": "Unidad 1",
+    "question": "El termómetro es un instrumento con el cual se puede medir la temperatura de un objeto o sistema con el cual el termómetro está en contacto y equilibrio térmico.",
+    "options": [
+      { "id": "a", "text": "Verdadero", "correct": true },
+      { "id": "b", "text": "Falso", "correct": false }
+    ]
+  },
+  {
+    "id": 21,
+    "type": "truefalse",
+    "category": "teorica",
+    "unidad": "Unidad 1",
+    "question": "La unidad que usted debe utilizar para referirse en un informe técnico es la caloría o kilocaloría.",
+    "options": [
+      { "id": "a", "text": "Verdadero", "correct": false },
+      { "id": "b", "text": "Falso", "correct": true }
+    ]
+  },
+  {
+    "id": 22,
+    "type": "truefalse",
+    "category": "teorica",
+    "unidad": "Unidad 1",
+    "question": "La temperatura es la propiedad que permite determinar si un objeto está en equilibrio térmico con otro cuerpo.",
+    "options": [
+      { "id": "a", "text": "Verdadero", "correct": true },
+      { "id": "b", "text": "Falso", "correct": false }
+    ]
+  },
+  {
+    "id": 23,
+    "type": "truefalse",
+    "category": "teorica",
+    "unidad": "Unidad 1",
+    "question": "La ley cero de la termodinámica permite definir el concepto de temperatura termodinámica o absoluta.",
+    "options": [
+      { "id": "a", "text": "Verdadero", "correct": true },
+      { "id": "b", "text": "Falso", "correct": false }
+    ]
+  },
+  {
+    "id": 24,
+    "type": "truefalse",
+    "category": "teorica",
+    "unidad": "Unidad 1",
+    "question": "Si calibramos de la misma manera un termómetro de mercurio y uno de alcohol, solo coinciden en los puntos de calibración, para temperaturas intermedias las lecturas son diferentes.",
+    "options": [
+      { "id": "a", "text": "Verdadero", "correct": true },
+      { "id": "b", "text": "Falso", "correct": false }
+    ]
+  },
+  {
+    "id": 25,
+    "type": "truefalse",
+    "category": "teorica",
+    "unidad": "Unidad 1",
+    "question": "Los gases que más se aproximan al ideal son los del grupo He.",
+    "options": [
+      { "id": "a", "text": "Verdadero", "correct": true },
+      { "id": "b", "text": "Falso", "correct": false }
+    ]
+  },
+  {
+    "id": 26,
+    "type": "truefalse",
+    "category": "teorica",
+    "unidad": "Unidad 1",
+    "question": "Los gases ideales son aquellos que cumplen estrictamente las leyes de Boyle-Mariotte y Charles-Gay Lussac.",
+    "options": [
+      { "id": "a", "text": "Verdadero", "correct": true },
+      { "id": "b", "text": "Falso", "correct": false }
+    ]
+  },
+  {
+    "id": 27,
+    "type": "truefalse",
+    "category": "teorica",
+    "unidad": "Unidad 1",
+    "question": "La temperatura es un indicador cuantitativo de la energía interna U de un sistema.",
+    "options": [
+      { "id": "a", "text": "Verdadero", "correct": true },
+      { "id": "b", "text": "Falso", "correct": false }
+    ]
+  },
+  {
+    "id": 28,
+    "type": "truefalse",
+    "category": "teorica",
+    "unidad": "Unidad 1",
+    "question": "La temperatura es una medida de cantidad de calor que posee un cuerpo.",
+    "options": [
+      { "id": "a", "text": "Verdadero", "correct": false },
+      { "id": "b", "text": "Falso", "correct": true }
+    ]
+  },
+  {
+    "id": 29,
+    "type": "truefalse",
+    "category": "teorica",
+    "unidad": "Unidad 1",
+    "question": "El contacto físico entre cuerpos de diferente temperatura es condición indispensable a fin de producir el intercambio de energía en forma de calor.",
+    "options": [
+      { "id": "a", "text": "Verdadero", "correct": false },
+      { "id": "b", "text": "Falso", "correct": true }
+    ]
+  },
+  {
+    "id": 30,
+    "type": "truefalse",
+    "category": "teorica",
+    "unidad": "Unidad 1",
+    "question": "El calor está determinado por la mayor o menor cantidad de temperatura que manifiesta un determinado cuerpo.",
+    "options": [
+      { "id": "a", "text": "Verdadero", "correct": false },
+      { "id": "b", "text": "Falso", "correct": true }
+    ]
+  },
+  {
+    "id": 31,
+    "type": "truefalse",
+    "category": "teorica",
+    "unidad": "Unidad 1",
+    "question": "El calor es energía en tránsito. Se lo puede considerar como un mecanismo de transferencia de energía.",
+    "options": [
+      { "id": "a", "text": "Verdadero", "correct": true },
+      { "id": "b", "text": "Falso", "correct": false }
+    ]
+  },
+  {
+    "id": 32,
+    "type": "truefalse",
+    "category": "teorica",
+    "unidad": "Unidad 1",
+    "question": "La energía calorífica es energía en tránsito, porque antes y después de ese tránsito queda almacenada como energía interna del sistema.",
+    "options": [
+      { "id": "a", "text": "Verdadero", "correct": true },
+      { "id": "b", "text": "Falso", "correct": false }
+    ]
+  },
+  {
+    "id": 33,
+    "type": "truefalse",
+    "category": "teorica",
+    "unidad": "Unidad 1",
+    "question": "El gas ideal es aquel que no posee viscosidad y no se ejercen fuerzas de gran alcance entre sus moléculas, no se licua bajo elevadas presiones y ocupa una fracción despreciable del volumen del recipiente que los contiene.",
+    "options": [
+      { "id": "a", "text": "Verdadero", "correct": true },
+      { "id": "b", "text": "Falso", "correct": false }
+    ]
+  },
+  {
+    "id": 34,
+    "type": "truefalse",
+    "category": "teorica",
+    "unidad": "Unidad 1",
+    "question": "La diferencia de temperatura entre dos sistemas al igual que la diferencia de calores específicos de los mismos, constituyen el motor del fenómeno de transporte conocido como flujo de calor o energía de tránsito.",
+    "options": [
+      { "id": "a", "text": "Verdadero", "correct": true },
+      { "id": "b", "text": "Falso", "correct": false }
+    ]
+  },
+  {
+    "id": 35,
+    "type": "truefalse",
+    "category": "teorica",
+    "unidad": "Unidad 1",
+    "question": "Calor y estado térmico son conceptos sinónimos.",
+    "options": [
+      { "id": "a", "text": "Verdadero", "correct": false },
+      { "id": "b", "text": "Falso", "correct": true }
+    ]
+  },
+  {
+    "id": 36,
+    "type": "truefalse",
+    "category": "teorica",
+    "unidad": "Unidad 1",
+    "question": "Las variables de transferencia son aquellas que involucran transferencia de energía a través de las partes del sistema. Se denominan variables de proceso.",
+    "options": [
+      { "id": "a", "text": "Verdadero", "correct": true },
+      { "id": "b", "text": "Falso", "correct": false }
+    ]
+  },
+  {
+    "id": 37,
+    "type": "truefalse",
+    "category": "teorica",
+    "unidad": "Unidad 2",
+    "question": "En un gas ideal la energía interna depende solo de la temperatura.",
+    "options": [
+      { "id": "a", "text": "Verdadero", "correct": true },
+      { "id": "b", "text": "Falso", "correct": false }
+    ]
+  },
+  {
+    "id": 38,
+    "type": "truefalse",
+    "category": "teorica",
+    "unidad": "Unidad 2",
+    "question": "Si el volumen de un sistema permanece constante mientras experimenta variación de temperatura y presión. La energía interna del gas no varía.",
+    "options": [
+      { "id": "a", "text": "Verdadero", "correct": false },
+      { "id": "b", "text": "Falso", "correct": true }
+    ]
+  },
+  {
+    "id": 39,
+    "type": "single",
+    "category": "teorica",
+    "unidad": "Unidad 2",
+    "question": "El rendimiento de una máquina térmica es proporcional a:",
+    "options": [
+      { "id": "a", "text": "Qc", "correct": false },
+      { "id": "b", "text": "W", "correct": true },
+      { "id": "c", "text": "Qf", "correct": false }
+    ]
+  },
+  {
+    "id": 40,
+    "type": "single",
+    "category": "teorica",
+    "unidad": "Unidad 2",
+    "question": "El trabajo neto en la transformación cíclica de la gráfica (p-V) está representado por:",
+    "options": [
+      { "id": "a", "text": "El área debajo de la curva de la transformación B-A", "correct": false },
+      { "id": "b", "text": "No puede representarse el trabajo en una gráfica p-V", "correct": false },
+      { "id": "c", "text": "El área encerrada entre las curvas de transformaciones A-B y B-A", "correct": true },
+      { "id": "d", "text": "El área debajo de la curva de la transformación A-B", "correct": false },
+      { "id": "e", "text": "Ninguna es correcta", "correct": false }
+    ]
+  },
+  {
+    "id": 41,
+    "type": "single",
+    "category": "teorica",
+    "unidad": "Unidad 2",
+    "question": "Si el sistema absorbe calor a una temperatura superior, es una máquina",
+    "options": [
+      { "id": "a", "text": "Térmica", "correct": true },
+      { "id": "b", "text": "Frigorífica", "correct": false },
+      { "id": "c", "text": "Adiabática", "correct": false }
+    ]
+  },
+  {
+    "id": 42,
+    "type": "truefalse",
+    "category": "teorica",
+    "unidad": "Unidad 2",
+    "question": "La energía interna está asociada a la energía cinética y potencial de las moléculas o átomos que constituyen una sustancia.",
+    "options": [
+      { "id": "a", "text": "Verdadero", "correct": true },
+      { "id": "b", "text": "Falso", "correct": false }
+    ]
+  },
+  {
+    "id": 43,
+    "type": "truefalse",
+    "category": "teorica",
+    "unidad": "Unidad 2",
+    "question": "En la ley de Gay Lussac lo que hace es medir la dilatación cúbica a presión constante.",
+    "options": [
+      { "id": "a", "text": "Verdadero", "correct": true },
+      { "id": "b", "text": "Falso", "correct": false }
+    ]
+  },
+  {
+    "id": 44,
+    "type": "truefalse",
+    "category": "teorica",
+    "unidad": "Unidad 2",
+    "question": "La energía interna está asociada a los componentes microscópicos de la materia, donde la energía potencial intermolecular puede ser despreciada frente al término de energía cinética molecular.",
+    "options": [
+      { "id": "a", "text": "Verdadero", "correct": true },
+      { "id": "b", "text": "Falso", "correct": false }
+    ]
+  },
+  {
+    "id": 45,
+    "type": "truefalse",
+    "category": "teorica",
+    "unidad": "Unidad 2",
+    "question": "Una máquina térmica es un dispositivo que convierte energía calorífica en otras formas de energía, como trabajo mecánico.",
+    "options": [
+      { "id": "a", "text": "Verdadero", "correct": true },
+      { "id": "b", "text": "Falso", "correct": false }
+    ]
+  },
+  {
+    "id": 46,
+    "type": "truefalse",
+    "category": "teorica",
+    "unidad": "Unidad 3",
+    "question": "El campo eléctrico originado por una carga puntual positiva de 1 C en un punto a 1 m es la mitad del valor que a 0,5 m.",
+    "options": [
+      { "id": "a", "text": "Verdadero", "correct": false },
+      { "id": "b", "text": "Falso", "correct": true }
+    ]
+  },
+  {
+    "id": 47,
+    "type": "multiple",
+    "category": "teorica",
+    "unidad": "Unidad 3",
+    "question": "Dado el siguiente sistema de 3 cargas interactuando (figura), indique la o las opciones correctas.",
+    "options": [
+      { "id": "a", "text": "Sobre la carga 1 la fuerza neta es cero", "correct": false },
+      { "id": "b", "text": "La carga q1 no podría nunca desplazarse en dirección +x", "correct": false },
+      { "id": "c", "text": "La carga q2 es atraída por q1 y rechazada por q3", "correct": true },
+      { "id": "d", "text": "La fuerza neta es una propiedad del espacio y puede obtenerse en cualquier punto del espacio cercano al arreglo de cargas", "correct": true },
+      { "id": "e", "text": "La carga q2 recibe una fuerza neta en la dirección arriba-izquierda del plano (cuadrante (-x;+y)", "correct": false }
+    ]
+  },
+  {
+    "id": 48,
+    "type": "truefalse",
+    "category": "teorica",
+    "unidad": "Unidad 3",
+    "question": "El área bajo la curva presión-volumen y entre dos abscisas definidas, es igual al trabajo de transformación desarrollado.",
+    "options": [
+      { "id": "a", "text": "Verdadero", "correct": true },
+      { "id": "b", "text": "Falso", "correct": false }
+    ]
+  },
+  {
+    "id": 49,
+    "type": "truefalse",
+    "category": "teorica",
+    "unidad": "Unidad 4",
+    "question": "El trabajo recibido o realizado por un gas es independiente de la transformación realizada, es decir que es independiente de la trayectoria que toma entre los estados inicial y final.",
+    "options": [
+      { "id": "a", "text": "Verdadero", "correct": false },
+      { "id": "b", "text": "Falso", "correct": true }
+    ]
+  },
+  {
+    "id": 50,
+    "type": "truefalse",
+    "category": "teorica",
+    "unidad": "Unidad 4",
+    "question": "La energía potencial U por unidad de carga del sistema es independiente del valor de la carga “q” y arroja un único resultado por cada punto en un campo eléctrico.",
+    "options": [
+      { "id": "a", "text": "Verdadero", "correct": true },
+      { "id": "b", "text": "Falso", "correct": false }
+    ]
+  },
+  {
+    "id": 51,
+    "type": "truefalse",
+    "category": "teorica",
+    "unidad": "Unidad 4",
+    "question": "La energía potencial eléctrica de un sistema de cuatro cargas ubicadas en los vértices de un cuadrado es igual al potencial eléctrico en el centro del cuadrado.",
+    "options": [
+      { "id": "a", "text": "Verdadero", "correct": false },
+      { "id": "b", "text": "Falso", "correct": true }
+    ]
+  },
+  {
+    "id": 52,
+    "type": "truefalse",
+    "category": "teorica",
+    "unidad": "Unidad 4",
+    "question": "Las superficies equipotenciales que genera un plano cargado uniformemente son planos paralelos al plano cargado.",
+    "options": [
+      { "id": "a", "text": "Verdadero", "correct": true },
+      { "id": "b", "text": "Falso", "correct": false }
+    ]
+  },
+  {
+    "id": 53,
+    "type": "truefalse",
+    "category": "teorica",
+    "unidad": "Unidad 4",
+    "question": "El valor de la energía potencial eléctrica de un sistema de 3 cargas eléctricas positivas de 1 C ubicadas en los vértices de un triángulo equilátero de 1 m de lado es exactamente igual a la energía potencial eléctrica del sistema de las mismas cargas ubicadas en los vértices de un triángulo de 0,5 m de lado.",
+    "options": [
+      { "id": "a", "text": "Verdadero", "correct": false },
+      { "id": "b", "text": "Falso", "correct": true }
+    ]
+  },
+  {
+    "id": 54,
+    "type": "truefalse",
+    "category": "teorica",
+    "unidad": "Unidad 4",
+    "question": "El trabajo de la fuerza electrostática para llevar una carga de un punto a otro no depende de la variación de potencial eléctrico entre esos dos puntos.",
+    "options": [
+      { "id": "a", "text": "Verdadero", "correct": false },
+      { "id": "b", "text": "Falso", "correct": true }
+    ]
+  },
+  {
+    "id": 55,
+    "type": "truefalse",
+    "category": "teorica",
+    "unidad": "Unidad 4",
+    "question": "Hablar de diferencia de potencial (ddp) en una región del espacio donde existe un campo eléctrico E, es equivalente a hablar de diferencia de energía potencial.",
+    "options": [
+      { "id": "a", "text": "Verdadero", "correct": true },
+      { "id": "b", "text": "Falso", "correct": false }
+    ]
+  },
+  {
+    "id": 56,
+    "type": "truefalse",
+    "category": "teorica",
+    "unidad": "Unidad 5",
+    "question": "Un capacitor de placas paralelas está conectado a una batería. Si un dieléctrico es insertado entre las placas la capacitancia disminuye.",
+    "options": [
+      { "id": "a", "text": "Verdadero", "correct": false },
+      { "id": "b", "text": "Falso", "correct": true }
+    ]
+  },
+  {
+    "id": 57,
+    "type": "single",
+    "category": "teorica",
+    "unidad": "Unidad 5",
+    "question": "Si comparamos el potencial eléctrico en una esfera conductora, en el centro y en la superficie de la misma podemos decir que:",
+    "options": [
+      { "id": "a", "text": "El potencial eléctrico en el centro es menor al potencial eléctrico en la superficie", "correct": false },
+      { "id": "b", "text": "El potencial eléctrico en el centro es mayor al potencial eléctrico en la superficie", "correct": false },
+      { "id": "c", "text": "El potencial eléctrico en el centro es igual al potencial eléctrico en la superficie", "correct": true }
+    ]
+  }
+]
