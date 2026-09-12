@@ -79,23 +79,19 @@
     .category-mode-btn[data-category="practica"].active{background:#9a6a20;border-color:#c98b2f}
     .category-mode-btn[data-category="clase"].active{background:#4d65a8;border-color:#6f8cff}
     .category-mode-btn[data-category="nucleo"].active{background:#3d8659;border-color:#5ab96a}
-    .category-mode-btn[data-category="todas"].active{background:#2f6f8f;border-color:#4d9ec4}
+    .category-mode-btn[data-category="extras"].active{background:#2f6f8f;border-color:#4d9ec4}
     .card-quiz.mode-teorica{border-color:#3aa58f}
     .card-quiz.mode-practica{border-color:#c98b2f}
     .card-quiz.mode-clase{border-color:#6f8cff}
     .card-quiz.mode-nucleo{border-color:#3d8659}
-    .card-quiz.mode-todas{border-color:#4d9ec4}
+    .card-quiz.mode-extras{border-color:#4d9ec4}
     .card-quiz.mode-all{border-color:#65748a}
     .quiz-type-btn[data-quiz="quizRedesParcial2"]{border-color:#3d8659;color:#5ab96a}
     .quiz-type-btn[data-quiz="quizRedesParcial2"]:hover{border-color:#5ab96a;color:#7dd499}
     .quiz-type-btn[data-quiz="quizRedesParcial2"].selected{background:#1f4d39;border-color:#5ab96a;color:#7dd499}
 
-    .subtema-filter-container{display:none;margin-top:6px;padding-top:4px;width:100%}
-    .subtema-filter-container.visible{display:block}
-    .subtema-label{font-size:.7rem;text-transform:uppercase;letter-spacing:.03em;color:var(--muted);font-weight:600;margin-bottom:3px}
-    .subtema-select{width:100%;max-width:520px;border:1px solid var(--border);border-radius:var(--radius-sm);background:var(--surface);color:var(--text);padding:6px 10px;font-size:.78rem;font-weight:600;cursor:pointer}
-    .subtema-select:focus{outline:none;border-color:#5ab96a;box-shadow:0 0 0 3px rgba(90,185,106,0.18)}
     .card-quiz.mode-levels .category-selector{border-color:#3d8659;background:rgba(30,80,50,0.12)}
+    .mode-hint{flex-basis:100%;font-size:.72rem;color:var(--muted);margin-top:2px}
 
     #indexList,#indexListOverlay{display:grid;gap:5px;padding:8px;min-height:0;scrollbar-width:none;-ms-overflow-style:none}
     #indexList{grid-template-columns:repeat(auto-fill,minmax(34px,1fr));grid-auto-rows:34px;flex:1;overflow-y:auto;overflow-x:hidden;align-items:start;justify-items:center}
@@ -137,6 +133,12 @@
     .correct-answer-feedback{margin-top:12px;padding:11px 12px;border-radius:10px;border:1px solid var(--success);background:var(--success);color:#ffffff;font-size:.88rem}
     .answer-note{margin-top:12px;padding:11px 12px;border-radius:10px;border:1px solid var(--border);background:var(--surface-2);color:var(--muted);font-size:.84rem;line-height:1.5}
     .answer-note strong{color:#d9e2ec}
+    .answer-note.warn{border-color:#7a6420;background:rgba(184,148,26,0.12)}
+    .answer-note.warn strong{color:#e0b35f}
+    .q-context{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin-top:3px}
+    .q-tag{font-size:.68rem;font-weight:700;letter-spacing:.02em;color:var(--muted);background:var(--surface-2);border:1px solid var(--border);border-radius:999px;padding:2px 8px}
+    .q-tag.unidad{color:#9fb6ff;border-color:#3a4a72}
+    .q-tag.tema{color:#7dd499;border-color:#2f5c43}
     .image-options{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-top:16px}
     .image-option{position:relative;cursor:pointer;border:1px solid var(--border);border-radius:12px;overflow:hidden;transition:border-color .2s,background-color .2s;background:var(--surface)}
     .image-option:hover{border-color:#6f8cff}
@@ -285,13 +287,10 @@
               <button class="category-mode-btn" data-category="teorica">Teórico <span data-category-count="teorica"></span></button>
               <button class="category-mode-btn" data-category="practica">Práctico <span data-category-count="practica"></span></button>
               <button class="category-mode-btn" data-category="clase">Preguntas clase <span data-category-count="clase"></span></button>
-              <button class="category-mode-btn" data-category="nucleo">Solo núcleo <span data-category-count="nucleo"></span></button>
-              <button class="category-mode-btn" data-category="todas">Incluir preguntas extra <span data-category-count="todas"></span></button>
+              <button class="category-mode-btn" data-category="nucleo" title="Lo mínimo indispensable: una o más preguntas por cada concepto del programa">Núcleo <span data-category-count="nucleo"></span></button>
+              <button class="category-mode-btn" data-category="extras" title="Las preguntas restantes: variantes de los mismos conceptos, para repasar">Extras <span data-category-count="extras"></span></button>
             </div>
-            <div class="subtema-filter-container" id="subtemaFilterContainer">
-              <div class="subtema-label">Subtema</div>
-              <select class="subtema-select" id="subtemaSelect"></select>
-            </div>
+            <div class="mode-hint" id="modeHint"></div>
           </div>
           <div class="d-flex justify-content-between align-items-start mb-2">
             <div>
@@ -299,6 +298,7 @@
                 <div class="question-title" id="qTitle">Título de la pregunta</div>
               </div>
               <div class="q-meta" id="qType">Tipo</div>
+              <div class="q-context" id="qContext"></div>
             </div>
             <div class="text-end">
               <div id="qState" class="q-meta"></div>
@@ -313,7 +313,7 @@
               <button id="checkBtn" class="btn btn-primary" title="Comprobar"><i class="bi bi-check-lg"></i></button>
               <button id="nextBtn" class="btn btn-outline-light" title="Siguiente"><i class="bi bi-arrow-right"></i></button>
             </div>
-            <div class="q-meta keyboard-hint">Enter → Comprobar</div>
+            <div class="q-meta keyboard-hint">← → Navegar · Enter → Comprobar</div>
           </div>
         </div>
       </div>
@@ -387,8 +387,14 @@
       teorica: 'Teórico',
       practica: 'Práctico',
       clase: 'Preguntas clase',
-      nucleo: 'Solo núcleo',
-      todas: 'Incluir preguntas extra'
+      nucleo: 'Núcleo',
+      extras: 'Extras'
+    };
+
+    // Texto de ayuda debajo de los botones de modo
+    const MODE_HINTS = {
+      nucleo: 'Lo mínimo indispensable: una o más preguntas por concepto, sin repetir.',
+      extras: 'Las que sobran del banco: variantes de los mismos conceptos del núcleo.'
     };
 
     let quizData = {};
@@ -399,7 +405,6 @@
     let state = { current:0, answers:[], checked:[], score:0 };
     let selectedQuizType = null;
     let selectedCategoryMode = 'all';
-    let selectedSubtema = null;
     
     let currentPage = 0;
     const getQuestionsPerPage = () => currentQuizConfig?.questionsPerPage || 45;
@@ -451,11 +456,10 @@
         resourceBase: 'redes/resources/',
         questionsPerPage: 60,
         categoryFilter: true,
-        visibleCategories: ['nucleo', 'todas'],
+        visibleCategories: ['nucleo', 'extras'],
         defaultCategory: 'nucleo',
         showCategoryCounts: true,
-        levelFilter: true,
-        subtemaFilter: true
+        levelFilter: true
       }
     };
 
@@ -535,10 +539,9 @@
       return CATEGORY_MODES[mode] ? mode : 'all';
     }
 
-    function getStateKey(type = selectedQuizType, category = selectedCategoryMode, subtema = selectedSubtema){
+    function getStateKey(type = selectedQuizType, category = selectedCategoryMode){
       const mode = supportsCategoryFilter(type) ? normalizeCategoryMode(category, type) : 'all';
-      const subtemaSuffix = subtema != null ? `::s${subtema}` : '';
-      return `${type || 'quiz'}::${mode}${subtemaSuffix}`;
+      return `${type || 'quiz'}::${mode}`;
     }
 
     function getCategoryCounts(){
@@ -546,7 +549,7 @@
       if(currentQuizConfig?.levelFilter){
         return {
           nucleo: allQuestions.filter(q => q.nivel === 'nucleo').length,
-          todas: allQuestions.length
+          extras: allQuestions.filter(q => q.nivel !== 'nucleo').length
         };
       }
 
@@ -564,32 +567,17 @@
     function getQuestionsByCategory(category){
       if(!supportsCategoryFilter()) return allQuestions.slice();
       if(currentQuizConfig?.levelFilter){
-        // 'nucleo' = sólo lo imprescindible; 'todas' = núcleo + preguntas extra
+        // Dos apartados separados: el núcleo por un lado y el resto por el otro
         return category === 'nucleo'
           ? allQuestions.filter(q => q.nivel === 'nucleo')
-          : allQuestions.slice();
+          : allQuestions.filter(q => q.nivel !== 'nucleo');
       }
       if(category === 'all') return allQuestions.slice();
       return allQuestions.filter(q => q.category === category);
     }
 
-    function getSubtemasForCategory(category){
-      if(!currentQuizConfig?.subtemaFilter) return [];
-      // Se respeta el orden en que aparecen (ya vienen agrupados por tema)
-      const counts = new Map();
-      getQuestionsByCategory(category).forEach(q => {
-        if(!q.subtema) return;
-        counts.set(q.subtema, (counts.get(q.subtema) || 0) + 1);
-      });
-      return [...counts.entries()];
-    }
-
     function getFilteredQuestions(){
-      let base = getQuestionsByCategory(selectedCategoryMode);
-      if(currentQuizConfig?.subtemaFilter && selectedSubtema != null){
-        base = base.filter(q => q.subtema === selectedSubtema);
-      }
-      return base;
+      return getQuestionsByCategory(selectedCategoryMode);
     }
 
     function getDisplayQuizTitle(){
@@ -648,47 +636,6 @@
       recomputeScore();
     }
 
-    function renderSubtemaFilter(){
-      const select = $('subtemaSelect');
-      const filterContainer = $('subtemaFilterContainer');
-      if(!select || !filterContainer) return;
-
-      const enabled = !!currentQuizConfig?.subtemaFilter;
-      filterContainer.classList.toggle('visible', enabled);
-      if(!enabled) return;
-
-      const subtemas = getSubtemasForCategory(selectedCategoryMode);
-      const total = subtemas.reduce((acc, [, count]) => acc + count, 0);
-      select.innerHTML = '';
-
-      const allOpt = document.createElement('option');
-      allOpt.value = '';
-      allOpt.textContent = `Todos los subtemas (${total})`;
-      select.appendChild(allOpt);
-
-      subtemas.forEach(([subtema, count]) => {
-        const opt = document.createElement('option');
-        opt.value = subtema;
-        opt.textContent = `${subtema} (${count})`;
-        select.appendChild(opt);
-      });
-
-      // Si el subtema elegido no existe en este modo, se vuelve a "todos"
-      select.value = selectedSubtema == null ? '' : selectedSubtema;
-      if(!select.value && selectedSubtema != null) selectedSubtema = null;
-    }
-
-    function applySubtemaFilter(subtema){
-      if(selectedSubtema === subtema) return;
-      saveCurrentState();
-      selectedSubtema = subtema;
-      questions = getFilteredQuestions();
-      restoreStateForCurrentScope();
-      currentPage = 0;
-      clampCurrentPage();
-      initQuiz();
-    }
-
     function updateCategorySelector(){
       const selector = $('categorySelector');
       if(!selector) return;
@@ -717,12 +664,21 @@
         el.parentElement.style.display = visible.includes(mode) ? '' : 'none';
         el.textContent = showCounts && counts[mode] != null ? `(${counts[mode]})` : '';
       });
+
+      renderModeHint();
+    }
+
+    function renderModeHint(){
+      const hint = $('modeHint');
+      if(!hint) return;
+      const text = currentQuizConfig?.levelFilter ? (MODE_HINTS[selectedCategoryMode] || '') : '';
+      hint.textContent = text;
+      hint.style.display = text ? '' : 'none';
     }
 
     function applyCategoryMode(mode){
       saveCurrentState();
       selectedCategoryMode = normalizeCategoryMode(mode);
-      selectedSubtema = null;
       categoryModesByQuiz[selectedQuizType] = selectedCategoryMode;
       persistStoredJson(QUIZ_CATEGORY_STORAGE_KEY, categoryModesByQuiz);
       questions = getFilteredQuestions();
@@ -736,7 +692,7 @@
       $('total').textContent = questions.length;
       $('quizTitleHeader').textContent = getDisplayQuizTitle();
       updateCategorySelector();
-      renderSubtemaFilter();
+      renderModeHint();
       renderIndex(); 
       renderIndexOverlay();
       // Si el state.current excede, ajustamos
@@ -775,7 +731,6 @@
       }
 
       // Determinar categoría por defecto según el tipo de quiz
-      selectedSubtema = null;
       selectedCategoryMode = supportsCategoryFilter(type)
         ? normalizeCategoryMode(categoryModesByQuiz[type] || currentQuizConfig.defaultCategory || 'all', type)
         : 'all';
@@ -890,11 +845,50 @@
       }
     } 
 
+    /* Etiquetas de contexto (unidad, tema, subtema) para ubicar la pregunta */
+    function renderQuestionContext(q){
+      const el = $('qContext');
+      if(!el) return;
+      el.innerHTML = '';
+      if(!q) return;
+      const tags = [];
+      if(q.unidad != null) tags.push(['unidad', `Unidad ${q.unidad}`]);
+      if(q.tema) tags.push(['tema', q.tema]);
+      if(q.subtema) tags.push(['', q.subtema]);
+      tags.forEach(([extra, text]) => {
+        const tag = document.createElement('span');
+        tag.className = `q-tag ${extra}`.trim();
+        tag.textContent = text;
+        el.appendChild(tag);
+      });
+    }
+
+    /* Barajado determinístico: mezcla las opciones pero siempre igual para la
+       misma pregunta, así al volver sobre una respondida no cambian de lugar. */
+    function stableShuffle(options, seed){
+      const out = [...options];
+      let hash = 2166136261;
+      const key = String(seed);
+      for(let i = 0; i < key.length; i++){
+        hash = Math.imul(hash ^ key.charCodeAt(i), 16777619) >>> 0;
+      }
+      const rand = () => {
+        hash = (Math.imul(hash, 1664525) + 1013904223) >>> 0;
+        return hash / 4294967296;
+      };
+      for(let i = out.length - 1; i > 0; i--){
+        const j = Math.floor(rand() * (i + 1));
+        [out[i], out[j]] = [out[j], out[i]];
+      }
+      return out;
+    }
+
     function renderQuestion(){
       const q = questions[state.current];
       if(!q){
         $('qTitle').textContent = 'No hay preguntas para este modo';
         $('qType').textContent = '';
+        renderQuestionContext(null);
         $('qArea').innerHTML = '';
         updateStateText();
         return;
@@ -910,7 +904,8 @@
       else if(q.type === 'tf') typeText = 'Verdadero / Falso';
       else if(q.type === 'single') typeText = 'Respuesta única';
       $('qType').textContent = typeText;
-      
+      renderQuestionContext(q);
+            
       const area = $('qArea'); area.innerHTML = '';
 
       // Limpiar cualquier feedback anterior
@@ -1008,7 +1003,7 @@
 
       // Preguntas con opciones normales (single/multiple)
       const opts = document.createElement('div'); opts.className='mt-3 d-grid gap-2';
-      const shuffledOptions = [...q.options].sort(() => Math.random() - 0.5);
+      const shuffledOptions = stableShuffle(q.options, q.id);
       
       shuffledOptions.forEach(opt=>{
         const id = `q${state.current}_${opt.id}`;
@@ -1173,17 +1168,34 @@
       appendWhyNote(index);
     }
 
-    /* Aclaración del banco de preguntas (campo "why"), visible recién al comprobar */
+    const CONFIANZA_AVISO = {
+      media: 'La respuesta la marcó un alumno en un preguntero viejo, no está confirmada por la cátedra.',
+      baja: 'Respuesta dudosa: hay contradicción interna o choca con la teoría.'
+    };
+
+    /* Notas del banco de preguntas: aclaración ("why") y aviso de confianza.
+       Se muestran recién al comprobar, para no dar pistas antes. */
     function appendWhyNote(index){
       const q = questions[index];
       const container = document.querySelector('#qArea');
       if(!container) return;
-      container.querySelector('.answer-note')?.remove();
-      if(!q || !q.why) return;
-      const note = document.createElement('div');
-      note.className = 'answer-note';
-      note.innerHTML = `<strong>Aclaración:</strong> ${escapeHtml(q.why).replace(/\n/g,'<br>')}`;
-      container.appendChild(note);
+      container.querySelectorAll('.answer-note').forEach(el => el.remove());
+      if(!q) return;
+
+      const aviso = CONFIANZA_AVISO[q.confianza];
+      if(aviso){
+        const warn = document.createElement('div');
+        warn.className = 'answer-note warn';
+        warn.innerHTML = `<strong>Ojo (confianza ${escapeHtml(q.confianza)}):</strong> ${escapeHtml(aviso)}`;
+        container.appendChild(warn);
+      }
+
+      if(q.why){
+        const note = document.createElement('div');
+        note.className = 'answer-note';
+        note.innerHTML = `<strong>Aclaración:</strong> ${escapeHtml(q.why).replace(/\n/g,'<br>')}`;
+        container.appendChild(note);
+      }
     }
 
     function renderFeedback(index){
@@ -1297,7 +1309,13 @@
     document.getElementById('nextBtnSidebar').addEventListener('click', ()=>goTo(state.current+1));
     document.getElementById('checkBtnSidebar').addEventListener('click', ()=>checkCurrent());
     
-    document.addEventListener('keydown', (e)=>{ if(e.key === 'Enter') checkCurrent(); });
+    document.addEventListener('keydown', (e)=>{
+      if(e.key === 'Enter'){ checkCurrent(); return; }
+      // Las flechas no deben moverse de pregunta mientras se escribe una respuesta
+      if(e.target instanceof HTMLInputElement && e.target.type === 'text') return;
+      if(e.key === 'ArrowLeft'){ e.preventDefault(); goTo(state.current - 1); }
+      else if(e.key === 'ArrowRight'){ e.preventDefault(); goTo(state.current + 1); }
+    });
 
     function checkCurrent(){
       if(!questions.length) return;
@@ -1457,7 +1475,9 @@
 
     function reviewIncorrect(){
       closeSummary();
-      for(let i=0; i<questions.length; i++){
+      // Arranca después de la pregunta actual y da la vuelta, así se recorren todas
+      for(let n = 1; n <= questions.length; n++){
+        const i = (state.current + n) % questions.length;
         if(state.checked[i] && state.checked[i] !== 'correct'){
           goTo(i);
           return;
@@ -1488,10 +1508,6 @@
         if(!supportsCategoryFilter() || selectedCategoryMode === mode) return;
         applyCategoryMode(mode);
       });
-    });
-
-    $('subtemaSelect').addEventListener('change', (e) => {
-      applySubtemaFilter(e.target.value || null);
     });
 
     function updateQuizTypeSelection(type){
