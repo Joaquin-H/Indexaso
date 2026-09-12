@@ -78,26 +78,24 @@
     .category-mode-btn[data-category="teorica"].active{background:#287c6a;border-color:#3aa58f}
     .category-mode-btn[data-category="practica"].active{background:#9a6a20;border-color:#c98b2f}
     .category-mode-btn[data-category="clase"].active{background:#4d65a8;border-color:#6f8cff}
-    .category-mode-btn[data-category="todas"].active{background:#3d8659;border-color:#5ab96a}
-    .category-mode-btn[data-category="extras"].active{background:#3d8659;border-color:#5ab96a}
+    .category-mode-btn[data-category="nucleo"].active{background:#3d8659;border-color:#5ab96a}
+    .category-mode-btn[data-category="todas"].active{background:#2f6f8f;border-color:#4d9ec4}
     .card-quiz.mode-teorica{border-color:#3aa58f}
     .card-quiz.mode-practica{border-color:#c98b2f}
     .card-quiz.mode-clase{border-color:#6f8cff}
-    .card-quiz.mode-todas{border-color:#3d8659}
-    .card-quiz.mode-extras{border-color:#3d8659}
+    .card-quiz.mode-nucleo{border-color:#3d8659}
+    .card-quiz.mode-todas{border-color:#4d9ec4}
     .card-quiz.mode-all{border-color:#65748a}
-    .quiz-type-btn[data-quiz="quizF2Parcial1"]{border-color:#3d8659;color:#5ab96a}
-    .quiz-type-btn[data-quiz="quizF2Parcial1"]:hover{border-color:#5ab96a;color:#7dd499}
-    .quiz-type-btn[data-quiz="quizF2Parcial1"].selected{background:#1f4d39;border-color:#5ab96a;color:#7dd499}
+    .quiz-type-btn[data-quiz="quizRedesParcial2"]{border-color:#3d8659;color:#5ab96a}
+    .quiz-type-btn[data-quiz="quizRedesParcial2"]:hover{border-color:#5ab96a;color:#7dd499}
+    .quiz-type-btn[data-quiz="quizRedesParcial2"].selected{background:#1f4d39;border-color:#5ab96a;color:#7dd499}
 
-    .unit-filter-container{display:none;margin-top:6px;padding-top:4px}
-    .unit-filter-container.visible{display:block}
-    .unit-label{font-size:.7rem;text-transform:uppercase;letter-spacing:.03em;color:var(--muted);font-weight:600;margin-bottom:3px}
-    .unit-buttons{display:flex;gap:4px;flex-wrap:wrap}
-    .unit-btn{border:1px solid var(--border);border-radius:999px;background:var(--surface);color:var(--muted);padding:4px 8px;font-size:.72rem;font-weight:600;cursor:pointer;transition:border-color .2s,background-color .2s,color .2s}
-    .unit-btn:hover{border-color:#5ab96a;color:#7dd499}
-    .unit-btn.active{background:#1f4d39;border-color:#5ab96a;color:#7dd499}
-    .card-quiz.mode-f2 .category-selector{border-color:#3d8659;background:rgba(30,80,50,0.12)}
+    .subtema-filter-container{display:none;margin-top:6px;padding-top:4px;width:100%}
+    .subtema-filter-container.visible{display:block}
+    .subtema-label{font-size:.7rem;text-transform:uppercase;letter-spacing:.03em;color:var(--muted);font-weight:600;margin-bottom:3px}
+    .subtema-select{width:100%;max-width:520px;border:1px solid var(--border);border-radius:var(--radius-sm);background:var(--surface);color:var(--text);padding:6px 10px;font-size:.78rem;font-weight:600;cursor:pointer}
+    .subtema-select:focus{outline:none;border-color:#5ab96a;box-shadow:0 0 0 3px rgba(90,185,106,0.18)}
+    .card-quiz.mode-levels .category-selector{border-color:#3d8659;background:rgba(30,80,50,0.12)}
 
     #indexList,#indexListOverlay{display:grid;gap:5px;padding:8px;min-height:0;scrollbar-width:none;-ms-overflow-style:none}
     #indexList{grid-template-columns:repeat(auto-fill,minmax(34px,1fr));grid-auto-rows:34px;flex:1;overflow-y:auto;overflow-x:hidden;align-items:start;justify-items:center}
@@ -137,6 +135,8 @@
     .text-reveal-container{margin-top:16px;display:flex;align-items:flex-start;gap:10px;flex-wrap:wrap}
     .text-reveal-container .btn{min-width:150px}
     .correct-answer-feedback{margin-top:12px;padding:11px 12px;border-radius:10px;border:1px solid var(--success);background:var(--success);color:#ffffff;font-size:.88rem}
+    .answer-note{margin-top:12px;padding:11px 12px;border-radius:10px;border:1px solid var(--border);background:var(--surface-2);color:var(--muted);font-size:.84rem;line-height:1.5}
+    .answer-note strong{color:#d9e2ec}
     .image-options{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-top:16px}
     .image-option{position:relative;cursor:pointer;border:1px solid var(--border);border-radius:12px;overflow:hidden;transition:border-color .2s,background-color .2s;background:var(--surface)}
     .image-option:hover{border-color:#6f8cff}
@@ -238,17 +238,13 @@
         <div class="quiz-sidebar">
           <div class="quiz-type-selector" id="quizTypeSelector">
             <h6>INDEXASO</h6>
-            <button class="quiz-type-btn" data-quiz="quizEconomiaParcial2">
-              <span class="emoji"><i class="bi bi-graph-up"></i></span>
-              <span class="label">ECONOMÍA</span>
-            </button>
             <button class="quiz-type-btn" data-quiz="quizRedesParcial1">
               <span class="emoji"><i class="bi bi-router"></i></span>
-              <span class="label">REDES</span>
+              <span class="label">REDES P1</span>
             </button>
-            <button class="quiz-type-btn" data-quiz="quizF2Parcial1">
-              <span class="emoji"><i class="bi bi-thermometer"></i></span>
-              <span class="label">F2</span>
+            <button class="quiz-type-btn" data-quiz="quizRedesParcial2">
+              <span class="emoji"><i class="bi bi-diagram-3"></i></span>
+              <span class="label">REDES P2</span>
             </button>
           </div>
           <div class="sidebar-content" id="sidebarContent" style="display:none">
@@ -289,12 +285,12 @@
               <button class="category-mode-btn" data-category="teorica">Teórico <span data-category-count="teorica"></span></button>
               <button class="category-mode-btn" data-category="practica">Práctico <span data-category-count="practica"></span></button>
               <button class="category-mode-btn" data-category="clase">Preguntas clase <span data-category-count="clase"></span></button>
-              <button class="category-mode-btn" data-category="todas">Principal <span data-category-count="todas"></span></button>
-              <button class="category-mode-btn" data-category="extras">Extras <span data-category-count="extras"></span></button>
+              <button class="category-mode-btn" data-category="nucleo">Solo núcleo <span data-category-count="nucleo"></span></button>
+              <button class="category-mode-btn" data-category="todas">Incluir preguntas extra <span data-category-count="todas"></span></button>
             </div>
-            <div class="unit-filter-container" id="unitFilterContainer">
-              <div class="unit-label">Unidad</div>
-              <div class="unit-buttons" id="unitButtons"></div>
+            <div class="subtema-filter-container" id="subtemaFilterContainer">
+              <div class="subtema-label">Subtema</div>
+              <select class="subtema-select" id="subtemaSelect"></select>
             </div>
           </div>
           <div class="d-flex justify-content-between align-items-start mb-2">
@@ -391,8 +387,8 @@
       teorica: 'Teórico',
       practica: 'Práctico',
       clase: 'Preguntas clase',
-      todas: 'Todas',
-      extras: 'Extras'
+      nucleo: 'Solo núcleo',
+      todas: 'Incluir preguntas extra'
     };
 
     let quizData = {};
@@ -403,13 +399,10 @@
     let state = { current:0, answers:[], checked:[], score:0 };
     let selectedQuizType = null;
     let selectedCategoryMode = 'all';
-    let selectedUnit = null;
+    let selectedSubtema = null;
     
     let currentPage = 0;
-    const getQuestionsPerPage = () => {
-      if(selectedQuizType === 'quizF2Parcial1' && (selectedCategoryMode === 'todas' || selectedCategoryMode === 'extras')) return 30;
-      return currentQuizConfig?.questionsPerPage || 45;
-    };
+    const getQuestionsPerPage = () => currentQuizConfig?.questionsPerPage || 45;
     const getTotalPages = () => Math.max(1, Math.ceil(questions.length / getQuestionsPerPage()));
     const clampCurrentPage = () => {
       currentPage = Math.min(Math.max(currentPage, 0), getTotalPages() - 1);
@@ -442,14 +435,6 @@
     }
 
     const quizConfigs = {
-      quizEconomiaParcial2: {
-        title: 'Preguntas Economía Parcial 2',
-        jsonPath: 'economia/economia-parcial2.json',
-        resourceBase: 'economia/resources/',
-        embeddedDataId: 'quizEconomiaParcial2Data',
-        questionsPerPage: 47,
-        categoryFilter: false
-      },
       quizRedesParcial1: {
         title: 'Preguntas Redes Parcial 1',
         jsonPath: 'redes/redes-parcial1.json',
@@ -457,19 +442,20 @@
         resourceBase: 'redes/resources/',
         embeddedDataId: 'quizRedesParcial1Data',
         questionsPerPage: 55,
-        categoryFilter: true
-      },
-      quizF2Parcial1: {
-        title: 'Preguntas F2 Parcial 1',
-        jsonPath: 'f2/f2-parcial1.json',
-        extraJsonPaths: ['f2/f2-parcial1-extras.json'],
-        resourceBase: 'f2/resources/',
-        questionsPerPage: 50,
         categoryFilter: true,
-        customCategories: {
-          todas: 'Todas',
-          extras: 'Extras'
-        }
+        visibleCategories: ['all', 'teorica', 'practica', 'clase']
+      },
+      quizRedesParcial2: {
+        title: 'Preguntas Redes Parcial 2',
+        jsonPath: 'redes/redes-parcial2.json',
+        resourceBase: 'redes/resources/',
+        questionsPerPage: 60,
+        categoryFilter: true,
+        visibleCategories: ['nucleo', 'todas'],
+        defaultCategory: 'nucleo',
+        showCategoryCounts: true,
+        levelFilter: true,
+        subtemaFilter: true
       }
     };
 
@@ -541,30 +527,29 @@
       return !!quizConfigs[type]?.categoryFilter;
     }
 
-    function normalizeCategoryMode(mode){
-      if(selectedQuizType === 'quizF2Parcial1'){
-        return (mode === 'todas' || mode === 'extras') ? mode : 'todas';
+    function normalizeCategoryMode(mode, type = selectedQuizType){
+      const visible = quizConfigs[type]?.visibleCategories;
+      if(Array.isArray(visible) && visible.length){
+        return visible.includes(mode) ? mode : (quizConfigs[type].defaultCategory || visible[0]);
       }
       return CATEGORY_MODES[mode] ? mode : 'all';
     }
 
-    function getStateKey(type = selectedQuizType, category = selectedCategoryMode, unit = selectedUnit){
-      const mode = supportsCategoryFilter(type) ? normalizeCategoryMode(category) : 'all';
-      const unitSuffix = unit != null ? `::u${unit}` : '';
-      return `${type || 'quiz'}::${mode}${unitSuffix}`;
+    function getStateKey(type = selectedQuizType, category = selectedCategoryMode, subtema = selectedSubtema){
+      const mode = supportsCategoryFilter(type) ? normalizeCategoryMode(category, type) : 'all';
+      const subtemaSuffix = subtema != null ? `::s${subtema}` : '';
+      return `${type || 'quiz'}::${mode}${subtemaSuffix}`;
     }
 
     function getCategoryCounts(){
-      if(selectedQuizType === 'quizF2Parcial1'){
-        // Categorías especiales para F2
-        const todas = Math.min(60, allQuestions.length);
-        const extras = Math.max(0, allQuestions.length - 60);
+      // Quizzes que filtran por nivel (núcleo / núcleo + extras)
+      if(currentQuizConfig?.levelFilter){
         return {
-          todas: todas,
-          extras: extras
+          nucleo: allQuestions.filter(q => q.nivel === 'nucleo').length,
+          todas: allQuestions.length
         };
       }
-      
+
       // Categorías normales para otros quizzes
       return allQuestions.reduce((acc, q) => {
         acc.all++;
@@ -577,35 +562,32 @@
     }
 
     function getQuestionsByCategory(category){
-      if(!supportsCategoryFilter() || category === 'all') return allQuestions.slice();
-      if(category === 'todas') return allQuestions.slice(0, 60);
-      if(category === 'extras') return allQuestions.slice(60);
+      if(!supportsCategoryFilter()) return allQuestions.slice();
+      if(currentQuizConfig?.levelFilter){
+        // 'nucleo' = sólo lo imprescindible; 'todas' = núcleo + preguntas extra
+        return category === 'nucleo'
+          ? allQuestions.filter(q => q.nivel === 'nucleo')
+          : allQuestions.slice();
+      }
+      if(category === 'all') return allQuestions.slice();
       return allQuestions.filter(q => q.category === category);
     }
 
-    function getUnitsForCategory(category){
-      if(selectedQuizType !== 'quizF2Parcial1') return [];
-      const base = getQuestionsByCategory(category);
-      const units = new Set();
-      base.forEach(q => {
-        const u = q.unidad != null ? q.unidad : q.unit;
-        if(u != null) {
-          const n = parseInt(String(u).replace(/\D/g, ''), 10);
-          if(!isNaN(n)) units.add(n);
-        }
+    function getSubtemasForCategory(category){
+      if(!currentQuizConfig?.subtemaFilter) return [];
+      // Se respeta el orden en que aparecen (ya vienen agrupados por tema)
+      const counts = new Map();
+      getQuestionsByCategory(category).forEach(q => {
+        if(!q.subtema) return;
+        counts.set(q.subtema, (counts.get(q.subtema) || 0) + 1);
       });
-      return [...units].sort((a, b) => a - b);
+      return [...counts.entries()];
     }
 
     function getFilteredQuestions(){
       let base = getQuestionsByCategory(selectedCategoryMode);
-      if(selectedUnit != null) {
-        base = base.filter(q => {
-          const qUnit = q.unidad != null ? q.unidad : q.unit;
-          if(qUnit == null) return false;
-          const n = parseInt(String(qUnit).replace(/\D/g, ''), 10);
-          return !isNaN(n) && n === selectedUnit;
-        });
+      if(currentQuizConfig?.subtemaFilter && selectedSubtema != null){
+        base = base.filter(q => q.subtema === selectedSubtema);
       }
       return base;
     }
@@ -614,9 +596,9 @@
       const baseTitle = quizData.title || currentQuizConfig?.title || 'Quiz';
       if(!supportsCategoryFilter()) return baseTitle;
       
-      // Para F2, solo el título base (modo y unidad se ven en los filtros)
-      if(selectedQuizType === 'quizF2Parcial1') return baseTitle;
-      
+      // Con filtro por nivel, el modo ya se ve en los botones de filtro
+      if(currentQuizConfig?.levelFilter) return baseTitle;
+            
       // Para otros quizzes
       if(selectedCategoryMode === 'all') return baseTitle;
       return `${baseTitle} - ${CATEGORY_MODES[selectedCategoryMode]}`;
@@ -666,37 +648,40 @@
       recomputeScore();
     }
 
-    function renderUnitButtons(){
-      const container = $('unitButtons');
-      const filterContainer = $('unitFilterContainer');
-      if(!container || !filterContainer) return;
+    function renderSubtemaFilter(){
+      const select = $('subtemaSelect');
+      const filterContainer = $('subtemaFilterContainer');
+      if(!select || !filterContainer) return;
 
-      const isF2 = selectedQuizType === 'quizF2Parcial1';
-      filterContainer.classList.toggle('visible', isF2);
-      if(!isF2) return;
+      const enabled = !!currentQuizConfig?.subtemaFilter;
+      filterContainer.classList.toggle('visible', enabled);
+      if(!enabled) return;
 
-      const units = getUnitsForCategory(selectedCategoryMode);
-      container.innerHTML = '';
+      const subtemas = getSubtemasForCategory(selectedCategoryMode);
+      const total = subtemas.reduce((acc, [, count]) => acc + count, 0);
+      select.innerHTML = '';
 
-      const allBtn = document.createElement('button');
-      allBtn.className = `unit-btn ${selectedUnit == null ? 'active' : ''}`;
-      allBtn.textContent = 'Todas';
-      allBtn.addEventListener('click', () => applyUnitFilter(null));
-      container.appendChild(allBtn);
+      const allOpt = document.createElement('option');
+      allOpt.value = '';
+      allOpt.textContent = `Todos los subtemas (${total})`;
+      select.appendChild(allOpt);
 
-      units.forEach(u => {
-        const btn = document.createElement('button');
-        btn.className = `unit-btn ${selectedUnit != null && String(selectedUnit) === String(u) ? 'active' : ''}`;
-        btn.textContent = `U${u}`;
-        btn.addEventListener('click', () => applyUnitFilter(u));
-        container.appendChild(btn);
+      subtemas.forEach(([subtema, count]) => {
+        const opt = document.createElement('option');
+        opt.value = subtema;
+        opt.textContent = `${subtema} (${count})`;
+        select.appendChild(opt);
       });
+
+      // Si el subtema elegido no existe en este modo, se vuelve a "todos"
+      select.value = selectedSubtema == null ? '' : selectedSubtema;
+      if(!select.value && selectedSubtema != null) selectedSubtema = null;
     }
 
-    function applyUnitFilter(unit){
-      if(selectedUnit === unit) return;
+    function applySubtemaFilter(subtema){
+      if(selectedSubtema === subtema) return;
       saveCurrentState();
-      selectedUnit = unit;
+      selectedSubtema = subtema;
       questions = getFilteredQuestions();
       restoreStateForCurrentScope();
       currentPage = 0;
@@ -712,37 +697,32 @@
       selector.dataset.mode = selectedCategoryMode;
 
       document.querySelector('.card-quiz')?.classList.remove(...Object.keys(CATEGORY_MODES).map(mode => `mode-${mode}`));
-      document.querySelector('.card-quiz')?.classList.remove('mode-f2');
+      document.querySelector('.card-quiz')?.classList.remove('mode-levels');
       if(enabled) document.querySelector('.card-quiz')?.classList.add(`mode-${selectedCategoryMode}`);
-      if(selectedQuizType === 'quizF2Parcial1') document.querySelector('.card-quiz')?.classList.add('mode-f2');
+      if(currentQuizConfig?.levelFilter) document.querySelector('.card-quiz')?.classList.add('mode-levels');
 
       const counts = getCategoryCounts();
-      
+      const visible = currentQuizConfig?.visibleCategories || [];
+      const showCounts = !!currentQuizConfig?.showCategoryCounts;
+
       // Mostrar/ocultar botones según el quiz
-      const isF2 = selectedQuizType === 'quizF2Parcial1';
       document.querySelectorAll('[data-category]').forEach(btn => {
         const mode = btn.dataset.category;
-        const shouldShow = isF2 
-          ? (mode === 'todas' || mode === 'extras')
-          : (mode !== 'todas' && mode !== 'extras');
-        btn.style.display = shouldShow ? '' : 'none';
+        btn.style.display = visible.includes(mode) ? '' : 'none';
         btn.classList.toggle('active', enabled && mode === selectedCategoryMode);
       });
-      
+
       document.querySelectorAll('[data-category-count]').forEach(el => {
         const mode = el.dataset.categoryCount;
-        const shouldShow = isF2 
-          ? (mode === 'todas' || mode === 'extras')
-          : (mode !== 'todas' && mode !== 'extras');
-        el.parentElement.style.display = shouldShow ? '' : 'none';
-        el.textContent = '';
+        el.parentElement.style.display = visible.includes(mode) ? '' : 'none';
+        el.textContent = showCounts && counts[mode] != null ? `(${counts[mode]})` : '';
       });
     }
 
     function applyCategoryMode(mode){
       saveCurrentState();
       selectedCategoryMode = normalizeCategoryMode(mode);
-      selectedUnit = null;
+      selectedSubtema = null;
       categoryModesByQuiz[selectedQuizType] = selectedCategoryMode;
       persistStoredJson(QUIZ_CATEGORY_STORAGE_KEY, categoryModesByQuiz);
       questions = getFilteredQuestions();
@@ -756,7 +736,7 @@
       $('total').textContent = questions.length;
       $('quizTitleHeader').textContent = getDisplayQuizTitle();
       updateCategorySelector();
-      renderUnitButtons();
+      renderSubtemaFilter();
       renderIndex(); 
       renderIndexOverlay();
       // Si el state.current excede, ajustamos
@@ -795,15 +775,11 @@
       }
 
       // Determinar categoría por defecto según el tipo de quiz
-      selectedUnit = null;
-      if(type === 'quizF2Parcial1'){
-        selectedCategoryMode = normalizeCategoryMode(categoryModesByQuiz[type] || 'todas');
-      } else {
-        selectedCategoryMode = supportsCategoryFilter(type)
-          ? normalizeCategoryMode(categoryModesByQuiz[type] || 'all')
-          : 'all';
-      }
-      
+      selectedSubtema = null;
+      selectedCategoryMode = supportsCategoryFilter(type)
+        ? normalizeCategoryMode(categoryModesByQuiz[type] || currentQuizConfig.defaultCategory || 'all', type)
+        : 'all';
+            
       questions = getFilteredQuestions();
       restoreStateForCurrentScope();
       currentPage = Math.floor((state.current || 0) / getQuestionsPerPage());
@@ -1193,7 +1169,25 @@
     }
 
     function showFeedback(index){
-      const q = questions[index]; 
+      renderFeedback(index);
+      appendWhyNote(index);
+    }
+
+    /* Aclaración del banco de preguntas (campo "why"), visible recién al comprobar */
+    function appendWhyNote(index){
+      const q = questions[index];
+      const container = document.querySelector('#qArea');
+      if(!container) return;
+      container.querySelector('.answer-note')?.remove();
+      if(!q || !q.why) return;
+      const note = document.createElement('div');
+      note.className = 'answer-note';
+      note.innerHTML = `<strong>Aclaración:</strong> ${escapeHtml(q.why).replace(/\n/g,'<br>')}`;
+      container.appendChild(note);
+    }
+
+    function renderFeedback(index){
+      const q = questions[index];  
       const container = document.querySelector('#qArea');
 
       if(isRevealTextQuestion(q)){
@@ -1217,7 +1211,7 @@
           input.disabled = true;
           
           // Mostrar la respuesta correcta si el usuario se equivocó
-          if(!correct) {
+          if(res !== 'correct') {
             const answers = Array.isArray(q.correctAnswer) ? q.correctAnswer : (q.correctAnswer ? [q.correctAnswer] : []);
             let feedbackText = answers.join(' o ');
             if(isNumericTextQuestion(q)){
@@ -1494,6 +1488,10 @@
         if(!supportsCategoryFilter() || selectedCategoryMode === mode) return;
         applyCategoryMode(mode);
       });
+    });
+
+    $('subtemaSelect').addEventListener('change', (e) => {
+      applySubtemaFilter(e.target.value || null);
     });
 
     function updateQuizTypeSelection(type){
