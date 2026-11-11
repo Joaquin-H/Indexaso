@@ -1,0 +1,3749 @@
+[
+  {
+    "id": 1,
+    "type": "multiple",
+    "category": "teorica",
+    "unidad": 5,
+    "tema_id": "tcp_udp",
+    "tema": "Capa de Transporte - TCP y UDP",
+    "subtema": "Características de TCP y sockets",
+    "question": "¿Cuáles de las siguientes características corresponden al protocolo TCP? (Seleccione dos opciones)",
+    "options": [
+      {
+        "id": "a",
+        "text": "Un socket se identifica mediante la dirección IP y el número de puerto.",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "text": "Establece una conexión lógica y física extremo a extremo.",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "En el destino de la transmisión multiplexa los datos provenientes de diferentes aplicaciones.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Implementa conexiones semiduplex a través de sockets.",
+        "correct": false
+      },
+      {
+        "id": "e",
+        "text": "En el destino de la transmisión recibe datos de la capa interred y los entrega ordenados a la capa de aplicación.",
+        "correct": true
+      },
+      {
+        "id": "f",
+        "text": "Todos los segmentos de una comunicación siguen el mismo camino físico.",
+        "correct": false
+      },
+      {
+        "id": "g",
+        "text": "Es un protocolo seguro porque cifra toda la comunicación.",
+        "correct": false
+      }
+    ],
+    "why": "Un socket queda identificado por el par (Dirección IP + Número de puerto), y TCP en el receptor reensambla y entrega los datos en orden a la capa de aplicación (demultiplexando, en conexión lógica full-duplex)."
+  },
+  {
+    "id": 2,
+    "type": "single",
+    "category": "teorica",
+    "unidad": 5,
+    "tema_id": "tcp_udp",
+    "tema": "Capa de Transporte - TCP y UDP",
+    "subtema": "Identificación de un socket",
+    "question": "La forma de identificar un socket como punto de conexión entre transmisor y receptor es:",
+    "options": [
+      {
+        "id": "a",
+        "text": "Dirección MAC + Dirección IP.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Depende de la cantidad de dispositivos que se conecten al servidor.",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Dirección IP + Número de puerto.",
+        "correct": true
+      },
+      {
+        "id": "d",
+        "text": "Depende de la tecnología de la capa de enlace.",
+        "correct": false
+      },
+      {
+        "id": "e",
+        "text": "Dirección IP + Dirección MAC.",
+        "correct": false
+      },
+      {
+        "id": "f",
+        "text": "Número de proceso + Dirección MAC.",
+        "correct": false
+      },
+      {
+        "id": "g",
+        "text": "Número de puerto + Dirección MAC.",
+        "correct": false
+      }
+    ],
+    "why": "Un socket es el punto final de una conexión y se identifica unívocamente mediante la dirección IP del host más el número de puerto lógico (16 bits)."
+  },
+  {
+    "id": 3,
+    "type": "single",
+    "category": "teorica",
+    "unidad": 5,
+    "tema_id": "tcp_udp",
+    "tema": "Capa de Transporte - TCP y UDP",
+    "subtema": "Puertos lógicos",
+    "question": "Un puerto lógico está formado por:",
+    "options": [
+      {
+        "id": "a",
+        "text": "32 bits.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "24 bits.",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "8 bits.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "16 bits.",
+        "correct": true
+      },
+      {
+        "id": "e",
+        "text": "48 bits.",
+        "correct": false
+      },
+      {
+        "id": "f",
+        "text": "144 bits.",
+        "correct": false
+      }
+    ],
+    "why": "Los campos Puerto Origen y Puerto Destino en TCP y UDP tienen 16 bits, permitiendo numerar puertos desde 0 hasta 65.535."
+  },
+  {
+    "id": 4,
+    "type": "multiple",
+    "category": "practica",
+    "unidad": 5,
+    "tema_id": "tcp_udp",
+    "tema": "Capa de Transporte - TCP y UDP",
+    "subtema": "Identificación de comunicación extremo a extremo",
+    "question": "Se están transfiriendo datos entre dos dispositivos “A” y “B” ubicados físicamente en países diferentes. Para identificar de forma única dicha comunicación de capa de transporte, es necesario que origen y destino lleven el registro de (seleccione varios):",
+    "options": [
+      {
+        "id": "a",
+        "text": "Dirección IP de la puerta de enlace de B.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Puerto de B.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "Dirección IP de la puerta de enlace de A.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Dirección MAC de A.",
+        "correct": false
+      },
+      {
+        "id": "e",
+        "text": "Dirección IP de B.",
+        "correct": true
+      },
+      {
+        "id": "f",
+        "text": "Dirección IP de A.",
+        "correct": true
+      },
+      {
+        "id": "g",
+        "text": "Dirección MAC de B.",
+        "correct": false
+      },
+      {
+        "id": "h",
+        "text": "Puerto de A.",
+        "correct": true
+      }
+    ],
+    "why": "Una conexión de capa de transporte entre dos extremos A y B queda identificada por el par de sockets: (IP de A, Puerto de A) y (IP de B, Puerto de B)."
+  },
+  {
+    "id": 5,
+    "type": "single",
+    "category": "teorica",
+    "unidad": 5,
+    "tema_id": "tcp_udp",
+    "tema": "Capa de Transporte - TCP y UDP",
+    "subtema": "Funciones de TCP en el receptor",
+    "question": "TCP en el destino de una transmisión:",
+    "options": [
+      {
+        "id": "a",
+        "text": "Segmenta los datos provenientes de la capa de aplicación y les agrega una cabecera.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Reensambla los datos provenientes de la capa de aplicación, extrayéndole la cabecera.",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Segmenta los datos provenientes de la capa de interred y les agrega una cabecera.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Reensambla los datos provenientes de la capa de interred y los entrega a la capa de aplicación.",
+        "correct": true
+      }
+    ],
+    "why": "En el receptor (destino), TCP recibe los segmentos desde la capa de interred (red), los reordena/reensambla quitando el encabezado TCP y entrega el flujo de datos a la capa de aplicación."
+  },
+  {
+    "id": 6,
+    "type": "multiple",
+    "category": "teorica",
+    "unidad": 5,
+    "tema_id": "tcp_udp",
+    "tema": "Capa de Transporte - TCP y UDP",
+    "subtema": "Fiabilidad en TCP (2 opciones)",
+    "question": "¿Cuáles de los siguientes campos permiten implementar la “fiabilidad” del protocolo TCP? (seleccione dos opciones)",
+    "options": [
+      {
+        "id": "a",
+        "text": "Etiqueta de flujo.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Puntero urgente.",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Longitud de la cabecera.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Suma de verificación.",
+        "correct": true
+      },
+      {
+        "id": "e",
+        "text": "Número de secuencia.",
+        "correct": true
+      }
+    ],
+    "why": "TCP garantiza fiabilidad mediante el Número de secuencia (ordenamiento y detección de pérdidas), el Número de reconocimiento (ACK) y la Suma de verificación (detección de errores en cabecera y datos)."
+  },
+  {
+    "id": 7,
+    "type": "multiple",
+    "category": "teorica",
+    "unidad": 5,
+    "tema_id": "tcp_udp",
+    "tema": "Capa de Transporte - TCP y UDP",
+    "subtema": "Fiabilidad en TCP (3 opciones)",
+    "question": "¿Cuáles de los siguientes campos utiliza el protocolo TCP para garantizar fiabilidad extremo a extremo? (Seleccione tres opciones)",
+    "options": [
+      {
+        "id": "a",
+        "text": "Bit PSH.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Tamaño de ventana de recepción.",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Número de secuencia.",
+        "correct": true
+      },
+      {
+        "id": "d",
+        "text": "Tamaño del flujo.",
+        "correct": false
+      },
+      {
+        "id": "e",
+        "text": "Número de reconocimiento.",
+        "correct": true
+      },
+      {
+        "id": "f",
+        "text": "Ventana de congestión.",
+        "correct": false
+      },
+      {
+        "id": "g",
+        "text": "Suma de verificación.",
+        "correct": true
+      },
+      {
+        "id": "h",
+        "text": "Puntero urgente.",
+        "correct": false
+      },
+      {
+        "id": "i",
+        "text": "Bits ECE y CWR.",
+        "correct": false
+      }
+    ],
+    "why": "Los tres campos del encabezado TCP que garantizan la entrega fiable y libre de errores son: Número de secuencia, Número de reconocimiento (ACK) y Suma de verificación (Checksum)."
+  },
+  {
+    "id": 8,
+    "type": "single",
+    "category": "practica",
+    "unidad": 5,
+    "tema_id": "tcp_udp",
+    "tema": "Capa de Transporte - TCP y UDP",
+    "subtema": "Notificación explícita de congestión (ECN: ECE y CWR)",
+    "question": "Se está estableciendo una comunicación entre dos dispositivos A y B. Si el emisor desea avisar al receptor que ya redujo la tasa de transferencia de datos a la red, tiene que activar en la cabecera del protocolo TCP:",
+    "options": [
+      {
+        "id": "a",
+        "text": "La ventana de recepción.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "No tiene que activar nada del encabezado.",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "La ventana de congestión.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "El bit SYN.",
+        "correct": false
+      },
+      {
+        "id": "e",
+        "text": "El bit URG.",
+        "correct": false
+      },
+      {
+        "id": "f",
+        "text": "El bit CWR.",
+        "correct": true
+      },
+      {
+        "id": "g",
+        "text": "El bit ECE.",
+        "correct": false
+      }
+    ],
+    "why": "El flag CWR (Congestion Window Reduced) es activado por el host emisor para informar al receptor que recibió la notificación de congestión (ECE) y ya redujo su ventana de congestión."
+  },
+  {
+    "id": 9,
+    "type": "single",
+    "category": "practica",
+    "unidad": 5,
+    "tema_id": "tcp_udp",
+    "tema": "Capa de Transporte - TCP y UDP",
+    "subtema": "Cálculo de número de reconocimiento (ACK)",
+    "question": "En el campo número de reconocimiento (asentimiento) de un segmento que “A” le envía a “B”, figura el valor 1800. Esto implica que:",
+    "options": [
+      {
+        "id": "a",
+        "text": "B recibió correctamente hasta el byte 1799 inclusive.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "A recibió correctamente hasta el byte 1799 inclusive.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "B recibió correctamente hasta el byte 1800 inclusive.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "El próximo segmento que A le envíe a B comenzará a partir del byte 1800.",
+        "correct": false
+      },
+      {
+        "id": "e",
+        "text": "A recibió correctamente hasta el byte 1800 inclusive.",
+        "correct": false
+      }
+    ],
+    "why": "El Número de reconocimiento indica el siguiente byte que el emisor del segmento (“A”) espera recibir de “B”. Por lo tanto, si A envía ACK=1800 a B, significa que A recibió correctamente todos los bytes desde B hasta el 1799 inclusive."
+  },
+  {
+    "id": 10,
+    "type": "single",
+    "category": "teorica",
+    "unidad": 5,
+    "tema_id": "tcp_udp",
+    "tema": "Capa de Transporte - TCP y UDP",
+    "subtema": "Control de flujo en TCP",
+    "question": "¿Cuál de los siguientes campos utiliza el protocolo TCP para implementar control de flujo extremo a extremo?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Ventana de congestión.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Tamaño de ventana de recepción.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "Puntero urgente.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Tamaño del flujo.",
+        "correct": false
+      },
+      {
+        "id": "e",
+        "text": "Número de reconocimiento.",
+        "correct": false
+      },
+      {
+        "id": "f",
+        "text": "Bits ECE y CWR.",
+        "correct": false
+      }
+    ],
+    "why": "El control de flujo extremo a extremo en TCP se implementa mediante el campo Tamaño de ventana de recepción (Window Size) de la cabecera TCP, con el cual el receptor informa cuántos bytes libres tiene en su búfer."
+  },
+  {
+    "id": 11,
+    "type": "single",
+    "category": "teorica",
+    "unidad": 5,
+    "tema_id": "tcp_udp",
+    "tema": "Capa de Transporte - TCP y UDP",
+    "subtema": "Parámetro MSS (Maximum Segment Size)",
+    "question": "La función del parámetro MSS que se negocia al inicio de una conexión TCP es determinar:",
+    "options": [
+      {
+        "id": "a",
+        "text": "La cantidad de sockets que se deberán abrir para esa comunicación.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "El tamaño máximo que podrán tener los segmentos.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "El caudal máximo que podrá utilizar esa conexión TCP.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "El tamaño máximo de la ventana de recepción.",
+        "correct": false
+      },
+      {
+        "id": "e",
+        "text": "La cantidad máxima de datos que se podrá enviar sin recibir un acuse de recibo.",
+        "correct": false
+      }
+    ],
+    "why": "El parámetro MSS (Maximum Segment Size), negociado en el campo Opciones durante el saludo de 3 vías (segmentos SYN), establece el tamaño máximo de carga útil que podrán tener los segmentos TCP."
+  },
+  {
+    "id": 12,
+    "type": "multiple",
+    "category": "teorica",
+    "unidad": 5,
+    "tema_id": "tcp_udp",
+    "tema": "Capa de Transporte - TCP y UDP",
+    "subtema": "Ventana de recepción TCP",
+    "question": "¿Cuáles de las siguientes afirmaciones corresponden al campo “ventana de recepción” del encabezado de un segmento TCP? (seleccione dos opciones):",
+    "options": [
+      {
+        "id": "a",
+        "text": "Es un valor dinámico y varía durante la comunicación.",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "text": "Si el valor de la ventana=0, implica detener momentáneamente la transmisión de datos.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "Se utiliza para confirmar la recepción de los segmentos.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Es un valor fijo establecido en el inicio de la conexión.",
+        "correct": false
+      },
+      {
+        "id": "e",
+        "text": "Permite ordenar los segmentos en el receptor.",
+        "correct": false
+      },
+      {
+        "id": "f",
+        "text": "Implementa control de congestión extremo a extremo.",
+        "correct": false
+      }
+    ],
+    "why": "La ventana de recepción varía dinámicamente según el espacio libre en el búfer del receptor. Si llega a 0 (búfer lleno), el emisor debe detener el envío de datos (salvo sondeos de persistencia)."
+  },
+  {
+    "id": 13,
+    "type": "single",
+    "category": "practica",
+    "unidad": 5,
+    "tema_id": "tcp_udp",
+    "tema": "Capa de Transporte - TCP y UDP",
+    "subtema": "Interacción entre ventana de congestión y ventana de recepción",
+    "question": "La máquina A está enviando datos a Internet a través de una conexión TCP a la máquina B a una tasa de 8 Mbps, determinado por la ventana de congestión. La máquina A, envía un segmento a B, y al recibir el correspondiente acuse de recibo, el campo ventana de recepción de B indica 6000 bytes. ¿Qué hará la máquina A?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Detendrá la transmisión hacia B, porque el búfer del receptor está lleno.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Continuará transmitiendo a 8 Mbps hasta que B le envíe una ventana de recepción = 0.",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Continuará transmitiendo a 8 Mbps porque ese es el valor de la ventana de congestión.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Continuará transmitiendo a 8 Mbps ya que se recibió un acuse de recibo del segmento enviado.",
+        "correct": false
+      },
+      {
+        "id": "e",
+        "text": "Reducirá la tasa de transmisión a 6000 bytes hacia B.",
+        "correct": true
+      }
+    ],
+    "why": "La cantidad máxima de datos que un emisor TCP puede inyectar está limitada por el mínimo entre la ventana de congestión y la ventana de recepción: min(cwnd, rwnd). Como 6000 bytes es menor que 8 Mbps, A reduce su envío a 6000 bytes para no saturar a B."
+  },
+  {
+    "id": 14,
+    "type": "single",
+    "category": "teorica",
+    "unidad": 5,
+    "tema_id": "tcp_udp",
+    "tema": "Capa de Transporte - TCP y UDP",
+    "subtema": "Saludo de tres vías (3-way handshake)",
+    "question": "En el saludo de tres vías del protocolo TCP:",
+    "options": [
+      {
+        "id": "a",
+        "text": "El segundo segmento intercambiado tiene encendidos los bits SYN y RESET.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "El primer segmento intercambiado tiene encendidos los bits SYN y ACK.",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "El segundo segmento intercambiado tiene encendidos los bits SYN y URG.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "El tercer segmento intercambiado tiene encendido el bit ACK.",
+        "correct": true
+      },
+      {
+        "id": "e",
+        "text": "El primer segmento intercambiado tiene encendido el bit FIN.",
+        "correct": false
+      }
+    ],
+    "why": "En el 3-way handshake: el 1° segmento lleva SYN=1; el 2° segmento lleva SYN=1 y ACK=1; y el 3° segmento lleva únicamente ACK=1 (con SYN=0)."
+  },
+  {
+    "id": 15,
+    "type": "multiple",
+    "category": "teorica",
+    "unidad": 5,
+    "tema_id": "tcp_udp",
+    "tema": "Capa de Transporte - TCP y UDP",
+    "subtema": "Aplicaciones que corren sobre TCP",
+    "question": "¿Cuáles de las siguientes aplicaciones corren sobre el protocolo TCP? (seleccione varias opciones)",
+    "options": [
+      {
+        "id": "a",
+        "text": "FTP.",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "text": "HTTP.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "DNS.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "TFTP.",
+        "correct": false
+      },
+      {
+        "id": "e",
+        "text": "SNMP.",
+        "correct": false
+      },
+      {
+        "id": "f",
+        "text": "SMTP.",
+        "correct": true
+      }
+    ],
+    "why": "FTP (puertos 20/21), HTTP (puerto 80) y SMTP (puerto 25) requieren transporte confiable orientado a conexión (TCP). TFTP, SNMP y las consultas habituales de DNS operan sobre UDP."
+  },
+  {
+    "id": 16,
+    "type": "multiple",
+    "category": "teorica",
+    "unidad": 5,
+    "tema_id": "tcp_udp",
+    "tema": "Capa de Transporte - TCP y UDP",
+    "subtema": "Cabecera del segmento UDP",
+    "question": "¿Cuáles de los siguientes campos forman parte de la cabecera del protocolo UDP? (seleccione tres opciones):",
+    "options": [
+      {
+        "id": "a",
+        "text": "Bit ACK.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Longitud.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "Número de reconocimiento.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Número de secuencia.",
+        "correct": false
+      },
+      {
+        "id": "e",
+        "text": "Opciones.",
+        "correct": false
+      },
+      {
+        "id": "f",
+        "text": "Puertos origen y destino.",
+        "correct": true
+      },
+      {
+        "id": "g",
+        "text": "Tamaño de ventana.",
+        "correct": false
+      },
+      {
+        "id": "h",
+        "text": "Suma de comprobación.",
+        "correct": true
+      }
+    ],
+    "why": "El encabezado UDP tiene 8 bytes fijos divididos en 4 campos de 16 bits: Puerto origen, Puerto destino, Longitud total y Suma de comprobación (Checksum)."
+  },
+  {
+    "id": 17,
+    "type": "multiple",
+    "category": "teorica",
+    "unidad": 5,
+    "tema_id": "tcp_udp",
+    "tema": "Capa de Transporte - TCP y UDP",
+    "subtema": "Servicios y protocolos sobre UDP",
+    "question": "¿Cuáles de las siguientes aplicaciones utilizan UDP como protocolo de transporte? (seleccione dos opciones)",
+    "options": [
+      {
+        "id": "a",
+        "text": "Resolución de dominios en direcciones IP.",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "text": "Protocolo RIP.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "Transferencia de páginas Web.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Transferencia de archivos.",
+        "correct": false
+      },
+      {
+        "id": "e",
+        "text": "Protocolo BGP.",
+        "correct": false
+      },
+      {
+        "id": "f",
+        "text": "Transferencia de correo electrónico.",
+        "correct": false
+      }
+    ],
+    "why": "La resolución de dominios (DNS, puerto 53) y el protocolo de encaminamiento RIP (puerto 520) utilizan UDP. HTTP, FTP, BGP y SMTP utilizan TCP."
+  },
+  {
+    "id": 18,
+    "type": "multiple",
+    "category": "teorica",
+    "unidad": 5,
+    "tema_id": "tcp_udp",
+    "tema": "Capa de Transporte - TCP y UDP",
+    "subtema": "Aplicaciones que corren sobre UDP",
+    "question": "¿Cuáles de las siguientes aplicaciones corren sobre el protocolo UDP? (seleccione varias opciones)",
+    "options": [
+      {
+        "id": "a",
+        "text": "HTTP.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "FTP.",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "TFTP.",
+        "correct": true
+      },
+      {
+        "id": "d",
+        "text": "DNS.",
+        "correct": true
+      },
+      {
+        "id": "e",
+        "text": "SNMP.",
+        "correct": true
+      },
+      {
+        "id": "f",
+        "text": "POP3.",
+        "correct": false
+      },
+      {
+        "id": "g",
+        "text": "SMTP.",
+        "correct": false
+      }
+    ],
+    "why": "TFTP (puerto 69), DNS (puerto 53) y SNMP (puertos 161/162) corren sobre el protocolo UDP. HTTP, FTP, POP3 y SMTP corren sobre TCP."
+  },
+  {
+    "id": 19,
+    "type": "single",
+    "category": "teorica",
+    "unidad": 5,
+    "tema_id": "nat",
+    "tema": "NAT y PAT",
+    "subtema": "Objetivo de NAT",
+    "question": "La traducción de direcciones de red permite:",
+    "options": [
+      {
+        "id": "a",
+        "text": "Configurar direcciones IPv6.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Ahorrar direcciones IPv4 públicas.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "Facilitar la implementación de DHCP.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Facilitar la implementación del ARP.",
+        "correct": false
+      },
+      {
+        "id": "e",
+        "text": "Ahorrar direcciones IP privadas.",
+        "correct": false
+      }
+    ],
+    "why": "NAT (Network Address Translation) fue diseñada para mitigar el agotamiento de direcciones IPv4 públicas permitiendo usar direccionamiento privado internamente y traducirlo al salir a Internet."
+  },
+  {
+    "id": 20,
+    "type": "single",
+    "category": "teorica",
+    "unidad": 5,
+    "tema_id": "nat",
+    "tema": "NAT y PAT",
+    "subtema": "NAT estática",
+    "question": "¿Cuál de las siguientes es una ventaja de NAT estática?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Se pueden iniciar conexiones desde Internet hacia los servidores de una empresa.",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "text": "Ahorra direcciones IPv6.",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Requiere que el router de acceso mantenga tablas de traducción a nivel de puerto.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Permite compartir una única IP pública entre varios dispositivos de la empresa.",
+        "correct": false
+      },
+      {
+        "id": "e",
+        "text": "Ahorra direcciones IPv4 privadas.",
+        "correct": false
+      }
+    ],
+    "why": "En NAT estática existe una asignación permanente 1 a 1 entre una IP privada y una IP pública, lo que permite que hosts en Internet inicien conexiones hacia un servidor interno."
+  },
+  {
+    "id": 21,
+    "type": "single",
+    "category": "teorica",
+    "unidad": 5,
+    "tema_id": "nat",
+    "tema": "NAT y PAT",
+    "subtema": "NAT dinámica",
+    "question": "Si se dispone de un conjunto de direcciones IPv4 públicas, las cuales se van asignando a los equipos internos de la empresa que desean conectarse a Internet, se dice que se trata de qué tipo de traducción:",
+    "options": [
+      {
+        "id": "a",
+        "text": "OSPF.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Firewall.",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "DHCP.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "NAT estática.",
+        "correct": false
+      },
+      {
+        "id": "e",
+        "text": "NAT dinámica.",
+        "correct": true
+      },
+      {
+        "id": "f",
+        "text": "Traducción a nivel de puerto.",
+        "correct": false
+      }
+    ],
+    "why": "NAT dinámica utiliza un pool (conjunto) de direcciones IPv4 públicas que se asignan dinámicamente bajo demanda a los hosts internos mientras dura su comunicación con Internet."
+  },
+  {
+    "id": 22,
+    "type": "single",
+    "category": "practica",
+    "unidad": 5,
+    "tema_id": "nat",
+    "tema": "NAT y PAT",
+    "subtema": "Dimensionamiento con NAT dinámica",
+    "question": "En una red local tenemos 400 PC con direcciones privadas que queremos que tengan salida a Internet, para lo cual disponemos de un rango de 80 direcciones IP públicas. Sabemos que nunca más del 20% estarán conectados simultáneamente y que las conexiones siempre se iniciarán desde la red privada. ¿Qué tipo de traducción debemos utilizar?",
+    "options": [
+      {
+        "id": "a",
+        "text": "NAT estático.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Traducción a nivel de puerto.",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Se puede utilizar cualquier tipo de traducción.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "NAT dinámico.",
+        "correct": true
+      },
+      {
+        "id": "e",
+        "text": "No se pueden tener tantas conexiones con direcciones privadas.",
+        "correct": false
+      }
+    ],
+    "why": "El 20% de 400 PC equivale a un máximo de 80 equipos conectados simultáneamente. Como se dispone exactamente de un pool de 80 direcciones IP públicas, alcanza con implementar NAT dinámico."
+  },
+  {
+    "id": 23,
+    "type": "single",
+    "category": "practica",
+    "unidad": 5,
+    "tema_id": "nat",
+    "tema": "NAT y PAT",
+    "subtema": "Dimensionamiento con PAT (NAPT)",
+    "question": "Un administrador de una empresa posee 600 puestos de trabajo con direccionamiento privado. El proveedor de servicios, le asignó la IP 200.12.24.49 para la conexión a Internet. Si se sabe que nunca se conectarán hacia Internet más del 25% de los puestos de trabajo simultáneamente y que las conexiones siempre se iniciarán desde la organización. ¿Qué tipo de traducción de red debería configurar el administrador en el router de acceso?",
+    "options": [
+      {
+        "id": "a",
+        "text": "DHCP relay.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Traducción a nivel de puerto.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "Firewall.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "NAT estática.",
+        "correct": false
+      },
+      {
+        "id": "e",
+        "text": "ARP.",
+        "correct": false
+      },
+      {
+        "id": "f",
+        "text": "NAT dinámica.",
+        "correct": false
+      },
+      {
+        "id": "g",
+        "text": "DHCP.",
+        "correct": false
+      }
+    ],
+    "why": "El 25% de 600 equivale a 150 equipos simultáneos, pero el ISP asignó una única dirección IP pública (200.12.24.49). Para compartir una sola IP pública entre múltiples hosts se debe configurar PAT (Traducción a nivel de puerto)."
+  },
+  {
+    "id": 24,
+    "type": "single",
+    "category": "practica",
+    "image": "p3_nat_dinamica.png",
+    "unidad": 5,
+    "tema_id": "nat",
+    "tema": "NAT y PAT",
+    "subtema": "Análisis de paquete en NAT dinámica",
+    "question": "La PC-B está descargando datos desde el Servidor Web. ¿Qué información contendrá el paquete que proviene desde el Servidor Web y que viaja por Internet?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Origen 64.7.8.9 - Destino 200.12.4.6",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Origen 200.12.4.7 - Destino 10.10.0.6",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Origen 64.7.8.9 - Destino 10.10.0.6",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Origen 64.7.8.9 - Destino 200.12.4.7",
+        "correct": true
+      },
+      {
+        "id": "e",
+        "text": "Origen 200.12.4.7 - Destino 64.7.8.9",
+        "correct": false
+      },
+      {
+        "id": "f",
+        "text": "Origen 10.10.0.6 - Destino 64.7.8.9",
+        "correct": false
+      }
+    ],
+    "why": "El paquete proviene del Servidor Web (IP Origen = 64.7.8.9) y aún viaja por Internet antes de ser traducido por el router, por lo que su IP Destino es la IP pública asignada a PC-B (10.10.0.6 -> 200.12.4.7 según la tabla de traducción)."
+  },
+  {
+    "id": 25,
+    "type": "single",
+    "category": "practica",
+    "image": "p3_pat_servidor_a_router.png",
+    "unidad": 5,
+    "tema_id": "nat",
+    "tema": "NAT y PAT",
+    "subtema": "Análisis de paquete en PAT (Servidor Web hacia Router)",
+    "question": "La PC-B tiene una conexión con el servidor Web ubicado en Internet. Si el router está implementando PAT. ¿Qué información tendrá el paquete que viaja desde el servidor Web de Internet hacia el router de la empresa?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Origen: 200.2.4.6:50.601 - destino: 34.5.6.7:80",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Origen: 200.2.4.6: 50.602 - destino: 34.5.6.7: 80",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Origen: 34.5.6.7:80 - destino: 200.2.4.6:602",
+        "correct": true
+      },
+      {
+        "id": "d",
+        "text": "Origen: 34.5.6.7:80 - destino: 200.2.4.6:601",
+        "correct": false
+      },
+      {
+        "id": "e",
+        "text": "Origen: 34.5.6.7:50.602 - destino: 200.2.4.6:80",
+        "correct": false
+      },
+      {
+        "id": "f",
+        "text": "Origen: 10.10.10.15:50.602 - destino: 34.5.6.7:80",
+        "correct": false
+      }
+    ],
+    "why": "El paquete viaja desde el servidor Web (Origen 34.5.6.7:80) hacia la interfaz pública del router (Destino 200.2.4.6, puerto traducido 50.602 / 602 correspondiente a la sesión de PC-B 10.10.0.15)."
+  },
+  {
+    "id": 26,
+    "type": "single",
+    "category": "practica",
+    "image": "p3_pat_router_a_servidor.png",
+    "unidad": 5,
+    "tema_id": "nat",
+    "tema": "NAT y PAT",
+    "subtema": "Análisis de paquete en PAT (Router hacia Servidor Web)",
+    "question": "La PC-B tiene una conexión con el servidor Web ubicado en Internet. Si el router está implementando PAT. ¿Qué información tendrá el paquete que viaja desde el router hacia el servidor Web en Internet?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Origen: 10.10.10.13: 50.601 - destino: 34.5.6.7: 80",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Origen: 34.5.6.7:50.502 - destino: 200.2.4.6:580",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Origen: 10.10.10.15: 50.602 - destino: 34.5.6.7: 80",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Origen: 34.5.6.7:80 - destino: 200.2.4.6:602",
+        "correct": false
+      },
+      {
+        "id": "e",
+        "text": "Origen: 200.2.4.6: 50.601 - destino: 34.5.6.7: 50",
+        "correct": false
+      },
+      {
+        "id": "f",
+        "text": "Origen: 200.2.4.6: 50.602 - destino: 34.5.6.7: 80",
+        "correct": true
+      }
+    ],
+    "why": "Al viajar desde el router hacia el servidor Web en Internet, el router ya tradujo la IP y puerto privados de PC-B (10.10.0.15:50.601) a la IP y puerto públicos (Origen: 200.2.4.6: 50.602) con destino al servidor Web (34.5.6.7: 80). Nota: en algunos apuntes se marcó por error la opción d confundiéndola con la pregunta en sentido inverso."
+  },
+  {
+    "id": 27,
+    "type": "single",
+    "category": "practica",
+    "unidad": 5,
+    "tema_id": "nat",
+    "tema": "NAT y PAT",
+    "subtema": "Análisis de paquete en PAT (Router hacia PC interna)",
+    "question": "Una PC de una empresa tiene una conexión con un servidor Web ubicado en Internet. Considerando que el router de acceso de la empresa está implementando PAT, ¿qué información tendrá el paquete que viaja desde el router hacia la PC?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Origen: 172.16.3.1:80 - destino 172.16.3.6:53000",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Origen: 172.16.3.1: 53000 - destino: 140.5.6.7:80",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Origen: 140.5.6.7: 80 - destino: 200.1.2.3: 53000",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Origen: 140.5.6.7: 80 - destino: 172.16.3.6: 53000",
+        "correct": true
+      },
+      {
+        "id": "e",
+        "text": "Origen: 200.1.2.3: 53000 - destino: 140.5.6.7: 80",
+        "correct": false
+      }
+    ],
+    "why": "Cuando el paquete viaja desde el router hacia la PC dentro de la LAN, su origen sigue siendo la IP pública y puerto 80 del servidor Web (140.5.6.7:80) y el destino ya fue traducido a la IP privada y puerto efímero de la PC (172.16.3.6:53000)."
+  },
+  {
+    "id": 28,
+    "type": "single",
+    "category": "practica",
+    "unidad": 5,
+    "tema_id": "dns",
+    "tema": "Protocolo DNS",
+    "subtema": "Identificación de puertos en segmento DNS",
+    "question": "Si se captura un segmento en cuyo encabezado posee el puerto origen 53 y el puerto destino 52000, corresponde a:",
+    "options": [
+      {
+        "id": "a",
+        "text": "Una respuesta generada desde un servidor DNS hacia una PC o servidor intermedio.",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "text": "Una respuesta generada desde un servidor de correo IMAP hacia una PC.",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Una solicitud generada desde una PC hacia un servidor FTP.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Una respuesta generada desde un servidor de correo POP3 hacia una PC.",
+        "correct": false
+      },
+      {
+        "id": "e",
+        "text": "Una solicitud generada desde una PC hacia un servidor de correo IMAP.",
+        "correct": false
+      },
+      {
+        "id": "f",
+        "text": "Una solicitud generada desde una PC hacia un servidor de correo POP3.",
+        "correct": false
+      }
+    ],
+    "why": "El puerto 53 corresponde al servicio DNS. Como 53 está en el puerto de origen y 52000 (puerto efímero) está en el puerto de destino, se trata de una respuesta enviada desde un servidor DNS hacia el cliente."
+  },
+  {
+    "id": 29,
+    "type": "single",
+    "category": "teorica",
+    "unidad": 5,
+    "tema_id": "dns",
+    "tema": "Protocolo DNS",
+    "subtema": "Jerarquía de servidores DNS (Servidores raíz)",
+    "question": "El servidor DNS que posee información acerca de cada dominio de nivel superior del árbol de dominios es:",
+    "options": [
+      {
+        "id": "a",
+        "text": "Caché DNS del servidor local.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Caché DNS de la PC.",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Servidor autorizado de nombres.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Servidor local.",
+        "correct": false
+      },
+      {
+        "id": "e",
+        "text": "Servidor de correo.",
+        "correct": false
+      },
+      {
+        "id": "f",
+        "text": "Servidor raíz.",
+        "correct": true
+      }
+    ],
+    "why": "Los servidores raíz (root servers) se ubican en el tope del árbol DNS y conocen las direcciones de los servidores intermedios encargados de cada dominio de nivel superior (TLD: .com, .org, .ar, .es, etc.)."
+  },
+  {
+    "id": 30,
+    "type": "single",
+    "category": "teorica",
+    "unidad": 5,
+    "tema_id": "dns",
+    "tema": "Protocolo DNS",
+    "subtema": "Consultas recursivas e iterativas en Internet",
+    "question": "¿Cuál de las siguientes consultas DNS se implementa actualmente en Internet?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Recursivas e iterativas.",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "text": "Es aleatorio, cada servidor implementa cualquier tipo de consulta.",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Sólo Recursivas.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Solo Iterativas.",
+        "correct": false
+      }
+    ],
+    "why": "En Internet se implementan ambas de forma combinada: el cliente DNS (PC) realiza una consulta recursiva a su servidor DNS local, y el servidor DNS local realiza consultas iterativas a los servidores raíz, intermedios (TLD) y autorizados."
+  },
+  {
+    "id": 31,
+    "type": "single",
+    "category": "teorica",
+    "unidad": 5,
+    "tema_id": "dns",
+    "tema": "Protocolo DNS",
+    "subtema": "Definición de consulta a la caché / iterativa",
+    "question": "La consulta DNS en la cual un servidor DNS devuelve la respuesta sin consultar a otros servidores DNS, incluso si no puede brindar una respuesta definitiva, se denomina:",
+    "options": [
+      {
+        "id": "a",
+        "text": "Servidor Autorizado de nombres.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Consulta iterativa.",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Consulta DNS.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Consulta a la caché.",
+        "correct": true
+      },
+      {
+        "id": "e",
+        "text": "Consulta recursiva.",
+        "correct": false
+      },
+      {
+        "id": "f",
+        "text": "Consulta estática.",
+        "correct": false
+      }
+    ],
+    "why": "En el preguntero de cátedra esta definición está asociada a “Consulta a la caché” (también relacionada conceptualmente al comportamiento iterativo donde el servidor responde inmediatamente con lo que tiene en su base/caché o una referencia sin consultar a otros en nombre del cliente)."
+  },
+  {
+    "id": 32,
+    "type": "single",
+    "category": "practica",
+    "unidad": 5,
+    "tema_id": "dns",
+    "tema": "Protocolo DNS",
+    "subtema": "Comandos DNS en consola",
+    "question": "¿Qué comando permite borrar o vaciar la memoria caché de resolución de DNS de nuestra PC?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Ipconfig /all",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Ipconfig /renew",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Ipconfig /deletedns",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Ipconfig /release",
+        "correct": false
+      },
+      {
+        "id": "e",
+        "text": "Ipconfig /displaydns",
+        "correct": false
+      },
+      {
+        "id": "f",
+        "text": "Ipconfig /flushdns",
+        "correct": true
+      },
+      {
+        "id": "g",
+        "text": "Ipconfig /cleardns",
+        "correct": false
+      }
+    ],
+    "why": "El comando ipconfig /flushdns vacía la memoria caché de resolución DNS del cliente (mientras que ipconfig /displaydns permite visualizarla)."
+  },
+  {
+    "id": 33,
+    "type": "single",
+    "category": "practica",
+    "unidad": 5,
+    "tema_id": "dns",
+    "tema": "Protocolo DNS",
+    "subtema": "Proceso de resolución DNS",
+    "question": "Un cliente DNS, que se ejecuta en una computadora, envía la consulta acerca de la traducción de un dominio a su servidor local. Si este servidor local no posee la respuesta, dicho servidor le realizará la consulta sobre el dominio a:",
+    "options": [
+      {
+        "id": "a",
+        "text": "Caché del cliente.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "c-root-servers.net.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "Base de datos local de la PC.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Servidor autorizado de nombre.",
+        "correct": false
+      },
+      {
+        "id": "e",
+        "text": "MIB.",
+        "correct": false
+      }
+    ],
+    "why": "Cuando el servidor DNS local no tiene el registro en su caché, inicia la búsqueda jerárquica consultando primero a un servidor raíz (por ejemplo, c.root-servers.net)."
+  },
+  {
+    "id": 34,
+    "type": "single",
+    "category": "practica",
+    "unidad": 5,
+    "tema_id": "dns",
+    "tema": "Protocolo DNS",
+    "subtema": "Registros de Recursos DNS (MX)",
+    "question": "Si se realiza una consulta a un servidor DNS y se obtienen los Registros de Recursos de un campo tipo MX. La información que se obtiene es:",
+    "options": [
+      {
+        "id": "a",
+        "text": "La dirección MAC de una máquina.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "El servidor Web de un dominio.",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "El nombre del servidor de correo de un dominio.",
+        "correct": true
+      },
+      {
+        "id": "d",
+        "text": "El servidor de nombres de un dominio.",
+        "correct": false
+      },
+      {
+        "id": "e",
+        "text": "La dirección IPv4 de una máquina.",
+        "correct": false
+      },
+      {
+        "id": "f",
+        "text": "La dirección IPv6 de una máquina.",
+        "correct": false
+      }
+    ],
+    "why": "El registro MX (Mail Exchange) devuelve el nombre de dominio del servidor de correo electrónico encargado de recibir correos para ese dominio."
+  },
+  {
+    "id": 35,
+    "type": "single",
+    "category": "practica",
+    "unidad": 5,
+    "tema_id": "dns",
+    "tema": "Protocolo DNS",
+    "subtema": "Registros de Recursos DNS (AAAA)",
+    "question": "Si se ejecuta el comando nslookup y se establece type=AAAA, se obtendrá:",
+    "options": [
+      {
+        "id": "a",
+        "text": "El administrador del dominio.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "La dirección IPv6 de un dominio.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "El servidor de correo de un dominio.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "El servidor DNS de un dominio.",
+        "correct": false
+      },
+      {
+        "id": "e",
+        "text": "La dirección IPv4 de un dominio.",
+        "correct": false
+      },
+      {
+        "id": "f",
+        "text": "Los servicios brindados por dicho dominio.",
+        "correct": false
+      }
+    ],
+    "why": "El registro de recurso tipo AAAA asocia un nombre de dominio con una dirección IPv6 de 128 bits (mientras que el tipo A lo asocia con una IPv4 de 32 bits)."
+  },
+  {
+    "id": 36,
+    "type": "single",
+    "category": "practica",
+    "unidad": 5,
+    "tema_id": "dns",
+    "tema": "Protocolo DNS",
+    "subtema": "Registros de Recursos DNS (NS)",
+    "question": "Si se ejecuta el comando nslookup y se establece type=NS, se obtendrá:",
+    "options": [
+      {
+        "id": "a",
+        "text": "El servidor de correo de un dominio.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "La dirección IPv4 de un dominio.",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Los servicios brindados por dicho dominio.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "El administrador del dominio.",
+        "correct": false
+      },
+      {
+        "id": "e",
+        "text": "El servidor DNS de un dominio.",
+        "correct": true
+      },
+      {
+        "id": "f",
+        "text": "La dirección IPv6 de un dominio.",
+        "correct": false
+      }
+    ],
+    "why": "El registro NS (Name Server) indica cuáles son los servidores de nombres (DNS) autorizados para una zona o dominio."
+  },
+  {
+    "id": 37,
+    "type": "single",
+    "category": "practica",
+    "unidad": 5,
+    "tema_id": "dns",
+    "tema": "Protocolo DNS",
+    "subtema": "Registros de Recursos DNS (A)",
+    "question": "Luego de realizar una consulta a un servidor DNS se obtiene como resultado 201.56.89.10, eso implica que se solicitó el registro de recurso de tipo:",
+    "options": [
+      {
+        "id": "a",
+        "text": "AAAA.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "PTR.",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "SOA.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "IPv4.",
+        "correct": false
+      },
+      {
+        "id": "e",
+        "text": "A.",
+        "correct": true
+      },
+      {
+        "id": "f",
+        "text": "MX.",
+        "correct": false
+      },
+      {
+        "id": "g",
+        "text": "NS.",
+        "correct": false
+      }
+    ],
+    "why": "201.56.89.10 es una dirección IPv4, la cual se obtiene mediante una consulta DNS por un registro de recurso de tipo A (Address)."
+  },
+  {
+    "id": 38,
+    "type": "single",
+    "category": "practica",
+    "unidad": 5,
+    "tema_id": "dns",
+    "tema": "Protocolo DNS",
+    "subtema": "Orden de resolución jerárquica DNS",
+    "question": "¿Cuál de los siguientes es el orden correcto para resolver un dominio mediante el DNS, cuando se escribe en el navegador “www.etsit.upm.es”?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Caché local, servidor local, servidor autorizado, servidor raíz.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Caché local, servidor autorizado, servidor local, servidor raíz.",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Servidor local, servidor intermedio, servidor raíz, servidor autorizado.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Caché local, servidor raíz, servidor local, servidor autorizado, servidor intermedio.",
+        "correct": false
+      },
+      {
+        "id": "e",
+        "text": "Caché local, servidor local, servidor raíz, servidor intermedio, servidor autorizado.",
+        "correct": true
+      }
+    ],
+    "why": "Primero la PC revisa su caché local; si no está, consulta a su servidor DNS local, el cual consulta sucesivamente al servidor raíz (.), al servidor intermedio TLD (.es) y finalmente al servidor autorizado (upm.es)."
+  },
+  {
+    "id": 39,
+    "type": "single",
+    "category": "teorica",
+    "unidad": 5,
+    "tema_id": "correo",
+    "tema": "Correo Electrónico y MIME",
+    "subtema": "Protocolo SMTP entre servidores",
+    "question": "El protocolo que se utiliza para el intercambio de mensajes de correo entre servidores de correo electrónico es:",
+    "options": [
+      {
+        "id": "a",
+        "text": "SNMP.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "SMTP.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "SMTP, IMAP y POP3.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "SMTP, IMAP, POP3 y MIME.",
+        "correct": false
+      },
+      {
+        "id": "e",
+        "text": "SMTP e IMAP.",
+        "correct": false
+      },
+      {
+        "id": "f",
+        "text": "HTTP.",
+        "correct": false
+      },
+      {
+        "id": "g",
+        "text": "MIME.",
+        "correct": false
+      }
+    ],
+    "why": "El intercambio de correos entre Agentes de Transferencia de Correo (MTA, servidores de correo) se realiza exclusivamente mediante el protocolo SMTP (TCP puerto 25)."
+  },
+  {
+    "id": 40,
+    "type": "single",
+    "category": "practica",
+    "unidad": 5,
+    "tema_id": "correo",
+    "tema": "Correo Electrónico y MIME",
+    "subtema": "Envío de correo desde el cliente al servidor",
+    "question": "Ana escribe un mensaje de correo electrónico en su computadora. El protocolo que se utiliza para mover el correo entre la PC y el servidor de correo es:",
+    "options": [
+      {
+        "id": "a",
+        "text": "UDP.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "IMAP.",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "FTP.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "SMTP.",
+        "correct": true
+      },
+      {
+        "id": "e",
+        "text": "SNMP.",
+        "correct": false
+      },
+      {
+        "id": "f",
+        "text": "HTTP.",
+        "correct": false
+      },
+      {
+        "id": "g",
+        "text": "POP3.",
+        "correct": false
+      }
+    ],
+    "why": "Para enviar (subir) un mensaje desde el Agente de Usuario (MUA en la PC) hacia el servidor de correo saliente (MTA) se utiliza el protocolo SMTP (POP3 e IMAP son sólo para lectura/recepción)."
+  },
+  {
+    "id": 41,
+    "type": "multiple",
+    "category": "teorica",
+    "unidad": 5,
+    "tema_id": "correo",
+    "tema": "Correo Electrónico y MIME",
+    "subtema": "Características de POP3",
+    "question": "¿Cuáles de las siguientes características corresponden al protocolo POP3? (seleccione tres opciones)",
+    "options": [
+      {
+        "id": "a",
+        "text": "Corre sobre TCP puerto 143.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Protocolo complejo y potente.",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Utilizado para enviar correo electrónico.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Corre sobre TCP puerto 110.",
+        "correct": true
+      },
+      {
+        "id": "e",
+        "text": "Protocolo sencillo.",
+        "correct": true
+      },
+      {
+        "id": "f",
+        "text": "Permite descargar mensajes en la computadora del usuario.",
+        "correct": true
+      },
+      {
+        "id": "g",
+        "text": "Permite consultar correo desde diferentes dispositivos.",
+        "correct": false
+      },
+      {
+        "id": "h",
+        "text": "Corre sobre UDP puerto 25.",
+        "correct": false
+      }
+    ],
+    "why": "POP3 es un protocolo sencillo que corre sobre TCP en el puerto 110 y está diseñado para descargar los mensajes del servidor a la computadora local del usuario."
+  },
+  {
+    "id": 42,
+    "type": "single",
+    "category": "teorica",
+    "unidad": 5,
+    "tema_id": "correo",
+    "tema": "Correo Electrónico y MIME",
+    "subtema": "Características de IMAP",
+    "question": "El protocolo que permite acceder a mensajes de correo electrónico desde cualquier dispositivo, corre sobre TCP y escucha en el puerto 143 es:",
+    "options": [
+      {
+        "id": "a",
+        "text": "DNS.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "IMAP.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "MIME.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "FTP.",
+        "correct": false
+      },
+      {
+        "id": "e",
+        "text": "HTTP.",
+        "correct": false
+      },
+      {
+        "id": "f",
+        "text": "SMTP.",
+        "correct": false
+      },
+      {
+        "id": "g",
+        "text": "SNMP.",
+        "correct": false
+      }
+    ],
+    "why": "IMAP (Internet Message Access Protocol) opera sobre TCP puerto 143 y mantiene los correos en el servidor, permitiendo gestionarlos de forma sincronizada desde múltiples dispositivos."
+  },
+  {
+    "id": 43,
+    "type": "single",
+    "category": "practica",
+    "unidad": 5,
+    "tema_id": "correo",
+    "tema": "Correo Electrónico y MIME",
+    "subtema": "Identificación de puertos de correo (IMAP 143)",
+    "question": "Si se captura un segmento en cuyo encabezado posee el puerto origen 52000 y el puerto destino 143, corresponde a:",
+    "options": [
+      {
+        "id": "a",
+        "text": "Una solicitud generada desde una PC hacia un servidor FTP.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Una solicitud generada desde una PC hacia un servidor de correo IMAP.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "Una respuesta generada desde un servidor de correo hacia una PC.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Una solicitud generada desde una PC hacia un servidor de correo POP3.",
+        "correct": false
+      },
+      {
+        "id": "e",
+        "text": "Una respuesta generada desde un servidor DNS hacia una PC o servidor intermedio.",
+        "correct": false
+      }
+    ],
+    "why": "El puerto origen 52000 es un puerto efímero de cliente (PC) y el puerto destino 143 corresponde a un servidor IMAP; por ende, es una solicitud desde una PC hacia un servidor IMAP."
+  },
+  {
+    "id": 44,
+    "type": "multiple",
+    "category": "teorica",
+    "unidad": 5,
+    "tema_id": "correo",
+    "tema": "Correo Electrónico y MIME",
+    "subtema": "Campos utilizados por los MTA",
+    "question": "¿Cuáles de los siguientes campos son utilizados por los Agentes de Transferencia de Correo electrónico? (seleccione tres)",
+    "options": [
+      {
+        "id": "a",
+        "text": "Date.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Message-Id.",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Reply-to.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Bcc.",
+        "correct": true
+      },
+      {
+        "id": "e",
+        "text": "Received.",
+        "correct": true
+      },
+      {
+        "id": "f",
+        "text": "Subject.",
+        "correct": false
+      },
+      {
+        "id": "g",
+        "text": "Content-type.",
+        "correct": false
+      },
+      {
+        "id": "h",
+        "text": "To.",
+        "correct": true
+      }
+    ],
+    "why": "Según el material de cátedra, los campos utilizados por los MTA para el encaminamiento y registro del transporte del correo incluyen To, Bcc (y Cc) para conocer los destinatarios y Received (agregado por cada MTA intermedio)."
+  },
+  {
+    "id": 45,
+    "type": "multiple",
+    "category": "teorica",
+    "unidad": 5,
+    "tema_id": "correo",
+    "tema": "Correo Electrónico y MIME",
+    "subtema": "Campos utilizados por los MUA",
+    "question": "¿Cuáles de los siguientes campos son utilizados por los Agentes de Usuario de Correo electrónico? (seleccione tres opciones)",
+    "options": [
+      {
+        "id": "a",
+        "text": "To.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Subject.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "From.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Date.",
+        "correct": true
+      },
+      {
+        "id": "e",
+        "text": "Bcc.",
+        "correct": false
+      },
+      {
+        "id": "f",
+        "text": "Message-Id.",
+        "correct": true
+      },
+      {
+        "id": "g",
+        "text": "Received.",
+        "correct": false
+      }
+    ],
+    "why": "Los campos propios de la cabecera RFC 822 procesados por los Agentes de Usuario (MUA) sin intervenir en el enrutamiento de los MTA incluyen Subject, Date, Message-Id y Reply-To."
+  },
+  {
+    "id": 46,
+    "type": "single",
+    "category": "teorica",
+    "unidad": 5,
+    "tema_id": "correo",
+    "tema": "Correo Electrónico y MIME",
+    "subtema": "Cabecera MIME (Content-type)",
+    "question": "¿Cuál de los siguientes campos corresponde a la cabecera del protocolo MIME?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Content-type.",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "text": "Subject.",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Received.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Return-path.",
+        "correct": false
+      },
+      {
+        "id": "e",
+        "text": "Date.",
+        "correct": false
+      }
+    ],
+    "why": "MIME incorpora 5 campos propios al encabezado: MIME-Version, Content-Description, Content-Id, Content-Transfer-Encoding y Content-Type."
+  },
+  {
+    "id": 47,
+    "type": "single",
+    "category": "teorica",
+    "unidad": 5,
+    "tema_id": "correo",
+    "tema": "Correo Electrónico y MIME",
+    "subtema": "Cabecera MIME (Content-transfer-encoding)",
+    "question": "¿Cuál de los siguientes campos corresponde a la cabecera del protocolo MIME?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Return-path.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Subject.",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Received.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Date.",
+        "correct": false
+      },
+      {
+        "id": "e",
+        "text": "Content-transfer-encoding.",
+        "correct": true
+      }
+    ],
+    "why": "Content-Transfer-Encoding es uno de los encabezados propios de MIME e indica cómo se codificó el cuerpo del mensaje para su transmisión (por ejemplo, Base64, 7bit, 8bit)."
+  },
+  {
+    "id": 48,
+    "type": "single",
+    "category": "practica",
+    "unidad": 5,
+    "tema_id": "correo",
+    "tema": "Correo Electrónico y MIME",
+    "subtema": "Configuración de tipo/subtipo MIME (Image/Gif)",
+    "question": "¿Qué se deberá configurar en el encabezado MIME si se desea enviar una foto formato GIF en un mensaje de correo electrónico?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Content-type:Gif",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Format/Gif",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Type:Gif",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Message-Id:Image",
+        "correct": false
+      },
+      {
+        "id": "e",
+        "text": "Content-transfer-encoding:Gif",
+        "correct": false
+      },
+      {
+        "id": "f",
+        "text": "Image/Gif",
+        "correct": true
+      }
+    ],
+    "why": "En MIME el contenido se especifica con el formato tipo/subtipo dentro de Content-Type; para una imagen GIF corresponde Image/Gif."
+  },
+  {
+    "id": 49,
+    "type": "single",
+    "category": "teorica",
+    "unidad": 5,
+    "tema_id": "correo",
+    "tema": "Correo Electrónico y MIME",
+    "subtema": "Tipos de contenido soportados por MIME",
+    "question": "¿Cuál de los siguientes NO es un “tipo de contenido” soportado en la cabecera del protocolo MIME?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Message.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Multipart.",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Video.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Text.",
+        "correct": false
+      },
+      {
+        "id": "e",
+        "text": "Audio.",
+        "correct": false
+      },
+      {
+        "id": "f",
+        "text": "Image.",
+        "correct": false
+      },
+      {
+        "id": "g",
+        "text": "Presentation.",
+        "correct": true
+      }
+    ],
+    "why": "Los 7 tipos de contenido definidos en MIME son: Text, Image, Audio, Video, Application, Message y Multipart. “Presentation” no existe como tipo MIME."
+  },
+  {
+    "id": 50,
+    "type": "single",
+    "category": "practica",
+    "unidad": 5,
+    "tema_id": "correo",
+    "tema": "Correo Electrónico y MIME",
+    "subtema": "Configuración de tipo/subtipo MIME (Application/PDF)",
+    "question": "¿Qué se deberá configurar en el encabezado MIME si se desea enviar un archivo en formato PDF en un mensaje de correo electrónico?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Type:PDF.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Format/PDF.",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Application/PDF.",
+        "correct": true
+      },
+      {
+        "id": "d",
+        "text": "Content-transfer-encoding:PDF.",
+        "correct": false
+      },
+      {
+        "id": "e",
+        "text": "Content-type:PDF.",
+        "correct": false
+      },
+      {
+        "id": "f",
+        "text": "Message-Id:Application.",
+        "correct": false
+      }
+    ],
+    "why": "Un documento PDF se clasifica dentro del tipo Application y subtipo PDF, expresado como Application/PDF."
+  },
+  {
+    "id": 51,
+    "type": "multiple",
+    "category": "teorica",
+    "unidad": 5,
+    "tema_id": "ftp",
+    "tema": "FTP y TFTP",
+    "subtema": "Características de FTP",
+    "question": "¿Cuáles de las siguientes son características del protocolo FTP? (seleccione tres opciones)",
+    "options": [
+      {
+        "id": "a",
+        "text": "Corre sobre UDP puertos 21 y 20.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Utiliza sólo conexiones no persistentes.",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Protocolo seguro y rápido.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "La conexión de datos permanece activa hasta que el usuario cierra la sesión.",
+        "correct": false
+      },
+      {
+        "id": "e",
+        "text": "Utiliza conexiones persistentes y no persistentes.",
+        "correct": true
+      },
+      {
+        "id": "f",
+        "text": "Permite transferir datos entre clientes y servidores.",
+        "correct": true
+      },
+      {
+        "id": "g",
+        "text": "Mantiene una conexión de control para los comandos.",
+        "correct": true
+      }
+    ],
+    "why": "FTP permite transferir archivos entre cliente y servidor sobre TCP usando dos tipos de conexiones: una conexión de control persistente (puerto 21) para comandos y conexiones de datos no persistentes (puerto 20) para cada transferencia."
+  },
+  {
+    "id": 52,
+    "type": "single",
+    "category": "practica",
+    "unidad": 5,
+    "tema_id": "ftp",
+    "tema": "FTP y TFTP",
+    "subtema": "Cálculo de sockets en conexiones FTP",
+    "question": "Desde una computadora se han iniciado dos conexiones FTP diferentes, una hacia ftp.frc.utn.edu.ar y otra hacia ftp.ietf.org ¿Cuántos sockets TCP intervienen en total en las dos conexiones?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Depende de la capacidad de los servidores.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Tres.",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Cinco.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Cuatro.",
+        "correct": true
+      },
+      {
+        "id": "e",
+        "text": "Dos.",
+        "correct": false
+      },
+      {
+        "id": "f",
+        "text": "Seis.",
+        "correct": false
+      },
+      {
+        "id": "g",
+        "text": "Siete.",
+        "correct": false
+      }
+    ],
+    "why": "Cada conexión TCP establecida requiere 2 sockets (1 en el cliente y 1 en el servidor). Al haberse iniciado dos conexiones hacia dos servidores distintos, intervienen en total 4 sockets TCP (2 en la PC cliente y 1 en cada servidor)."
+  },
+  {
+    "id": 53,
+    "type": "single",
+    "category": "teorica",
+    "unidad": 5,
+    "tema_id": "ftp",
+    "tema": "FTP y TFTP",
+    "subtema": "Características de TFTP (UDP puerto 69)",
+    "question": "¿Cuál de las siguientes es una característica del protocolo TFTP?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Utiliza conexiones persistentes y no persistentes.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Utiliza el protocolo TCP de capa de transporte.",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Requiere el establecimiento de una conexión.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Autentica al usuario con usuario y contraseña.",
+        "correct": false
+      },
+      {
+        "id": "e",
+        "text": "Corre sobre el protocolo UDP en el puerto 69.",
+        "correct": true
+      },
+      {
+        "id": "f",
+        "text": "Brinda un servicio de transmisión de archivos no fiable.",
+        "correct": false
+      }
+    ],
+    "why": "TFTP (Trivial File Transfer Protocol) corre sobre el protocolo de transporte UDP utilizando el puerto 69 (e implementa su propio mecanismo de parada y espera con ACK por bloque)."
+  },
+  {
+    "id": 54,
+    "type": "single",
+    "category": "practica",
+    "unidad": 5,
+    "tema_id": "ftp",
+    "tema": "FTP y TFTP",
+    "subtema": "Caso de uso de TFTP",
+    "question": "Julián desea centralizar la administración de los sistemas operativos instalados en todas sus computadoras y además desea respaldar toda la configuración de sus dispositivos en su empresa. Para ello, le aconsejaron que deberá configurar:",
+    "options": [
+      {
+        "id": "a",
+        "text": "Un servidor raíz.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Un servidor autorizado de nombres.",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Un servidor DNS.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Una Base de Información de Gestión.",
+        "correct": false
+      },
+      {
+        "id": "e",
+        "text": "Un servidor HTTP.",
+        "correct": false
+      },
+      {
+        "id": "f",
+        "text": "Un servidor de correo electrónico.",
+        "correct": false
+      },
+      {
+        "id": "g",
+        "text": "Un servidor TFTP.",
+        "correct": true
+      }
+    ],
+    "why": "Los servidores TFTP se utilizan habitualmente en redes empresariales para respaldar configuraciones de routers/switches, actualizar firmware e iniciar sistemas operativos por red."
+  },
+  {
+    "id": 55,
+    "type": "single",
+    "category": "teorica",
+    "unidad": 5,
+    "tema_id": "ftp",
+    "tema": "FTP y TFTP",
+    "subtema": "Características de TFTP (rapidez y simplicidad)",
+    "question": "¿Cuál de las siguientes es una característica del protocolo TFTP?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Utiliza el protocolo TCP de capa de transporte.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Autentica al usuario con usuario y contraseña.",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Requiere el establecimiento de una conexión.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Realiza una transmisión de archivos de forma rápida y simple.",
+        "correct": true
+      },
+      {
+        "id": "e",
+        "text": "Brinda un servicio de transmisión de archivos no fiable.",
+        "correct": false
+      },
+      {
+        "id": "f",
+        "text": "Utiliza conexiones persistentes y no persistentes.",
+        "correct": false
+      }
+    ],
+    "why": "TFTP está diseñado para transferir archivos de forma rápida y simple (con mínimo overhead y sin autenticación), garantizando fiabilidad a nivel de aplicación mediante asentimientos por bloque."
+  },
+  {
+    "id": 56,
+    "type": "single",
+    "category": "teorica",
+    "unidad": 5,
+    "tema_id": "snmp",
+    "tema": "Gestión de Red y SNMP",
+    "subtema": "Áreas funcionales ISO (FCAPS)",
+    "question": "¿Cuál de las siguientes NO es un área de la gestión de red definida por ISO?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Gestión de seguridad.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Gestión de planificación.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "Gestión de fallos.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Gestión de cuentas.",
+        "correct": false
+      },
+      {
+        "id": "e",
+        "text": "Gestión de rendimiento.",
+        "correct": false
+      },
+      {
+        "id": "f",
+        "text": "Gestión de configuración.",
+        "correct": false
+      }
+    ],
+    "why": "El modelo ISO define 5 áreas funcionales (FCAPS): Fallos, Configuración, Cuentas (Contabilidad), Rendimiento (Performance) y Seguridad. “Gestión de planificación” no forma parte de ellas."
+  },
+  {
+    "id": 57,
+    "type": "single",
+    "category": "teorica",
+    "unidad": 5,
+    "tema_id": "snmp",
+    "tema": "Gestión de Red y SNMP",
+    "subtema": "Componentes de la arquitectura de gestión de red (I)",
+    "question": "¿Cuál de los siguientes NO es un componente de la gestión de red?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Estación administradora de red.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Protocolo SNMP.",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Base de información de gestión.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Agente de transferencia de mensajes.",
+        "correct": true
+      },
+      {
+        "id": "e",
+        "text": "Dispositivos gestionados.",
+        "correct": false
+      }
+    ],
+    "why": "Los componentes de la gestión de red son: Estación administradora (NMS), Dispositivos/Nodos gestionados (con sus agentes SNMP), Base de información de gestión (MIB) y Protocolo SNMP. El “Agente de transferencia de mensajes” (MTA) pertenece al correo electrónico."
+  },
+  {
+    "id": 58,
+    "type": "single",
+    "category": "teorica",
+    "unidad": 5,
+    "tema_id": "snmp",
+    "tema": "Gestión de Red y SNMP",
+    "subtema": "Componentes de la arquitectura de gestión de red (II)",
+    "question": "¿Cuál de los siguientes NO es un componente de la gestión de red?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Servidor autorizado de nombres.",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "text": "Base de información de gestión.",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Protocolo SNMP.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Dispositivos gestionados.",
+        "correct": false
+      },
+      {
+        "id": "e",
+        "text": "Estación administradora de red.",
+        "correct": false
+      }
+    ],
+    "why": "El “Servidor autorizado de nombres” pertenece a la arquitectura DNS, no a la gestión de red SNMP."
+  },
+  {
+    "id": 59,
+    "type": "single",
+    "category": "teorica",
+    "unidad": 5,
+    "tema_id": "snmp",
+    "tema": "Gestión de Red y SNMP",
+    "subtema": "Base de Información de Administración (MIB)",
+    "question": "¿Cuáles de las siguientes características corresponden a la base de información de administración?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Permite conocer el servidor de correo de un determinado dominio.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Es usada por DNS para obtener las direcciones IP de los hosts de Internet.",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Contiene todo el árbol de dominios con sus correspondientes direcciones IP.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Contiene el conjunto de objetos administrados por el protocolo SNMP.",
+        "correct": true
+      },
+      {
+        "id": "e",
+        "text": "Es usada para acceder al correo electrónico de las empresas.",
+        "correct": false
+      },
+      {
+        "id": "f",
+        "text": "Es una base que contiene información de los routers de Internet.",
+        "correct": false
+      }
+    ],
+    "why": "La MIB (Management Information Base) es la estructura de datos jerárquica que contiene el conjunto de objetos y variables de estado administrados mediante el protocolo SNMP."
+  },
+  {
+    "id": 60,
+    "type": "multiple",
+    "category": "teorica",
+    "unidad": 5,
+    "tema_id": "snmp",
+    "tema": "Gestión de Red y SNMP",
+    "subtema": "Mensajes enviados por el agente SNMP",
+    "question": "¿Cuáles de los siguientes mensajes envía el agente SNMP a la estación administradora de red? (seleccione dos opciones)",
+    "options": [
+      {
+        "id": "a",
+        "text": "SNMP-trap.",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "text": "Get-bulk-request.",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Get-record.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Content-type.",
+        "correct": false
+      },
+      {
+        "id": "e",
+        "text": "Get-response.",
+        "correct": true
+      },
+      {
+        "id": "f",
+        "text": "Set-request.",
+        "correct": false
+      },
+      {
+        "id": "g",
+        "text": "Get-table.",
+        "correct": false
+      },
+      {
+        "id": "h",
+        "text": "Domain Name System.",
+        "correct": false
+      }
+    ],
+    "why": "El agente SNMP instalado en el dispositivo administrado envía hacia la NMS únicamente dos tipos de mensajes: Get-response (en respuesta a consultas/modificaciones de la NMS) y SNMP-trap (avisos asíncronos ante eventos o fallos)."
+  },
+  {
+    "id": 61,
+    "type": "single",
+    "category": "teorica",
+    "unidad": 5,
+    "tema_id": "snmp",
+    "tema": "Gestión de Red y SNMP",
+    "subtema": "Mensaje SNMP-trap",
+    "question": "El mensaje SNMP-trap utilizado en la gestión de red por el protocolo SNMP es enviado por:",
+    "options": [
+      {
+        "id": "a",
+        "text": "La estación administradora para modificar el valor de una variable.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "El agente del dispositivo para informar sobre algún inconveniente o error.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "El servidor para informar de un error en la base de datos.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "La NMS para solicitar la MIB local completa del dispositivo.",
+        "correct": false
+      },
+      {
+        "id": "e",
+        "text": "La estación administradora para solicitar el valor de una variable.",
+        "correct": false
+      }
+    ],
+    "why": "SNMP-trap es un mensaje asíncrono originado por el agente del dispositivo gestionado hacia la estación administradora (puerto UDP 162) para reportar un evento extraordinario, alarma o error."
+  },
+  {
+    "id": 62,
+    "type": "single",
+    "category": "teorica",
+    "unidad": 5,
+    "tema_id": "snmp",
+    "tema": "Gestión de Red y SNMP",
+    "subtema": "Mensaje Get-bulk-request",
+    "question": "El mensaje Get-bulk-request utilizado en la gestión de red por el protocolo SNMP es enviado por:",
+    "options": [
+      {
+        "id": "a",
+        "text": "El agente del dispositivo para informar sobre algún inconveniente o error.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "El servidor para solicitar todos los registros de recursos de la base de datos.",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "La NMS para solicitar una tabla completa del dispositivo.",
+        "correct": true
+      },
+      {
+        "id": "d",
+        "text": "La estación administradora para solicitar el valor de una variable.",
+        "correct": false
+      },
+      {
+        "id": "e",
+        "text": "La estación administradora para modificar el valor de una variable.",
+        "correct": false
+      }
+    ],
+    "why": "Get-bulk-request es enviado por la Estación de Administración de Red (NMS) cuando necesita recuperar un gran bloque de datos de la MIB, como por ejemplo una tabla completa de encaminamiento."
+  },
+  {
+    "id": 63,
+    "type": "multiple",
+    "category": "teorica",
+    "unidad": 5,
+    "tema_id": "snmp",
+    "tema": "Gestión de Red y SNMP",
+    "subtema": "Operaciones de la NMS",
+    "question": "¿Cuáles de las siguientes operaciones ejecuta una estación de administración de red (NMS)? (seleccione dos opciones)",
+    "options": [
+      {
+        "id": "a",
+        "text": "Comparte información entre las estaciones administradoras de red.",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "text": "Solicita la traducción de un dominio a dirección IP.",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Responde con los registros de recursos DNS.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Informa de los problemas a través de un mensaje SNMP-trap.",
+        "correct": false
+      },
+      {
+        "id": "e",
+        "text": "Solicita el valor de una o varias variables de estado.",
+        "correct": true
+      },
+      {
+        "id": "f",
+        "text": "Analiza el URL para ubicar el recurso solicitado.",
+        "correct": false
+      }
+    ],
+    "why": "Una NMS solicita y modifica variables de estado de los agentes (Get/Set) y también puede compartir información con otras estaciones administradoras de red (Inform-request)."
+  },
+  {
+    "id": 64,
+    "type": "multiple",
+    "category": "teorica",
+    "unidad": 5,
+    "tema_id": "snmp",
+    "tema": "Gestión de Red y SNMP",
+    "subtema": "Mensajes enviados por la NMS",
+    "question": "¿Cuáles de los siguientes mensajes envía la estación administradora de red? (seleccione tres opciones)",
+    "options": [
+      {
+        "id": "a",
+        "text": "Get-bulk-request.",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "text": "Domain Name System.",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Set-request.",
+        "correct": true
+      },
+      {
+        "id": "d",
+        "text": "Get-table.",
+        "correct": false
+      },
+      {
+        "id": "e",
+        "text": "SNMP-trap.",
+        "correct": false
+      },
+      {
+        "id": "f",
+        "text": "Content-type.",
+        "correct": false
+      },
+      {
+        "id": "g",
+        "text": "Get-request.",
+        "correct": true
+      },
+      {
+        "id": "h",
+        "text": "Get-record.",
+        "correct": false
+      }
+    ],
+    "why": "La estación administradora (NMS) envía a los agentes los mensajes Get-request, Get-next-request, Get-bulk-request y Set-request."
+  },
+  {
+    "id": 65,
+    "type": "multiple",
+    "category": "teorica",
+    "unidad": 5,
+    "tema_id": "http",
+    "tema": "HTTP y HTTPS",
+    "subtema": "Características del protocolo HTTP",
+    "question": "¿Cuáles de las siguientes características pertenecen al protocolo HTTP? (seleccione dos opciones)",
+    "options": [
+      {
+        "id": "a",
+        "text": "Corre sobre el protocolo UDP.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Utilizado para el intercambio de recursos en Internet.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "Permite el intercambio de mensajes entre servidores de correo electrónico.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Protocolo sin estado.",
+        "correct": true
+      },
+      {
+        "id": "e",
+        "text": "Protocolo perteneciente a la capa de transporte.",
+        "correct": false
+      },
+      {
+        "id": "f",
+        "text": "Utiliza sólo conexiones persistentes.",
+        "correct": false
+      }
+    ],
+    "why": "HTTP es un protocolo de capa de aplicación utilizado para el intercambio de recursos en la Web (Internet), corre sobre TCP (puerto 80), puede usar conexiones persistentes o no persistentes, y es un protocolo sin estado (stateless)."
+  },
+  {
+    "id": 66,
+    "type": "single",
+    "category": "teorica",
+    "unidad": 5,
+    "tema_id": "http",
+    "tema": "HTTP y HTTPS",
+    "subtema": "URL de páginas Web",
+    "question": "¿Cuál de las siguientes afirmaciones es correcta con respecto a las páginas de un servidor Web?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Deben ser dinámicas.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Poseen un URL único y diferente.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "Tienen la misma cantidad de objetos.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Comparten la misma URL.",
+        "correct": false
+      }
+    ],
+    "why": "Cada página o recurso alojado en un servidor Web se identifica de manera unívoca en toda la red mediante su propio URL (Uniform Resource Locator) único y diferente."
+  },
+  {
+    "id": 67,
+    "type": "single",
+    "category": "teorica",
+    "unidad": 5,
+    "tema_id": "http",
+    "tema": "HTTP y HTTPS",
+    "subtema": "Métodos HTTP (POST)",
+    "question": "¿Cuál de los siguientes comandos permite cargar datos en un formulario de un servidor Web?",
+    "options": [
+      {
+        "id": "a",
+        "text": "DELETE.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "POST.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "PUT.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "HEAD.",
+        "correct": false
+      },
+      {
+        "id": "e",
+        "text": "GET.",
+        "correct": false
+      },
+      {
+        "id": "f",
+        "text": "LINK.",
+        "correct": false
+      }
+    ],
+    "why": "El método HTTP POST se utiliza para enviar datos desde el cliente hacia el servidor en el cuerpo de la petición, típicamente al completar y enviar un formulario Web."
+  },
+  {
+    "id": 68,
+    "type": "multiple",
+    "category": "teorica",
+    "unidad": 5,
+    "tema_id": "http",
+    "tema": "HTTP y HTTPS",
+    "subtema": "Características del protocolo HTTPS",
+    "question": "¿Cuáles de las siguientes características pertenecen al protocolo HTTPS? (Seleccione dos):",
+    "options": [
+      {
+        "id": "a",
+        "text": "Utilizado para el intercambio de recursos en Internet en forma segura.",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "text": "Corre sobre el protocolo TCP en el puerto 443.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "Utiliza solo conexiones persistentes.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Corre sobre el protocolo TCP en el puerto 80.",
+        "correct": false
+      },
+      {
+        "id": "e",
+        "text": "Protocolo perteneciente a la capa de transporte.",
+        "correct": false
+      },
+      {
+        "id": "f",
+        "text": "Permite el intercambio de mensajes entre servidores de correo electrónico.",
+        "correct": false
+      }
+    ],
+    "why": "HTTPS combina HTTP con cifrado SSL/TLS para el intercambio seguro de recursos en Internet y utiliza por defecto el puerto TCP 443."
+  },
+  {
+    "id": 69,
+    "type": "single",
+    "category": "teorica",
+    "unidad": 6,
+    "tema_id": "seguridad",
+    "tema": "Seguridad en las Redes",
+    "subtema": "Definición de Políticas de Seguridad",
+    "question": "El documento que establece las reglas y comportamientos de los miembros de una empresa y determina cómo se puede acceder a los recursos y quién puede acceder a qué recursos, hace referencia a:",
+    "options": [
+      {
+        "id": "a",
+        "text": "Listas de control de acceso.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Confidencialidad.",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Políticas de seguridad.",
+        "correct": true
+      },
+      {
+        "id": "d",
+        "text": "Firma digital.",
+        "correct": false
+      },
+      {
+        "id": "e",
+        "text": "Inventario de recursos.",
+        "correct": false
+      },
+      {
+        "id": "f",
+        "text": "Firewall.",
+        "correct": false
+      },
+      {
+        "id": "g",
+        "text": "Autenticación.",
+        "correct": false
+      }
+    ],
+    "why": "Las políticas de seguridad constituyen el documento formal que define las reglas y comportamientos de los miembros de una organización, qué recursos proteger y quién puede acceder a ellos."
+  },
+  {
+    "id": 70,
+    "type": "multiple",
+    "category": "teorica",
+    "unidad": 6,
+    "tema_id": "seguridad",
+    "tema": "Seguridad en las Redes",
+    "subtema": "Características de las Políticas de Seguridad",
+    "question": "¿Cuáles de las siguientes son características relacionadas a las políticas de seguridad de una red? (seleccione tres opciones)",
+    "options": [
+      {
+        "id": "a",
+        "text": "Se adaptan a las necesidades de seguridad de una empresa en particular.",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "text": "Se definen las restricciones y reglas de acceso a los recursos de una organización.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "Se definen en un documento que se actualiza constantemente.",
+        "correct": true
+      },
+      {
+        "id": "d",
+        "text": "Todas las empresas deben aplicar las mismas políticas de seguridad.",
+        "correct": false
+      },
+      {
+        "id": "e",
+        "text": "El administrador de red define las políticas de seguridad de una empresa.",
+        "correct": false
+      },
+      {
+        "id": "f",
+        "text": "Se establecen una única vez cuando se diseña e instala la red de una organización.",
+        "correct": false
+      }
+    ],
+    "why": "Las políticas de seguridad son específicas para cada organización, definen las reglas de acceso a sus recursos y se plasman en un documento vivo que se actualiza continuamente (son fijadas por la dirección/gerencia junto al área técnica, no unilateralmente por el administrador)."
+  },
+  {
+    "id": 71,
+    "type": "multiple",
+    "category": "teorica",
+    "unidad": 6,
+    "tema_id": "seguridad",
+    "tema": "Seguridad en las Redes",
+    "subtema": "Componentes de AAA",
+    "question": "¿Cuáles de las siguientes forman parte de la AAA? (seleccione tres opciones)",
+    "options": [
+      {
+        "id": "a",
+        "text": "Auténtico.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Auditoría.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "Ambientación.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Autorización.",
+        "correct": true
+      },
+      {
+        "id": "e",
+        "text": "Alertas.",
+        "correct": false
+      },
+      {
+        "id": "f",
+        "text": "Autenticación.",
+        "correct": true
+      },
+      {
+        "id": "g",
+        "text": "Asistencia.",
+        "correct": false
+      },
+      {
+        "id": "h",
+        "text": "Accesos.",
+        "correct": false
+      }
+    ],
+    "why": "La arquitectura AAA comprende tres funciones de seguridad: Autenticación (quién es el usuario), Autorización (qué permisos tiene) y Auditoría / Accounting (registro de lo que hizo)."
+  },
+  {
+    "id": 72,
+    "type": "multiple",
+    "category": "teorica",
+    "unidad": 6,
+    "tema_id": "seguridad",
+    "tema": "Seguridad en las Redes",
+    "subtema": "Funciones Hash criptográficas (MD5 y SHA-2)",
+    "question": "¿Cuáles de los siguientes permiten garantizar “autenticación” e “integridad”? Seleccione dos opciones:",
+    "options": [
+      {
+        "id": "a",
+        "text": "DES.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "IDEA.",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "MD5.",
+        "correct": true
+      },
+      {
+        "id": "d",
+        "text": "Firewall.",
+        "correct": false
+      },
+      {
+        "id": "e",
+        "text": "Clave simétrica.",
+        "correct": false
+      },
+      {
+        "id": "f",
+        "text": "TEP.",
+        "correct": false
+      },
+      {
+        "id": "g",
+        "text": "KDC.",
+        "correct": false
+      },
+      {
+        "id": "h",
+        "text": "SHA-2.",
+        "correct": true
+      }
+    ],
+    "why": "Los algoritmos de Hash criptográfico como MD5 y SHA-2 permiten verificar la integridad de los mensajes y se utilizan en mecanismos de autenticación y firma digital (DES e IDEA son algoritmos de cifrado simétrico para confidencialidad)."
+  },
+  {
+    "id": 73,
+    "type": "single",
+    "category": "practica",
+    "unidad": 6,
+    "tema_id": "seguridad",
+    "tema": "Seguridad en las Redes",
+    "subtema": "Políticas permisivas vs restrictivas en Firewalls",
+    "question": "Si se configura en un firewall que los paquetes provenientes de determinada red NO pueden atravesar el router, se está implementando:",
+    "options": [
+      {
+        "id": "a",
+        "text": "Autenticación.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Hash criptográficos.",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Políticas permisivas.",
+        "correct": true
+      },
+      {
+        "id": "d",
+        "text": "Autoridades de certificación.",
+        "correct": false
+      },
+      {
+        "id": "e",
+        "text": "Firmas digitales.",
+        "correct": false
+      },
+      {
+        "id": "f",
+        "text": "Políticas restrictivas.",
+        "correct": false
+      }
+    ],
+    "why": "Según el material de cátedra: en las políticas permisivas se permite por defecto todo el tráfico excepto aquello que se prohíbe explícitamente (“pasan todos los paquetes menos los de determinada red”). En las políticas restrictivas se bloquea todo por defecto salvo lo expresamente habilitado."
+  },
+  {
+    "id": 74,
+    "type": "single",
+    "category": "practica",
+    "unidad": 6,
+    "tema_id": "seguridad",
+    "tema": "Seguridad en las Redes",
+    "subtema": "Zona Desmilitarizada (DMZ)",
+    "question": "Una empresa desea ubicar servidores que sean accesibles desde Internet, pero desea proteger su red interna de posibles amenazas, para ello deberán configurar:",
+    "options": [
+      {
+        "id": "a",
+        "text": "Un switch.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "DMZ.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "MD5.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "SHA-1/SHA-2.",
+        "correct": false
+      },
+      {
+        "id": "e",
+        "text": "Hash criptográfico.",
+        "correct": false
+      },
+      {
+        "id": "f",
+        "text": "Servidor DNS.",
+        "correct": false
+      }
+    ],
+    "why": "Una DMZ (Zona Desmilitarizada) es una subred perimetral separada de la LAN interna mediante firewall, donde se alojan los servidores públicos (Web, correo, DNS) accesibles desde Internet sin exponer la red interna."
+  },
+  {
+    "id": 75,
+    "type": "single",
+    "category": "teorica",
+    "unidad": 6,
+    "tema_id": "seguridad",
+    "tema": "Seguridad en las Redes",
+    "subtema": "Definición de Firewall",
+    "question": "¿Cuál de las siguientes define “combinación de software y hardware que separa la red de una organización de Internet, permitiendo que pasen algunos paquetes y bloqueando otros”?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Router.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Firewall.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "DMZ.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Servidor DNS.",
+        "correct": false
+      },
+      {
+        "id": "e",
+        "text": "Autoridad de certificación.",
+        "correct": false
+      },
+      {
+        "id": "f",
+        "text": "Firma digital.",
+        "correct": false
+      },
+      {
+        "id": "g",
+        "text": "Servidor de correo electrónico.",
+        "correct": false
+      }
+    ],
+    "why": "Un Firewall (cortafuegos) es la combinación de hardware y software que actúa como barrera entre la red interna e Internet, filtrando el tráfico según las reglas de seguridad definidas."
+  },
+  {
+    "id": 76,
+    "type": "single",
+    "category": "practica",
+    "unidad": 6,
+    "tema_id": "seguridad",
+    "tema": "Seguridad en las Redes",
+    "subtema": "Criptografía asimétrica para confidencialidad",
+    "question": "Si se desea garantizar “confidencialidad” en una comunicación en la cual el origen es Ana y el destino es Pedro, se debe:",
+    "options": [
+      {
+        "id": "a",
+        "text": "Cifrar con la clave pública de Pedro y descifrar con la clave privada de Pedro.",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "text": "Cifrar con la clave privada de Ana y descifrar con la clave pública de Ana.",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Cifrar con la clave pública de Ana y descifrar con la clave privada de Ana.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Cifrar con la clave privada de Pedro y descifrar con la clave pública de Pedro.",
+        "correct": false
+      }
+    ],
+    "why": "Para garantizar confidencialidad mediante clave pública (asimétrica), el emisor (Ana) cifra el mensaje con la clave pública del receptor (Pedro), de modo que únicamente Pedro pueda descifrarlo usando su propia clave privada."
+  },
+  {
+    "id": 77,
+    "type": "single",
+    "category": "teorica",
+    "unidad": 6,
+    "tema_id": "seguridad",
+    "tema": "Seguridad en las Redes",
+    "subtema": "Protocolo de autenticación CHAP",
+    "question": "El protocolo que permite autenticar clientes remotos, que se negocia durante el proceso de establecimiento de conexión e implementa el envío de desafíos en forma periódica es:",
+    "options": [
+      {
+        "id": "a",
+        "text": "RSA.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "PAP.",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "DES.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "IDEA.",
+        "correct": false
+      },
+      {
+        "id": "e",
+        "text": "CHAP.",
+        "correct": true
+      },
+      {
+        "id": "f",
+        "text": "TCP.",
+        "correct": false
+      }
+    ],
+    "why": "CHAP (Challenge Handshake Authentication Protocol) autentica a los usuarios remotos mediante un saludo de 3 vías basado en desafíos (challenges) y repite el desafío periódicamente durante la sesión sin enviar nunca la contraseña en texto plano."
+  },
+  {
+    "id": 78,
+    "type": "multiple",
+    "category": "practica",
+    "unidad": 6,
+    "tema_id": "seguridad",
+    "tema": "Seguridad en las Redes",
+    "subtema": "Publicación segura de servidores (DMZ + NAT estática)",
+    "question": "Una empresa desea ubicar servidores que sean accesibles desde Internet, pero desea proteger su red interna de posibles amenazas, para ello deberá configurar (seleccione dos opciones):",
+    "options": [
+      {
+        "id": "a",
+        "text": "NAT estática.",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "text": "MD5.",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Servidor de archivos.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "DMZ.",
+        "correct": true
+      },
+      {
+        "id": "e",
+        "text": "SHA-1/SHA-2.",
+        "correct": false
+      },
+      {
+        "id": "f",
+        "text": "Firmas digitales.",
+        "correct": false
+      },
+      {
+        "id": "g",
+        "text": "Hash criptográficos.",
+        "correct": false
+      },
+      {
+        "id": "h",
+        "text": "Un switch.",
+        "correct": false
+      }
+    ],
+    "why": "Para que los servidores sean accesibles desde Internet sin exponer la LAN interna se los ubica en una DMZ y, si utilizan direccionamiento privado, se configura NAT estática para mapearles una IP pública permanente."
+  },
+  {
+    "id": 79,
+    "type": "multiple",
+    "category": "teorica",
+    "unidad": 6,
+    "tema_id": "seguridad",
+    "tema": "Seguridad en las Redes",
+    "subtema": "Autoridades de Certificación (CA) y certificados digitales",
+    "question": "¿Cuáles de las siguientes características describen a las Autoridades de Certificación? (seleccione tres opciones):",
+    "options": [
+      {
+        "id": "a",
+        "text": "Distribuye claves simétricas que serán utilizadas sólo durante una sesión.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "El certificado es firmado digitalmente con la clave privada de la autoridad de certificación.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "La autoridad de certificación firma el certificado con su clave pública.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Valida cada paquete que se envía entre dos entidades certificadas.",
+        "correct": false
+      },
+      {
+        "id": "e",
+        "text": "El certificado contiene la clave pública de una identidad e información adicional.",
+        "correct": true
+      },
+      {
+        "id": "f",
+        "text": "Valida identidades y emite certificados.",
+        "correct": true
+      },
+      {
+        "id": "g",
+        "text": "El certificado contiene las claves públicas y privadas de una entidad, además de información adicional.",
+        "correct": false
+      }
+    ],
+    "why": "Una Autoridad de Certificación (CA) valida la identidad de las entidades y emite certificados digitales que contienen la clave pública de la entidad más sus datos identificatorios, firmados digitalmente con la clave privada de la CA."
+  },
+  {
+    "id": 80,
+    "type": "single",
+    "category": "practica",
+    "unidad": 6,
+    "tema_id": "seguridad",
+    "tema": "Seguridad en las Redes",
+    "subtema": "VPN de acceso remoto",
+    "question": "Una empresa, debido a la pandemia, desea que sus empleados accedan a todos los servidores y bases de datos, pero desde sus hogares. Para ello, el administrador de red deberá configurar:",
+    "options": [
+      {
+        "id": "a",
+        "text": "VPN de acceso.",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "text": "VPN punto a punto.",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Servidor de correo electrónico.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "DMZ.",
+        "correct": false
+      },
+      {
+        "id": "e",
+        "text": "Firmas digitales.",
+        "correct": false
+      },
+      {
+        "id": "f",
+        "text": "WiFi.",
+        "correct": false
+      }
+    ],
+    "why": "Una VPN de acceso remoto permite a usuarios individuales (teletrabajadores desde sus hogares) conectarse de forma segura a la red privada de la empresa a través de Internet."
+  },
+  {
+    "id": 81,
+    "type": "multiple",
+    "category": "teorica",
+    "unidad": 6,
+    "tema_id": "seguridad",
+    "tema": "Seguridad en las Redes",
+    "subtema": "Características de las Redes Privadas Virtuales (VPN)",
+    "question": "¿Cuáles de las siguientes son características de las redes privadas virtuales? Seleccione dos opciones:",
+    "options": [
+      {
+        "id": "a",
+        "text": "Permiten que las empresas conecten sus oficinas y sucursales a un costo reducido.",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "text": "Requiere que la empresa contrate líneas dedicadas.",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Permiten que los empleados se conecten de manera remota a los recursos de la organización.",
+        "correct": true
+      },
+      {
+        "id": "d",
+        "text": "Requiere que se configuren DMZ.",
+        "correct": false
+      },
+      {
+        "id": "e",
+        "text": "Requiere que los empleados se registren en un servidor DNS.",
+        "correct": false
+      },
+      {
+        "id": "f",
+        "text": "La información que viaja por Internet queda expuesta a ataques pasivos y activos.",
+        "correct": false
+      }
+    ],
+    "why": "Las VPN utilizan la infraestructura pública de Internet mediante túneles cifrados, permitiendo tanto interconectar sucursales (VPN sitio a sitio) a bajo costo sin alquilar líneas dedicadas, como conectar empleados remotos (VPN de acceso)."
+  },
+  {
+    "id": 82,
+    "type": "multiple",
+    "category": "practica",
+    "image": "p3_wireshark_fin_ack.png",
+    "unidad": 5,
+    "tema_id": "wireshark",
+    "tema": "Análisis de Capturas Wireshark",
+    "subtema": "Cierre de conexión TCP (FIN, ACK)",
+    "question": "¿Cuáles de las siguientes afirmaciones son correctas a partir de la siguiente captura de Wireshark? (seleccione dos opciones)",
+    "options": [
+      {
+        "id": "a",
+        "text": "Es un segmento de establecimiento de conexión entre una PC y un servidor Web.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "La PC recibió correctamente datos desde el servidor Web hasta el byte 1298 inclusive.",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "El segmento debe entregarse de inmediato a la aplicación en el destino.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Es un segmento destinado a un servidor HTTPS.",
+        "correct": false
+      },
+      {
+        "id": "e",
+        "text": "El servidor Web recibió correctamente datos de la PC hasta el byte 3067 inclusive.",
+        "correct": false
+      },
+      {
+        "id": "f",
+        "text": "El servidor Web recibió correctamente datos desde la PC hasta el byte 1298 inclusive.",
+        "correct": true
+      },
+      {
+        "id": "g",
+        "text": "El servidor Web le informa a la PC que finalizará la conexión del socket.",
+        "correct": true
+      },
+      {
+        "id": "h",
+        "text": "Se están enviando datos urgentes en el segmento.",
+        "correct": false
+      }
+    ],
+    "why": "El segmento tiene Source Port = 443 (proviene del servidor Web HTTPS) y Destination Port = 64830 (hacia la PC). Los flags activos son FIN y ACK (0x011) con Acknowledgment number = 1299: por ende, el servidor Web informa a la PC que finalizará la conexión (FIN) y confirma haber recibido datos desde la PC hasta el byte 1298 inclusive (ACK=1299)."
+  },
+  {
+    "id": 83,
+    "type": "multiple",
+    "category": "practica",
+    "image": "p3_wireshark_syn_ack.png",
+    "unidad": 5,
+    "tema_id": "wireshark",
+    "tema": "Análisis de Capturas Wireshark",
+    "subtema": "Segundo paso del saludo de 3 vías (SYN, ACK)",
+    "question": "¿Cuáles de las siguientes afirmaciones son correctas a partir de la siguiente captura de Wireshark? (seleccione dos opciones)",
+    "options": [
+      {
+        "id": "a",
+        "text": "El servidor web recibió correctamente datos de la PC hasta el byte 65534 Inclusive.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "El segmento debe entregarse de inmediato a la aplicación en el destino.",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "El Servidor Web le informa a la PC el tamaño máximo del segmento y el escalado de ventana que manejará.",
+        "correct": true
+      },
+      {
+        "id": "d",
+        "text": "Es un segmento de finalización de conexión entre una PC y un servidor Web.",
+        "correct": false
+      },
+      {
+        "id": "e",
+        "text": "El servidor Web acepta la conexión e inicia un nuevo socket hacia la PC.",
+        "correct": true
+      },
+      {
+        "id": "f",
+        "text": "Es un segmento proveniente desde un servidor DNS.",
+        "correct": false
+      }
+    ],
+    "why": "El segmento proviene del puerto 443 (servidor Web HTTPS) hacia el puerto 52086 (PC), tiene los flags SYN y ACK encendidos (Seq=0, Ack=1) e incluye en Options: Maximum segment size (MSS) y Window scale. Es el 2° segmento del 3-way handshake donde el servidor acepta la conexión y negocia MSS y escalado de ventana."
+  },
+  {
+    "id": 84,
+    "type": "multiple",
+    "category": "practica",
+    "image": "p3_wireshark_ack_49.png",
+    "unidad": 5,
+    "tema_id": "wireshark",
+    "tema": "Análisis de Capturas Wireshark",
+    "subtema": "Confirmación de datos en sesión HTTPS (ACK = 49)",
+    "question": "¿Cuáles de las siguientes afirmaciones son correctas a partir de la siguiente captura de Wireshark? (seleccione dos opciones):",
+    "options": [
+      {
+        "id": "a",
+        "text": "Es un segmento de finalización de conexión entre una PC y un servidor Web.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "La PC cliente recibió correctamente datos desde el Servidor Web hasta el byte 48 inclusive.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "Es un segmento destinado a un servidor HTTPS.",
+        "correct": true
+      },
+      {
+        "id": "d",
+        "text": "Se están enviando datos urgentes en el segmento.",
+        "correct": false
+      },
+      {
+        "id": "e",
+        "text": "Es un segmento de establecimiento de conexión entre una PC y un servidor Web.",
+        "correct": false
+      },
+      {
+        "id": "f",
+        "text": "El servidor Web recibió correctamente datos de la PC hasta el byte 48 inclusive.",
+        "correct": false
+      },
+      {
+        "id": "g",
+        "text": "El segmento debe entregarse de inmediato a la aplicación en el destino.",
+        "correct": false
+      }
+    ],
+    "why": "El segmento va de la PC (192.168.1.100, puerto 59256) al servidor HTTPS (13.107.42.11, Destination Port = 443) con el flag ACK activo y Acknowledgment number = 49. Como Ack=49 (y no 1), el saludo de 3 vías ya concluyó previamente y la PC está confirmando que recibió correctamente los datos enviados por el servidor Web hasta el byte 48 inclusive."
+  },
+  {
+    "id": 85,
+    "type": "multiple",
+    "category": "practica",
+    "image": "p3_wireshark_syn.png",
+    "unidad": 5,
+    "tema_id": "wireshark",
+    "tema": "Análisis de Capturas Wireshark",
+    "subtema": "Primer paso del saludo de 3 vías (SYN)",
+    "question": "¿Cuáles de las siguientes afirmaciones son correctas a partir de la siguiente captura de Wireshark? (seleccione dos opciones):",
+    "options": [
+      {
+        "id": "a",
+        "text": "El servidor Web recibió correctamente datos de la PC hasta el byte 64240 Inclusive.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Es un segmento proveniente desde un servidor Web.",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "El segmento debe entregarse de inmediato a la aplicación en el destino.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Es un segmento de finalización de conexión entre una PC y un servidor Web.",
+        "correct": false
+      },
+      {
+        "id": "e",
+        "text": "Una PC desea iniciar una conexión con un servidor Web.",
+        "correct": true
+      },
+      {
+        "id": "f",
+        "text": "La PC cliente recibió correctamente datos desde el Servidor Web hasta el byte 1 inclusive.",
+        "correct": false
+      },
+      {
+        "id": "g",
+        "text": "La PC le informa al servidor Web su tamaño máximo del segmento y su escalado de ventana.",
+        "correct": true
+      }
+    ],
+    "why": "El segmento va desde un puerto efímero de la PC (Source Port = 52086) hacia un servidor Web HTTPS (Destination Port = 443), con el flag SYN encendido (0x002, Seq=0, Ack=0) y las opciones Maximum segment size y Window scale. Corresponde al 1° paso del saludo de 3 vías donde la PC solicita iniciar la conexión y anuncia su MSS y factor de escalado de ventana."
+  }
+]

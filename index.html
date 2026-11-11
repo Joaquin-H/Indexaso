@@ -248,6 +248,10 @@
               <span class="emoji"><i class="bi bi-diagram-3"></i></span>
               <span class="label">REDES P2</span>
             </button>
+            <button class="quiz-type-btn" data-quiz="quizRedesParcial3">
+              <span class="emoji"><i class="bi bi-shield-lock"></i></span>
+              <span class="label">REDES P3</span>
+            </button>
           </div>
           <div class="sidebar-content" id="sidebarContent" style="display:none">
             <div class="d-flex justify-content-between align-items-center mb-3">
@@ -460,6 +464,16 @@
         defaultCategory: 'nucleo',
         showCategoryCounts: true,
         levelFilter: true
+      },
+      quizRedesParcial3: {
+        title: 'Preguntas Redes Parcial 3',
+        jsonPath: 'redes/redes-parcial3.json',
+        resourceBase: 'redes/resources/',
+        questionsPerPage: 55,
+        categoryFilter: true,
+        visibleCategories: ['all', 'teorica', 'practica'],
+        defaultCategory: 'all',
+        showCategoryCounts: true
       }
     };
 
