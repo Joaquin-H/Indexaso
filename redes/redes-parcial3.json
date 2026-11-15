@@ -45,7 +45,8 @@
         "correct": false
       }
     ],
-    "why": "Un socket queda identificado por el par (Dirección IP + Número de puerto), y TCP en el receptor reensambla y entrega los datos en orden a la capa de aplicación (demultiplexando, en conexión lógica full-duplex)."
+    "why": "Un socket queda identificado por el par (Dirección IP + Número de puerto), y TCP en el receptor reensambla y entrega los datos en orden a la capa de aplicación (demultiplexando, en conexión lógica full-duplex).",
+    "nivel": "nucleo"
   },
   {
     "id": 2,
@@ -93,7 +94,8 @@
         "correct": false
       }
     ],
-    "why": "Un socket es el punto final de una conexión y se identifica unívocamente mediante la dirección IP del host más el número de puerto lógico (16 bits)."
+    "why": "Un socket es el punto final de una conexión y se identifica unívocamente mediante la dirección IP del host más el número de puerto lógico (16 bits).",
+    "nivel": "nucleo"
   },
   {
     "id": 3,
@@ -136,7 +138,8 @@
         "correct": false
       }
     ],
-    "why": "Los campos Puerto Origen y Puerto Destino en TCP y UDP tienen 16 bits, permitiendo numerar puertos desde 0 hasta 65.535."
+    "why": "Los campos Puerto Origen y Puerto Destino en TCP y UDP tienen 16 bits, permitiendo numerar puertos desde 0 hasta 65.535.",
+    "nivel": "nucleo"
   },
   {
     "id": 4,
@@ -189,7 +192,8 @@
         "correct": true
       }
     ],
-    "why": "Una conexión de capa de transporte entre dos extremos A y B queda identificada por el par de sockets: (IP de A, Puerto de A) y (IP de B, Puerto de B)."
+    "why": "Una conexión de capa de transporte entre dos extremos A y B queda identificada por el par de sockets: (IP de A, Puerto de A) y (IP de B, Puerto de B).",
+    "nivel": "nucleo"
   },
   {
     "id": 5,
@@ -222,7 +226,8 @@
         "correct": true
       }
     ],
-    "why": "En el receptor (destino), TCP recibe los segmentos desde la capa de interred (red), los reordena/reensambla quitando el encabezado TCP y entrega el flujo de datos a la capa de aplicación."
+    "why": "En el receptor (destino), TCP recibe los segmentos desde la capa de interred (red), los reordena/reensambla quitando el encabezado TCP y entrega el flujo de datos a la capa de aplicación.",
+    "nivel": "extra"
   },
   {
     "id": 6,
@@ -260,7 +265,8 @@
         "correct": true
       }
     ],
-    "why": "TCP garantiza fiabilidad mediante el Número de secuencia (ordenamiento y detección de pérdidas), el Número de reconocimiento (ACK) y la Suma de verificación (detección de errores en cabecera y datos)."
+    "why": "TCP garantiza fiabilidad mediante el Número de secuencia (ordenamiento y detección de pérdidas), el Número de reconocimiento (ACK) y la Suma de verificación (detección de errores en cabecera y datos).",
+    "nivel": "extra"
   },
   {
     "id": 7,
@@ -318,7 +324,8 @@
         "correct": false
       }
     ],
-    "why": "Los tres campos del encabezado TCP que garantizan la entrega fiable y libre de errores son: Número de secuencia, Número de reconocimiento (ACK) y Suma de verificación (Checksum)."
+    "why": "Los tres campos del encabezado TCP que garantizan la entrega fiable y libre de errores son: Número de secuencia, Número de reconocimiento (ACK) y Suma de verificación (Checksum).",
+    "nivel": "nucleo"
   },
   {
     "id": 8,
@@ -366,7 +373,8 @@
         "correct": false
       }
     ],
-    "why": "El flag CWR (Congestion Window Reduced) es activado por el host emisor para informar al receptor que recibió la notificación de congestión (ECE) y ya redujo su ventana de congestión."
+    "why": "El flag CWR (Congestion Window Reduced) es activado por el host emisor para informar al receptor que recibió la notificación de congestión (ECE) y ya redujo su ventana de congestión.",
+    "nivel": "extra"
   },
   {
     "id": 9,
@@ -404,7 +412,8 @@
         "correct": false
       }
     ],
-    "why": "El Número de reconocimiento indica el siguiente byte que el emisor del segmento (“A”) espera recibir de “B”. Por lo tanto, si A envía ACK=1800 a B, significa que A recibió correctamente todos los bytes desde B hasta el 1799 inclusive."
+    "why": "El Número de reconocimiento indica el siguiente byte que el emisor del segmento (“A”) espera recibir de “B”. Por lo tanto, si A envía ACK=1800 a B, significa que A recibió correctamente todos los bytes desde B hasta el 1799 inclusive.",
+    "nivel": "nucleo"
   },
   {
     "id": 10,
@@ -447,7 +456,8 @@
         "correct": false
       }
     ],
-    "why": "El control de flujo extremo a extremo en TCP se implementa mediante el campo Tamaño de ventana de recepción (Window Size) de la cabecera TCP, con el cual el receptor informa cuántos bytes libres tiene en su búfer."
+    "why": "El control de flujo extremo a extremo en TCP se implementa mediante el campo Tamaño de ventana de recepción (Window Size) de la cabecera TCP, con el cual el receptor informa cuántos bytes libres tiene en su búfer.",
+    "nivel": "nucleo"
   },
   {
     "id": 11,
@@ -485,7 +495,8 @@
         "correct": false
       }
     ],
-    "why": "El parámetro MSS (Maximum Segment Size), negociado en el campo Opciones durante el saludo de 3 vías (segmentos SYN), establece el tamaño máximo de carga útil que podrán tener los segmentos TCP."
+    "why": "El parámetro MSS (Maximum Segment Size), negociado en el campo Opciones durante el saludo de 3 vías (segmentos SYN), establece el tamaño máximo de carga útil que podrán tener los segmentos TCP.",
+    "nivel": "extra"
   },
   {
     "id": 12,
@@ -528,7 +539,8 @@
         "correct": false
       }
     ],
-    "why": "La ventana de recepción varía dinámicamente según el espacio libre en el búfer del receptor. Si llega a 0 (búfer lleno), el emisor debe detener el envío de datos (salvo sondeos de persistencia)."
+    "why": "La ventana de recepción varía dinámicamente según el espacio libre en el búfer del receptor. Si llega a 0 (búfer lleno), el emisor debe detener el envío de datos (salvo sondeos de persistencia).",
+    "nivel": "extra"
   },
   {
     "id": 13,
@@ -566,7 +578,8 @@
         "correct": true
       }
     ],
-    "why": "La cantidad máxima de datos que un emisor TCP puede inyectar está limitada por el mínimo entre la ventana de congestión y la ventana de recepción: min(cwnd, rwnd). Como 6000 bytes es menor que 8 Mbps, A reduce su envío a 6000 bytes para no saturar a B."
+    "why": "La cantidad máxima de datos que un emisor TCP puede inyectar está limitada por el mínimo entre la ventana de congestión y la ventana de recepción: min(cwnd, rwnd). Como 6000 bytes es menor que 8 Mbps, A reduce su envío a 6000 bytes para no saturar a B.",
+    "nivel": "nucleo"
   },
   {
     "id": 14,
@@ -604,7 +617,8 @@
         "correct": false
       }
     ],
-    "why": "En el 3-way handshake: el 1° segmento lleva SYN=1; el 2° segmento lleva SYN=1 y ACK=1; y el 3° segmento lleva únicamente ACK=1 (con SYN=0)."
+    "why": "En el 3-way handshake: el 1° segmento lleva SYN=1; el 2° segmento lleva SYN=1 y ACK=1; y el 3° segmento lleva únicamente ACK=1 (con SYN=0).",
+    "nivel": "nucleo"
   },
   {
     "id": 15,
@@ -647,7 +661,8 @@
         "correct": true
       }
     ],
-    "why": "FTP (puertos 20/21), HTTP (puerto 80) y SMTP (puerto 25) requieren transporte confiable orientado a conexión (TCP). TFTP, SNMP y las consultas habituales de DNS operan sobre UDP."
+    "why": "FTP (puertos 20/21), HTTP (puerto 80) y SMTP (puerto 25) requieren transporte confiable orientado a conexión (TCP). TFTP, SNMP y las consultas habituales de DNS operan sobre UDP.",
+    "nivel": "extra"
   },
   {
     "id": 16,
@@ -700,7 +715,8 @@
         "correct": true
       }
     ],
-    "why": "El encabezado UDP tiene 8 bytes fijos divididos en 4 campos de 16 bits: Puerto origen, Puerto destino, Longitud total y Suma de comprobación (Checksum)."
+    "why": "El encabezado UDP tiene 8 bytes fijos divididos en 4 campos de 16 bits: Puerto origen, Puerto destino, Longitud total y Suma de comprobación (Checksum).",
+    "nivel": "nucleo"
   },
   {
     "id": 17,
@@ -743,7 +759,8 @@
         "correct": false
       }
     ],
-    "why": "La resolución de dominios (DNS, puerto 53) y el protocolo de encaminamiento RIP (puerto 520) utilizan UDP. HTTP, FTP, BGP y SMTP utilizan TCP."
+    "why": "La resolución de dominios (DNS, puerto 53) y el protocolo de encaminamiento RIP (puerto 520) utilizan UDP. HTTP, FTP, BGP y SMTP utilizan TCP.",
+    "nivel": "nucleo"
   },
   {
     "id": 18,
@@ -791,7 +808,8 @@
         "correct": false
       }
     ],
-    "why": "TFTP (puerto 69), DNS (puerto 53) y SNMP (puertos 161/162) corren sobre el protocolo UDP. HTTP, FTP, POP3 y SMTP corren sobre TCP."
+    "why": "TFTP (puerto 69), DNS (puerto 53) y SNMP (puertos 161/162) corren sobre el protocolo UDP. HTTP, FTP, POP3 y SMTP corren sobre TCP.",
+    "nivel": "extra"
   },
   {
     "id": 19,
@@ -829,7 +847,8 @@
         "correct": false
       }
     ],
-    "why": "NAT (Network Address Translation) fue diseñada para mitigar el agotamiento de direcciones IPv4 públicas permitiendo usar direccionamiento privado internamente y traducirlo al salir a Internet."
+    "why": "NAT (Network Address Translation) fue diseñada para mitigar el agotamiento de direcciones IPv4 públicas permitiendo usar direccionamiento privado internamente y traducirlo al salir a Internet.",
+    "nivel": "nucleo"
   },
   {
     "id": 20,
@@ -867,7 +886,8 @@
         "correct": false
       }
     ],
-    "why": "En NAT estática existe una asignación permanente 1 a 1 entre una IP privada y una IP pública, lo que permite que hosts en Internet inicien conexiones hacia un servidor interno."
+    "why": "En NAT estática existe una asignación permanente 1 a 1 entre una IP privada y una IP pública, lo que permite que hosts en Internet inicien conexiones hacia un servidor interno.",
+    "nivel": "nucleo"
   },
   {
     "id": 21,
@@ -910,7 +930,8 @@
         "correct": false
       }
     ],
-    "why": "NAT dinámica utiliza un pool (conjunto) de direcciones IPv4 públicas que se asignan dinámicamente bajo demanda a los hosts internos mientras dura su comunicación con Internet."
+    "why": "NAT dinámica utiliza un pool (conjunto) de direcciones IPv4 públicas que se asignan dinámicamente bajo demanda a los hosts internos mientras dura su comunicación con Internet.",
+    "nivel": "nucleo"
   },
   {
     "id": 22,
@@ -948,7 +969,8 @@
         "correct": false
       }
     ],
-    "why": "El 20% de 400 PC equivale a un máximo de 80 equipos conectados simultáneamente. Como se dispone exactamente de un pool de 80 direcciones IP públicas, alcanza con implementar NAT dinámico."
+    "why": "El 20% de 400 PC equivale a un máximo de 80 equipos conectados simultáneamente. Como se dispone exactamente de un pool de 80 direcciones IP públicas, alcanza con implementar NAT dinámico.",
+    "nivel": "nucleo"
   },
   {
     "id": 23,
@@ -996,7 +1018,8 @@
         "correct": false
       }
     ],
-    "why": "El 25% de 600 equivale a 150 equipos simultáneos, pero el ISP asignó una única dirección IP pública (200.12.24.49). Para compartir una sola IP pública entre múltiples hosts se debe configurar PAT (Traducción a nivel de puerto)."
+    "why": "El 25% de 600 equivale a 150 equipos simultáneos, pero el ISP asignó una única dirección IP pública (200.12.24.49). Para compartir una sola IP pública entre múltiples hosts se debe configurar PAT (Traducción a nivel de puerto).",
+    "nivel": "nucleo"
   },
   {
     "id": 24,
@@ -1040,7 +1063,8 @@
         "correct": false
       }
     ],
-    "why": "El paquete proviene del Servidor Web (IP Origen = 64.7.8.9) y aún viaja por Internet antes de ser traducido por el router, por lo que su IP Destino es la IP pública asignada a PC-B (10.10.0.6 -> 200.12.4.7 según la tabla de traducción)."
+    "why": "El paquete proviene del Servidor Web (IP Origen = 64.7.8.9) y aún viaja por Internet antes de ser traducido por el router, por lo que su IP Destino es la IP pública asignada a PC-B (10.10.0.6 -> 200.12.4.7 según la tabla de traducción).",
+    "nivel": "extra"
   },
   {
     "id": 25,
@@ -1084,7 +1108,8 @@
         "correct": false
       }
     ],
-    "why": "El paquete viaja desde el servidor Web (Origen 34.5.6.7:80) hacia la interfaz pública del router (Destino 200.2.4.6, puerto traducido 50.602 / 602 correspondiente a la sesión de PC-B 10.10.0.15)."
+    "why": "El paquete viaja desde el servidor Web (Origen 34.5.6.7:80) hacia la interfaz pública del router (Destino 200.2.4.6, puerto traducido 50.602 / 602 correspondiente a la sesión de PC-B 10.10.0.15).",
+    "nivel": "extra"
   },
   {
     "id": 26,
@@ -1128,7 +1153,8 @@
         "correct": true
       }
     ],
-    "why": "Al viajar desde el router hacia el servidor Web en Internet, el router ya tradujo la IP y puerto privados de PC-B (10.10.0.15:50.601) a la IP y puerto públicos (Origen: 200.2.4.6: 50.602) con destino al servidor Web (34.5.6.7: 80). Nota: en algunos apuntes se marcó por error la opción d confundiéndola con la pregunta en sentido inverso."
+    "why": "Al viajar desde el router hacia el servidor Web en Internet, el router ya tradujo la IP y puerto privados de PC-B (10.10.0.15:50.601) a la IP y puerto públicos (Origen: 200.2.4.6: 50.602) con destino al servidor Web (34.5.6.7: 80). Nota: en algunos apuntes se marcó por error la opción d confundiéndola con la pregunta en sentido inverso.",
+    "nivel": "extra"
   },
   {
     "id": 27,
@@ -1166,7 +1192,8 @@
         "correct": false
       }
     ],
-    "why": "Cuando el paquete viaja desde el router hacia la PC dentro de la LAN, su origen sigue siendo la IP pública y puerto 80 del servidor Web (140.5.6.7:80) y el destino ya fue traducido a la IP privada y puerto efímero de la PC (172.16.3.6:53000)."
+    "why": "Cuando el paquete viaja desde el router hacia la PC dentro de la LAN, su origen sigue siendo la IP pública y puerto 80 del servidor Web (140.5.6.7:80) y el destino ya fue traducido a la IP privada y puerto efímero de la PC (172.16.3.6:53000).",
+    "nivel": "extra"
   },
   {
     "id": 28,
@@ -1209,7 +1236,8 @@
         "correct": false
       }
     ],
-    "why": "El puerto 53 corresponde al servicio DNS. Como 53 está en el puerto de origen y 52000 (puerto efímero) está en el puerto de destino, se trata de una respuesta enviada desde un servidor DNS hacia el cliente."
+    "why": "El puerto 53 corresponde al servicio DNS. Como 53 está en el puerto de origen y 52000 (puerto efímero) está en el puerto de destino, se trata de una respuesta enviada desde un servidor DNS hacia el cliente.",
+    "nivel": "extra"
   },
   {
     "id": 29,
@@ -1252,7 +1280,8 @@
         "correct": true
       }
     ],
-    "why": "Los servidores raíz (root servers) se ubican en el tope del árbol DNS y conocen las direcciones de los servidores intermedios encargados de cada dominio de nivel superior (TLD: .com, .org, .ar, .es, etc.)."
+    "why": "Los servidores raíz (root servers) se ubican en el tope del árbol DNS y conocen las direcciones de los servidores intermedios encargados de cada dominio de nivel superior (TLD: .com, .org, .ar, .es, etc.).",
+    "nivel": "nucleo"
   },
   {
     "id": 30,
@@ -1285,7 +1314,8 @@
         "correct": false
       }
     ],
-    "why": "En Internet se implementan ambas de forma combinada: el cliente DNS (PC) realiza una consulta recursiva a su servidor DNS local, y el servidor DNS local realiza consultas iterativas a los servidores raíz, intermedios (TLD) y autorizados."
+    "why": "En Internet se implementan ambas de forma combinada: el cliente DNS (PC) realiza una consulta recursiva a su servidor DNS local, y el servidor DNS local realiza consultas iterativas a los servidores raíz, intermedios (TLD) y autorizados.",
+    "nivel": "nucleo"
   },
   {
     "id": 31,
@@ -1328,7 +1358,8 @@
         "correct": false
       }
     ],
-    "why": "En el preguntero de cátedra esta definición está asociada a “Consulta a la caché” (también relacionada conceptualmente al comportamiento iterativo donde el servidor responde inmediatamente con lo que tiene en su base/caché o una referencia sin consultar a otros en nombre del cliente)."
+    "why": "En el preguntero de cátedra esta definición está asociada a “Consulta a la caché” (también relacionada conceptualmente al comportamiento iterativo donde el servidor responde inmediatamente con lo que tiene en su base/caché o una referencia sin consultar a otros en nombre del cliente).",
+    "nivel": "extra"
   },
   {
     "id": 32,
@@ -1376,7 +1407,8 @@
         "correct": false
       }
     ],
-    "why": "El comando ipconfig /flushdns vacía la memoria caché de resolución DNS del cliente (mientras que ipconfig /displaydns permite visualizarla)."
+    "why": "El comando ipconfig /flushdns vacía la memoria caché de resolución DNS del cliente (mientras que ipconfig /displaydns permite visualizarla).",
+    "nivel": "nucleo"
   },
   {
     "id": 33,
@@ -1414,7 +1446,8 @@
         "correct": false
       }
     ],
-    "why": "Cuando el servidor DNS local no tiene el registro en su caché, inicia la búsqueda jerárquica consultando primero a un servidor raíz (por ejemplo, c.root-servers.net)."
+    "why": "Cuando el servidor DNS local no tiene el registro en su caché, inicia la búsqueda jerárquica consultando primero a un servidor raíz (por ejemplo, c.root-servers.net).",
+    "nivel": "extra"
   },
   {
     "id": 34,
@@ -1457,7 +1490,8 @@
         "correct": false
       }
     ],
-    "why": "El registro MX (Mail Exchange) devuelve el nombre de dominio del servidor de correo electrónico encargado de recibir correos para ese dominio."
+    "why": "El registro MX (Mail Exchange) devuelve el nombre de dominio del servidor de correo electrónico encargado de recibir correos para ese dominio.",
+    "nivel": "nucleo"
   },
   {
     "id": 35,
@@ -1500,7 +1534,8 @@
         "correct": false
       }
     ],
-    "why": "El registro de recurso tipo AAAA asocia un nombre de dominio con una dirección IPv6 de 128 bits (mientras que el tipo A lo asocia con una IPv4 de 32 bits)."
+    "why": "El registro de recurso tipo AAAA asocia un nombre de dominio con una dirección IPv6 de 128 bits (mientras que el tipo A lo asocia con una IPv4 de 32 bits).",
+    "nivel": "extra"
   },
   {
     "id": 36,
@@ -1543,7 +1578,8 @@
         "correct": false
       }
     ],
-    "why": "El registro NS (Name Server) indica cuáles son los servidores de nombres (DNS) autorizados para una zona o dominio."
+    "why": "El registro NS (Name Server) indica cuáles son los servidores de nombres (DNS) autorizados para una zona o dominio.",
+    "nivel": "extra"
   },
   {
     "id": 37,
@@ -1591,7 +1627,8 @@
         "correct": false
       }
     ],
-    "why": "201.56.89.10 es una dirección IPv4, la cual se obtiene mediante una consulta DNS por un registro de recurso de tipo A (Address)."
+    "why": "201.56.89.10 es una dirección IPv4, la cual se obtiene mediante una consulta DNS por un registro de recurso de tipo A (Address).",
+    "nivel": "extra"
   },
   {
     "id": 38,
@@ -1629,7 +1666,8 @@
         "correct": true
       }
     ],
-    "why": "Primero la PC revisa su caché local; si no está, consulta a su servidor DNS local, el cual consulta sucesivamente al servidor raíz (.), al servidor intermedio TLD (.es) y finalmente al servidor autorizado (upm.es)."
+    "why": "Primero la PC revisa su caché local; si no está, consulta a su servidor DNS local, el cual consulta sucesivamente al servidor raíz (.), al servidor intermedio TLD (.es) y finalmente al servidor autorizado (upm.es).",
+    "nivel": "nucleo"
   },
   {
     "id": 39,
@@ -1677,7 +1715,8 @@
         "correct": false
       }
     ],
-    "why": "El intercambio de correos entre Agentes de Transferencia de Correo (MTA, servidores de correo) se realiza exclusivamente mediante el protocolo SMTP (TCP puerto 25)."
+    "why": "El intercambio de correos entre Agentes de Transferencia de Correo (MTA, servidores de correo) se realiza exclusivamente mediante el protocolo SMTP (TCP puerto 25).",
+    "nivel": "nucleo"
   },
   {
     "id": 40,
@@ -1725,7 +1764,8 @@
         "correct": false
       }
     ],
-    "why": "Para enviar (subir) un mensaje desde el Agente de Usuario (MUA en la PC) hacia el servidor de correo saliente (MTA) se utiliza el protocolo SMTP (POP3 e IMAP son sólo para lectura/recepción)."
+    "why": "Para enviar (subir) un mensaje desde el Agente de Usuario (MUA en la PC) hacia el servidor de correo saliente (MTA) se utiliza el protocolo SMTP (POP3 e IMAP son sólo para lectura/recepción).",
+    "nivel": "nucleo"
   },
   {
     "id": 41,
@@ -1778,7 +1818,8 @@
         "correct": false
       }
     ],
-    "why": "POP3 es un protocolo sencillo que corre sobre TCP en el puerto 110 y está diseñado para descargar los mensajes del servidor a la computadora local del usuario."
+    "why": "POP3 es un protocolo sencillo que corre sobre TCP en el puerto 110 y está diseñado para descargar los mensajes del servidor a la computadora local del usuario.",
+    "nivel": "nucleo"
   },
   {
     "id": 42,
@@ -1826,7 +1867,8 @@
         "correct": false
       }
     ],
-    "why": "IMAP (Internet Message Access Protocol) opera sobre TCP puerto 143 y mantiene los correos en el servidor, permitiendo gestionarlos de forma sincronizada desde múltiples dispositivos."
+    "why": "IMAP (Internet Message Access Protocol) opera sobre TCP puerto 143 y mantiene los correos en el servidor, permitiendo gestionarlos de forma sincronizada desde múltiples dispositivos.",
+    "nivel": "nucleo"
   },
   {
     "id": 43,
@@ -1864,7 +1906,8 @@
         "correct": false
       }
     ],
-    "why": "El puerto origen 52000 es un puerto efímero de cliente (PC) y el puerto destino 143 corresponde a un servidor IMAP; por ende, es una solicitud desde una PC hacia un servidor IMAP."
+    "why": "El puerto origen 52000 es un puerto efímero de cliente (PC) y el puerto destino 143 corresponde a un servidor IMAP; por ende, es una solicitud desde una PC hacia un servidor IMAP.",
+    "nivel": "nucleo"
   },
   {
     "id": 44,
@@ -1917,7 +1960,8 @@
         "correct": true
       }
     ],
-    "why": "Según el material de cátedra, los campos utilizados por los MTA para el encaminamiento y registro del transporte del correo incluyen To, Bcc (y Cc) para conocer los destinatarios y Received (agregado por cada MTA intermedio)."
+    "why": "Según el material de cátedra, los campos utilizados por los MTA para el encaminamiento y registro del transporte del correo incluyen To, Bcc (y Cc) para conocer los destinatarios y Received (agregado por cada MTA intermedio).",
+    "nivel": "extra"
   },
   {
     "id": 45,
@@ -1965,7 +2009,8 @@
         "correct": false
       }
     ],
-    "why": "Los campos propios de la cabecera RFC 822 procesados por los Agentes de Usuario (MUA) sin intervenir en el enrutamiento de los MTA incluyen Subject, Date, Message-Id y Reply-To."
+    "why": "Los campos propios de la cabecera RFC 822 procesados por los Agentes de Usuario (MUA) sin intervenir en el enrutamiento de los MTA incluyen Subject, Date, Message-Id y Reply-To.",
+    "nivel": "extra"
   },
   {
     "id": 46,
@@ -2003,7 +2048,8 @@
         "correct": false
       }
     ],
-    "why": "MIME incorpora 5 campos propios al encabezado: MIME-Version, Content-Description, Content-Id, Content-Transfer-Encoding y Content-Type."
+    "why": "MIME incorpora 5 campos propios al encabezado: MIME-Version, Content-Description, Content-Id, Content-Transfer-Encoding y Content-Type.",
+    "nivel": "nucleo"
   },
   {
     "id": 47,
@@ -2041,7 +2087,8 @@
         "correct": true
       }
     ],
-    "why": "Content-Transfer-Encoding es uno de los encabezados propios de MIME e indica cómo se codificó el cuerpo del mensaje para su transmisión (por ejemplo, Base64, 7bit, 8bit)."
+    "why": "Content-Transfer-Encoding es uno de los encabezados propios de MIME e indica cómo se codificó el cuerpo del mensaje para su transmisión (por ejemplo, Base64, 7bit, 8bit).",
+    "nivel": "extra"
   },
   {
     "id": 48,
@@ -2084,7 +2131,8 @@
         "correct": true
       }
     ],
-    "why": "En MIME el contenido se especifica con el formato tipo/subtipo dentro de Content-Type; para una imagen GIF corresponde Image/Gif."
+    "why": "En MIME el contenido se especifica con el formato tipo/subtipo dentro de Content-Type; para una imagen GIF corresponde Image/Gif.",
+    "nivel": "nucleo"
   },
   {
     "id": 49,
@@ -2132,7 +2180,8 @@
         "correct": true
       }
     ],
-    "why": "Los 7 tipos de contenido definidos en MIME son: Text, Image, Audio, Video, Application, Message y Multipart. “Presentation” no existe como tipo MIME."
+    "why": "Los 7 tipos de contenido definidos en MIME son: Text, Image, Audio, Video, Application, Message y Multipart. “Presentation” no existe como tipo MIME.",
+    "nivel": "extra"
   },
   {
     "id": 50,
@@ -2175,7 +2224,8 @@
         "correct": false
       }
     ],
-    "why": "Un documento PDF se clasifica dentro del tipo Application y subtipo PDF, expresado como Application/PDF."
+    "why": "Un documento PDF se clasifica dentro del tipo Application y subtipo PDF, expresado como Application/PDF.",
+    "nivel": "extra"
   },
   {
     "id": 51,
@@ -2223,7 +2273,8 @@
         "correct": true
       }
     ],
-    "why": "FTP permite transferir archivos entre cliente y servidor sobre TCP usando dos tipos de conexiones: una conexión de control persistente (puerto 21) para comandos y conexiones de datos no persistentes (puerto 20) para cada transferencia."
+    "why": "FTP permite transferir archivos entre cliente y servidor sobre TCP usando dos tipos de conexiones: una conexión de control persistente (puerto 21) para comandos y conexiones de datos no persistentes (puerto 20) para cada transferencia.",
+    "nivel": "nucleo"
   },
   {
     "id": 52,
@@ -2271,7 +2322,8 @@
         "correct": false
       }
     ],
-    "why": "Cada conexión TCP establecida requiere 2 sockets (1 en el cliente y 1 en el servidor). Al haberse iniciado dos conexiones hacia dos servidores distintos, intervienen en total 4 sockets TCP (2 en la PC cliente y 1 en cada servidor)."
+    "why": "Cada conexión TCP establecida requiere 2 sockets (1 en el cliente y 1 en el servidor). Al haberse iniciado dos conexiones hacia dos servidores distintos, intervienen en total 4 sockets TCP (2 en la PC cliente y 1 en cada servidor).",
+    "nivel": "nucleo"
   },
   {
     "id": 53,
@@ -2314,7 +2366,8 @@
         "correct": false
       }
     ],
-    "why": "TFTP (Trivial File Transfer Protocol) corre sobre el protocolo de transporte UDP utilizando el puerto 69 (e implementa su propio mecanismo de parada y espera con ACK por bloque)."
+    "why": "TFTP (Trivial File Transfer Protocol) corre sobre el protocolo de transporte UDP utilizando el puerto 69 (e implementa su propio mecanismo de parada y espera con ACK por bloque).",
+    "nivel": "nucleo"
   },
   {
     "id": 54,
@@ -2362,7 +2415,8 @@
         "correct": true
       }
     ],
-    "why": "Los servidores TFTP se utilizan habitualmente en redes empresariales para respaldar configuraciones de routers/switches, actualizar firmware e iniciar sistemas operativos por red."
+    "why": "Los servidores TFTP se utilizan habitualmente en redes empresariales para respaldar configuraciones de routers/switches, actualizar firmware e iniciar sistemas operativos por red.",
+    "nivel": "nucleo"
   },
   {
     "id": 55,
@@ -2405,7 +2459,8 @@
         "correct": false
       }
     ],
-    "why": "TFTP está diseñado para transferir archivos de forma rápida y simple (con mínimo overhead y sin autenticación), garantizando fiabilidad a nivel de aplicación mediante asentimientos por bloque."
+    "why": "TFTP está diseñado para transferir archivos de forma rápida y simple (con mínimo overhead y sin autenticación), garantizando fiabilidad a nivel de aplicación mediante asentimientos por bloque.",
+    "nivel": "extra"
   },
   {
     "id": 56,
@@ -2448,7 +2503,8 @@
         "correct": false
       }
     ],
-    "why": "El modelo ISO define 5 áreas funcionales (FCAPS): Fallos, Configuración, Cuentas (Contabilidad), Rendimiento (Performance) y Seguridad. “Gestión de planificación” no forma parte de ellas."
+    "why": "El modelo ISO define 5 áreas funcionales (FCAPS): Fallos, Configuración, Cuentas (Contabilidad), Rendimiento (Performance) y Seguridad. “Gestión de planificación” no forma parte de ellas.",
+    "nivel": "nucleo"
   },
   {
     "id": 57,
@@ -2486,7 +2542,8 @@
         "correct": false
       }
     ],
-    "why": "Los componentes de la gestión de red son: Estación administradora (NMS), Dispositivos/Nodos gestionados (con sus agentes SNMP), Base de información de gestión (MIB) y Protocolo SNMP. El “Agente de transferencia de mensajes” (MTA) pertenece al correo electrónico."
+    "why": "Los componentes de la gestión de red son: Estación administradora (NMS), Dispositivos/Nodos gestionados (con sus agentes SNMP), Base de información de gestión (MIB) y Protocolo SNMP. El “Agente de transferencia de mensajes” (MTA) pertenece al correo electrónico.",
+    "nivel": "nucleo"
   },
   {
     "id": 58,
@@ -2524,7 +2581,8 @@
         "correct": false
       }
     ],
-    "why": "El “Servidor autorizado de nombres” pertenece a la arquitectura DNS, no a la gestión de red SNMP."
+    "why": "El “Servidor autorizado de nombres” pertenece a la arquitectura DNS, no a la gestión de red SNMP.",
+    "nivel": "extra"
   },
   {
     "id": 59,
@@ -2567,7 +2625,8 @@
         "correct": false
       }
     ],
-    "why": "La MIB (Management Information Base) es la estructura de datos jerárquica que contiene el conjunto de objetos y variables de estado administrados mediante el protocolo SNMP."
+    "why": "La MIB (Management Information Base) es la estructura de datos jerárquica que contiene el conjunto de objetos y variables de estado administrados mediante el protocolo SNMP.",
+    "nivel": "nucleo"
   },
   {
     "id": 60,
@@ -2620,7 +2679,8 @@
         "correct": false
       }
     ],
-    "why": "El agente SNMP instalado en el dispositivo administrado envía hacia la NMS únicamente dos tipos de mensajes: Get-response (en respuesta a consultas/modificaciones de la NMS) y SNMP-trap (avisos asíncronos ante eventos o fallos)."
+    "why": "El agente SNMP instalado en el dispositivo administrado envía hacia la NMS únicamente dos tipos de mensajes: Get-response (en respuesta a consultas/modificaciones de la NMS) y SNMP-trap (avisos asíncronos ante eventos o fallos).",
+    "nivel": "extra"
   },
   {
     "id": 61,
@@ -2658,7 +2718,8 @@
         "correct": false
       }
     ],
-    "why": "SNMP-trap es un mensaje asíncrono originado por el agente del dispositivo gestionado hacia la estación administradora (puerto UDP 162) para reportar un evento extraordinario, alarma o error."
+    "why": "SNMP-trap es un mensaje asíncrono originado por el agente del dispositivo gestionado hacia la estación administradora (puerto UDP 162) para reportar un evento extraordinario, alarma o error.",
+    "nivel": "nucleo"
   },
   {
     "id": 62,
@@ -2696,7 +2757,8 @@
         "correct": false
       }
     ],
-    "why": "Get-bulk-request es enviado por la Estación de Administración de Red (NMS) cuando necesita recuperar un gran bloque de datos de la MIB, como por ejemplo una tabla completa de encaminamiento."
+    "why": "Get-bulk-request es enviado por la Estación de Administración de Red (NMS) cuando necesita recuperar un gran bloque de datos de la MIB, como por ejemplo una tabla completa de encaminamiento.",
+    "nivel": "extra"
   },
   {
     "id": 63,
@@ -2739,7 +2801,8 @@
         "correct": false
       }
     ],
-    "why": "Una NMS solicita y modifica variables de estado de los agentes (Get/Set) y también puede compartir información con otras estaciones administradoras de red (Inform-request)."
+    "why": "Una NMS solicita y modifica variables de estado de los agentes (Get/Set) y también puede compartir información con otras estaciones administradoras de red (Inform-request).",
+    "nivel": "extra"
   },
   {
     "id": 64,
@@ -2792,7 +2855,8 @@
         "correct": false
       }
     ],
-    "why": "La estación administradora (NMS) envía a los agentes los mensajes Get-request, Get-next-request, Get-bulk-request y Set-request."
+    "why": "La estación administradora (NMS) envía a los agentes los mensajes Get-request, Get-next-request, Get-bulk-request y Set-request.",
+    "nivel": "extra"
   },
   {
     "id": 65,
@@ -2835,7 +2899,8 @@
         "correct": false
       }
     ],
-    "why": "HTTP es un protocolo de capa de aplicación utilizado para el intercambio de recursos en la Web (Internet), corre sobre TCP (puerto 80), puede usar conexiones persistentes o no persistentes, y es un protocolo sin estado (stateless)."
+    "why": "HTTP es un protocolo de capa de aplicación utilizado para el intercambio de recursos en la Web (Internet), corre sobre TCP (puerto 80), puede usar conexiones persistentes o no persistentes, y es un protocolo sin estado (stateless).",
+    "nivel": "nucleo"
   },
   {
     "id": 66,
@@ -2868,7 +2933,8 @@
         "correct": false
       }
     ],
-    "why": "Cada página o recurso alojado en un servidor Web se identifica de manera unívoca en toda la red mediante su propio URL (Uniform Resource Locator) único y diferente."
+    "why": "Cada página o recurso alojado en un servidor Web se identifica de manera unívoca en toda la red mediante su propio URL (Uniform Resource Locator) único y diferente.",
+    "nivel": "extra"
   },
   {
     "id": 67,
@@ -2911,7 +2977,8 @@
         "correct": false
       }
     ],
-    "why": "El método HTTP POST se utiliza para enviar datos desde el cliente hacia el servidor en el cuerpo de la petición, típicamente al completar y enviar un formulario Web."
+    "why": "El método HTTP POST se utiliza para enviar datos desde el cliente hacia el servidor en el cuerpo de la petición, típicamente al completar y enviar un formulario Web.",
+    "nivel": "nucleo"
   },
   {
     "id": 68,
@@ -2954,7 +3021,8 @@
         "correct": false
       }
     ],
-    "why": "HTTPS combina HTTP con cifrado SSL/TLS para el intercambio seguro de recursos en Internet y utiliza por defecto el puerto TCP 443."
+    "why": "HTTPS combina HTTP con cifrado SSL/TLS para el intercambio seguro de recursos en Internet y utiliza por defecto el puerto TCP 443.",
+    "nivel": "nucleo"
   },
   {
     "id": 69,
@@ -3002,7 +3070,8 @@
         "correct": false
       }
     ],
-    "why": "Las políticas de seguridad constituyen el documento formal que define las reglas y comportamientos de los miembros de una organización, qué recursos proteger y quién puede acceder a ellos."
+    "why": "Las políticas de seguridad constituyen el documento formal que define las reglas y comportamientos de los miembros de una organización, qué recursos proteger y quién puede acceder a ellos.",
+    "nivel": "nucleo"
   },
   {
     "id": 70,
@@ -3045,7 +3114,8 @@
         "correct": false
       }
     ],
-    "why": "Las políticas de seguridad son específicas para cada organización, definen las reglas de acceso a sus recursos y se plasman en un documento vivo que se actualiza continuamente (son fijadas por la dirección/gerencia junto al área técnica, no unilateralmente por el administrador)."
+    "why": "Las políticas de seguridad son específicas para cada organización, definen las reglas de acceso a sus recursos y se plasman en un documento vivo que se actualiza continuamente (son fijadas por la dirección/gerencia junto al área técnica, no unilateralmente por el administrador).",
+    "nivel": "extra"
   },
   {
     "id": 71,
@@ -3098,7 +3168,8 @@
         "correct": false
       }
     ],
-    "why": "La arquitectura AAA comprende tres funciones de seguridad: Autenticación (quién es el usuario), Autorización (qué permisos tiene) y Auditoría / Accounting (registro de lo que hizo)."
+    "why": "La arquitectura AAA comprende tres funciones de seguridad: Autenticación (quién es el usuario), Autorización (qué permisos tiene) y Auditoría / Accounting (registro de lo que hizo).",
+    "nivel": "nucleo"
   },
   {
     "id": 72,
@@ -3151,7 +3222,8 @@
         "correct": true
       }
     ],
-    "why": "Los algoritmos de Hash criptográfico como MD5 y SHA-2 permiten verificar la integridad de los mensajes y se utilizan en mecanismos de autenticación y firma digital (DES e IDEA son algoritmos de cifrado simétrico para confidencialidad)."
+    "why": "Los algoritmos de Hash criptográfico como MD5 y SHA-2 permiten verificar la integridad de los mensajes y se utilizan en mecanismos de autenticación y firma digital (DES e IDEA son algoritmos de cifrado simétrico para confidencialidad).",
+    "nivel": "nucleo"
   },
   {
     "id": 73,
@@ -3194,7 +3266,8 @@
         "correct": false
       }
     ],
-    "why": "Según el material de cátedra: en las políticas permisivas se permite por defecto todo el tráfico excepto aquello que se prohíbe explícitamente (“pasan todos los paquetes menos los de determinada red”). En las políticas restrictivas se bloquea todo por defecto salvo lo expresamente habilitado."
+    "why": "Según el material de cátedra: en las políticas permisivas se permite por defecto todo el tráfico excepto aquello que se prohíbe explícitamente (“pasan todos los paquetes menos los de determinada red”). En las políticas restrictivas se bloquea todo por defecto salvo lo expresamente habilitado.",
+    "nivel": "nucleo"
   },
   {
     "id": 74,
@@ -3237,7 +3310,8 @@
         "correct": false
       }
     ],
-    "why": "Una DMZ (Zona Desmilitarizada) es una subred perimetral separada de la LAN interna mediante firewall, donde se alojan los servidores públicos (Web, correo, DNS) accesibles desde Internet sin exponer la red interna."
+    "why": "Una DMZ (Zona Desmilitarizada) es una subred perimetral separada de la LAN interna mediante firewall, donde se alojan los servidores públicos (Web, correo, DNS) accesibles desde Internet sin exponer la red interna.",
+    "nivel": "nucleo"
   },
   {
     "id": 75,
@@ -3285,7 +3359,8 @@
         "correct": false
       }
     ],
-    "why": "Un Firewall (cortafuegos) es la combinación de hardware y software que actúa como barrera entre la red interna e Internet, filtrando el tráfico según las reglas de seguridad definidas."
+    "why": "Un Firewall (cortafuegos) es la combinación de hardware y software que actúa como barrera entre la red interna e Internet, filtrando el tráfico según las reglas de seguridad definidas.",
+    "nivel": "nucleo"
   },
   {
     "id": 76,
@@ -3318,7 +3393,8 @@
         "correct": false
       }
     ],
-    "why": "Para garantizar confidencialidad mediante clave pública (asimétrica), el emisor (Ana) cifra el mensaje con la clave pública del receptor (Pedro), de modo que únicamente Pedro pueda descifrarlo usando su propia clave privada."
+    "why": "Para garantizar confidencialidad mediante clave pública (asimétrica), el emisor (Ana) cifra el mensaje con la clave pública del receptor (Pedro), de modo que únicamente Pedro pueda descifrarlo usando su propia clave privada.",
+    "nivel": "nucleo"
   },
   {
     "id": 77,
@@ -3361,7 +3437,8 @@
         "correct": false
       }
     ],
-    "why": "CHAP (Challenge Handshake Authentication Protocol) autentica a los usuarios remotos mediante un saludo de 3 vías basado en desafíos (challenges) y repite el desafío periódicamente durante la sesión sin enviar nunca la contraseña en texto plano."
+    "why": "CHAP (Challenge Handshake Authentication Protocol) autentica a los usuarios remotos mediante un saludo de 3 vías basado en desafíos (challenges) y repite el desafío periódicamente durante la sesión sin enviar nunca la contraseña en texto plano.",
+    "nivel": "nucleo"
   },
   {
     "id": 78,
@@ -3414,7 +3491,8 @@
         "correct": false
       }
     ],
-    "why": "Para que los servidores sean accesibles desde Internet sin exponer la LAN interna se los ubica en una DMZ y, si utilizan direccionamiento privado, se configura NAT estática para mapearles una IP pública permanente."
+    "why": "Para que los servidores sean accesibles desde Internet sin exponer la LAN interna se los ubica en una DMZ y, si utilizan direccionamiento privado, se configura NAT estática para mapearles una IP pública permanente.",
+    "nivel": "extra"
   },
   {
     "id": 79,
@@ -3462,7 +3540,8 @@
         "correct": false
       }
     ],
-    "why": "Una Autoridad de Certificación (CA) valida la identidad de las entidades y emite certificados digitales que contienen la clave pública de la entidad más sus datos identificatorios, firmados digitalmente con la clave privada de la CA."
+    "why": "Una Autoridad de Certificación (CA) valida la identidad de las entidades y emite certificados digitales que contienen la clave pública de la entidad más sus datos identificatorios, firmados digitalmente con la clave privada de la CA.",
+    "nivel": "nucleo"
   },
   {
     "id": 80,
@@ -3505,7 +3584,8 @@
         "correct": false
       }
     ],
-    "why": "Una VPN de acceso remoto permite a usuarios individuales (teletrabajadores desde sus hogares) conectarse de forma segura a la red privada de la empresa a través de Internet."
+    "why": "Una VPN de acceso remoto permite a usuarios individuales (teletrabajadores desde sus hogares) conectarse de forma segura a la red privada de la empresa a través de Internet.",
+    "nivel": "nucleo"
   },
   {
     "id": 81,
@@ -3548,7 +3628,8 @@
         "correct": false
       }
     ],
-    "why": "Las VPN utilizan la infraestructura pública de Internet mediante túneles cifrados, permitiendo tanto interconectar sucursales (VPN sitio a sitio) a bajo costo sin alquilar líneas dedicadas, como conectar empleados remotos (VPN de acceso)."
+    "why": "Las VPN utilizan la infraestructura pública de Internet mediante túneles cifrados, permitiendo tanto interconectar sucursales (VPN sitio a sitio) a bajo costo sin alquilar líneas dedicadas, como conectar empleados remotos (VPN de acceso).",
+    "nivel": "nucleo"
   },
   {
     "id": 82,
@@ -3602,7 +3683,8 @@
         "correct": false
       }
     ],
-    "why": "El segmento tiene Source Port = 443 (proviene del servidor Web HTTPS) y Destination Port = 64830 (hacia la PC). Los flags activos son FIN y ACK (0x011) con Acknowledgment number = 1299: por ende, el servidor Web informa a la PC que finalizará la conexión (FIN) y confirma haber recibido datos desde la PC hasta el byte 1298 inclusive (ACK=1299)."
+    "why": "El segmento tiene Source Port = 443 (proviene del servidor Web HTTPS) y Destination Port = 64830 (hacia la PC). Los flags activos son FIN y ACK (0x011) con Acknowledgment number = 1299: por ende, el servidor Web informa a la PC que finalizará la conexión (FIN) y confirma haber recibido datos desde la PC hasta el byte 1298 inclusive (ACK=1299).",
+    "nivel": "nucleo"
   },
   {
     "id": 83,
@@ -3646,7 +3728,8 @@
         "correct": false
       }
     ],
-    "why": "El segmento proviene del puerto 443 (servidor Web HTTPS) hacia el puerto 52086 (PC), tiene los flags SYN y ACK encendidos (Seq=0, Ack=1) e incluye en Options: Maximum segment size (MSS) y Window scale. Es el 2° segmento del 3-way handshake donde el servidor acepta la conexión y negocia MSS y escalado de ventana."
+    "why": "El segmento proviene del puerto 443 (servidor Web HTTPS) hacia el puerto 52086 (PC), tiene los flags SYN y ACK encendidos (Seq=0, Ack=1) e incluye en Options: Maximum segment size (MSS) y Window scale. Es el 2° segmento del 3-way handshake donde el servidor acepta la conexión y negocia MSS y escalado de ventana.",
+    "nivel": "extra"
   },
   {
     "id": 84,
@@ -3695,7 +3778,8 @@
         "correct": false
       }
     ],
-    "why": "El segmento va de la PC (192.168.1.100, puerto 59256) al servidor HTTPS (13.107.42.11, Destination Port = 443) con el flag ACK activo y Acknowledgment number = 49. Como Ack=49 (y no 1), el saludo de 3 vías ya concluyó previamente y la PC está confirmando que recibió correctamente los datos enviados por el servidor Web hasta el byte 48 inclusive."
+    "why": "El segmento va de la PC (192.168.1.100, puerto 59256) al servidor HTTPS (13.107.42.11, Destination Port = 443) con el flag ACK activo y Acknowledgment number = 49. Como Ack=49 (y no 1), el saludo de 3 vías ya concluyó previamente y la PC está confirmando que recibió correctamente los datos enviados por el servidor Web hasta el byte 48 inclusive.",
+    "nivel": "extra"
   },
   {
     "id": 85,
@@ -3744,6 +3828,2876 @@
         "correct": true
       }
     ],
-    "why": "El segmento va desde un puerto efímero de la PC (Source Port = 52086) hacia un servidor Web HTTPS (Destination Port = 443), con el flag SYN encendido (0x002, Seq=0, Ack=0) y las opciones Maximum segment size y Window scale. Corresponde al 1° paso del saludo de 3 vías donde la PC solicita iniciar la conexión y anuncia su MSS y factor de escalado de ventana."
+    "why": "El segmento va desde un puerto efímero de la PC (Source Port = 52086) hacia un servidor Web HTTPS (Destination Port = 443), con el flag SYN encendido (0x002, Seq=0, Ack=0) y las opciones Maximum segment size y Window scale. Corresponde al 1° paso del saludo de 3 vías donde la PC solicita iniciar la conexión y anuncia su MSS y factor de escalado de ventana.",
+    "nivel": "nucleo"
+  },
+  {
+    "id": 86,
+    "type": "multiple",
+    "category": "teorica",
+    "unidad": 5,
+    "tema_id": "tcp_udp",
+    "tema": "Capa de Transporte - TCP y UDP",
+    "subtema": "Puertos de red comunes (SSH, Telnet, FTPS)",
+    "question": "¿Cuáles de las siguientes asociaciones entre protocolo de aplicación, protocolo de transporte y puerto por defecto son correctas? (seleccione tres opciones)",
+    "options": [
+      {
+        "id": "a",
+        "text": "SSH → TCP puerto 22.",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "text": "Telnet → UDP puerto 23.",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "FTPS → TCP puerto 990.",
+        "correct": true
+      },
+      {
+        "id": "d",
+        "text": "Telnet → TCP puerto 23.",
+        "correct": true
+      },
+      {
+        "id": "e",
+        "text": "SSH → UDP puerto 22.",
+        "correct": false
+      },
+      {
+        "id": "f",
+        "text": "FTPS → UDP puerto 990.",
+        "correct": false
+      }
+    ],
+    "why": "SSH (puerto 22), Telnet (puerto 23) y FTPS implícito (puerto 990) utilizan TCP como protocolo de transporte porque requieren sesiones confiables y orientadas a conexión.",
+    "nivel": "extra"
+  },
+  {
+    "id": 87,
+    "type": "single",
+    "category": "teorica",
+    "unidad": 5,
+    "tema_id": "correo",
+    "tema": "Correo Electrónico y MIME",
+    "subtema": "Puertos de red comunes (SMTP, SNMP y NTP)",
+    "question": "¿Qué protocolo de transporte y número de puerto utilizan por defecto los servicios SMTP, SNMP y NTP respectivamente?",
+    "options": [
+      {
+        "id": "a",
+        "text": "SMTP: TCP 25, SNMP: UDP 161, NTP: UDP 123.",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "text": "SMTP: UDP 25, SNMP: TCP 161, NTP: TCP 123.",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "SMTP: TCP 110, SNMP: UDP 161, NTP: UDP 69.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "SMTP: TCP 25, SNMP: TCP 143, NTP: UDP 123.",
+        "correct": false
+      },
+      {
+        "id": "e",
+        "text": "SMTP: TCP 21, SNMP: UDP 123, NTP: UDP 161.",
+        "correct": false
+      }
+    ],
+    "why": "SMTP opera sobre TCP puerto 25 (correo saliente), SNMP opera sobre UDP puerto 161 (gestión de red; traps en UDP 162) y NTP opera sobre UDP puerto 123 (sincronización horaria).",
+    "nivel": "nucleo"
+  },
+  {
+    "id": 88,
+    "type": "single",
+    "category": "practica",
+    "unidad": 6,
+    "tema_id": "seguridad",
+    "tema": "Seguridad en las Redes",
+    "subtema": "Puertos comunes y seguridad de servicios",
+    "question": "Al analizar los servicios activos de un servidor se detectan abiertos los puertos TCP 22, TCP 23 y TCP 990. ¿A qué servicios corresponden y cuál debería deshabilitarse por transmitir credenciales en texto plano?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Corresponden a SSH (22), Telnet (23) y FTPS (990); debe deshabilitarse Telnet (23).",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "text": "Corresponden a Telnet (22), SSH (23) y HTTPS (990); debe deshabilitarse SSH (23).",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Corresponden a SSH (22), SMTP (23) y FTPS (990); debe deshabilitarse FTPS (990).",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Corresponden a FTP (22), Telnet (23) y SNMP (990); debe deshabilitarse FTP (22).",
+        "correct": false
+      }
+    ],
+    "why": "El puerto TCP 22 es SSH (acceso remoto cifrado), TCP 23 es Telnet (acceso remoto sin cifrado, en texto plano) y TCP 990 es FTPS (FTP seguro sobre TLS). Por seguridad debe deshabilitarse Telnet y usar SSH.",
+    "nivel": "extra"
+  },
+  {
+    "id": 89,
+    "type": "single",
+    "category": "practica",
+    "unidad": 5,
+    "tema_id": "tcp_udp",
+    "tema": "Capa de Transporte - TCP y UDP",
+    "subtema": "Diagnóstico local con netstat",
+    "question": "¿Cuál es la función principal del comando netstat en un equipo?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Mostrar las conexiones de red activas, los puertos TCP/UDP en escucha en el equipo local y estadísticas de red.",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "text": "Escanear puertos abiertos de servidores remotos en Internet.",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Vaciar la memoria caché de resolución de nombres DNS.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Configurar reglas de filtrado de paquetes en el firewall.",
+        "correct": false
+      },
+      {
+        "id": "e",
+        "text": "Capturar y descifrar paquetes HTTPS en la red local.",
+        "correct": false
+      }
+    ],
+    "why": "netstat permite inspeccionar de manera local los sockets abiertos, conexiones TCP establecidas y puertos TCP/UDP en escucha (listening) en la máquina donde se ejecuta.",
+    "nivel": "nucleo"
+  },
+  {
+    "id": 90,
+    "type": "single",
+    "category": "practica",
+    "unidad": 5,
+    "tema_id": "tcp_udp",
+    "tema": "Capa de Transporte - TCP y UDP",
+    "subtema": "Interpretación de salida de netstat",
+    "question": "Si al ejecutar netstat en un servidor se observa una entrada con protocolo TCP, dirección local 0.0.0.0:443 y estado LISTENING (o LISTEN), ¿qué indica?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Que el servidor tiene un servicio HTTPS escuchando conexiones entrantes en el puerto TCP 443 en todas sus interfaces.",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "text": "Que el servidor está cerrando una conexión con un cliente mediante un segmento FIN.",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Que el servidor rechazó todas las peticiones hacia el puerto 443.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Que un cliente local abrió una conexión saliente hacia un servidor DNS.",
+        "correct": false
+      }
+    ],
+    "why": "El estado LISTENING/LISTEN indica un socket servidor esperando conexiones entrantes; 0.0.0.0:443 significa que acepta conexiones en todas las interfaces de red locales en el puerto TCP 443 (HTTPS).",
+    "nivel": "extra"
+  },
+  {
+    "id": 91,
+    "type": "single",
+    "category": "teorica",
+    "unidad": 6,
+    "tema_id": "seguridad",
+    "tema": "Seguridad en las Redes",
+    "subtema": "Acciones en reglas de firewall (ACCEPT, DROP, REJECT)",
+    "question": "En la configuración de reglas de un firewall, ¿cuál es la diferencia entre una regla de descarte (DROP) y una regla de rechazo (REJECT)?",
+    "options": [
+      {
+        "id": "a",
+        "text": "DROP descarta el paquete silenciosamente sin responder al emisor, mientras que REJECT bloquea el paquete y envía una notificación de error al origen.",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "text": "DROP permite pasar el paquete registrándolo en un log, mientras que REJECT lo elimina.",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "REJECT descarta el paquete silenciosamente y DROP envía un paquete ICMP de error al emisor.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "DROP solo aplica a tráfico UDP y REJECT solo aplica a tráfico TCP.",
+        "correct": false
+      }
+    ],
+    "why": "Tanto DROP como REJECT impiden que el paquete pase, pero DROP lo ignora en silencio (el emisor espera hasta timeout) y REJECT responde explícitamente al emisor informando el bloqueo (ej. ICMP unreachable o TCP RST).",
+    "nivel": "nucleo"
+  },
+  {
+    "id": 92,
+    "type": "single",
+    "category": "teorica",
+    "unidad": 6,
+    "tema_id": "seguridad",
+    "tema": "Seguridad en las Redes",
+    "subtema": "Orden de evaluación de reglas en un firewall",
+    "question": "¿Cómo evalúa un firewall las reglas de una lista de control de acceso y qué importancia tiene su orden?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Se evalúan secuencialmente de arriba hacia abajo y la primera coincidencia define la acción y detiene la evaluación, por lo que las reglas más específicas deben ir antes que las generales.",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "text": "El orden no importa porque el firewall aplica automáticamente la regla más específica aunque esté al final.",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Se evalúan todas las reglas de la lista y siempre prevalece la última regla que coincida.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Se evalúan de abajo hacia arriba priorizando siempre las reglas de aceptación (ACCEPT) sobre las de bloqueo.",
+        "correct": false
+      }
+    ],
+    "why": "Las reglas del firewall se procesan en orden descendente (de arriba hacia abajo). Al encontrar la primera regla que coincide con el paquete, se ejecuta su acción (ACCEPT, DROP o REJECT) y no se siguen evaluando las reglas posteriores.",
+    "nivel": "nucleo"
+  },
+  {
+    "id": 93,
+    "type": "single",
+    "category": "practica",
+    "unidad": 6,
+    "tema_id": "seguridad",
+    "tema": "Seguridad en las Redes",
+    "subtema": "Caso práctico de orden de reglas en firewall",
+    "question": "Un firewall tiene configurada la Regla 1: ACCEPT tráfico ICMP desde Red_Interna hacia Internet, y debajo la Regla 2: REJECT tráfico ICMP desde Red_Interna hacia 172.16.170.228 (una IP de Internet). ¿Qué ocurre cuando una PC de Red_Interna hace ping a 172.16.170.228?",
+    "options": [
+      {
+        "id": "a",
+        "text": "El ping es aceptado por la Regla 1 y la Regla 2 nunca llega a aplicarse.",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "text": "El ping es rechazado por la Regla 2 porque es más específica que la Regla 1.",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "El paquete se descarta silenciosamente (DROP) por conflicto entre ambas reglas.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Solo pasan los paquetes de ida, pero se bloquean las respuestas ICMP.",
+        "correct": false
+      }
+    ],
+    "why": "Como la evaluación es de arriba hacia abajo y termina en la primera coincidencia, el paquete ICMP coincide con la Regla 1 (permiso general hacia Internet) y es aceptado antes de alcanzar la Regla 2. Para bloquear esa IP específica, la Regla 2 debe ubicarse arriba de la Regla 1.",
+    "nivel": "nucleo"
+  },
+  {
+    "id": 94,
+    "type": "single",
+    "category": "teorica",
+    "unidad": 6,
+    "tema_id": "seguridad",
+    "tema": "Seguridad en las Redes",
+    "subtema": "Cadenas principales en iptables (INPUT, OUTPUT, FORWARD)",
+    "question": "En un firewall de Linux (iptables), ¿qué tráfico controla cada una de las cadenas INPUT, OUTPUT y FORWARD?",
+    "options": [
+      {
+        "id": "a",
+        "text": "INPUT: tráfico destinado al propio equipo; OUTPUT: tráfico generado por el propio equipo; FORWARD: tráfico que atraviesa el equipo enrutado hacia otra red.",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "text": "INPUT: tráfico que atraviesa el router; OUTPUT: tráfico descartado; FORWARD: tráfico destinado al propio equipo.",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "INPUT: tráfico cifrado por VPN; OUTPUT: tráfico hacia la DMZ; FORWARD: tráfico DNS.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Todas las cadenas cumplen exactamente la misma función independientemente de si el paquete es local o enrutado.",
+        "correct": false
+      }
+    ],
+    "why": "En iptables, INPUT filtra paquetes cuyo destino final es el propio host/firewall, OUTPUT filtra paquetes originados en el propio host/firewall, y FORWARD filtra paquetes que solo pasan a través de él (tráfico enrutado entre interfaces/redes).",
+    "nivel": "nucleo"
+  },
+  {
+    "id": 95,
+    "type": "single",
+    "category": "practica",
+    "unidad": 6,
+    "tema_id": "seguridad",
+    "tema": "Seguridad en las Redes",
+    "subtema": "Interpretación de una regla de iptables",
+    "question": "Dada la siguiente regla configurada en un router Linux con iptables: \"iptables -A FORWARD -p tcp --dport 23 -j DROP\", ¿qué efecto produce?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Descarta silenciosamente todo el tráfico TCP destinado al puerto 23 (Telnet) que intente atravesar el router hacia otra red.",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "text": "Acepta conexiones TCP entrantes al puerto 23 del propio router.",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Rechaza enviando un aviso de error todo el tráfico UDP saliente por el puerto 23.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Traduce mediante NAT el puerto 23 hacia el puerto 22 (SSH).",
+        "correct": false
+      }
+    ],
+    "why": "FORWARD indica tráfico que atraviesa el equipo; -p tcp selecciona protocolo TCP; --dport 23 selecciona puerto destino 23 (Telnet); y -j DROP indica descartar el paquete sin enviar respuesta.",
+    "nivel": "nucleo"
+  },
+  {
+    "id": 96,
+    "type": "single",
+    "category": "teorica",
+    "unidad": 5,
+    "tema_id": "nat",
+    "tema": "NAT y PAT",
+    "subtema": "Sentido de traducción en NAT",
+    "question": "Cuando se implementa NAT en un router de borde de una empresa, la traducción de direcciones IP se realiza:",
+    "options": [
+      {
+        "id": "a",
+        "text": "Solo cuando un paquete viaja hacia internet",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Solo cuando un paquete ingresa desde internet",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Cuando un paquete viaja a internet y cuando ingresa desde internet",
+        "correct": true
+      },
+      {
+        "id": "d",
+        "text": "No es necesario realizar traducción",
+        "correct": false
+      },
+      {
+        "id": "e",
+        "text": "Depende si los paquetes que ingresan desde internet tienen IP privada",
+        "correct": false
+      }
+    ],
+    "why": "NAT traduce en ambos sentidos: al salir reemplaza la IP privada de origen por la pública, y al volver reemplaza la IP pública de destino por la privada correspondiente.",
+    "nivel": "extra"
+  },
+  {
+    "id": 97,
+    "type": "multiple",
+    "category": "teorica",
+    "unidad": 5,
+    "tema_id": "nat",
+    "tema": "NAT y PAT",
+    "subtema": "Funcionamiento de NAT (LAN/WAN)",
+    "question": "Como funciona NAT? (elija dos)",
+    "options": [
+      {
+        "id": "a",
+        "text": "Traduce direcciones publicas de las LAN en direcciones privadas de WAN",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Traduce direcciones privadas de las LAN en direcciones publicas de WAN",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "Traduce direcciones privadas de las WAN en direcciones publicas de LAN",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Traduce direcciones publicas de las WAN en direcciones privadas de LAN",
+        "correct": true
+      }
+    ],
+    "why": "Saliente: IP privada de la LAN → IP pública de la WAN. Entrante: la IP pública de destino (WAN) se vuelve a traducir a la privada de la LAN.",
+    "nivel": "extra"
+  },
+  {
+    "id": 98,
+    "type": "single",
+    "category": "teorica",
+    "unidad": 5,
+    "tema_id": "correo",
+    "tema": "Capa de Aplicación - Correo Electrónico",
+    "subtema": "Puerto por defecto de POP3",
+    "question": "Con que puerto trabaja POP?",
+    "options": [
+      {
+        "id": "a",
+        "text": "143",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "443",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "25",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Ninguna de las anteriores",
+        "correct": false
+      },
+      {
+        "id": "e",
+        "text": "110",
+        "correct": true
+      },
+      {
+        "id": "f",
+        "text": "20",
+        "correct": false
+      }
+    ],
+    "why": "POP3 usa TCP 110. (143 = IMAP, 25 = SMTP, 443 = HTTPS, 20 = FTP datos).",
+    "nivel": "extra"
+  },
+  {
+    "id": 99,
+    "type": "single",
+    "category": "teorica",
+    "unidad": 5,
+    "tema_id": "tcp_udp",
+    "tema": "Capa de Transporte (TCP / UDP)",
+    "subtema": "ECN y bit ECE en TCP",
+    "question": "¿Quién envía un segmento TCP, marcando el campo ECE?",
+    "options": [
+      {
+        "id": "a",
+        "text": "El destino",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "text": "Dispositivos intermedios",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "El origen",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "El ISP",
+        "correct": false
+      },
+      {
+        "id": "e",
+        "text": "Ninguna de las anteriores",
+        "correct": false
+      }
+    ],
+    "why": "ECN: un router congestionado marca CE en el encabezado IP; el destino lo detecta y activa ECE en sus ACK para avisarle al origen, que responde con CWR.",
+    "nivel": "extra"
+  },
+  {
+    "id": 100,
+    "type": "single",
+    "category": "teorica",
+    "unidad": 5,
+    "tema_id": "snmp",
+    "tema": "Capa de Aplicación - SNMP",
+    "subtema": "Capa de trabajo de SNMP",
+    "question": "¿En qué capa trabaja SNMP?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Presentacion",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Red",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Ninguna de las anteriores",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Transporte",
+        "correct": false
+      },
+      {
+        "id": "e",
+        "text": "Aplicacion",
+        "correct": true
+      }
+    ],
+    "why": "SNMP es un protocolo de capa de aplicación (corre sobre UDP 161/162).",
+    "nivel": "extra"
+  },
+  {
+    "id": 101,
+    "type": "single",
+    "category": "teorica",
+    "unidad": 6,
+    "tema_id": "seguridad",
+    "tema": "Seguridad en las Redes",
+    "subtema": "Sistema criptográfico simétrico",
+    "question": "¿En qué tipo de sistema criptográfico el emisor y el receptor utilizan la misma clave?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Clave publica",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Clave asimetrica",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Ninguna de las opciones",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Clave privada",
+        "correct": true
+      }
+    ],
+    "why": "Según el Resumen de cátedra (Unidad 6, pág. 61): 'Simétricos o de clave privada: Emisor y receptor utilizan la misma clave.' Por lo tanto, la opción correcta es 'Clave privada'.",
+    "nivel": "nucleo"
+  },
+  {
+    "id": 102,
+    "type": "single",
+    "category": "teorica",
+    "unidad": 5,
+    "tema_id": "tcp_udp",
+    "tema": "Capa de Transporte (TCP / UDP)",
+    "subtema": "Número de confirmación de recepción (ACK)",
+    "question": "¿Para qué sirve el campo número de confirmación de recepción?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Especifica el siguiente paquete en el orden esperado",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Ninguna de las anteriores",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Especifica el siguiente segmento en el orden esperado",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Especifica el numero de segmentos ya recibidos por el origen",
+        "correct": false
+      },
+      {
+        "id": "e",
+        "text": "Especifica el siguiente byte en el orden esperado",
+        "correct": true
+      }
+    ],
+    "why": "TCP numera bytes, no segmentos ni paquetes: el número de confirmación es el siguiente byte que se espera recibir.",
+    "nivel": "extra"
+  },
+  {
+    "id": 103,
+    "type": "single",
+    "category": "teorica",
+    "unidad": 5,
+    "tema_id": "dns",
+    "tema": "Capa de Aplicación - DNS",
+    "subtema": "Resolvedor DNS (resolver)",
+    "question": "La forma de DNS asocia un nombre con una dirección IP, lo realiza con un programa de aplicación, que llama a un procedimiento de biblioteca. ¿Cómo se llama a ese procedimiento?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Ninguna de las opciones",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Asociador",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Relacionador",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Resolutor",
+        "correct": false
+      },
+      {
+        "id": "e",
+        "text": "Resolvedor",
+        "correct": true
+      }
+    ],
+    "why": "Tanenbaum: el programa de aplicación llama a un procedimiento de biblioteca llamado resolvedor (resolver).",
+    "nivel": "extra"
+  },
+  {
+    "id": 104,
+    "type": "single",
+    "category": "teorica",
+    "unidad": 5,
+    "tema_id": "ftp",
+    "tema": "Capa de Aplicación - FTP y TFTP",
+    "subtema": "Paquete RRQ en TFTP",
+    "question": "¿Qué tipo de paquete se utiliza para pedir permiso para leer un archivo en el servidor TFTP?",
+    "options": [
+      {
+        "id": "a",
+        "text": "ACK",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Ninguna de las opciones",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "WRQ",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "RRQ",
+        "correct": true
+      }
+    ],
+    "why": "RRQ = Read Request (pedido de lectura). WRQ = Write Request (pedido de escritura).",
+    "nivel": "extra"
+  },
+  {
+    "id": 105,
+    "type": "single",
+    "category": "teorica",
+    "unidad": 5,
+    "tema_id": "tcp_udp",
+    "tema": "Capa de Transporte (TCP / UDP)",
+    "subtema": "Identificación de aplicaciones por puertos",
+    "question": "¿Como se identifican las aplicaciones que se ejecutan en un servidor o puesto de trabajo de un usuario?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Por tipo de aplicacion",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Ninguna de las anteriores",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Por la direccion IP del servidor",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Por puertos",
+        "correct": true
+      }
+    ],
+    "why": "Las aplicaciones se identifican por el número de puerto.",
+    "nivel": "extra"
+  },
+  {
+    "id": 106,
+    "type": "single",
+    "category": "teorica",
+    "unidad": 5,
+    "tema_id": "tcp_udp",
+    "tema": "Capa de Transporte (TCP / UDP)",
+    "subtema": "Puntos terminales (sockets) en TCP",
+    "question": "A que determinamos puntos terminales en el modelo de servicio TCP?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Al usuario del origen y del destino",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Ninguna de las anteriores",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "A la direccion IP y al puerto",
+        "correct": true
+      },
+      {
+        "id": "d",
+        "text": "Al puesto de trabajo origen y al destino",
+        "correct": false
+      },
+      {
+        "id": "e",
+        "text": "A las aplicaciones del origen y del destino",
+        "correct": false
+      }
+    ],
+    "why": "Tanenbaum: el servicio TCP se obtiene creando puntos terminales llamados sockets, identificados por dirección IP + puerto.",
+    "nivel": "extra"
+  },
+  {
+    "id": 107,
+    "type": "single",
+    "category": "teorica",
+    "unidad": 6,
+    "tema_id": "seguridad",
+    "tema": "Seguridad en las Redes",
+    "subtema": "Autoridad de Certificación (CA)",
+    "question": "¿Que responsabilidad tiene un CA?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Validar identidades y enviar claves a los destinatarios",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Ninguna de las anteriores",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Validar identidades y emitir certificados",
+        "correct": true
+      },
+      {
+        "id": "d",
+        "text": "Controlar la comunicacion y emitir certificados",
+        "correct": false
+      },
+      {
+        "id": "e",
+        "text": "Utilizar la criptografia de la clave privada",
+        "correct": false
+      }
+    ],
+    "why": "Una CA (autoridad de certificación) valida identidades y emite certificados. No reparte claves (eso lo hace un KDC).",
+    "nivel": "extra"
+  },
+  {
+    "id": 108,
+    "type": "single",
+    "category": "teorica",
+    "unidad": 5,
+    "tema_id": "ftp",
+    "tema": "Capa de Aplicación - FTP y TFTP",
+    "subtema": "Reenvío por expiración de temporizadores en TFTP",
+    "question": "Mediante que tecnica se reenvian los paquetes no confirmados en TFTP?",
+    "options": [
+      {
+        "id": "a",
+        "text": "El temporizador del destino expira y le avisa al origen que se lo reenvie",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Expiracion de temporizadores",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "Ninguna de las anteriores",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "El destino le dice que no recibió nada y el emisor se lo reenvía",
+        "correct": false
+      }
+    ],
+    "why": "En TFTP el emisor arranca un temporizador por cada bloque; si expira sin recibir el ACK, retransmite. No existe un aviso de 'no recibí'.",
+    "confianza": "media",
+    "nivel": "extra"
+  },
+  {
+    "id": 109,
+    "type": "single",
+    "category": "teorica",
+    "unidad": 6,
+    "tema_id": "seguridad",
+    "tema": "Seguridad en las Redes",
+    "subtema": "Claves en criptografía de clave pública",
+    "question": "¿Como son las claves de Alicia y Benito que se comunican por un sistema de clave publica?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Como el sistema es de clave publica, todos conocen las claves",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Solo Alicia y Benito conocen las claves, porque la comunicacion es entre ellos",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Ninguna de las anteriores",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Una de las claves es publica y la otra clave solo es conocida por Benito o por Alicia (no ambos)",
+        "correct": true
+      }
+    ],
+    "why": "En clave pública cada uno tiene un par: la clave pública (la conoce todo el mundo) y la privada (solo la conoce su dueño).",
+    "nivel": "extra"
+  },
+  {
+    "id": 110,
+    "type": "single",
+    "category": "teorica",
+    "unidad": 6,
+    "tema_id": "seguridad",
+    "tema": "Seguridad en las Redes",
+    "subtema": "Negociación en SSL/TLS",
+    "question": "SSL construye una conexion segura entre dos sockets, incluyendo:",
+    "options": [
+      {
+        "id": "a",
+        "text": "Ninguna de las anteriores",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Proteccion de la confidencialidad de los datos",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Autenticacion del cliente por el servidor",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Verificacion del cliente",
+        "correct": false
+      },
+      {
+        "id": "e",
+        "text": "Negociacion de parametros entre cliente y servidor",
+        "correct": true
+      }
+    ],
+    "why": "Tanenbaum: SSL incluye negociación de parámetros entre cliente y servidor, autenticación del SERVIDOR por el cliente (no al revés), comunicación secreta e integridad de los datos.",
+    "nivel": "extra"
+  },
+  {
+    "id": 111,
+    "type": "single",
+    "category": "teorica",
+    "unidad": 6,
+    "tema_id": "seguridad",
+    "tema": "Seguridad en las Redes",
+    "subtema": "Clave de sesión en SSL/TLS",
+    "question": "Una vez realizado todos los pasos de SSL y comienzan a transferir información entre origen y destino, ¿Qué clave se utiliza para encriptar y desencriptar la información?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Clave de sesión",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "text": "Clave permanente",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Clave asimetrica",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Ninguna de las anteriores",
+        "correct": false
+      }
+    ],
+    "why": "Después del handshake (que usa clave asimétrica), los datos se cifran con una clave simétrica de sesión.",
+    "nivel": "extra"
+  },
+  {
+    "id": 112,
+    "type": "single",
+    "category": "teorica",
+    "unidad": 6,
+    "tema_id": "seguridad",
+    "tema": "Seguridad en las Redes",
+    "subtema": "Función de AH en IPsec",
+    "question": "¿Qué función tiene AH en IPsec?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Confidencialidad",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Integridad",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "Cifrado",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Ninguna de las opciones",
+        "correct": false
+      }
+    ],
+    "why": "AH (Authentication Header) brinda integridad y autenticación del origen, pero NO cifra. La confidencialidad la da ESP.",
+    "nivel": "nucleo"
+  },
+  {
+    "id": 113,
+    "type": "single",
+    "category": "teorica",
+    "unidad": 5,
+    "tema_id": "http",
+    "tema": "Capa de Aplicación - HTTP",
+    "subtema": "Orientación a transacciones en HTTP",
+    "question": "HTTP es un protocolo cliente/servidor orientado a:",
+    "options": [
+      {
+        "id": "a",
+        "text": "Servicios",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Ninguna de las anteriores",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Conexion",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Transacciones",
+        "correct": true
+      }
+    ],
+    "why": "HTTP es un protocolo cliente/servidor orientado a transacciones (petición → respuesta).",
+    "nivel": "extra"
+  },
+  {
+    "id": 114,
+    "type": "multiple",
+    "category": "teorica",
+    "unidad": 6,
+    "tema_id": "seguridad",
+    "tema": "Seguridad en las Redes",
+    "subtema": "Algoritmos de confidencialidad en IPsec",
+    "question": "¿Que se utiliza para la confidencialidad en la estructura de IPsec? (Elija dos)",
+    "options": [
+      {
+        "id": "a",
+        "text": "RSA",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "DES",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "SEAL",
+        "correct": true
+      },
+      {
+        "id": "d",
+        "text": "PSK",
+        "correct": false
+      },
+      {
+        "id": "e",
+        "text": "SHA",
+        "correct": false
+      },
+      {
+        "id": "f",
+        "text": "MD5",
+        "correct": false
+      }
+    ],
+    "why": "Confidencialidad = cifrado: DES, 3DES, AES, SEAL. SHA y MD5 son hash (integridad); RSA y PSK se usan para autenticación.",
+    "nivel": "extra"
+  },
+  {
+    "id": 115,
+    "type": "single",
+    "category": "teorica",
+    "unidad": 5,
+    "tema_id": "dns",
+    "tema": "Capa de Aplicación - DNS",
+    "subtema": "Tiempo de vida (TTL) en registros DNS",
+    "question": "¿Qué campo de registro de recursos me indica la estabilidad del registro para DNS?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Valor",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Tipo",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Ninguna de las anteriores",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Nombre_dominio",
+        "correct": false
+      },
+      {
+        "id": "e",
+        "text": "Tiempo_de_vida",
+        "correct": true
+      },
+      {
+        "id": "f",
+        "text": "Clase",
+        "correct": false
+      }
+    ],
+    "why": "Tanenbaum: el campo Tiempo_de_vida da una indicación de la estabilidad del registro.",
+    "nivel": "extra"
+  },
+  {
+    "id": 116,
+    "type": "single",
+    "category": "teorica",
+    "unidad": 5,
+    "tema_id": "tcp_udp",
+    "tema": "Capa de Transporte (TCP / UDP)",
+    "subtema": "Confirmación selectiva (SACK) en Opciones TCP",
+    "question": "¿En qué campo del segmento TCP, lee el emisor para enviar la información selectiva que el receptor no recibió?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Opciones",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "text": "Apuntador de urgente",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Ninguna de las anteriores",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Numero de confirmacion de recepcion",
+        "correct": false
+      },
+      {
+        "id": "e",
+        "text": "Tamaño de ventana",
+        "correct": false
+      }
+    ],
+    "why": "SACK (Selective ACK) viaja en el campo Opciones del encabezado TCP.",
+    "nivel": "extra"
+  },
+  {
+    "id": 117,
+    "type": "multiple",
+    "category": "teorica",
+    "unidad": 5,
+    "tema_id": "correo",
+    "tema": "Capa de Aplicación - Correo Electrónico",
+    "subtema": "Envoltura en mensajes SMTP",
+    "question": "¿Que contiene la envoltura en el formato de los mensajes para SMTP? (Elija dos)",
+    "options": [
+      {
+        "id": "a",
+        "text": "Version de POP",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Version de SMTP",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Nivel de seguridad",
+        "correct": true
+      },
+      {
+        "id": "d",
+        "text": "Remitente",
+        "correct": false
+      },
+      {
+        "id": "e",
+        "text": "Prioridad",
+        "correct": true
+      }
+    ],
+    "why": "Tanenbaum: la envoltura contiene la información para transportar el mensaje: dirección de destino, prioridad y nivel de seguridad.",
+    "nivel": "extra"
+  },
+  {
+    "id": 118,
+    "type": "single",
+    "category": "teorica",
+    "unidad": 5,
+    "tema_id": "ftp",
+    "tema": "Capa de Aplicación - FTP y TFTP",
+    "subtema": "Modo activo en FTP",
+    "question": "¿Cómo se denomina cuando el servidor FTP inicia la conexión?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Modo de servidor",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Ninguna de las anteriores",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Modo pasivo",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Modo activo",
+        "correct": true
+      }
+    ],
+    "why": "Modo activo: el servidor abre la conexión de datos desde su puerto 20 hacia el cliente. En modo pasivo la inicia el cliente.",
+    "nivel": "extra"
+  },
+  {
+    "id": 119,
+    "type": "single",
+    "category": "teorica",
+    "unidad": 5,
+    "tema_id": "tcp_udp",
+    "tema": "Capa de Transporte (TCP / UDP)",
+    "subtema": "Características de las conexiones TCP",
+    "question": "Como son todas las conexiones de TCP?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Ninguna de las anteriores",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Simplex",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Half duplex",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Full duplex",
+        "correct": true
+      }
+    ],
+    "why": "Todas las conexiones TCP son full dúplex y punto a punto.",
+    "nivel": "extra"
+  },
+  {
+    "id": 120,
+    "type": "single",
+    "category": "practica",
+    "unidad": 5,
+    "tema_id": "ftp",
+    "tema": "Capa de Aplicación - FTP y TFTP",
+    "subtema": "Uso práctico de servidor TFTP",
+    "question": "Franco Mana desea centralizar la administración de los sistemas operativos instalados en todas sus computadoras y además desea respaldar toda la configuración de sus dispositivos en su empresa. Para ello, le aconsejaron que deberá configurar:",
+    "options": [
+      {
+        "id": "a",
+        "text": "Un servidor raíz.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Un servidor autorizado de nombres.",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Un servidor DNS.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Una Base de Información de Gestión.",
+        "correct": false
+      },
+      {
+        "id": "e",
+        "text": "Un servidor HTTP.",
+        "correct": false
+      },
+      {
+        "id": "f",
+        "text": "Un servidor de correo electrónico.",
+        "correct": false
+      },
+      {
+        "id": "g",
+        "text": "Un servidor TFTP.",
+        "correct": true
+      }
+    ],
+    "why": "TFTP se usa para respaldar y restaurar configuraciones e imágenes del sistema operativo de los dispositivos, y para booteo por red.",
+    "nivel": "extra"
+  },
+  {
+    "id": 121,
+    "type": "single",
+    "category": "teorica",
+    "unidad": 5,
+    "tema_id": "ftp",
+    "tema": "Capa de Aplicación - FTP y TFTP",
+    "subtema": "Servicios fiables sobre TCP",
+    "question": "¿Cual de las siguientes opciones en un servicio fiable?",
+    "options": [
+      {
+        "id": "a",
+        "text": "TFTP",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "BOOTP",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "FTP",
+        "correct": true
+      },
+      {
+        "id": "d",
+        "text": "Ninguna de las anteriores",
+        "correct": false
+      }
+    ],
+    "why": "FTP corre sobre TCP: es un servicio fiable. TFTP y BOOTP usan UDP.",
+    "nivel": "extra"
+  },
+  {
+    "id": 122,
+    "type": "single",
+    "category": "teorica",
+    "unidad": 5,
+    "tema_id": "snmp",
+    "tema": "Capa de Aplicación - SNMP",
+    "subtema": "Mensaje SetRequest en SNMP",
+    "question": "¿Quién emite un mensaje SetRequest en SNMP?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Estacion gestora",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "text": "Ninguna de las anteriores",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Estacion del cliente",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Un dispositivo de interconexion",
+        "correct": false
+      },
+      {
+        "id": "e",
+        "text": "Agente",
+        "correct": false
+      }
+    ],
+    "why": "SetRequest lo emite la estación gestora (NMS) para modificar el valor de una variable en el agente.",
+    "nivel": "extra"
+  },
+  {
+    "id": 123,
+    "type": "single",
+    "category": "teorica",
+    "unidad": 5,
+    "tema_id": "dns",
+    "tema": "Capa de Aplicación - DNS",
+    "subtema": "Registro de recurso tipo MX",
+    "question": "¿Qué significado tiene el valor MX en el campo tipo del registro de recursos para DNS?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Ninguna de las opciones",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Sirve para ser utilizado entre sistemas operativos diferentes",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Intercambio de correo",
+        "correct": true
+      },
+      {
+        "id": "d",
+        "text": "Es de origen mexicano",
+        "correct": false
+      }
+    ],
+    "why": "MX = Mail eXchange (intercambio de correo).",
+    "nivel": "extra"
+  },
+  {
+    "id": 124,
+    "type": "single",
+    "category": "teorica",
+    "unidad": 5,
+    "tema_id": "dns",
+    "tema": "Capa de Aplicación - DNS",
+    "subtema": "Uso principal de DNS",
+    "question": "¿Cuál es uso principal de DNS?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Asociar los nombres del host con direcciones IP",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "text": "Asociar los nombres del host con direcciones MAC",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Ninguna de las opciones",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Asociar las direcciones IP con direcciones MAC",
+        "correct": false
+      }
+    ],
+    "why": "El uso principal de DNS es asociar nombres de host con direcciones IP.",
+    "nivel": "nucleo"
+  },
+  {
+    "id": 125,
+    "type": "single",
+    "category": "teorica",
+    "unidad": 6,
+    "tema_id": "seguridad",
+    "tema": "Seguridad en las Redes",
+    "subtema": "Firewall con estado (Stateful)",
+    "question": "¿En que se basan las decisiones de firewall con estado?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Deja pasar todas las conexiones de la LAN hacia el exterior, porque son fiables",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Tiene una tabla de todas las conexiones de internet para asegurar la LAN",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Analizan los datagramas que circulan por la red",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Mantiene un registro de las conexiones a traves de los campos del encabezado TCP/IP",
+        "correct": true
+      },
+      {
+        "id": "e",
+        "text": "Ninguna de las anteriores",
+        "correct": false
+      }
+    ],
+    "why": "El firewall con estado guarda una tabla de conexiones (estado TCP, IPs, puertos) y decide en función de esa conexión.",
+    "nivel": "extra"
+  },
+  {
+    "id": 126,
+    "type": "single",
+    "category": "teorica",
+    "unidad": 6,
+    "tema_id": "seguridad",
+    "tema": "Seguridad en las Redes",
+    "subtema": "Servicios principales de IPsec",
+    "question": "¿Cual de las siguientes opciones corresponden a servicios principales que brinda IPsec?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Trabaja tanto para TCP como UDP",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "No funciona sobre todos los protocolos de capa 2",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Ninguna de las anteriores",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Integridad de datos",
+        "correct": true
+      },
+      {
+        "id": "e",
+        "text": "Es no orientado a la conexion",
+        "correct": false
+      }
+    ],
+    "why": "Tanenbaum: los servicios principales de IPsec son confidencialidad, integridad de datos y protección contra ataques de repetición. Además, es orientado a la conexión.",
+    "nivel": "extra"
+  },
+  {
+    "id": 127,
+    "type": "single",
+    "category": "teorica",
+    "unidad": 6,
+    "tema_id": "seguridad",
+    "tema": "Seguridad en las Redes",
+    "subtema": "Firewall con pasarela de aplicación (Proxy)",
+    "question": "¿Cual de las siguientes opciones cumple con los firewall que usan pasarelas de aplicación?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Utilizan tablas dinamicas para seguir el estado en tiempo real de las sesiones end-to-end",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Tipo de mensaje ICMP",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Solo filtran puertos TCP o UDP",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Permite filtrar segun perfiles de usuarios",
+        "correct": true
+      },
+      {
+        "id": "e",
+        "text": "Ninguna de las opciones",
+        "correct": false
+      }
+    ],
+    "why": "Las pasarelas de aplicación (proxies) permiten filtrar según usuarios. Las tablas de sesión son de los firewalls con estado; filtrar ICMP o puertos es filtrado de paquetes.",
+    "nivel": "extra"
+  },
+  {
+    "id": 128,
+    "type": "single",
+    "category": "teorica",
+    "unidad": 6,
+    "tema_id": "seguridad",
+    "tema": "Seguridad en las Redes",
+    "subtema": "Zona Desmilitarizada (DMZ)",
+    "question": "¿Para qué sirve la DMZ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Para tener mas control de las computadoras de la red local",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Es parte de la red de la empresa, donde se guardan los backups de la seguridad",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Ninguna de las anteriores",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Es la parte de la red de la empresa que se encuentra fuera del perimetro de seguridad",
+        "correct": true
+      }
+    ],
+    "why": "La DMZ es una zona de la red de la empresa fuera del perímetro de seguridad interno, donde se ubican los servidores accesibles desde Internet.",
+    "nivel": "extra"
+  },
+  {
+    "id": 129,
+    "type": "single",
+    "category": "teorica",
+    "unidad": 6,
+    "tema_id": "seguridad",
+    "tema": "Seguridad en las Redes",
+    "subtema": "Filtrado de paquetes tradicional",
+    "question": "¿Cómo se realiza el filtrado de paquetes tradicionales en los firewall?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Se toma todo el archivo que entra o sale de la red y luego se examina",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Examinando cada datagrama individualmente",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "Ninguna de las anterior",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Se examinan aleatoriamente los datagramas",
+        "correct": false
+      },
+      {
+        "id": "e",
+        "text": "Se agrupan varios datagramas y se procede a su revision",
+        "correct": false
+      }
+    ],
+    "why": "El filtrado de paquetes tradicional examina cada datagrama individualmente (IPs, puertos, protocolo, flags).",
+    "nivel": "extra"
+  },
+  {
+    "id": 130,
+    "type": "single",
+    "category": "teorica",
+    "unidad": 5,
+    "tema_id": "http",
+    "tema": "Capa de Aplicación - HTTP",
+    "subtema": "Ubicación del proxy HTTP",
+    "question": "¿De qué lado encontramos el proxy en HTTP?",
+    "options": [
+      {
+        "id": "a",
+        "text": "No hay proxy en HTTP",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Ninguna de las opciones",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Del servidor origen",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Del cliente",
+        "correct": true
+      },
+      {
+        "id": "e",
+        "text": "Del agente usuario",
+        "correct": false
+      }
+    ],
+    "why": "El proxy o caché web se ubica del lado del cliente (en la red de la organización): es servidor para el cliente y cliente para el servidor origen.",
+    "confianza": "media",
+    "nivel": "extra"
+  },
+  {
+    "id": 131,
+    "type": "single",
+    "category": "practica",
+    "unidad": 6,
+    "tema_id": "seguridad",
+    "tema": "Seguridad en las Redes",
+    "subtema": "Uso de hash criptográficos",
+    "question": "Juan y Pedro van a comunicarse por temas laborales y van a utilizar hash criptográficos. ¿Qué necesitan verificar?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Integridad de los datos y disponibilidad",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "La confidencialidad y la autenticacion",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Autenticación y disponibilidad",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Integridad de los datos y la autenticacion",
+        "correct": true
+      },
+      {
+        "id": "e",
+        "text": "Ninguna de las anteriores",
+        "correct": false
+      }
+    ],
+    "why": "El hash verifica la integridad; combinado con una clave secreta o una firma también autentica el origen. No da confidencialidad.",
+    "nivel": "extra"
+  },
+  {
+    "id": 132,
+    "type": "single",
+    "category": "practica",
+    "unidad": 6,
+    "tema_id": "seguridad",
+    "tema": "Seguridad en las Redes",
+    "subtema": "Tipos de amenazas a la seguridad",
+    "question": "El administrador de red, en sus procesos habituales de control, encontró un ataque de confidencialidad, que atenta contra un requisito de una comunicación segura. ¿A qué tipo de amenazas a la seguridad nos referimos?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Ninguna de las anteriores",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Denegación de servicio",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Interceptación",
+        "correct": true
+      },
+      {
+        "id": "d",
+        "text": "Modificación",
+        "correct": false
+      },
+      {
+        "id": "e",
+        "text": "Retransmisión de datos",
+        "correct": false
+      }
+    ],
+    "why": "Interceptación ataca la confidencialidad; modificación, la integridad; interrupción (DoS), la disponibilidad; fabricación, la autenticidad.",
+    "nivel": "extra"
+  },
+  {
+    "id": 133,
+    "type": "single",
+    "category": "teorica",
+    "unidad": 5,
+    "tema_id": "tcp_udp",
+    "tema": "Capa de Transporte (TCP / UDP)",
+    "subtema": "Retransmisiones en UDP",
+    "question": "¿Quién se encarga de las retransmisiones en UDP?",
+    "options": [
+      {
+        "id": "a",
+        "text": "El mismo UDP",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "La aplicacion",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "Ninguna de las opciones",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "La capa de red",
+        "correct": false
+      }
+    ],
+    "why": "UDP no retransmite: si hace falta, lo resuelve la aplicación.",
+    "nivel": "extra"
+  },
+  {
+    "id": 134,
+    "type": "single",
+    "category": "teorica",
+    "unidad": 6,
+    "tema_id": "seguridad",
+    "tema": "Seguridad en las Redes",
+    "subtema": "Clasificación según procesamiento del texto plano",
+    "question": "¿Cuál de las siguientes opciones es un tipo de sistema criptográfico según la forma de procesar el texto plano?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Ninguna de las anteriores",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Transportacion",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Transposicion",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Sustitucion",
+        "correct": false
+      },
+      {
+        "id": "e",
+        "text": "Cifrado de bloques",
+        "correct": true
+      }
+    ],
+    "why": "Según cómo procesa el texto plano, un cifrado es de bloques o de flujo. Sustitución y transposición clasifican según el tipo de operación.",
+    "nivel": "extra"
+  },
+  {
+    "id": 135,
+    "type": "single",
+    "category": "practica",
+    "unidad": 5,
+    "tema_id": "wireshark",
+    "tema": "Análisis de Tráfico (Wireshark)",
+    "subtema": "Interpretación de puerto origen 80",
+    "question": "Un administrador de red está analizando un extracto de WireShark y observa que el puerto origen tiene un valor de 80. ¿Qué significa esto?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Son datos de actualizacion de la tabla de enrutamiento entre los routers",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Ninguna de las anteriores",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Es la respuesta de un router",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Es una respuesta de un servidor",
+        "correct": true
+      },
+      {
+        "id": "e",
+        "text": "Es una consulta de un cliente",
+        "correct": false
+      }
+    ],
+    "why": "Puerto origen 80: lo envía un servidor HTTP, así que es una respuesta.",
+    "nivel": "extra"
+  },
+  {
+    "id": 136,
+    "type": "single",
+    "category": "teorica",
+    "unidad": 5,
+    "tema_id": "tcp_udp",
+    "tema": "Capa de Transporte (TCP / UDP)",
+    "subtema": "Segmentación de datos en TCP",
+    "question": "¿En que divide TCP los datos de las aplicaciones que utiliza el usuario en su puesto de trabajo?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Tramas",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Segmentos",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "Paquetes",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Tren de bits",
+        "correct": false
+      },
+      {
+        "id": "e",
+        "text": "Ninguna de las anteriores",
+        "correct": false
+      }
+    ],
+    "why": "TCP divide los datos de la aplicación en segmentos.",
+    "nivel": "extra"
+  },
+  {
+    "id": 137,
+    "type": "single",
+    "category": "teorica",
+    "unidad": 6,
+    "tema_id": "seguridad",
+    "tema": "Seguridad en las Redes",
+    "subtema": "Prevención de repetición en firmas simétricas",
+    "question": "¿Cómo se puede minimizar el problema, que un tercero pueda reproducir el mensaje entre el origen y destino, cuando se aplican firmas digitales de clave simétrica?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Se verifica periodicamente la clave el emisor y el receptor",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "En todos los intercambios se usan estampas de tiempo",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "No hay problema porque la transmision esta encriptada",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Ninguna de las anteriores",
+        "correct": false
+      },
+      {
+        "id": "e",
+        "text": "El protocolo TCP se encarga de evitar la retransmision",
+        "correct": false
+      }
+    ],
+    "why": "Tanenbaum (firma con clave simétrica, 'Big Brother'): las estampas de tiempo evitan los ataques de repetición.",
+    "nivel": "extra"
+  },
+  {
+    "id": 138,
+    "type": "single",
+    "category": "teorica",
+    "unidad": 5,
+    "tema_id": "snmp",
+    "tema": "Capa de Aplicación - SNMP",
+    "subtema": "Infraestructura de gestión en SNMPv2",
+    "question": "¿Cuál de los siguientes elementos no pertenece a la infraestructura para la gestión de red en SNMPv2?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Agente usuario",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "text": "Gestor de elemento",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Agente",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Ninguna de las anteriores",
+        "correct": false
+      },
+      {
+        "id": "e",
+        "text": "Servidor de gestion",
+        "correct": false
+      }
+    ],
+    "why": "El agente de usuario pertenece al correo electrónico, no a la infraestructura de gestión de red.",
+    "nivel": "extra"
+  },
+  {
+    "id": 139,
+    "type": "single",
+    "category": "teorica",
+    "unidad": 6,
+    "tema_id": "seguridad",
+    "tema": "Seguridad en las Redes",
+    "subtema": "Configuración de VPN punto a punto",
+    "question": "¿Cómo se configuran las VPN punto a punto?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Dependen del trafico de la red",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Estaticas",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "Depende del ISP",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Ninguna de las anteriores",
+        "correct": false
+      },
+      {
+        "id": "e",
+        "text": "Dinamicas",
+        "correct": false
+      }
+    ],
+    "why": "Las VPN sitio a sitio se configuran de forma estática en los equipos de borde; las de acceso remoto son dinámicas.",
+    "nivel": "extra"
+  },
+  {
+    "id": 140,
+    "type": "single",
+    "category": "teorica",
+    "unidad": 6,
+    "tema_id": "seguridad",
+    "tema": "Seguridad en las Redes",
+    "subtema": "VPN de acceso remoto (home office)",
+    "question": "¿Que tipo de VPN se utiliza para realizar home office?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Acceso remoto",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "text": "Ninguna de las opciones",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Punto a punto",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Peer to peer",
+        "correct": false
+      },
+      {
+        "id": "e",
+        "text": "Cliente servidor",
+        "correct": false
+      }
+    ],
+    "why": "Para home office se usa una VPN de acceso remoto.",
+    "nivel": "extra"
+  },
+  {
+    "id": 141,
+    "type": "single",
+    "category": "teorica",
+    "unidad": 5,
+    "tema_id": "tcp_udp",
+    "tema": "Capa de Transporte (TCP / UDP)",
+    "subtema": "Rango de puertos bien conocidos",
+    "question": "¿Cómo se llaman los puertos menores a 1024, los cuales están reservados para los servicios estándar?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Puertos dinamicos",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Ninguna de las opciones",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Puertos registrados",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Puertos bien conocidos",
+        "correct": true
+      },
+      {
+        "id": "e",
+        "text": "Puertos privados",
+        "correct": false
+      }
+    ],
+    "why": "0 a 1023: puertos bien conocidos; 1024 a 49151: registrados; 49152 a 65535: dinámicos/privados.",
+    "nivel": "extra"
+  },
+  {
+    "id": 142,
+    "type": "single",
+    "category": "teorica",
+    "unidad": 6,
+    "tema_id": "seguridad",
+    "tema": "Seguridad en las Redes",
+    "subtema": "Ubicación del encabezado IPsec",
+    "question": "¿Entre qué capas IPsec inserta su encabezado, cuando trabaja a modo túnel o de transporte?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Transporte y red",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "text": "Red y enlace de datos",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Ninguna de las opciones",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Aplicacion y transporte",
+        "correct": false
+      }
+    ],
+    "why": "El encabezado AH/ESP se inserta entre el encabezado IP (red) y el de transporte.",
+    "nivel": "extra"
+  },
+  {
+    "id": 143,
+    "type": "single",
+    "category": "teorica",
+    "unidad": 5,
+    "tema_id": "correo",
+    "tema": "Capa de Aplicación - Correo Electrónico",
+    "subtema": "Campos de encabezado en SMTP",
+    "question": "¿Cuál de los siguientes campos de encabezado es usado por los usuarios o destinatarios en el protocolo SMTP?",
+    "options": [
+      {
+        "id": "a",
+        "text": "From",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Sender",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "To",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Return-path",
+        "correct": false
+      },
+      {
+        "id": "e",
+        "text": "In-Reply-To",
+        "correct": true
+      },
+      {
+        "id": "f",
+        "text": "Ninguna de las anteriores",
+        "correct": false
+      }
+    ],
+    "why": "In-Reply-To lo usan los agentes de usuario/destinatarios. From, Sender, To y Return-path son campos de transporte.",
+    "nivel": "extra"
+  },
+  {
+    "id": 144,
+    "type": "single",
+    "category": "teorica",
+    "unidad": 5,
+    "tema_id": "http",
+    "tema": "Capa de Aplicación - HTTP",
+    "subtema": "Traducción de versiones mediante proxy HTTP",
+    "question": "Si el cliente y el servidor ejecutan diferentes versiones de HTTP. ¿Quién puede implementar ambas versiones y realizar las traducciones necesarias?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Servidor origen",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Ninguna de las anteriores",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Tunel",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Pasarela",
+        "correct": false
+      },
+      {
+        "id": "e",
+        "text": "Cliente",
+        "correct": false
+      },
+      {
+        "id": "f",
+        "text": "Representante",
+        "correct": true
+      }
+    ],
+    "why": "Un intermediario (representante = proxy) actúa como servidor frente al cliente y como cliente frente al servidor, por lo que puede hablar ambas versiones y traducir.",
+    "confianza": "media",
+    "nivel": "extra"
+  },
+  {
+    "id": 145,
+    "type": "single",
+    "category": "teorica",
+    "unidad": 6,
+    "tema_id": "seguridad",
+    "tema": "Seguridad en las Redes",
+    "subtema": "Vinculación del autor en firmas digitales",
+    "question": "¿Cómo queda vinculado el autor del mensaje cuando utilizamos resumen de mensajes (hash) en las firmas digitales?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Utiliza su propia clave privada",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "text": "Utiliza su propia clave privada y la publica del destino",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Utiliza su propia clave publica y la privada del destino",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Utiliza la clave privada del destino",
+        "correct": false
+      },
+      {
+        "id": "e",
+        "text": "Ninguna de las anteriores",
+        "correct": false
+      }
+    ],
+    "why": "El autor cifra el resumen (hash) con su propia clave privada; cualquiera lo verifica con su clave pública.",
+    "nivel": "extra"
+  },
+  {
+    "id": 146,
+    "type": "single",
+    "category": "practica",
+    "unidad": 6,
+    "tema_id": "seguridad",
+    "tema": "Seguridad en las Redes",
+    "subtema": "Análisis de riesgo en políticas de seguridad",
+    "question": "El dueño de una empresa tiene una reunión con el administrador de seguridad y le hace hincapié en la relación costo-beneficio. ¿A que aspecto a tener en cuenta en el desarrollo de las políticas de seguridad nos referimos?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Operaciones de seguridad",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Ninguna de las anteriores",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Identificacion de amenazas",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Analisis de riesgo",
+        "correct": true
+      }
+    ],
+    "why": "Evaluar costo y beneficio de proteger cada recurso es el análisis de riesgo.",
+    "nivel": "extra"
+  },
+  {
+    "id": 147,
+    "type": "single",
+    "category": "teorica",
+    "unidad": 6,
+    "tema_id": "seguridad",
+    "tema": "Seguridad en las Redes",
+    "subtema": "Encapsulado en modo túnel IPsec",
+    "question": "¿Qué dispositivo encapsula y desencapsula paquetes cuando se utiliza modo túnel en IPsec?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Firewall",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "text": "Router",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Switch de capa 3",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Ninguna de las opciones",
+        "correct": false
+      },
+      {
+        "id": "e",
+        "text": "Switch",
+        "correct": false
+      }
+    ],
+    "why": "Tanenbaum: en modo túnel, el túnel suele terminar en una pasarela de seguridad, por ejemplo el firewall de la empresa, que encapsula y desencapsula.",
+    "confianza": "media",
+    "nivel": "extra"
+  },
+  {
+    "id": 148,
+    "type": "single",
+    "category": "teorica",
+    "unidad": 6,
+    "tema_id": "seguridad",
+    "tema": "Seguridad en las Redes",
+    "subtema": "Asociación de Seguridad (SA) en IPsec",
+    "question": "Que es un SA en IPsec?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Ninguna de las anteriores",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Es una conexion simplex entre dos puntos finales y tiene un identificador de seguridad asociado con ella",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "Sirve para identificar la aplicacion y de esta forma se controla que usuario puede utilizarla",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Es una conexion segura entre router",
+        "correct": false
+      },
+      {
+        "id": "e",
+        "text": "Son aplicaciones seguras que utilizan los usuarios dentro de la LAN, para asegurar la integridad de los datos",
+        "correct": false
+      }
+    ],
+    "why": "Tanenbaum: una SA es una conexión simplex entre dos puntos finales, con un identificador de seguridad asociado.",
+    "nivel": "extra"
+  },
+  {
+    "id": 149,
+    "type": "single",
+    "category": "teorica",
+    "unidad": 6,
+    "tema_id": "seguridad",
+    "tema": "Seguridad en las Redes",
+    "subtema": "Inconveniente de pasarelas de aplicación",
+    "question": "¿Qué inconveniente tiene un administrador de seguridad al aplicar firewall que usan pasarelas de aplicación?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Ninguna de las anteriores",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Se necesita un servidor independiente para cada pasarela de aplicacion",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Es muy engorroso el control por usuarios",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Se requiere una pasarela de aplicacion por cada aplicacion",
+        "correct": true
+      },
+      {
+        "id": "e",
+        "text": "Los usuarios móviles de la empresa son el mayor inconveniente para el administrador",
+        "correct": false
+      }
+    ],
+    "why": "La desventaja de las pasarelas de aplicación es que hace falta una para cada aplicación (HTTP, FTP, Telnet…).",
+    "nivel": "extra"
+  },
+  {
+    "id": 150,
+    "type": "single",
+    "category": "teorica",
+    "unidad": 6,
+    "tema_id": "seguridad",
+    "tema": "Seguridad en las Redes",
+    "subtema": "Claves en sistema simétrico",
+    "question": "¿Cómo son las claves de dos usuarios que se comunican por un sistema de clave simétrica?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Cada uno tiene su clave personal y se mantiene en secreto",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Ninguna de las opciones",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Las claves son iguales y no hace falta mantenerlas en secreto",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Las claves son iguales y se mantienen en secreto",
+        "correct": true
+      },
+      {
+        "id": "e",
+        "text": "Cada uno tiene su clave personal y no hace falta mantenerlas en secreto",
+        "correct": false
+      }
+    ],
+    "why": "En clave simétrica ambos comparten la misma clave y deben mantenerla en secreto.",
+    "nivel": "extra"
+  },
+  {
+    "id": 151,
+    "type": "single",
+    "category": "teorica",
+    "unidad": 6,
+    "tema_id": "seguridad",
+    "tema": "Seguridad en las Redes",
+    "subtema": "Centro de Distribución de Claves (KDC)",
+    "question": "¿Cuál de las siguientes opciones corresponde a un KDC?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Otorga certificados a los usuarios que realizan la comunicación",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Genera claves asimétricas permanentes entre dos partes",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Controla el trafico entre dos entidades registradas en el KDC",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Genera una clave simetrica de sesion entre dos partes que se utiliza solo una vez",
+        "correct": true
+      },
+      {
+        "id": "e",
+        "text": "Ninguna de las anteriores",
+        "correct": false
+      }
+    ],
+    "why": "Un KDC genera una clave simétrica de sesión, de un solo uso, para dos partes registradas.",
+    "nivel": "extra"
+  },
+  {
+    "id": 152,
+    "type": "single",
+    "category": "teorica",
+    "unidad": 6,
+    "tema_id": "seguridad",
+    "tema": "Seguridad en las Redes",
+    "subtema": "Capa de autenticación y no repudio",
+    "question": "¿En qué capa se pueden manejar la autenticación y el no repudio?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Transporte",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Aplicacion",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "Red",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Ninguna de las anteriores",
+        "correct": false
+      }
+    ],
+    "why": "Tanenbaum: la autenticación y el no repudio deben manejarse en la capa de aplicación.",
+    "nivel": "extra"
+  },
+  {
+    "id": 153,
+    "type": "single",
+    "category": "teorica",
+    "unidad": 5,
+    "tema_id": "tcp_udp",
+    "tema": "Capa de Transporte (TCP / UDP)",
+    "subtema": "Comportamiento de envío en UDP",
+    "question": "¿Qué hace un cliente cuando tiene datagramas UDP para enviar?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Simplemente envía los datagramas.",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "text": "Envía una consulta al servidor para ver si está listo para recibir datos.",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Envía un protocolo de enlace de tres vías simplificado al servidor.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Envía al servidor un segmento con el indicador SYN establecido para sincronizar la conversación.",
+        "correct": false
+      },
+      {
+        "id": "e",
+        "text": "Ninguna correcta.",
+        "correct": false
+      }
+    ],
+    "why": "UDP es sin conexión y de mejor esfuerzo: no establece sesión ni verifica disponibilidad antes de transmitir.",
+    "nivel": "extra"
+  },
+  {
+    "id": 154,
+    "type": "single",
+    "category": "teorica",
+    "unidad": 5,
+    "tema_id": "tcp_udp",
+    "tema": "Capa de Transporte (TCP / UDP)",
+    "subtema": "Encabezado de capa de transporte",
+    "question": "¿Qué información importante se agrega al encabezado de la capa de transporte TCP/IP para asegurar la comunicación y la conectividad a un dispositivo de red remoto?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Temporización y sincronización",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Números de puerto de destino y origen",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "Direcciones físicas de destino y origen",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Direcciones de red lógicas de destino y origen",
+        "correct": false
+      },
+      {
+        "id": "e",
+        "text": "Todas correctas.",
+        "correct": false
+      }
+    ],
+    "why": "La capa de transporte usa los puertos para identificar qué aplicación procesa los datos de extremo a extremo. Las direcciones lógicas son de capa 3 y las físicas, de capa 2.",
+    "nivel": "extra"
+  },
+  {
+    "id": 155,
+    "type": "multiple",
+    "category": "teorica",
+    "unidad": 5,
+    "tema_id": "tcp_udp",
+    "tema": "Capa de Transporte (TCP / UDP)",
+    "subtema": "Aplicaciones adecuadas para UDP",
+    "question": "¿Qué tipos de aplicaciones son los más adecuados para el uso de UDP? (Escoja dos opciones).",
+    "options": [
+      {
+        "id": "a",
+        "text": "Aplicaciones que necesitan control de flujo de datos.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Las aplicaciones que necesitan una entrega confiable.",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Aplicaciones que manejan la confiabilidad por su cuenta.",
+        "correct": true
+      },
+      {
+        "id": "d",
+        "text": "Aplicaciones que necesitan el reordenamiento de segmentos.",
+        "correct": false
+      },
+      {
+        "id": "e",
+        "text": "Aplicaciones que pueden tolerar cierta pérdida de datos, pero requieren demoras breves o que no haya demoras.",
+        "correct": true
+      }
+    ],
+    "why": "Streaming, VoIP y juegos toleran pérdidas pero no demoras, y las apps que manejan su propia confiabilidad (como TFTP) no necesitan TCP.",
+    "nivel": "extra"
+  },
+  {
+    "id": 156,
+    "type": "single",
+    "category": "teorica",
+    "unidad": 6,
+    "tema_id": "seguridad",
+    "tema": "Seguridad en las Redes",
+    "subtema": "Firewall de filtrado de paquetes",
+    "question": "Un router con capacidad de filtrar algunos de los contenidos de los paquetes (examina la capa 3, algunos puertos de capa 4), ¿es un Firewall de qué tipo?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Proxy",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Statefull",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Filtrado de paquetes",
+        "correct": true
+      },
+      {
+        "id": "d",
+        "text": "Bastion",
+        "correct": false
+      },
+      {
+        "id": "e",
+        "text": "HoneyPot",
+        "correct": false
+      }
+    ],
+    "why": "El filtrado de paquetes inspecciona IPs (capa 3) y puertos (capa 4) de cada paquete por separado. El stateful además sigue el estado de la conexión, y el proxy trabaja en capa de aplicación.",
+    "nivel": "extra"
+  },
+  {
+    "id": 157,
+    "type": "single",
+    "category": "teorica",
+    "unidad": 5,
+    "tema_id": "vozip",
+    "tema": "Voz sobre IP (VoIP)",
+    "subtema": "Gatekeeper en sistemas H.323",
+    "question": "¿Cómo se denomina al dispositivo propio de un sistema H.323, que se utiliza para control de admisión y resolución de direcciones?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Servidor SIP",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Gateway",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Gatekeeper",
+        "correct": true
+      },
+      {
+        "id": "d",
+        "text": "Router de llamada",
+        "correct": false
+      },
+      {
+        "id": "e",
+        "text": "Ninguna de las anteriores",
+        "correct": false
+      }
+    ],
+    "why": "En H.323, el gatekeeper hace el control de admisión, la traducción y resolución de direcciones y la gestión del ancho de banda. El gateway interconecta con otras redes (PSTN).",
+    "nivel": "nucleo"
+  },
+  {
+    "id": 158,
+    "type": "single",
+    "category": "teorica",
+    "unidad": 6,
+    "tema_id": "seguridad",
+    "tema": "Seguridad en las Redes",
+    "subtema": "Funciones Hash criptográficas",
+    "question": "¿Qué define correctamente a una función de HASH criptográfica, para qué se utiliza y cuáles son dos ejemplos válidos?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Es un algoritmo unidireccional y resistente a colisiones que genera un resumen de longitud fija; sirve para verificar integridad y construir firmas digitales (ejemplos: MD5 y SHA-256).",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "text": "Es un algoritmo de cifrado simétrico reversible de longitud variable que garantiza confidencialidad; ejemplos: AES y DES.",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Es un algoritmo de clave pública que cifra el mensaje completo con la clave pública del receptor para evitar la interceptación; ejemplos: RSA y Diffie-Hellman.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Es un mecanismo de compresión sin pérdida usado únicamente para reducir el tamaño de paquetes en capa de transporte; ejemplos: gzip y DEFLATE.",
+        "correct": false
+      }
+    ],
+    "why": "Una función hash toma una entrada de longitud variable y produce un resumen (digest) de longitud fija; es unidireccional y resistente a colisiones. Se usa para verificar integridad, firmas digitales, HMAC y almacenamiento de contraseñas (MD5, SHA-1, SHA-256).",
+    "nivel": "extra"
+  },
+  {
+    "id": 159,
+    "type": "single",
+    "category": "practica",
+    "unidad": 5,
+    "tema_id": "nat",
+    "tema": "NAT y PAT",
+    "subtema": "Tabla NAT/PAT con tráfico ICMP",
+    "image": "p3_nat_icmp_cba.jpg",
+    "question": "Observe la figura y suponga que los equipos con las IPs 192.168.1.20 y 192.168.1.21 desean realizar un ping al servidor 220.0.0.17, a través de Internet, mediante el Router Cba (IP pública 200.0.0.6) y el router del ISP (200.0.0.5). ¿Cómo se conforma la tabla de NAT del Router Cba?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Usa PAT (sobrecarga) con 4 columnas (Inside global, Inside local, Outside local, Outside global), mapeando ambas IPs privadas a 200.0.0.6 usando el identificador ICMP como puerto (ej. :1 y :2) hacia 220.0.0.17; la IP del ISP (200.0.0.5) no figura en la tabla.",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "text": "Usa NAT estática con 2 columnas, asignando 200.0.0.6 a 192.168.1.20 y 200.0.0.5 a 192.168.1.21 para distinguir ambos pings.",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Usa PAT registrando 200.0.0.5 como Outside global y 220.0.0.17 como Outside local, sin necesidad de identificador ICMP porque ICMP no usa puertos.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "No puede realizarse NAT/PAT para tráfico ping (ICMP) porque solo funciona con puertos TCP y UDP.",
+        "correct": false
+      }
+    ],
+    "why": "Al tener una sola IP pública (200.0.0.6) para varios hosts internos, el Router Cba aplica PAT. Como ICMP no tiene puertos TCP/UDP, utiliza el identificador de consulta ICMP (:1, :2) para distinguir cada sesión. La tabla registra Inside global (200.0.0.6:id), Inside local (192.168.1.20/21:id), Outside local y Outside global (220.0.0.17:id). El router del ISP (200.0.0.5) es solo el próximo salto y no aparece en la tabla NAT.",
+    "nivel": "nucleo"
+  },
+  {
+    "id": 160,
+    "type": "single",
+    "category": "practica",
+    "unidad": 5,
+    "tema_id": "tcp_udp",
+    "tema": "Capa de Transporte (TCP / UDP)",
+    "subtema": "Puerto de destino en solicitud SSH (Examen)",
+    "question": "Un cliente crea un paquete para enviar a un servidor. El cliente está solicitando el servicio SSH. ¿Qué número se utilizará como número de puerto de destino en el paquete de envío?",
+    "options": [
+      {
+        "id": "a",
+        "text": "22",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "text": "21",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "67",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "80",
+        "correct": false
+      },
+      {
+        "id": "e",
+        "text": "Ninguno correcto",
+        "correct": false
+      }
+    ],
+    "why": "SSH usa TCP 22 (21 = FTP control, 67 = DHCP servidor, 80 = HTTP).",
+    "nivel": "extra"
+  },
+  {
+    "id": 161,
+    "type": "single",
+    "category": "practica",
+    "unidad": 5,
+    "tema_id": "correo",
+    "tema": "Capa de Aplicación - Correo Electrónico",
+    "subtema": "Puerto de destino en solicitud SMTP (Examen)",
+    "question": "Un cliente crea un paquete para enviar a un servidor. El cliente está solicitando el servicio SMTP. ¿Qué número se utilizará como número de puerto de destino en el paquete de envío?",
+    "options": [
+      {
+        "id": "a",
+        "text": "23",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "443",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "161",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "110",
+        "correct": false
+      },
+      {
+        "id": "e",
+        "text": "Ninguno correcto",
+        "correct": true
+      }
+    ],
+    "why": "SMTP usa TCP 25 (587 o 465 en sus variantes de envío seguro), que no figura. 23 = Telnet, 443 = HTTPS, 161 = SNMP, 110 = POP3.",
+    "nivel": "extra"
   }
 ]

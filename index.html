@@ -80,6 +80,9 @@
     .category-mode-btn[data-category="clase"].active{background:#4d65a8;border-color:#6f8cff}
     .category-mode-btn[data-category="nucleo"].active{background:#3d8659;border-color:#5ab96a}
     .category-mode-btn[data-category="extras"].active{background:#2f6f8f;border-color:#4d9ec4}
+    .category-mode-btn[data-nivel="all"].active{background:#46546b;border-color:#65748a}
+    .category-mode-btn[data-nivel="nucleo"].active{background:#3d8659;border-color:#5ab96a}
+    .category-mode-btn[data-nivel="extras"].active{background:#2f6f8f;border-color:#4d9ec4}
     .card-quiz.mode-teorica{border-color:#3aa58f}
     .card-quiz.mode-practica{border-color:#c98b2f}
     .card-quiz.mode-clase{border-color:#6f8cff}
@@ -294,6 +297,12 @@
               <button class="category-mode-btn" data-category="nucleo" title="Lo mínimo indispensable: una o más preguntas por cada concepto del programa">Núcleo <span data-category-count="nucleo"></span></button>
               <button class="category-mode-btn" data-category="extras" title="Las preguntas restantes: variantes de los mismos conceptos, para repasar">Extras <span data-category-count="extras"></span></button>
             </div>
+            <div class="category-buttons mt-2" id="nivelFilterBar" style="display:none; width:100%; align-items:center;">
+              <span class="category-label" style="margin-right:4px">Nivel</span>
+              <button class="category-mode-btn" data-nivel="nucleo" title="Lo mínimo indispensable: una o más preguntas por cada concepto del programa">Núcleo <span data-nivel-count="nucleo"></span></button>
+              <button class="category-mode-btn" data-nivel="extras" title="Las preguntas restantes: variantes de los mismos conceptos, para repasar">Extras <span data-nivel-count="extras"></span></button>
+              <button class="category-mode-btn" data-nivel="all">Todas <span data-nivel-count="all"></span></button>
+            </div>
             <div class="mode-hint" id="modeHint"></div>
           </div>
           <div class="d-flex justify-content-between align-items-start mb-2">
@@ -406,9 +415,11 @@
     let questions = [];
     let quizStates = loadStoredJson(QUIZ_STATE_STORAGE_KEY, {});
     let categoryModesByQuiz = loadStoredJson(QUIZ_CATEGORY_STORAGE_KEY, {});
+    let nivelModesByQuiz = loadStoredJson('redes_quiz_nivel_modes_v1', {});
     let state = { current:0, answers:[], checked:[], score:0 };
     let selectedQuizType = null;
     let selectedCategoryMode = 'all';
+    let selectedNivelMode = 'all';
     
     let currentPage = 0;
     const getQuestionsPerPage = () => currentQuizConfig?.questionsPerPage || 45;
@@ -473,7 +484,9 @@
         categoryFilter: true,
         visibleCategories: ['all', 'teorica', 'practica'],
         defaultCategory: 'all',
-        showCategoryCounts: true
+        showCategoryCounts: true,
+        dualLevelFilter: true,
+        defaultNivel: 'nucleo'
       }
     };
 
@@ -553,8 +566,16 @@
       return CATEGORY_MODES[mode] ? mode : 'all';
     }
 
-    function getStateKey(type = selectedQuizType, category = selectedCategoryMode){
+    function matchesNivel(q, nivel = selectedNivelMode){
+      if(!currentQuizConfig?.dualLevelFilter || nivel === 'all') return true;
+      return nivel === 'nucleo' ? q.nivel === 'nucleo' : q.nivel !== 'nucleo';
+    }
+
+    function getStateKey(type = selectedQuizType, category = selectedCategoryMode, nivel = selectedNivelMode){
       const mode = supportsCategoryFilter(type) ? normalizeCategoryMode(category, type) : 'all';
+      if(quizConfigs[type]?.dualLevelFilter){
+        return `${type || 'quiz'}::${mode}::${nivel || 'nucleo'}`;
+      }
       return `${type || 'quiz'}::${mode}`;
     }
 
@@ -567,8 +588,11 @@
         };
       }
 
-      // Categorías normales para otros quizzes
-      return allQuestions.reduce((acc, q) => {
+      // Categorías normales para otros quizzes (si tiene dualLevelFilter, cuenta dentro del nivel activo)
+      const basePool = currentQuizConfig?.dualLevelFilter
+        ? allQuestions.filter(q => matchesNivel(q))
+        : allQuestions;
+      return basePool.reduce((acc, q) => {
         acc.all++;
         if(CATEGORY_MODES[q.category]) acc[q.category] = (acc[q.category] || 0) + 1;
         return acc;
@@ -576,6 +600,17 @@
         acc[mode] = 0;
         return acc;
       }, {}));
+    }
+
+    function getNivelCounts(){
+      const basePool = selectedCategoryMode === 'all'
+        ? allQuestions
+        : allQuestions.filter(q => q.category === selectedCategoryMode);
+      return {
+        all: basePool.length,
+        nucleo: basePool.filter(q => q.nivel === 'nucleo').length,
+        extras: basePool.filter(q => q.nivel !== 'nucleo').length
+      };
     }
 
     function getQuestionsByCategory(category){
@@ -586,8 +621,11 @@
           ? allQuestions.filter(q => q.nivel === 'nucleo')
           : allQuestions.filter(q => q.nivel !== 'nucleo');
       }
-      if(category === 'all') return allQuestions.slice();
-      return allQuestions.filter(q => q.category === category);
+      const byCat = category === 'all' ? allQuestions.slice() : allQuestions.filter(q => q.category === category);
+      if(currentQuizConfig?.dualLevelFilter){
+        return byCat.filter(q => matchesNivel(q));
+      }
+      return byCat;
     }
 
     function getFilteredQuestions(){
@@ -679,13 +717,31 @@
         el.textContent = showCounts && counts[mode] != null ? `(${counts[mode]})` : '';
       });
 
+      const nivelBar = $('nivelFilterBar');
+      const hasDual = !!currentQuizConfig?.dualLevelFilter;
+      if(nivelBar){
+        nivelBar.style.display = hasDual ? 'flex' : 'none';
+        if(hasDual){
+          const nCounts = getNivelCounts();
+          document.querySelectorAll('[data-nivel]').forEach(btn => {
+            btn.classList.toggle('active', btn.dataset.nivel === selectedNivelMode);
+          });
+          document.querySelectorAll('[data-nivel-count]').forEach(el => {
+            const nMode = el.dataset.nivelCount;
+            el.textContent = showCounts && nCounts[nMode] != null ? `(${nCounts[nMode]})` : '';
+          });
+        }
+      }
+
       renderModeHint();
     }
 
     function renderModeHint(){
       const hint = $('modeHint');
       if(!hint) return;
-      const text = currentQuizConfig?.levelFilter ? (MODE_HINTS[selectedCategoryMode] || '') : '';
+      const text = currentQuizConfig?.levelFilter
+        ? (MODE_HINTS[selectedCategoryMode] || '')
+        : (currentQuizConfig?.dualLevelFilter ? (MODE_HINTS[selectedNivelMode] || '') : '');
       hint.textContent = text;
       hint.style.display = text ? '' : 'none';
     }
@@ -695,6 +751,18 @@
       selectedCategoryMode = normalizeCategoryMode(mode);
       categoryModesByQuiz[selectedQuizType] = selectedCategoryMode;
       persistStoredJson(QUIZ_CATEGORY_STORAGE_KEY, categoryModesByQuiz);
+      questions = getFilteredQuestions();
+      restoreStateForCurrentScope();
+      currentPage = Math.floor((state.current || 0) / getQuestionsPerPage());
+      clampCurrentPage();
+      initQuiz();
+    }
+
+    function applyNivelMode(nivel){
+      saveCurrentState();
+      selectedNivelMode = ['nucleo', 'extras', 'all'].includes(nivel) ? nivel : 'nucleo';
+      nivelModesByQuiz[selectedQuizType] = selectedNivelMode;
+      persistStoredJson('redes_quiz_nivel_modes_v1', nivelModesByQuiz);
       questions = getFilteredQuestions();
       restoreStateForCurrentScope();
       currentPage = Math.floor((state.current || 0) / getQuestionsPerPage());
@@ -747,6 +815,9 @@
       // Determinar categoría por defecto según el tipo de quiz
       selectedCategoryMode = supportsCategoryFilter(type)
         ? normalizeCategoryMode(categoryModesByQuiz[type] || currentQuizConfig.defaultCategory || 'all', type)
+        : 'all';
+      selectedNivelMode = currentQuizConfig?.dualLevelFilter
+        ? (['nucleo', 'extras', 'all'].includes(nivelModesByQuiz[type]) ? nivelModesByQuiz[type] : (currentQuizConfig.defaultNivel || 'nucleo'))
         : 'all';
             
       questions = getFilteredQuestions();
@@ -1521,6 +1592,14 @@
         const mode = normalizeCategoryMode(btn.dataset.category);
         if(!supportsCategoryFilter() || selectedCategoryMode === mode) return;
         applyCategoryMode(mode);
+      });
+    });
+
+    document.querySelectorAll('[data-nivel]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const nivel = btn.dataset.nivel;
+        if(!currentQuizConfig?.dualLevelFilter || selectedNivelMode === nivel) return;
+        applyNivelMode(nivel);
       });
     });
 
