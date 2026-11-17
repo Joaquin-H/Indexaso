@@ -413,10 +413,11 @@
     const MODE_HINTS = {
       nucleo: 'Lo mínimo indispensable: una o más preguntas por concepto, con balance entre teoría y práctica.',
       extras: 'Las que sobran del banco: variantes de los mismos conceptos del núcleo.',
-      simulacro32: 'Simulacro de examen: 32 preguntas aleatorias balanceadas (16 teóricas y 16 prácticas) de todos los temas.'
+      simulacro32: 'Simulacro de examen: 32 preguntas al azar de las 190 totales (16 teóricas y 16 prácticas), con margen libre de temas y sin repetir entre sorteos.'
     };
 
     const SIMULACRO_STORAGE_KEY = 'indexaso.simulacro32.v1';
+    const SIMULACRO_HISTORY_STORAGE_KEY = 'indexaso.simulacro32History.v1';
 
     let quizData = {};
     let allQuestions = [];
@@ -425,6 +426,7 @@
     let categoryModesByQuiz = loadStoredJson(QUIZ_CATEGORY_STORAGE_KEY, {});
     let nivelModesByQuiz = loadStoredJson('redes_quiz_nivel_modes_v1', {});
     let simulacroPoolsByQuiz = loadStoredJson(SIMULACRO_STORAGE_KEY, {});
+    let simulacroHistoryByQuiz = loadStoredJson(SIMULACRO_HISTORY_STORAGE_KEY, {});
     let state = { current:0, answers:[], checked:[], score:0 };
     let selectedQuizType = null;
     let selectedCategoryMode = 'all';
@@ -586,67 +588,74 @@
       return out;
     }
 
-    function pickStratified(items, targetCount){
-      const byTopic = new Map();
-      items.forEach(q => {
-        const key = q.tema_id || q.tema || 'general';
-        if(!byTopic.has(key)) byTopic.set(key, []);
-        byTopic.get(key).push(q);
-      });
-
-      const selected = [];
-      const selectedIds = new Set();
-      const topics = shuffleArray(Array.from(byTopic.keys()));
-      const topicBuckets = new Map();
-
-      topics.forEach(topic => {
-        const grp = byTopic.get(topic);
-        topicBuckets.set(topic, {
-          nucleo: shuffleArray(grp.filter(q => q.nivel === 'nucleo')),
-          extra: shuffleArray(grp.filter(q => q.nivel !== 'nucleo'))
-        });
-      });
-
-      // Primera pasada: asegurar presencia de todos los temas priorizando el núcleo
-      for(const topic of topics){
-        if(selected.length >= targetCount) break;
-        const { nucleo, extra } = topicBuckets.get(topic);
-        const pick = nucleo.length ? nucleo.shift() : extra.shift();
-        if(pick && !selectedIds.has(pick.id)){
-          selected.push(pick);
-          selectedIds.add(pick.id);
-        }
-      }
-
-      // Segunda pasada: completar por rondas priorizando núcleo (~75%) y sumando extras
-      let progress = true;
-      while(selected.length < targetCount && progress){
-        progress = false;
-        for(const topic of shuffleArray(topics)){
-          if(selected.length >= targetCount) break;
-          const { nucleo, extra } = topicBuckets.get(topic);
-          let pick = null;
-          if(nucleo.length && extra.length){
-            pick = Math.random() < 0.75 ? nucleo.shift() : extra.shift();
-          } else if(nucleo.length){
-            pick = nucleo.shift();
-          } else if(extra.length){
-            pick = extra.shift();
-          }
-          if(pick && !selectedIds.has(pick.id)){
-            selected.push(pick);
-            selectedIds.add(pick.id);
-            progress = true;
-          }
-        }
-      }
-
-      return selected;
+    function getQuizSimulacroHistory(quizKey = selectedQuizType || 'default'){
+      const current = simulacroHistoryByQuiz[quizKey];
+      return {
+        seen: {
+          teorica: Array.isArray(current?.seen?.teorica) ? current.seen.teorica.slice() : [],
+          practica: Array.isArray(current?.seen?.practica) ? current.seen.practica.slice() : [],
+          all: Array.isArray(current?.seen?.all) ? current.seen.all.slice() : []
+        },
+        lastIds: Array.isArray(current?.lastIds) ? current.lastIds.slice() : []
+      };
     }
 
-    function generateSimulacro32Ids(pool = allQuestions){
+    function pickRandomWithDeck(items, targetCount, seenIdsList, prevIdsSet){
+      const target = Math.min(targetCount, items.length);
+      if(!target) return { picked: [], nextSeenIds: seenIdsList.slice() };
+
+      const itemIdSet = new Set(items.map(q => q.id));
+      const seenSet = new Set(seenIdsList.filter(id => itemIdSet.has(id)));
+      const unseen = shuffleArray(items.filter(q => !seenSet.has(q.id) && !prevIdsSet.has(q.id)));
+      const unseenFallback = unseen.length >= target
+        ? []
+        : shuffleArray(items.filter(q => !seenSet.has(q.id) && prevIdsSet.has(q.id)));
+
+      const picked = [];
+      for(const q of unseen){
+        if(picked.length >= target) break;
+        picked.push(q);
+      }
+      for(const q of unseenFallback){
+        if(picked.length >= target) break;
+        picked.push(q);
+      }
+
+      if(picked.length >= target){
+        picked.forEach(q => seenSet.add(q.id));
+        return { picked, nextSeenIds: Array.from(seenSet) };
+      }
+
+      // Mazo agotado: se completó el recorrido de la categoría, reiniciar mazo evitando repetir el examen anterior
+      const pickedSet = new Set(picked.map(q => q.id));
+      const nextSeenSet = new Set(pickedSet);
+      const freshPool = shuffleArray(items.filter(q => !pickedSet.has(q.id) && !prevIdsSet.has(q.id)));
+      const emergencyPool = freshPool.length >= (target - picked.length)
+        ? []
+        : shuffleArray(items.filter(q => !pickedSet.has(q.id) && prevIdsSet.has(q.id)));
+
+      for(const q of freshPool){
+        if(picked.length >= target) break;
+        picked.push(q);
+        nextSeenSet.add(q.id);
+      }
+      for(const q of emergencyPool){
+        if(picked.length >= target) break;
+        picked.push(q);
+        nextSeenSet.add(q.id);
+      }
+
+      return { picked, nextSeenIds: Array.from(nextSeenSet) };
+    }
+
+    function generateSimulacro32Ids(pool = allQuestions, quizKey = selectedQuizType || 'default'){
+      const history = getQuizSimulacroHistory(quizKey);
+      const existingPool = Array.isArray(simulacroPoolsByQuiz[quizKey]) ? simulacroPoolsByQuiz[quizKey] : [];
+      const prevIdsSet = new Set(history.lastIds.length ? history.lastIds : existingPool);
+
       const teoricas = pool.filter(q => q.category === 'teorica');
       const practicas = pool.filter(q => q.category === 'practica');
+
       if(teoricas.length && practicas.length){
         let tTarget = Math.min(16, teoricas.length);
         let pTarget = Math.min(16, practicas.length);
@@ -654,13 +663,35 @@
           if(teoricas.length > tTarget) tTarget = Math.min(teoricas.length, 32 - pTarget);
           else if(practicas.length > pTarget) pTarget = Math.min(practicas.length, 32 - tTarget);
         }
-        const picked = [
-          ...pickStratified(teoricas, tTarget),
-          ...pickStratified(practicas, pTarget)
-        ];
-        return shuffleArray(picked).map(q => q.id);
+
+        const tDraw = pickRandomWithDeck(teoricas, tTarget, history.seen.teorica, prevIdsSet);
+        const pDraw = pickRandomWithDeck(practicas, pTarget, history.seen.practica, prevIdsSet);
+        const ids = shuffleArray([...tDraw.picked, ...pDraw.picked]).map(q => q.id);
+
+        simulacroHistoryByQuiz[quizKey] = {
+          seen: {
+            teorica: tDraw.nextSeenIds,
+            practica: pDraw.nextSeenIds,
+            all: history.seen.all
+          },
+          lastIds: ids
+        };
+        persistStoredJson(SIMULACRO_HISTORY_STORAGE_KEY, simulacroHistoryByQuiz);
+        return ids;
       }
-      return pickStratified(pool, Math.min(32, pool.length)).map(q => q.id);
+
+      const draw = pickRandomWithDeck(pool, Math.min(32, pool.length), history.seen.all, prevIdsSet);
+      const ids = shuffleArray(draw.picked).map(q => q.id);
+      simulacroHistoryByQuiz[quizKey] = {
+        seen: {
+          teorica: history.seen.teorica,
+          practica: history.seen.practica,
+          all: draw.nextSeenIds
+        },
+        lastIds: ids
+      };
+      persistStoredJson(SIMULACRO_HISTORY_STORAGE_KEY, simulacroHistoryByQuiz);
+      return ids;
     }
 
     function getSimulacroQuestions(forceNew = false){
@@ -670,9 +701,20 @@
       let ids = !forceNew ? simulacroPoolsByQuiz[selectedQuizType] : null;
       const valid = Array.isArray(ids) && ids.length === expectedTotal && ids.every(id => byId.has(id));
       if(!valid){
-        ids = generateSimulacro32Ids(allQuestions);
+        ids = generateSimulacro32Ids(allQuestions, selectedQuizType);
         simulacroPoolsByQuiz[selectedQuizType] = ids;
         persistStoredJson(SIMULACRO_STORAGE_KEY, simulacroPoolsByQuiz);
+      } else if(!simulacroHistoryByQuiz[selectedQuizType]){
+        const activeQs = ids.map(id => byId.get(id)).filter(Boolean);
+        simulacroHistoryByQuiz[selectedQuizType] = {
+          seen: {
+            teorica: activeQs.filter(q => q.category === 'teorica').map(q => q.id),
+            practica: activeQs.filter(q => q.category === 'practica').map(q => q.id),
+            all: ids.slice()
+          },
+          lastIds: ids.slice()
+        };
+        persistStoredJson(SIMULACRO_HISTORY_STORAGE_KEY, simulacroHistoryByQuiz);
       }
       return ids.map(id => byId.get(id)).filter(Boolean);
     }
