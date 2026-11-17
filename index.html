@@ -83,6 +83,9 @@
     .category-mode-btn[data-nivel="all"].active{background:#46546b;border-color:#65748a}
     .category-mode-btn[data-nivel="nucleo"].active{background:#3d8659;border-color:#5ab96a}
     .category-mode-btn[data-nivel="extras"].active{background:#2f6f8f;border-color:#4d9ec4}
+    .category-mode-btn[data-nivel="simulacro32"].active{background:#5d4ba8;border-color:#8573db}
+    #rerollSimulacroBtn{border-color:#8573db;color:#d7cfff}
+    #rerollSimulacroBtn:hover{background:#5d4ba8;color:#ffffff}
     .card-quiz.mode-teorica{border-color:#3aa58f}
     .card-quiz.mode-practica{border-color:#c98b2f}
     .card-quiz.mode-clase{border-color:#6f8cff}
@@ -300,8 +303,10 @@
             <div class="category-buttons mt-2" id="nivelFilterBar" style="display:none; width:100%; align-items:center;">
               <span class="category-label" style="margin-right:4px">Nivel</span>
               <button class="category-mode-btn" data-nivel="nucleo" title="Lo mínimo indispensable: una o más preguntas por cada concepto del programa">Núcleo <span data-nivel-count="nucleo"></span></button>
-              <button class="category-mode-btn" data-nivel="extras" title="Las preguntas restantes: variantes de los mismos conceptos, para repasar">Extras <span data-nivel-count="extras"></span></button>
+              <button class="category-mode-btn" data-nivel="extras" title="Las preguntas restantes: variantes de los mismos conceptos del núcleo">Extras <span data-nivel-count="extras"></span></button>
               <button class="category-mode-btn" data-nivel="all">Todas <span data-nivel-count="all"></span></button>
+              <button class="category-mode-btn" data-nivel="simulacro32" title="Simulacro de examen: 32 preguntas aleatorias balanceadas (16 teóricas y 16 prácticas)">🎲 32 preguntas <span data-nivel-count="simulacro32"></span></button>
+              <button class="category-mode-btn" id="rerollSimulacroBtn" type="button" style="display:none" title="Sortear un nuevo examen aleatorio de 32 preguntas">🔄 Nuevo sorteo</button>
             </div>
             <div class="mode-hint" id="modeHint"></div>
           </div>
@@ -406,9 +411,12 @@
 
     // Texto de ayuda debajo de los botones de modo
     const MODE_HINTS = {
-      nucleo: 'Lo mínimo indispensable: una o más preguntas por concepto, sin repetir.',
-      extras: 'Las que sobran del banco: variantes de los mismos conceptos del núcleo.'
+      nucleo: 'Lo mínimo indispensable: una o más preguntas por concepto, con balance entre teoría y práctica.',
+      extras: 'Las que sobran del banco: variantes de los mismos conceptos del núcleo.',
+      simulacro32: 'Simulacro de examen: 32 preguntas aleatorias balanceadas (16 teóricas y 16 prácticas) de todos los temas.'
     };
+
+    const SIMULACRO_STORAGE_KEY = 'indexaso.simulacro32.v1';
 
     let quizData = {};
     let allQuestions = [];
@@ -416,6 +424,7 @@
     let quizStates = loadStoredJson(QUIZ_STATE_STORAGE_KEY, {});
     let categoryModesByQuiz = loadStoredJson(QUIZ_CATEGORY_STORAGE_KEY, {});
     let nivelModesByQuiz = loadStoredJson('redes_quiz_nivel_modes_v1', {});
+    let simulacroPoolsByQuiz = loadStoredJson(SIMULACRO_STORAGE_KEY, {});
     let state = { current:0, answers:[], checked:[], score:0 };
     let selectedQuizType = null;
     let selectedCategoryMode = 'all';
@@ -566,8 +575,110 @@
       return CATEGORY_MODES[mode] ? mode : 'all';
     }
 
+    const VALID_NIVEL_MODES = ['nucleo', 'extras', 'all', 'simulacro32'];
+
+    function shuffleArray(arr){
+      const out = arr.slice();
+      for(let i = out.length - 1; i > 0; i--){
+        const j = Math.floor(Math.random() * (i + 1));
+        [out[i], out[j]] = [out[j], out[i]];
+      }
+      return out;
+    }
+
+    function pickStratified(items, targetCount){
+      const byTopic = new Map();
+      items.forEach(q => {
+        const key = q.tema_id || q.tema || 'general';
+        if(!byTopic.has(key)) byTopic.set(key, []);
+        byTopic.get(key).push(q);
+      });
+
+      const selected = [];
+      const selectedIds = new Set();
+      const topics = shuffleArray(Array.from(byTopic.keys()));
+      const topicBuckets = new Map();
+
+      topics.forEach(topic => {
+        const grp = byTopic.get(topic);
+        topicBuckets.set(topic, {
+          nucleo: shuffleArray(grp.filter(q => q.nivel === 'nucleo')),
+          extra: shuffleArray(grp.filter(q => q.nivel !== 'nucleo'))
+        });
+      });
+
+      // Primera pasada: asegurar presencia de todos los temas priorizando el núcleo
+      for(const topic of topics){
+        if(selected.length >= targetCount) break;
+        const { nucleo, extra } = topicBuckets.get(topic);
+        const pick = nucleo.length ? nucleo.shift() : extra.shift();
+        if(pick && !selectedIds.has(pick.id)){
+          selected.push(pick);
+          selectedIds.add(pick.id);
+        }
+      }
+
+      // Segunda pasada: completar por rondas priorizando núcleo (~75%) y sumando extras
+      let progress = true;
+      while(selected.length < targetCount && progress){
+        progress = false;
+        for(const topic of shuffleArray(topics)){
+          if(selected.length >= targetCount) break;
+          const { nucleo, extra } = topicBuckets.get(topic);
+          let pick = null;
+          if(nucleo.length && extra.length){
+            pick = Math.random() < 0.75 ? nucleo.shift() : extra.shift();
+          } else if(nucleo.length){
+            pick = nucleo.shift();
+          } else if(extra.length){
+            pick = extra.shift();
+          }
+          if(pick && !selectedIds.has(pick.id)){
+            selected.push(pick);
+            selectedIds.add(pick.id);
+            progress = true;
+          }
+        }
+      }
+
+      return selected;
+    }
+
+    function generateSimulacro32Ids(pool = allQuestions){
+      const teoricas = pool.filter(q => q.category === 'teorica');
+      const practicas = pool.filter(q => q.category === 'practica');
+      if(teoricas.length && practicas.length){
+        let tTarget = Math.min(16, teoricas.length);
+        let pTarget = Math.min(16, practicas.length);
+        if(tTarget + pTarget < 32){
+          if(teoricas.length > tTarget) tTarget = Math.min(teoricas.length, 32 - pTarget);
+          else if(practicas.length > pTarget) pTarget = Math.min(practicas.length, 32 - tTarget);
+        }
+        const picked = [
+          ...pickStratified(teoricas, tTarget),
+          ...pickStratified(practicas, pTarget)
+        ];
+        return shuffleArray(picked).map(q => q.id);
+      }
+      return pickStratified(pool, Math.min(32, pool.length)).map(q => q.id);
+    }
+
+    function getSimulacroQuestions(forceNew = false){
+      if(!selectedQuizType || !allQuestions.length) return [];
+      const byId = new Map(allQuestions.map(q => [q.id, q]));
+      const expectedTotal = Math.min(32, allQuestions.length);
+      let ids = !forceNew ? simulacroPoolsByQuiz[selectedQuizType] : null;
+      const valid = Array.isArray(ids) && ids.length === expectedTotal && ids.every(id => byId.has(id));
+      if(!valid){
+        ids = generateSimulacro32Ids(allQuestions);
+        simulacroPoolsByQuiz[selectedQuizType] = ids;
+        persistStoredJson(SIMULACRO_STORAGE_KEY, simulacroPoolsByQuiz);
+      }
+      return ids.map(id => byId.get(id)).filter(Boolean);
+    }
+
     function matchesNivel(q, nivel = selectedNivelMode){
-      if(!currentQuizConfig?.dualLevelFilter || nivel === 'all') return true;
+      if(!currentQuizConfig?.dualLevelFilter || nivel === 'all' || nivel === 'simulacro32') return true;
       return nivel === 'nucleo' ? q.nivel === 'nucleo' : q.nivel !== 'nucleo';
     }
 
@@ -590,7 +701,9 @@
 
       // Categorías normales para otros quizzes (si tiene dualLevelFilter, cuenta dentro del nivel activo)
       const basePool = currentQuizConfig?.dualLevelFilter
-        ? allQuestions.filter(q => matchesNivel(q))
+        ? (selectedNivelMode === 'simulacro32'
+            ? getSimulacroQuestions(false)
+            : allQuestions.filter(q => matchesNivel(q)))
         : allQuestions;
       return basePool.reduce((acc, q) => {
         acc.all++;
@@ -609,7 +722,8 @@
       return {
         all: basePool.length,
         nucleo: basePool.filter(q => q.nivel === 'nucleo').length,
-        extras: basePool.filter(q => q.nivel !== 'nucleo').length
+        extras: basePool.filter(q => q.nivel !== 'nucleo').length,
+        simulacro32: Math.min(32, allQuestions.length)
       };
     }
 
@@ -620,6 +734,10 @@
         return category === 'nucleo'
           ? allQuestions.filter(q => q.nivel === 'nucleo')
           : allQuestions.filter(q => q.nivel !== 'nucleo');
+      }
+      if(currentQuizConfig?.dualLevelFilter && selectedNivelMode === 'simulacro32'){
+        const simPool = getSimulacroQuestions(false);
+        return category === 'all' ? simPool : simPool.filter(q => q.category === category);
       }
       const byCat = category === 'all' ? allQuestions.slice() : allQuestions.filter(q => q.category === category);
       if(currentQuizConfig?.dualLevelFilter){
@@ -638,6 +756,12 @@
       
       // Con filtro por nivel, el modo ya se ve en los botones de filtro
       if(currentQuizConfig?.levelFilter) return baseTitle;
+
+      if(currentQuizConfig?.dualLevelFilter && selectedNivelMode === 'simulacro32'){
+        return selectedCategoryMode === 'all'
+          ? `${baseTitle} - Simulacro (32)`
+          : `${baseTitle} - Simulacro (${CATEGORY_MODES[selectedCategoryMode]})`;
+      }
             
       // Para otros quizzes
       if(selectedCategoryMode === 'all') return baseTitle;
@@ -733,6 +857,11 @@
         }
       }
 
+      const rerollBtn = $('rerollSimulacroBtn');
+      if(rerollBtn){
+        rerollBtn.style.display = (hasDual && selectedNivelMode === 'simulacro32') ? '' : 'none';
+      }
+
       renderModeHint();
     }
 
@@ -760,14 +889,42 @@
 
     function applyNivelMode(nivel){
       saveCurrentState();
-      selectedNivelMode = ['nucleo', 'extras', 'all'].includes(nivel) ? nivel : 'nucleo';
+      selectedNivelMode = VALID_NIVEL_MODES.includes(nivel) ? nivel : 'nucleo';
       nivelModesByQuiz[selectedQuizType] = selectedNivelMode;
       persistStoredJson('redes_quiz_nivel_modes_v1', nivelModesByQuiz);
+      if(selectedNivelMode === 'simulacro32'){
+        getSimulacroQuestions(false);
+        if(selectedCategoryMode !== 'all'){
+          selectedCategoryMode = 'all';
+          categoryModesByQuiz[selectedQuizType] = 'all';
+          persistStoredJson(QUIZ_CATEGORY_STORAGE_KEY, categoryModesByQuiz);
+        }
+      }
       questions = getFilteredQuestions();
       restoreStateForCurrentScope();
       currentPage = Math.floor((state.current || 0) / getQuestionsPerPage());
       clampCurrentPage();
       initQuiz();
+    }
+
+    function rerollSimulacro32(){
+      if(!selectedQuizType || !currentQuizConfig?.dualLevelFilter) return;
+      ['all', 'teorica', 'practica'].forEach(cat => {
+        delete quizStates[getStateKey(selectedQuizType, cat, 'simulacro32')];
+      });
+      persistStoredJson(QUIZ_STATE_STORAGE_KEY, quizStates);
+      getSimulacroQuestions(true);
+      selectedCategoryMode = 'all';
+      categoryModesByQuiz[selectedQuizType] = 'all';
+      persistStoredJson(QUIZ_CATEGORY_STORAGE_KEY, categoryModesByQuiz);
+      selectedNivelMode = 'simulacro32';
+      nivelModesByQuiz[selectedQuizType] = 'simulacro32';
+      persistStoredJson('redes_quiz_nivel_modes_v1', nivelModesByQuiz);
+      questions = getFilteredQuestions();
+      restoreStateForCurrentScope();
+      currentPage = 0;
+      initQuiz();
+      flash('Nuevo simulacro de 32 preguntas generado (16 teóricas + 16 prácticas)', 'info');
     }
 
     function initQuiz(){
@@ -817,7 +974,7 @@
         ? normalizeCategoryMode(categoryModesByQuiz[type] || currentQuizConfig.defaultCategory || 'all', type)
         : 'all';
       selectedNivelMode = currentQuizConfig?.dualLevelFilter
-        ? (['nucleo', 'extras', 'all'].includes(nivelModesByQuiz[type]) ? nivelModesByQuiz[type] : (currentQuizConfig.defaultNivel || 'nucleo'))
+        ? (VALID_NIVEL_MODES.includes(nivelModesByQuiz[type]) ? nivelModesByQuiz[type] : (currentQuizConfig.defaultNivel || 'nucleo'))
         : 'all';
             
       questions = getFilteredQuestions();
@@ -1542,6 +1699,11 @@
     }
 
     function restartQuiz(){
+      if(currentQuizConfig?.dualLevelFilter && selectedNivelMode === 'simulacro32'){
+        closeSummary();
+        rerollSimulacro32();
+        return;
+      }
       Object.keys(quizStates).forEach(key => {
         if(key.startsWith(selectedQuizType)) delete quizStates[key];
       });
@@ -1602,6 +1764,8 @@
         applyNivelMode(nivel);
       });
     });
+
+    $('rerollSimulacroBtn')?.addEventListener('click', rerollSimulacro32);
 
     function updateQuizTypeSelection(type){
       document.querySelectorAll('[data-quiz]').forEach(btn => {
