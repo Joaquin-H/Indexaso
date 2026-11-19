@@ -94,7 +94,7 @@
         "correct": false
       }
     ],
-    "why": "Un socket es el punto final de una conexión y se identifica unívocamente mediante la dirección IP del host más el número de puerto lógico (16 bits).",
+    "why": "Un socket es el punto final de una conexión y se identifica unívocamente mediante la dirección IP del host más el número de puerto lógico (16 bits). En IPv4 ocupa 48 bits (32 de IPv4 + 16 de puerto) y en IPv6 144 bits (128 + 16); junto con el protocolo de transporte (TCP o UDP) distingue cada sesión.",
     "nivel": "extra"
   },
   {
@@ -3630,7 +3630,7 @@
         "correct": false
       }
     ],
-    "why": "Las VPN utilizan la infraestructura pública de Internet mediante túneles cifrados, permitiendo tanto interconectar sucursales (VPN sitio a sitio) a bajo costo sin alquilar líneas dedicadas, como conectar empleados remotos (VPN de acceso).",
+    "why": "Las VPN crean una red privada sobre la infraestructura pública de Internet mediante túneles cifrados, aportando cuatro ventajas clave de la cátedra: costo reducido (evita líneas dedicadas alquiladas), seguridad (cifrado y autenticación), escalabilidad usando los ISP y facilidad para el teletrabajo (acceso remoto).",
     "nivel": "extra"
   },
   {
@@ -4604,7 +4604,7 @@
         "correct": false
       }
     ],
-    "why": "Tanenbaum: el servicio TCP se obtiene creando puntos terminales llamados sockets, identificados por dirección IP + puerto.",
+    "why": "Tanenbaum / Unidad 5: el servicio de transporte se obtiene creando puntos terminales llamados sockets, identificados por Dirección IP + Número de puerto (en IPv4: IP de 32 bits + puerto de 16 bits = 48 bits, operando sobre un protocolo de transporte como TCP o UDP).",
     "nivel": "extra"
   },
   {
@@ -7814,6 +7814,395 @@
       }
     ],
     "why": "Durante la llamada H.323 operan 5 canales lógicos: señalamiento (Q.931 sobre TCP), control (H.245 sobre TCP), canal RTP hacia adelante, canal RTP inverso (unidireccionales, pudiendo tener códecs asimétricos negociados por H.245) y canal RTCP (UDP, control de congestión y sincronización audio/vídeo).",
+    "nivel": "extra"
+  },
+  {
+    "id": 191,
+    "type": "single",
+    "category": "teorica",
+    "unidad": 5,
+    "tema_id": "ftp",
+    "tema": "FTP y TFTP",
+    "subtema": "Canales paralelos de FTP y puertos 21 y 20",
+    "question": "Respecto de las conexiones paralelas y los números de puerto TCP que utiliza el protocolo FTP estándar, ¿cuál de las siguientes afirmaciones es correcta?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Utiliza el puerto TCP 21 como conexión persistente de control (para comandos) y el puerto TCP 20 como conexión no persistente de transferencia de datos.",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "text": "Utiliza el puerto TCP 20 como conexión persistente de control y el puerto TCP 21 para la transferencia de datos.",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Utiliza el puerto UDP 69 para el canal de control y el puerto TCP 22 para la transferencia de datos.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Utiliza un único canal sobre el puerto TCP 21 tanto para comandos como para la transferencia de archivos.",
+        "correct": false
+      },
+      {
+        "id": "e",
+        "text": "Ninguna de las anteriores.",
+        "correct": false
+      }
+    ],
+    "why": "Diapositivas Unidad 5 (FTP): utiliza dos conexiones TCP paralelas: (1) Conexión de Control por el puerto 21 (persistente durante toda la sesión para enviar comandos) y (2) Conexión de Datos por el puerto 20 (no persistente, se abre y se cierra en cada transferencia).",
+    "nivel": "extra"
+  },
+  {
+    "id": 192,
+    "type": "single",
+    "category": "teorica",
+    "unidad": 6,
+    "tema_id": "seguridad",
+    "tema": "Seguridad en las Redes",
+    "subtema": "Resultado de una función Hash (digesto de mensaje)",
+    "question": "¿Qué se obtiene al aplicar una función de hash criptográfica sobre un mensaje o texto de entrada?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Un digesto de mensaje (representación o resumen de texto de longitud fija).",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "text": "Un texto cifrado simétrico de igual longitud que el original que puede descifrarse para recuperar el mensaje.",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Un par de claves pública y privada vinculadas a una Autoridad de Certificación (CA).",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Un paquete comprimido sin pérdida para optimizar el uso del ancho de banda en capa de transporte.",
+        "correct": false
+      }
+    ],
+    "why": "Unidad 6 - Seguridad (diapositiva 'Hash Criptográficos'): 'Una función de hash produce a partir de un mensaje, una representación del mismo de longitud fija, llamada digesto de mensaje' (también referido como resumen o digestión de texto/mensaje; es unidireccional e irreversible).",
+    "nivel": "extra"
+  },
+  {
+    "id": 193,
+    "type": "single",
+    "category": "teorica",
+    "unidad": 5,
+    "tema_id": "vozip",
+    "tema": "Voz sobre IP (VoIP)",
+    "subtema": "Protocolos de control H.245 y H.225 en H.323",
+    "question": "Dentro de la pila de protocolos H.323 para Voz sobre IP, ¿cuál es el protocolo que mantiene abierto el canal de control de llamadas sobre TCP para negociar capacidades (vídeo, conferencia y códecs) entre ambos extremos?",
+    "options": [
+      {
+        "id": "a",
+        "text": "H.245 (mientras que H.225 maneja el canal RAS sobre UDP con el gatekeeper y Q.931 el señalamiento de llamada).",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "text": "H.135 (encargado de cifrar la voz y asignar puertos dinámicos NAT en la LAN).",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "SIP (RFC 3261), que actúa como subcapa obligatoria dentro del canal de control binario de H.323.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "G.711, que negocia las rutas entre servidores proxy mediante mensajes REGISTER.",
+        "correct": false
+      }
+    ],
+    "why": "En la pila H.323 (Unidad 5 - Voz IP): H.245 es el protocolo del canal de control de llamadas sobre TCP (negocia parámetros y códecs), H.225 maneja el canal RAS (UDP, con el gatekeeper), Q.931 maneja el señalamiento de establecimiento/liberación y G.711 define PCM a 64 kbps. No existe 'H.135' en esta arquitectura.",
+    "nivel": "extra"
+  },
+  {
+    "id": 194,
+    "type": "single",
+    "category": "teorica",
+    "unidad": 5,
+    "tema_id": "correo",
+    "tema": "Correo Electrónico y MIME",
+    "subtema": "Campo Received en el trazado de ruta de correo",
+    "question": "En el encabezado de un mensaje de correo electrónico, ¿qué campo registra las rutas o servidores de transferencia (MTA) intermedios por los que fue pasando el correo hasta llegar a destino?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Received.",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "text": "Bcc.",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Reply-To.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "In-Reply-To.",
+        "correct": false
+      },
+      {
+        "id": "e",
+        "text": "Message-Id.",
+        "correct": false
+      }
+    ],
+    "why": "Unidad 5 - Correo Electrónico (RFC 822): el campo 'Received:' agrega una línea por cada Agente de Transferencia de Correo (MTA) a lo largo de la ruta, dejando registro completo del camino seguido por el mensaje. En cambio, 'Bcc:' indica destinatarios de copia oculta.",
+    "nivel": "extra"
+  },
+  {
+    "id": 195,
+    "type": "single",
+    "category": "practica",
+    "unidad": 6,
+    "tema_id": "seguridad",
+    "tema": "Seguridad en las Redes",
+    "subtema": "VPN de acceso remoto dinámica vs punto a punto estática",
+    "question": "Un empleado debe conectarse de forma segura desde su hogar a la red interna de su empresa para trabajar con los recursos corporativos (teletrabajo / home office). ¿Qué tipo de VPN corresponde implementar y cómo se configura/crea su túnel?",
+    "options": [
+      {
+        "id": "a",
+        "text": "VPN de acceso remoto, la cual se crea de manera dinámica bajo arquitectura cliente-servidor (con SSL o IPsec).",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "text": "VPN de acceso remoto, configurada exclusivamente de manera estática mediante Frame Relay o MPLS.",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "VPN punto a punto, la cual se crea de manera dinámica desde el navegador web del empleado.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "VPN punto a punto estática, ya que todas las conexiones desde hogares se configuran de sitio a sitio.",
+        "correct": false
+      }
+    ],
+    "why": "Unidad 6 - Seguridad (págs. 44–46): existen dos tipos de VPN: (1) Punto a punto (entre sucursales y casa central, configurada de manera estática) y (2) Acceso remoto (para que un empleado acceda desde su hogar, creada de manera dinámica con arquitectura cliente-servidor vía VPN SSL o VPN IPsec).",
+    "nivel": "nucleo"
+  },
+  {
+    "id": 196,
+    "type": "multiple",
+    "category": "teorica",
+    "unidad": 6,
+    "tema_id": "seguridad",
+    "tema": "Seguridad en las Redes",
+    "subtema": "Uso de infraestructura pública en VPN y sus ventajas",
+    "question": "Respecto del funcionamiento de las Redes Privadas Virtuales (VPN) sobre la infraestructura de red existente y sus ventajas frente a redes privadas tradicionales, ¿cuáles de las siguientes afirmaciones son correctas? (Seleccione todas las correctas)",
+    "options": [
+      {
+        "id": "a",
+        "text": "Crean una red privada lógica mediante el uso de túneles cifrados sobre una infraestructura de red pública (usualmente Internet).",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "text": "Reducen significativamente los costos frente a las líneas telefónicas dedicadas alquiladas y aprovechan la infraestructura de los ISP para escalar.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "Aportan seguridad mediante protocolos de cifrado y autenticación, y facilitan la implementación del teletrabajo desde cualquier sitio.",
+        "correct": true
+      },
+      {
+        "id": "d",
+        "text": "Exigen que toda la infraestructura física intermedia entre sucursales sea propiedad privada exclusiva de la empresa sin pasar por Internet.",
+        "correct": false
+      }
+    ],
+    "why": "Unidad 6 - Seguridad (págs. 42–43): una VPN permite conectar sitios privados y usuarios remotos usando túneles cifrados sobre una red pública (Internet a través de ISP), logrando bajo costo (sin líneas alquiladas), seguridad, escalabilidad y soporte para teletrabajo.",
+    "nivel": "extra"
+  },
+  {
+    "id": 197,
+    "type": "multiple",
+    "category": "teorica",
+    "unidad": 5,
+    "tema_id": "dns",
+    "tema": "Protocolo DNS",
+    "subtema": "Administración ICANN, zonas de autoridad y URL por dominio",
+    "question": "¿Qué ocurre en la Web y en el DNS cuando distintos recursos comparten un nombre de dominio o cuando se administra la unicidad de los nombres de dominio en Internet? (Seleccione todas las correctas)",
+    "options": [
+      {
+        "id": "a",
+        "text": "El árbol jerárquico de nombres de dominio es administrado por ICANN y dividido en zonas de autoridad no superpuestas, por lo que dos organizaciones distintas no pueden registrar exactamente el mismo nombre de dominio.",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "text": "Dos páginas web distintas alojadas bajo el mismo dominio se diferencian mediante su URL único gracias a la ruta de acceso al recurso (por ejemplo, /pagina1.html y /pagina2.html).",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "Si un mismo nombre de dominio corresponde a múltiples servidores replicados con distintas IPs, el DNS rota el orden de las direcciones IP en sus respuestas para distribuir la carga.",
+        "correct": true
+      },
+      {
+        "id": "d",
+        "text": "El protocolo HTTP permite que dos páginas diferentes de un sitio compartan exactamente la misma URL completa mientras el DNS les asigne puertos distintos.",
+        "correct": false
+      }
+    ],
+    "why": "Unidades DNS y HTTP: ICANN administra la jerarquía global de dominios en zonas no superpuestas (unicidad organizacional del dominio). Dentro de un mismo dominio, varias páginas se distinguen por su URL único (protocolo + dominio + ruta), y varios servidores replicados reparten tráfico mediante rotación DNS.",
+    "nivel": "nucleo"
+  },
+  {
+    "id": 198,
+    "type": "multiple",
+    "category": "practica",
+    "unidad": 5,
+    "tema_id": "tcp_udp",
+    "tema": "Capa de Transporte - TCP y UDP",
+    "subtema": "Puertos compartidos entre TCP y UDP y entre distintas PCs",
+    "question": "Un administrador analiza cómo asignan los números de puerto las aplicaciones y los equipos en una red TCP/IP. ¿Cuáles de las siguientes situaciones son válidas simultáneamente? (Seleccione todas las correctas)",
+    "options": [
+      {
+        "id": "a",
+        "text": "Un mismo servidor puede atender solicitudes sobre TCP puerto 53 y UDP puerto 53 al mismo tiempo porque TCP y UDP manejan espacios de puertos independientes.",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "text": "Dos computadoras diferentes (PC-A y PC-B) pueden usar el mismo número de puerto origen (ej. 50000) simultáneamente contra el mismo servidor web porque el socket del cliente difiere en la dirección IP.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "En una misma PC, un único proceso cliente puede abrir dos conexiones simultáneas hacia el mismo servidor web si utiliza distinto puerto de origen para cada conexión.",
+        "correct": true
+      },
+      {
+        "id": "d",
+        "text": "En una misma máquina, dos aplicaciones servidoras distintas pueden quedar escuchando simultáneamente en el mismo protocolo (TCP) y el mismo puerto (80) sobre la misma IP.",
+        "correct": false
+      }
+    ],
+    "why": "Unidad 5 (Puertos y Sockets): (1) Los puertos son locales y específicos de cada protocolo de transporte (TCP y UDP pueden usar el mismo número de puerto al mismo tiempo, como DNS en el 53); (2) dos PCs con distinta IP pueden usar el mismo puerto origen; (3) dentro de una misma máquina e IP, no puede haber dos aplicaciones distintas escuchando en el mismo puerto y mismo protocolo (TCP).",
+    "nivel": "extra"
+  },
+  {
+    "id": 199,
+    "type": "single",
+    "category": "practica",
+    "unidad": 6,
+    "tema_id": "seguridad",
+    "tema": "Seguridad en las Redes",
+    "subtema": "Firewall perimetral centralizado vs firewalls en dispositivos individuales",
+    "question": "En lugar de implementar un firewall perimetral en el borde de la red, una organización decide configurar únicamente firewalls individuales por separado en cada dispositivo de los empleados. Según el diseño de seguridad de la cátedra, ¿cuál es la principal desventaja de ese enfoque?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Se pierde el único punto de acceso y control centralizado del tráfico entre la empresa e Internet, dificultando aplicar y auditar políticas de seguridad uniformes antes de que los paquetes entren a la red interna.",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "text": "Los dispositivos individuales quedan impedidos de usar TCP y UDP simultáneamente en el mismo equipo.",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Se vuelve obligatorio contratar direcciones IPv4 públicas estáticas por cada estación de trabajo de la red local.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Los paquetes cifrados con HTTPS dejan de poder resolverse mediante consultas DNS iterativas.",
+        "correct": false
+      }
+    ],
+    "why": "Unidad 6 - Seguridad (pág. 28 'Firewalls'): la ventaja fundamental del firewall de red es constituir un 'único punto de acceso a la red' desde el cual el administrador centraliza el control del flujo de tráfico entrante/saliente conforme a las políticas de seguridad.",
+    "nivel": "extra"
+  },
+  {
+    "id": 200,
+    "type": "single",
+    "category": "teorica",
+    "unidad": 5,
+    "tema_id": "vozip",
+    "tema": "Voz sobre IP (VoIP)",
+    "subtema": "Método SIP para finalizar una sesión (BYE)",
+    "question": "En el protocolo de inicio de sesión SIP (RFC 3261), ¿qué método envía cualquiera de las partes para solicitar la terminación/finalización de una sesión ya establecida?",
+    "options": [
+      {
+        "id": "a",
+        "text": "BYE",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "text": "CANCEL",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "INVITE",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "ACK",
+        "correct": false
+      },
+      {
+        "id": "e",
+        "text": "REGISTER",
+        "correct": false
+      }
+    ],
+    "why": "Unidad 5 - Voz IP (pág. 19 'Los métodos SIP'): BYE solicita la terminación de una sesión ya establecida. En cambio, CANCEL cancela una solicitud pendiente (antes de completarse), INVITE solicita iniciar una sesión, ACK confirma el inicio y REGISTER informa la ubicación actual del usuario.",
+    "nivel": "extra"
+  },
+  {
+    "id": 201,
+    "type": "multiple",
+    "category": "teorica",
+    "unidad": 5,
+    "tema_id": "tcp_udp",
+    "tema": "Capa de Transporte - TCP y UDP",
+    "subtema": "Por qué usar TCP: conexión extremo a extremo y retransmisión",
+    "question": "¿Por qué resulta conveniente utilizar el protocolo TCP en la transmisión de datos frente a una alternativa no fiable cuando la aplicación exige integridad y entrega completa? (Seleccione dos opciones)",
+    "options": [
+      {
+        "id": "a",
+        "text": "Porque establece previamente una conexión lógica extremo a extremo entre emisor y receptor, preparando y reservando recursos en ambos extremos.",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "text": "Porque garantiza una entrega fiable mediante confirmaciones (ACK) y el reenvío (retransmisión) de los segmentos que no llegan al destino o llegan con error.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "Porque reserva ancho de banda exclusivo en cada router intermedio del camino físico para que todos los paquetes viajen por la misma ruta.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Porque elimina la cabecera de puertos y el control de flujo para lograr la mínima sobrecarga posible en tiempo real.",
+        "correct": false
+      }
+    ],
+    "why": "Unidad 5 - Capa de Transporte (págs. 8–10): los dos pilares por los que se elige TCP cuando se necesita confiabilidad son (1) conexión lógica extremo a extremo (los extremos reservan buffers/variables antes de transmitir; los routers NO reservan recursos) y (2) servicio fiable con ACK, ordenamiento por secuencia y reenvío de segmentos perdidos.",
     "nivel": "extra"
   }
 ]
